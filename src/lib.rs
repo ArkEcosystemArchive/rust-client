@@ -1,7 +1,14 @@
+pub mod api;
+
 #[cfg(test)]
 mod tests {
+    use super:: *;
+
     #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
+    fn proof_of_concept() {
+        let client = api::Client::new();
+        let anything = client.anything.all()
+            .expect("Some failed");
+        println!("{}", anything)
     }
 }
