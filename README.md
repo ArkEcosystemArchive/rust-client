@@ -10,6 +10,10 @@
 [![Latest Version](https://img.shields.io/github/release/ArkEcosystem/rust-client.svg?style=flat-square)](https://github.com/ArkEcosystem/rust-client/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Installation
+
+This crate uses [Reqwest](https://crates.io/crates/reqwest), which, in Linux requires OpenSSL 1.0.1, 1.0.2, or 1.1.0 with headers or LibreSSL. More details at [rust-openssl](https://github.com/sfackler/rust-openssl).
+
 ## Documentation
 
 You can find installation instructions and detailed instructions on how to use this package at the [dedicated documentation site](https://docs.ark.io/v1.0/docs/clients-rust).
