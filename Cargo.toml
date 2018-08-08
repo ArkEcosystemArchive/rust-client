@@ -2,7 +2,8 @@
 name = "arkecosystem-client"
 version = "0.0.1"
 authors = ["Juan A. Martín <dev@jaml.pro>"]
-description = "A Rust API client for the Ark blockchain"
+description = "A simple Rust API client for the Ark blockchain"
 license = "MIT"
 
 [dependencies]
+reqwest = "0.8.6"
