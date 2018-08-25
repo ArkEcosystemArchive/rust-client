@@ -6,7 +6,7 @@ pub struct Two {
     pub blocks: Blocks,
     pub delegates: Delegates,
     pub node: Node,
-    //pub peers: Peers,
+    pub peers: Peers,
     //pub signatures: Signatures,
     //pub transactions: Transactions
 }
@@ -20,7 +20,7 @@ impl Two {
             blocks: Blocks::new(client.clone()),
             delegates: Delegates::new(client.clone()),
             node: Node::new(client.clone()),
-            //peers: Peers::new(client.clone()),
+            peers: Peers::new(client.clone()),
             //signatures: Signatures::new(client.clone()),
             //transactions: Transactions::new(client.clone())
         }
