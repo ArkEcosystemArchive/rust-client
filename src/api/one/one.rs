@@ -8,7 +8,8 @@ pub struct One {
     pub delegates: Delegates,
     pub loader: Loader,
     pub peers: Peers,
-    pub signatures: Signatures
+    pub signatures: Signatures,
+    pub transactions: Transactions
 }
 
 impl One {
@@ -22,7 +23,8 @@ impl One {
             delegates: Delegates::new(client.clone()),
             loader: Loader::new(client.clone()),
             peers: Peers::new(client.clone()),
-            signatures: Signatures::new(client.clone())
+            signatures: Signatures::new(client.clone()),
+            transactions: Transactions::new(client.clone())
         }
     }
 
