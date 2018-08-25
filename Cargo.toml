@@ -5,5 +5,10 @@ authors = ["Juan A. Martín <dev@jaml.pro>"]
 description = "A simple Rust API client for the Ark blockchain"
 license = "MIT"
 
+[lib]
+name = "arkecosystem_client"
+path = "src/lib.rs"
+
 [dependencies]
 reqwest = "0.8.6"
+failure = "0.1.2"
