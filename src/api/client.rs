@@ -1,10 +1,9 @@
-extern crate reqwest;
-extern crate failure;
-
-use self::reqwest::header::{Headers, ContentType};
-use self::reqwest::Url;
-use self::failure::Error;
 use std::borrow::Borrow;
+use reqwest::header::{Headers, ContentType};
+use reqwest::{RequestBuilder, Url};
+use failure::Error;
+use serde_json::{to_string, Value};
+use utils;
 
 #[derive(Clone, PartialEq, Debug)]
 pub enum Version {
@@ -15,8 +14,8 @@ pub enum Version {
 #[derive(Clone)]
 pub struct Client {
     host: String,
-    client: reqwest::Client,
-    header: reqwest::header::Headers,
+    client: ::reqwest::Client,
+    header: Headers,
 }
 
 impl Client {
@@ -31,34 +30,68 @@ impl Client {
 
         Client {
             host: host.to_owned(),
-            client: reqwest::Client::new(),
+            client: ::reqwest::Client::new(),
             header: headers
         }
     }
 
     pub fn get(self, endpoint: &str) -> Result<String, Error> {
         let url = Url::parse(&format!("{}{}", self.host, endpoint))?;
-        self.get_url(&url)
+        self.internal_get(&url)
     }
 
-    pub fn get_with_params<I, K, V>(self, endpoint: &str, iter: I) -> Result<String, Error>
+    pub fn get_with_params<I, K, V>(self, endpoint: &str, parameters: I) -> Result<String, Error>
         where I: IntoIterator,
                      I::Item: Borrow<(K, V)>,
                      K: AsRef<str>,
                      V: AsRef<str>
     {
-        let url = Url::parse_with_params(&format!("{}{}", self.host, endpoint), iter)?;
-        self.get_url(&url)
+        let url = Url::parse_with_params(&format!("{}{}", self.host, endpoint), parameters)?;
+        self.internal_get(&url)
     }
 
-    fn get_url(self, url: &Url) -> Result<String, Error> {
-        println!("{:?}", url);
-        let response = self.client
-            .get(url.as_str())
-            .headers(self.header)
-            .send()?
-            .text()?;
+    pub fn post<I, K, V>(self, endpoint: &str, payload: Option<I>) -> Result<String, Error>
+        where I: IntoIterator,
+                     I::Item: Borrow<(K, V)>,
+                     K: AsRef<str>,
+                     V: AsRef<str>
+    {
+        let url = Url::parse(&format!("{}{}", self.host, endpoint))?;
+        self.internal_post(&url, payload)
+    }
 
-        Ok(response)
+
+    fn internal_get(self, url: &Url) -> Result<String, Error> {
+        let mut builder = self.client.put(url.as_str());
+        self.send(&mut builder)
+    }
+
+    fn internal_post<I, K, V>(self, url: &Url, payload: Option<I>) -> Result<String, Error>
+        where I: IntoIterator,
+                 I::Item: Borrow<(K, V)>,
+                 K: AsRef<str>,
+                 V: AsRef<str>
+    {
+        let mut builder = self.client
+            .post(url.as_str());
+
+        let mut body = String::new();
+        if payload.is_some() {
+            println!("BOIDY!?!?!");
+            let map = utils::to_map(payload.unwrap());
+            let v = to_string(&map)?;
+            println!("{:?}", v);
+            body = v;
+        }
+
+        self.send(builder.body(body))
+    }
+
+    fn send(self, builder: &mut RequestBuilder) -> Result<String, Error> {
+        Ok(
+            builder.headers(self.header)
+            .send()?
+            .text()?
+        )
     }
 }

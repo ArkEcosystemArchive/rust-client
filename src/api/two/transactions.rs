@@ -22,14 +22,13 @@ impl Transactions {
         self.client.get_with_params("transactions", parameters)
     }
 
-    pub fn create<I, K, V>(self, parameters: I) -> Result<String, failure::Error>
+    pub fn create<I, K, V>(self, payload: I) -> Result<String, failure::Error>
         where I: IntoIterator,
              I::Item: Borrow<(K, V)>,
              K: AsRef<str>,
              V: AsRef<str>
     {
-        // TODO: post
-        self.client.get_with_params("transactions", parameters)
+        self.client.post("transactions", Some(payload))
     }
 
     pub fn show(self, id: String) -> Result<String, failure::Error>
