@@ -4,7 +4,7 @@ use client::{Client, Version};
 pub struct Two {
     client: Client,
     pub blocks: Blocks,
-    //pub delegates: Delegates,
+    pub delegates: Delegates,
     //pub loader: Loader,
     //pub peers: Peers,
     //pub signatures: Signatures,
@@ -18,7 +18,7 @@ impl Two {
         Two {
             client: client.clone(),
             blocks: Blocks::new(client.clone()),
-            //delegates: Delegates::new(client.clone()),
+            delegates: Delegates::new(client.clone()),
             //loader: Loader::new(client.clone()),
             //peers: Peers::new(client.clone()),
             //signatures: Signatures::new(client.clone()),
