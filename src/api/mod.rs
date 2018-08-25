@@ -1,5 +1,5 @@
+pub mod one;
 pub mod client;
-pub mod endpoint;
 
 pub use self::client::Client;
-pub use self::endpoint::Endpoint;
+pub use self::one::One;
