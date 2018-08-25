@@ -1,10 +1,10 @@
 extern crate arkecosystem_client;
 
-use test_helper::{mock_http_server, mock_client_one, mock_assert_success};
+use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success};
 
 #[test]
 fn test_all() {
-    let _mock = mock_http_server("peers");
+    let _mock = mock_http_request_one("peers");
     {
         let client = mock_client_one();
         let response = client.peers.all(vec![("", "")]);
@@ -14,7 +14,7 @@ fn test_all() {
 
 #[test]
 fn test_status() {
-    let _mock = mock_http_server("peers/get");
+    let _mock = mock_http_request_one("peers/get");
     {
         let client = mock_client_one();
         let response = client.peers.status("ip".to_owned(), "port".to_owned());
@@ -24,7 +24,7 @@ fn test_status() {
 
 #[test]
 fn test_version() {
-    let _mock = mock_http_server("peers/version");
+    let _mock = mock_http_request_one("peers/version");
     {
         let client = mock_client_one();
         let response = client.peers.version();

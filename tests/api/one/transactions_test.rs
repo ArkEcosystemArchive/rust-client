@@ -1,10 +1,10 @@
 extern crate arkecosystem_client;
 
-use test_helper::{mock_http_server, mock_client_one, mock_assert_success};
+use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success};
 
 #[test]
 fn test_all() {
-    let _mock = mock_http_server("transactions");
+    let _mock = mock_http_request_one("transactions");
     {
         let client = mock_client_one();
         let response = client.transactions.all(vec![("", "")]);
@@ -14,7 +14,7 @@ fn test_all() {
 
 #[test]
 fn test_status() {
-    let _mock = mock_http_server("transactions/get");
+    let _mock = mock_http_request_one("transactions/get");
     {
         let client = mock_client_one();
         let response = client.transactions.show("ip".to_owned());
@@ -24,7 +24,7 @@ fn test_status() {
 
 #[test]
 fn test_all_unconfirmed() {
-    let _mock = mock_http_server("transactions/unconfirmed");
+    let _mock = mock_http_request_one("transactions/unconfirmed");
     {
         let client = mock_client_one();
         let response = client.transactions.all_unconfirmed(vec![("", "")]);
@@ -34,7 +34,7 @@ fn test_all_unconfirmed() {
 
 #[test]
 fn test_show_unconfirmed() {
-    let _mock = mock_http_server("transactions/unconfirmed/get");
+    let _mock = mock_http_request_one("transactions/unconfirmed/get");
     {
         let client = mock_client_one();
         let response = client.transactions.show_unconfirmed("dummy".to_owned());

@@ -1,10 +1,10 @@
 extern crate arkecosystem_client;
 
-use test_helper::{mock_http_server, mock_client_one, mock_assert_success};
+use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success};
 
 #[test]
 fn test_all() {
-    let _mock = mock_http_server("blocks");
+    let _mock = mock_http_request_one("blocks");
     {
         let client = mock_client_one();
         let response = client.blocks.all(vec![("", "")]);
@@ -14,7 +14,7 @@ fn test_all() {
 
 #[test]
 fn test_show() {
-    let _mock = mock_http_server("blocks/get");
+    let _mock = mock_http_request_one("blocks/get");
     {
         let client = mock_client_one();
         let response = client.blocks.show("dummy".to_owned());
@@ -24,7 +24,7 @@ fn test_show() {
 
 #[test]
 fn test_epoch() {
-    let _mock = mock_http_server("blocks/getEpoch");
+    let _mock = mock_http_request_one("blocks/getEpoch");
     {
         let client = mock_client_one();
         let response = client.blocks.epoch();
@@ -34,7 +34,7 @@ fn test_epoch() {
 
 #[test]
 fn test_height() {
-    let _mock = mock_http_server("blocks/getHeight");
+    let _mock = mock_http_request_one("blocks/getHeight");
     {
         let client = mock_client_one();
         let response = client.blocks.height();
@@ -44,7 +44,7 @@ fn test_height() {
 
 #[test]
 fn test_nethash() {
-    let _mock = mock_http_server("blocks/getNethash");
+    let _mock = mock_http_request_one("blocks/getNethash");
     {
         let client = mock_client_one();
         let response = client.blocks.nethash();
@@ -54,7 +54,7 @@ fn test_nethash() {
 
 #[test]
 fn test_fee() {
-    let _mock = mock_http_server("blocks/getFee");
+    let _mock = mock_http_request_one("blocks/getFee");
     {
         let client = mock_client_one();
         let response = client.blocks.fee();
@@ -64,7 +64,7 @@ fn test_fee() {
 
 #[test]
 fn test_fees() {
-    let _mock = mock_http_server("blocks/getFees");
+    let _mock = mock_http_request_one("blocks/getFees");
     {
         let client = mock_client_one();
         let response = client.blocks.fees();
@@ -74,7 +74,7 @@ fn test_fees() {
 
 #[test]
 fn test_milestone() {
-    let _mock = mock_http_server("blocks/getMilestone");
+    let _mock = mock_http_request_one("blocks/getMilestone");
     {
         let client = mock_client_one();
         let response = client.blocks.milestone();
@@ -84,7 +84,7 @@ fn test_milestone() {
 
 #[test]
 fn test_reward() {
-    let _mock = mock_http_server("blocks/getReward");
+    let _mock = mock_http_request_one("blocks/getReward");
     {
         let client = mock_client_one();
         let response = client.blocks.reward();
@@ -94,7 +94,7 @@ fn test_reward() {
 
 #[test]
 fn test_supply() {
-    let _mock = mock_http_server("blocks/getSupply");
+    let _mock = mock_http_request_one("blocks/getSupply");
     {
         let client = mock_client_one();
         let response = client.blocks.supply();
@@ -104,7 +104,7 @@ fn test_supply() {
 
 #[test]
 fn test_status() {
-    let _mock = mock_http_server("blocks/getStatus");
+    let _mock = mock_http_request_one("blocks/getStatus");
     {
         let client = mock_client_one();
         let response = client.blocks.status();

@@ -6,7 +6,7 @@ use failure;
 
 const MOCK_HOST: &'static str = "http://127.0.0.1:1234/api/";
 
-pub fn mock_http_server(endpoint: &str) -> Mock {
+pub fn mock_http_request_one(endpoint: &str) -> Mock {
     let url = Matcher::Regex(endpoint.to_owned());
     println!("{:?}", url);
     mock("GET", url)
