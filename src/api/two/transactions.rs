@@ -1,5 +1,4 @@
-extern crate failure;
-
+use failure;
 use std::borrow::Borrow;
 use client::Client;
 

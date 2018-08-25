@@ -1,7 +1,7 @@
+use failure;
 use std::borrow::Borrow;
 use reqwest::header::{Headers, ContentType};
 use reqwest::{RequestBuilder, Url};
-use failure::Error;
 use serde_json::{to_string, Value};
 use utils;
 
@@ -35,12 +35,12 @@ impl Client {
         }
     }
 
-    pub fn get(self, endpoint: &str) -> Result<String, Error> {
+    pub fn get(self, endpoint: &str) -> Result<String, failure::Error> {
         let url = Url::parse(&format!("{}{}", self.host, endpoint))?;
         self.internal_get(&url)
     }
 
-    pub fn get_with_params<I, K, V>(self, endpoint: &str, parameters: I) -> Result<String, Error>
+    pub fn get_with_params<I, K, V>(self, endpoint: &str, parameters: I) -> Result<String, failure::Error>
         where I: IntoIterator,
                      I::Item: Borrow<(K, V)>,
                      K: AsRef<str>,
@@ -50,7 +50,7 @@ impl Client {
         self.internal_get(&url)
     }
 
-    pub fn post<I, K, V>(self, endpoint: &str, payload: Option<I>) -> Result<String, Error>
+    pub fn post<I, K, V>(self, endpoint: &str, payload: Option<I>) -> Result<String, failure::Error>
         where I: IntoIterator,
                      I::Item: Borrow<(K, V)>,
                      K: AsRef<str>,
@@ -61,12 +61,12 @@ impl Client {
     }
 
 
-    fn internal_get(self, url: &Url) -> Result<String, Error> {
+    fn internal_get(self, url: &Url) -> Result<String, failure::Error> {
         let mut builder = self.client.put(url.as_str());
         self.send(&mut builder)
     }
 
-    fn internal_post<I, K, V>(self, url: &Url, payload: Option<I>) -> Result<String, Error>
+    fn internal_post<I, K, V>(self, url: &Url, payload: Option<I>) -> Result<String, failure::Error>
         where I: IntoIterator,
                  I::Item: Borrow<(K, V)>,
                  K: AsRef<str>,
@@ -77,17 +77,14 @@ impl Client {
 
         let mut body = String::new();
         if payload.is_some() {
-            println!("BOIDY!?!?!");
             let map = utils::to_map(payload.unwrap());
-            let v = to_string(&map)?;
-            println!("{:?}", v);
-            body = v;
+            body = to_string(&map)?;
         }
 
         self.send(builder.body(body))
     }
 
-    fn send(self, builder: &mut RequestBuilder) -> Result<String, Error> {
+    fn send(self, builder: &mut RequestBuilder) -> Result<String, failure::Error> {
         Ok(
             builder.headers(self.header)
             .send()?

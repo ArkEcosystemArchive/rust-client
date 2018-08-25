@@ -1,5 +1,4 @@
-extern crate failure;
-
+use failure;
 use client::Client;
 
 pub struct Signatures {
