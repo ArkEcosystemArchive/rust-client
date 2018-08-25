@@ -2,7 +2,7 @@ use failure;
 use std::borrow::Borrow;
 use reqwest::header::{Headers, ContentType};
 use reqwest::{RequestBuilder, Url};
-use serde_json::{to_string, Value};
+use serde_json::{from_str, to_string, Value};
 use utils;
 
 #[derive(Clone, PartialEq, Debug)]
@@ -35,12 +35,12 @@ impl Client {
         }
     }
 
-    pub fn get(self, endpoint: &str) -> Result<String, failure::Error> {
+    pub fn get(self, endpoint: &str) -> Result<Value, failure::Error> {
         let url = Url::parse(&format!("{}{}", self.host, endpoint))?;
         self.internal_get(&url)
     }
 
-    pub fn get_with_params<I, K, V>(self, endpoint: &str, parameters: I) -> Result<String, failure::Error>
+    pub fn get_with_params<I, K, V>(self, endpoint: &str, parameters: I) -> Result<Value, failure::Error>
         where I: IntoIterator,
                      I::Item: Borrow<(K, V)>,
                      K: AsRef<str>,
@@ -50,7 +50,7 @@ impl Client {
         self.internal_get(&url)
     }
 
-    pub fn post<I, K, V>(self, endpoint: &str, payload: Option<I>) -> Result<String, failure::Error>
+    pub fn post<I, K, V>(self, endpoint: &str, payload: Option<I>) -> Result<Value, failure::Error>
         where I: IntoIterator,
                      I::Item: Borrow<(K, V)>,
                      K: AsRef<str>,
@@ -61,12 +61,12 @@ impl Client {
     }
 
 
-    fn internal_get(self, url: &Url) -> Result<String, failure::Error> {
-        let mut builder = self.client.put(url.as_str());
+    fn internal_get(self, url: &Url) -> Result<Value, failure::Error> {
+        let mut builder = self.client.get(url.as_str());
         self.send(&mut builder)
     }
 
-    fn internal_post<I, K, V>(self, url: &Url, payload: Option<I>) -> Result<String, failure::Error>
+    fn internal_post<I, K, V>(self, url: &Url, payload: Option<I>) -> Result<Value, failure::Error>
         where I: IntoIterator,
                  I::Item: Borrow<(K, V)>,
                  K: AsRef<str>,
@@ -84,11 +84,11 @@ impl Client {
         self.send(builder.body(body))
     }
 
-    fn send(self, builder: &mut RequestBuilder) -> Result<String, failure::Error> {
-        Ok(
-            builder.headers(self.header)
+    fn send(self, builder: &mut RequestBuilder) -> Result<Value, failure::Error> {
+        let response = builder.headers(self.header)
             .send()?
-            .text()?
-        )
+            .text()?;
+
+        Ok(from_str(&response)?)
     }
 }

@@ -2,6 +2,7 @@ use failure;
 use std::borrow::Borrow;
 use client::Client;
 use utils;
+use serde_json::Value;
 
 pub struct Delegates {
     client: Client
@@ -13,7 +14,7 @@ impl Delegates {
         Delegates { client }
     }
 
-    pub fn all<I, K, V>(self, parameters: I) -> Result<String, failure::Error>
+    pub fn all<I, K, V>(self, parameters: I) -> Result<Value, failure::Error>
         where I: IntoIterator,
                  I::Item: Borrow<(K, V)>,
                  K: AsRef<str>,
@@ -22,7 +23,7 @@ impl Delegates {
         self.client.get_with_params("delegates", parameters)
     }
 
-    pub fn show<I, K, V>(self, parameters: I) -> Result<String, failure::Error>
+    pub fn show<I, K, V>(self, parameters: I) -> Result<Value, failure::Error>
         where I: IntoIterator,
                  I::Item: Borrow<(K, V)>,
                  K: AsRef<str>,
@@ -31,11 +32,11 @@ impl Delegates {
         self.client.get_with_params("delegates/get", parameters)
     }
 
-    pub fn count(self) -> Result<String, failure::Error> {
+    pub fn count(self) -> Result<Value, failure::Error> {
         self.client.get("delegates/count")
     }
 
-    pub fn search<I, K, V>(self, query: String, parameters: I) -> Result<String, failure::Error>
+    pub fn search<I, K, V>(self, query: String, parameters: I) -> Result<Value, failure::Error>
         where I: IntoIterator,
              I::Item: Borrow<(K, V)>,
              K: AsRef<str>,
@@ -46,7 +47,7 @@ impl Delegates {
         self.client.get_with_params("delegates/search", merged)
     }
 
-    pub fn voters<I, K, V>(self, public_key: String, parameters: I) -> Result<String, failure::Error>
+    pub fn voters<I, K, V>(self, public_key: String, parameters: I) -> Result<Value, failure::Error>
         where I: IntoIterator,
              I::Item: Borrow<(K, V)>,
              K: AsRef<str>,
@@ -57,19 +58,19 @@ impl Delegates {
         self.client.get_with_params("delegates/voters", merged)
     }
 
-    pub fn fee(self) -> Result<String, failure::Error> {
+    pub fn fee(self) -> Result<Value, failure::Error> {
         self.client.get("delegates/fee")
     }
 
-    pub fn forged_by_account(self, generator_public_key: String) -> Result<String, failure::Error> {
+    pub fn forged_by_account(self, generator_public_key: String) -> Result<Value, failure::Error> {
         self.client.get_with_params("delegates/forging/getForgedByAccount", &[("generatorPublicKey", &generator_public_key)])
     }
 
-    pub fn next_forgers(self) -> Result<String, failure::Error> {
+    pub fn next_forgers(self) -> Result<Value, failure::Error> {
         self.client.get("delegates/getNextForgers")
     }
 
-    pub fn forging_status<I, K, V>(self, public_key: String, parameters: I) -> Result<String, failure::Error>
+    pub fn forging_status<I, K, V>(self, public_key: String, parameters: I) -> Result<Value, failure::Error>
         where I: IntoIterator,
              I::Item: Borrow<(K, V)>,
              K: AsRef<str>,

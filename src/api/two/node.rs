@@ -1,5 +1,6 @@
 use failure;
 use client::Client;
+use serde_json::Value;
 
 pub struct Node {
     client: Client
@@ -11,15 +12,15 @@ impl Node {
         Node { client }
     }
 
-    pub fn status(self) -> Result<String, failure::Error> {
+    pub fn status(self) -> Result<Value, failure::Error> {
         self.client.get("node/status")
     }
 
-    pub fn syncing(self) -> Result<String, failure::Error> {
+    pub fn syncing(self) -> Result<Value, failure::Error> {
         self.client.get("node/syncing")
     }
 
-    pub fn configuration(self) -> Result<String, failure::Error> {
+    pub fn configuration(self) -> Result<Value, failure::Error> {
         self.client.get("node/configuration")
     }
 }
