@@ -1,3 +1,4 @@
-pub mod api;
+mod utils;
 
+pub mod api;
 pub use api::*;
