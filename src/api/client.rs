@@ -4,6 +4,7 @@ extern crate failure;
 use self::reqwest::header::{Headers, ContentType};
 use self::reqwest::Url;
 use self::failure::Error;
+use std::borrow::Borrow;
 
 #[derive(Clone, PartialEq, Debug)]
 pub enum Version {
@@ -37,8 +38,21 @@ impl Client {
 
     pub fn get(self, endpoint: &str) -> Result<String, Error> {
         let url = Url::parse(&format!("{}{}", self.host, endpoint))?;
-        println!("{:?}", url);
+        self.get_url(&url)
+    }
 
+    pub fn get_with_params<I, K, V>(self, endpoint: &str, iter: I) -> Result<String, Error>
+        where I: IntoIterator,
+                     I::Item: Borrow<(K, V)>,
+                     K: AsRef<str>,
+                     V: AsRef<str>
+    {
+        let url = Url::parse_with_params(&format!("{}{}", self.host, endpoint), iter)?;
+        self.get_url(&url)
+    }
+
+    fn get_url(self, url: &Url) -> Result<String, Error> {
+        println!("{:?}", url);
         let response = self.client
             .get(url.as_str())
             .headers(self.header)
