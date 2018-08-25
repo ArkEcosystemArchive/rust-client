@@ -14,7 +14,7 @@ pub struct One {
 
 impl One {
 
-    pub fn new(host: String) -> One {
+    pub fn new(host: &String) -> One {
         let client = Client::new(host, Version::One);
         One {
             client: client.clone(),

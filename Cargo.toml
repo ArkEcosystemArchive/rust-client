@@ -12,3 +12,7 @@ path = "src/lib.rs"
 [dependencies]
 reqwest = "0.8.6"
 failure = "0.1.2"
+serde_json = "1.0.26"
+
+[dev-dependencies]
+mockito = "0.12.0"

@@ -20,7 +20,7 @@ pub struct Client {
 }
 
 impl Client {
-    pub fn new(host: String, version: Version) -> Client {
+    pub fn new(host: &String, version: Version) -> Client {
         let mut headers = Headers::new();
         headers.set(ContentType::json());
 
@@ -30,7 +30,7 @@ impl Client {
         });
 
         Client {
-            host,
+            host: host.to_owned(),
             client: reqwest::Client::new(),
             header: headers
         }
