@@ -8,7 +8,8 @@ pub struct Two {
     pub node: Node,
     pub peers: Peers,
     pub transactions: Transactions,
-    pub votes: Votes
+    pub votes: Votes,
+    pub wallets: Wallets
 }
 
 impl Two {
@@ -22,7 +23,8 @@ impl Two {
             node: Node::new(client.clone()),
             peers: Peers::new(client.clone()),
             transactions: Transactions::new(client.clone()),
-            votes: Votes::new(client.clone())
+            votes: Votes::new(client.clone()),
+            wallets: Wallets::new(client.clone())
         }
     }
 
