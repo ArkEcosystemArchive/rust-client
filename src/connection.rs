@@ -4,13 +4,13 @@ use api::two::Two;
 use http::client::Client;
 use std::ops::Deref;
 
-#[derive(Debug)]
-pub struct Connection<T> where T: Api {
+#[allow(dead_code)]
+pub struct Connection<T> where T: Api + ?Sized {
     client: Client,
     pub api: T
 }
 
-impl<T> Connection<T> where T: Api {
+impl<T: Api + ?Sized> Connection<T> {
     pub fn one(host: &str) -> Connection<One> {
         let mut client = Client::new(host);
         let one = One::new(&mut client);
@@ -24,7 +24,7 @@ impl<T> Connection<T> where T: Api {
     }
 }
 
-impl<T> Deref for Connection<T> where T: Api {
+impl<T: Api> Deref for Connection<T> {
     type Target = T;
 
     fn deref(&self) -> &T {

@@ -6,6 +6,6 @@ pub enum Version {
 
 pub trait Api {
 
-    fn version() -> Version;
+    fn version() -> Version where Self: Sized;
 
 }
