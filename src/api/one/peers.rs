@@ -1,6 +1,6 @@
 use failure;
 use std::borrow::Borrow;
-use client::Client;
+use http::client::Client;
 use serde_json::Value;
 
 pub struct Peers {

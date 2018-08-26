@@ -1,5 +1,5 @@
 use failure;
-use client::Client;
+use http::client::Client;
 use serde_json::Value;
 
 pub struct Signatures {

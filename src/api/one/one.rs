@@ -1,5 +1,6 @@
 use super::*;
-use client::{Client, Version};
+use http::client::Client;
+use connection::Version;
 
 pub struct One {
     client: Client,

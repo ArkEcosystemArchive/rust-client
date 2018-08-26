@@ -1,5 +1,5 @@
 use failure;
-use client::Client;
+use http::client::Client;
 use std::borrow::Borrow;
 use serde_json::Value;
 

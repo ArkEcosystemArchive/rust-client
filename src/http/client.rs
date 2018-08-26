@@ -3,13 +3,8 @@ use std::borrow::Borrow;
 use reqwest::header::{Headers, ContentType};
 use reqwest::{RequestBuilder, Url};
 use serde_json::{from_str, to_string, Value};
+use connection::Version;
 use utils;
-
-#[derive(Clone, PartialEq, Debug)]
-pub enum Version {
-    One,
-    Two
-}
 
 #[derive(Clone)]
 pub struct Client {
