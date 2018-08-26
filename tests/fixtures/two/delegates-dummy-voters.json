@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "count": 1,
+    "pageCount": 1,
+    "totalCount": 1,
+    "next": null,
+    "previous": null,
+    "self": "/api/v2/delegates/022f2978d57f95c021b9d4bf082b482738ce392bcf6bc213710e7a21504cfeb5a0/voters?page=1&limit=100",
+    "first": "/api/v2/delegates/022f2978d57f95c021b9d4bf082b482738ce392bcf6bc213710e7a21504cfeb5a0/voters?page=1&limit=100",
+    "last": "/api/v2/delegates/022f2978d57f95c021b9d4bf082b482738ce392bcf6bc213710e7a21504cfeb5a0/voters?page=1&limit=100"
+  },
+  "data": [
+    {
+      "address": "AV6GP5qhhsZG6MHb4gShy22doUnVjEKHcN",
+      "publicKey": "022f2978d57f95c021b9d4bf082b482738ce392bcf6bc213710e7a21504cfeb5a0",
+      "balance": 245098000000000,
+      "isDelegate": true
+    }
+  ]
+}

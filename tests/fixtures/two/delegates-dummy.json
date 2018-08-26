@@ -1,0 +1,25 @@
+{
+  "data": {
+    "username": "genesis_7",
+    "address": "AV6GP5qhhsZG6MHb4gShy22doUnVjEKHcN",
+    "publicKey": "022f2978d57f95c021b9d4bf082b482738ce392bcf6bc213710e7a21504cfeb5a0",
+    "votes": 245098000000000,
+    "rank": 30,
+    "blocks": {
+      "produced": 89,
+      "missed": 0,
+      "last": {
+        "id": "8811640842219590295",
+        "timestamp": {
+          "epoch": 39388930,
+          "unix": 1529490130,
+          "human": "2018-06-20T10:22:10Z"
+        }
+      }
+    },
+    "production": {
+      "approval": 1.96,
+      "productivity": 100
+    }
+  }
+}
