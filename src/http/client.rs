@@ -8,7 +8,7 @@ use utils;
 
 #[derive(Clone, Debug)]
 pub struct Client {
-    host: String,
+    pub host: String,
     client: ::reqwest::Client,
     headers: Headers,
 }

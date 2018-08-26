@@ -6,5 +6,6 @@ extern crate failure;
 
 mod utils;
 mod api;
+mod connection_test;
 
 use utils::test_helper;

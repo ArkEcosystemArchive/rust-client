@@ -32,11 +32,11 @@ pub fn mock_http_request_two(endpoint: &str) -> Mock {
 }
 
 pub fn mock_client_one() -> Connection<One> {
-    Connection::<One>::one(&MOCK_HOST)
+    Connection::<One>::new(&MOCK_HOST)
 }
 
 pub fn mock_client_two() -> Connection<Two> {
-    Connection::<Two>::two(&MOCK_HOST)
+    Connection::<Two>::new(&MOCK_HOST)
 }
 
 pub fn mock_assert_success_one(mock: &Mock, response: Result<Value, failure::Error>) {
