@@ -24,7 +24,7 @@ fn test_show() {
 }
 
 #[test]
-fn test_transactions_zzz() {
+fn test_transactions() {
     let _mock = mock_http_request_two("blocks/dummy/transactions");
     {
         let client = mock_client_two();

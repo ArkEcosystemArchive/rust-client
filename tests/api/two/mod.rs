@@ -3,4 +3,4 @@ pub mod delegates_test;
 pub mod node_test;
 pub mod peers_test;
 //pub mod signatures_test;
-//pub mod transactions_test;
+pub mod transactions_test;
