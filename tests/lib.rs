@@ -7,5 +7,6 @@ extern crate serde_json;
 mod utils;
 mod api;
 mod connection_test;
+mod connection_manager_test;
 
 use utils::test_helper;

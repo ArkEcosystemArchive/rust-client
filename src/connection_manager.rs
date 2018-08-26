@@ -7,10 +7,17 @@ use connection::Connection;
 
 pub struct ConnectionManager {
     connections: HashMap<String, Box<Connection<Api>>>,
-    default_name: String,
+    default_connection: String,
 }
 
 impl ConnectionManager {
+    pub fn new() -> ConnectionManager {
+        ConnectionManager {
+            connections: HashMap::<String, Box<Connection<Api>>>::new(),
+            default_connection: String::from("main"),
+        }
+    }
+
     pub fn connect<T: Api + 'static>(&mut self, connection: Connection<T>) -> Result<(), &str> {
         let default_connection = &self.get_default_connection();
         self.connect_as(connection, default_connection)
@@ -31,27 +38,29 @@ impl ConnectionManager {
     }
 
     pub fn disconnect(&mut self, name: &str) {
-        self.connections.remove(name);
+        if name.is_empty() {
+            self.connections.remove(&self.default_connection);
+        } else {
+            self.connections.remove(name);
+        }
     }
 
-    pub fn default_connection(&self) -> Option<&Box<Connection<Api>>> {
+    // TODO: return T
+    pub fn connection_default(&self) -> Option<&Box<Connection<Api>>> {
         self.connections.get(&self.get_default_connection())
     }
 
+    // TODO: return T
     pub fn connection(&self, name: &str) -> Option<&Box<Connection<Api>>> {
         self.connections.get(name)
     }
 
     pub fn get_default_connection(&self) -> String {
-        if self.default_name.is_empty() {
-            String::from("main")
-        } else {
-            self.default_name.to_owned()
-        }
+        self.default_connection.to_owned()
     }
 
     pub fn set_default_connection(&mut self, name: &str) {
-        self.default_name = name.to_owned();
+        self.default_connection = name.to_owned();
     }
 
     pub fn connections(&self) -> Values<String, Box<Connection<Api>>> {
