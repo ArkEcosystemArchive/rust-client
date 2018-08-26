@@ -1,6 +1,6 @@
 extern crate arkecosystem_client;
 
-use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success};
+use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success_one};
 
 #[test]
 fn test_all() {
@@ -8,7 +8,7 @@ fn test_all() {
     {
         let client = mock_client_one();
         let response = client.delegates.all(vec![("", "")]);
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -18,7 +18,7 @@ fn test_show() {
     {
         let client = mock_client_one();
         let response = client.delegates.show(vec![("", "")]);
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -28,7 +28,7 @@ fn test_count() {
     {
         let client = mock_client_one();
         let response = client.delegates.count();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -38,7 +38,7 @@ fn test_search() {
     {
         let client = mock_client_one();
         let response = client.delegates.search("dummy".to_owned(), vec![("", "")]);
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -48,7 +48,7 @@ fn test_voters() {
     {
         let client = mock_client_one();
         let response = client.delegates.voters("dummy".to_owned(), vec![("", "")]);
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -58,7 +58,7 @@ fn test_fee() {
     {
         let client = mock_client_one();
         let response = client.delegates.fee();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -68,7 +68,7 @@ fn test_forged_by_account() {
     {
         let client = mock_client_one();
         let response = client.delegates.forged_by_account("dummy".to_owned());
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -78,7 +78,7 @@ fn test_next_forgers() {
     {
         let client = mock_client_one();
         let response = client.delegates.next_forgers();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -88,6 +88,6 @@ fn test_forging_status() {
     {
         let client = mock_client_one();
         let response = client.delegates.forging_status("dummy".to_owned(), vec![("", "")]);
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }

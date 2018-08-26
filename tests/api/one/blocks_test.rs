@@ -1,6 +1,6 @@
 extern crate arkecosystem_client;
 
-use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success};
+use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success_one};
 
 #[test]
 fn test_all() {
@@ -8,7 +8,7 @@ fn test_all() {
     {
         let client = mock_client_one();
         let response = client.blocks.all(vec![("", "")]);
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -18,7 +18,7 @@ fn test_show() {
     {
         let client = mock_client_one();
         let response = client.blocks.show("dummy".to_owned());
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -28,7 +28,7 @@ fn test_epoch() {
     {
         let client = mock_client_one();
         let response = client.blocks.epoch();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -38,7 +38,7 @@ fn test_height() {
     {
         let client = mock_client_one();
         let response = client.blocks.height();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -48,7 +48,7 @@ fn test_nethash() {
     {
         let client = mock_client_one();
         let response = client.blocks.nethash();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -58,7 +58,7 @@ fn test_fee() {
     {
         let client = mock_client_one();
         let response = client.blocks.fee();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -68,7 +68,7 @@ fn test_fees() {
     {
         let client = mock_client_one();
         let response = client.blocks.fees();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -78,7 +78,7 @@ fn test_milestone() {
     {
         let client = mock_client_one();
         let response = client.blocks.milestone();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -88,7 +88,7 @@ fn test_reward() {
     {
         let client = mock_client_one();
         let response = client.blocks.reward();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -98,7 +98,7 @@ fn test_supply() {
     {
         let client = mock_client_one();
         let response = client.blocks.supply();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -108,6 +108,6 @@ fn test_status() {
     {
         let client = mock_client_one();
         let response = client.blocks.status();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }

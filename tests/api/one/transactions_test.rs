@@ -1,6 +1,6 @@
 extern crate arkecosystem_client;
 
-use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success};
+use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success_one};
 
 #[test]
 fn test_all() {
@@ -8,7 +8,7 @@ fn test_all() {
     {
         let client = mock_client_one();
         let response = client.transactions.all(vec![("", "")]);
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -18,7 +18,7 @@ fn test_status() {
     {
         let client = mock_client_one();
         let response = client.transactions.show("ip".to_owned());
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -28,7 +28,7 @@ fn test_all_unconfirmed() {
     {
         let client = mock_client_one();
         let response = client.transactions.all_unconfirmed(vec![("", "")]);
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -38,6 +38,6 @@ fn test_show_unconfirmed() {
     {
         let client = mock_client_one();
         let response = client.transactions.show_unconfirmed("dummy".to_owned());
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }

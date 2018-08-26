@@ -1,6 +1,6 @@
 extern crate arkecosystem_client;
 
-use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success};
+use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success_one};
 
 #[test]
 fn test_status() {
@@ -8,7 +8,7 @@ fn test_status() {
     {
         let client = mock_client_one();
         let response = client.loader.status();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -18,7 +18,7 @@ fn test_sync() {
     {
         let client = mock_client_one();
         let response = client.loader.sync();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -28,6 +28,6 @@ fn test_autoconfigure() {
     {
         let client = mock_client_one();
         let response = client.loader.autoconfigure();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }

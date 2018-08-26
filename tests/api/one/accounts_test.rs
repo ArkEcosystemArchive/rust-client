@@ -1,6 +1,6 @@
 extern crate arkecosystem_client;
 
-use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success};
+use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success_one};
 
 #[test]
 fn test_balance() {
@@ -8,7 +8,7 @@ fn test_balance() {
     {
         let client = mock_client_one();
         let response = client.accounts.balance("dummy".to_owned());
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -18,7 +18,7 @@ fn test_public_key() {
     {
         let client = mock_client_one();
         let response = client.accounts.public_key("dummy".to_owned());
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -28,7 +28,7 @@ fn test_delegate() {
     {
         let client = mock_client_one();
         let response = client.accounts.delegate("dummy".to_owned());
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -38,7 +38,7 @@ fn test_delegates_fee() {
     {
         let client = mock_client_one();
         let response = client.accounts.delegates_fee();
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
 
@@ -48,6 +48,6 @@ fn test_account() {
     {
         let client = mock_client_one();
         let response = client.accounts.account("dummy".to_owned());
-        mock_assert_success(&_mock, response);
+        mock_assert_success_one(&_mock, response);
     }
 }
