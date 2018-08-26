@@ -1,5 +1,5 @@
 use failure;
-use mockito::{mock, Mock, Matcher};
+use mockito::{mock, Matcher, Mock};
 use serde_json::{from_str, Value};
 use std::fs::File;
 use std::io::prelude::*;
@@ -47,7 +47,11 @@ pub fn mock_assert_success_one(mock: &Mock, response: Result<Value, failure::Err
     assert!(value["success"] == true);
 }
 
-pub fn mock_assert_success_two(mock: &Mock, endpoint: &str, response: Result<Value, failure::Error>) {
+pub fn mock_assert_success_two(
+    mock: &Mock,
+    endpoint: &str,
+    response: Result<Value, failure::Error>,
+) {
     mock.assert();
     assert!(response.is_ok());
 

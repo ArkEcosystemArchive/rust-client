@@ -1,4 +1,4 @@
-use test_helper::{mock_http_request_two, mock_client_two, mock_assert_success_two};
+use test_helper::{mock_assert_success_two, mock_client_two, mock_http_request_two};
 
 #[test]
 fn test_all() {

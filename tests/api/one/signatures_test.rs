@@ -1,4 +1,4 @@
-use test_helper::{mock_http_request_one, mock_client_one, mock_assert_success_one};
+use test_helper::{mock_assert_success_one, mock_client_one, mock_http_request_one};
 
 #[test]
 fn test_fee() {

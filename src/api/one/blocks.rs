@@ -4,20 +4,20 @@ use std::borrow::Borrow;
 use serde_json::Value;
 
 pub struct Blocks {
-    client: Client
+    client: Client,
 }
 
 impl Blocks {
-
     pub fn new(client: Client) -> Blocks {
         Blocks { client }
     }
 
     pub fn all<I, K, V>(&self, parameters: I) -> Result<Value, failure::Error>
-        where I: IntoIterator,
-                 I::Item: Borrow<(K, V)>,
-                 K: AsRef<str>,
-                 V: AsRef<str>
+    where
+        I: IntoIterator,
+        I::Item: Borrow<(K, V)>,
+        K: AsRef<str>,
+        V: AsRef<str>,
     {
         self.client.get_with_params("blocks", parameters)
     }

@@ -4,11 +4,13 @@ use api::two::Two;
 use http::client::Client;
 use std::ops::Deref;
 
-pub struct Connection<T> where T: Api + ?Sized {
+pub struct Connection<T>
+where
+    T: Api + ?Sized,
+{
     pub client: Client,
-    api: T
+    api: T,
 }
-
 
 impl Connection<One> {
     pub fn new(host: &str) -> Connection<One> {

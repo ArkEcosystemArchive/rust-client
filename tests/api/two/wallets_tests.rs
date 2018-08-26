@@ -1,4 +1,4 @@
-use test_helper::{mock_http_request_two, mock_client_two, mock_assert_success_two};
+use test_helper::{mock_assert_success_two, mock_client_two, mock_http_request_two};
 
 #[test]
 fn test_all() {
@@ -26,7 +26,9 @@ fn test_transactions() {
     let _mock = mock_http_request_two("wallets/dummy/transactions");
     {
         let client = mock_client_two();
-        let response = client.wallets.transactions("dummy".to_owned(), Vec::<(String, String)>::new());
+        let response = client
+            .wallets
+            .transactions("dummy".to_owned(), Vec::<(String, String)>::new());
 
         mock_assert_success_two(&_mock, "wallets/dummy/transactions", response);
     }
@@ -37,7 +39,9 @@ fn test_sent_transactions() {
     let _mock = mock_http_request_two("wallets/dummy/transactions/sent");
     {
         let client = mock_client_two();
-        let response = client.wallets.sent_transactions("dummy".to_owned(), Vec::<(String, String)>::new());
+        let response = client
+            .wallets
+            .sent_transactions("dummy".to_owned(), Vec::<(String, String)>::new());
 
         mock_assert_success_two(&_mock, "wallets/dummy/transactions/sent", response);
     }
@@ -48,7 +52,9 @@ fn test_received_transactions() {
     let _mock = mock_http_request_two("wallets/dummy/transactions/received");
     {
         let client = mock_client_two();
-        let response = client.wallets.received_transactions("dummy".to_owned(), Vec::<(String, String)>::new());
+        let response = client
+            .wallets
+            .received_transactions("dummy".to_owned(), Vec::<(String, String)>::new());
 
         mock_assert_success_two(&_mock, "wallets/dummy/transactions/received", response);
     }

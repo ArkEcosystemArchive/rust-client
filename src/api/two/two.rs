@@ -9,7 +9,7 @@ pub struct Two {
     pub peers: Peers,
     pub transactions: Transactions,
     pub votes: Votes,
-    pub wallets: Wallets
+    pub wallets: Wallets,
 }
 
 impl Api for Two {
@@ -19,7 +19,6 @@ impl Api for Two {
 }
 
 impl Two {
-
     pub fn new(client: &mut Client) -> Two {
         client.set_version(Two::version());
 
@@ -30,8 +29,7 @@ impl Two {
             peers: Peers::new(client.clone()),
             transactions: Transactions::new(client.clone()),
             votes: Votes::new(client.clone()),
-            wallets: Wallets::new(client.clone())
+            wallets: Wallets::new(client.clone()),
         }
     }
-
 }

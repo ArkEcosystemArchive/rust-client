@@ -9,7 +9,7 @@ pub struct One {
     pub loader: Loader,
     pub peers: Peers,
     pub signatures: Signatures,
-    pub transactions: Transactions
+    pub transactions: Transactions,
 }
 
 impl Api for One {
@@ -19,7 +19,6 @@ impl Api for One {
 }
 
 impl One {
-
     pub fn new(client: &mut Client) -> One {
         client.set_version(One::version());
 
@@ -30,8 +29,7 @@ impl One {
             loader: Loader::new(client.clone()),
             peers: Peers::new(client.clone()),
             signatures: Signatures::new(client.clone()),
-            transactions: Transactions::new(client.clone())
+            transactions: Transactions::new(client.clone()),
         }
     }
-
 }

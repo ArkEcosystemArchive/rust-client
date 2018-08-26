@@ -3,11 +3,10 @@ use http::client::Client;
 use serde_json::Value;
 
 pub struct Node {
-    client: Client
+    client: Client,
 }
 
 impl Node {
-
     pub fn new(client: Client) -> Node {
         Node { client }
     }

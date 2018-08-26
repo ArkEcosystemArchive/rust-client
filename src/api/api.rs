@@ -1,11 +1,11 @@
 #[derive(Clone, PartialEq, Debug)]
 pub enum Version {
     One,
-    Two
+    Two,
 }
 
 pub trait Api {
-
-    fn version() -> Version where Self: Sized;
-
+    fn version() -> Version
+    where
+        Self: Sized;
 }

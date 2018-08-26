@@ -4,20 +4,20 @@ use std::borrow::Borrow;
 use serde_json::Value;
 
 pub struct Delegates {
-    client: Client
+    client: Client,
 }
 
 impl Delegates {
-
     pub fn new(client: Client) -> Delegates {
         Delegates { client }
     }
 
     pub fn all<I, K, V>(&self, parameters: I) -> Result<Value, failure::Error>
-        where I: IntoIterator,
-                 I::Item: Borrow<(K, V)>,
-                 K: AsRef<str>,
-                 V: AsRef<str>
+    where
+        I: IntoIterator,
+        I::Item: Borrow<(K, V)>,
+        K: AsRef<str>,
+        V: AsRef<str>,
     {
         self.client.get_with_params("delegates", parameters)
     }
@@ -28,20 +28,22 @@ impl Delegates {
     }
 
     pub fn blocks<I, K, V>(&self, id: String, parameters: I) -> Result<Value, failure::Error>
-        where I: IntoIterator,
-                 I::Item: Borrow<(K, V)>,
-                 K: AsRef<str>,
-                 V: AsRef<str>
+    where
+        I: IntoIterator,
+        I::Item: Borrow<(K, V)>,
+        K: AsRef<str>,
+        V: AsRef<str>,
     {
         let endpoint = format!("delegates/{}/blocks", id);
         self.client.get_with_params(&endpoint, parameters)
     }
 
     pub fn voters<I, K, V>(&self, id: String, parameters: I) -> Result<Value, failure::Error>
-        where I: IntoIterator,
-                 I::Item: Borrow<(K, V)>,
-                 K: AsRef<str>,
-                 V: AsRef<str>
+    where
+        I: IntoIterator,
+        I::Item: Borrow<(K, V)>,
+        K: AsRef<str>,
+        V: AsRef<str>,
     {
         let endpoint = format!("delegates/{}/voters", id);
         self.client.get_with_params(&endpoint, parameters)
