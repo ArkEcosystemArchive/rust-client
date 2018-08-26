@@ -12,7 +12,7 @@ impl Signatures {
         Signatures { client }
     }
 
-    pub fn fee(self) -> Result<Value, failure::Error>
+    pub fn fee(&self) -> Result<Value, failure::Error>
     {
         self.client.get("signatures/fee")
     }

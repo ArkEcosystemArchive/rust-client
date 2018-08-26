@@ -7,4 +7,6 @@ mod utils;
 pub mod api;
 pub mod http;
 pub mod connection;
+
 pub use api::*;
+pub use connection::*;

@@ -1,9 +1,8 @@
 use super::*;
 use http::client::Client;
-use connection::Version;
+use api::{Api, Version};
 
 pub struct One {
-    client: Client,
     pub accounts: Accounts,
     pub blocks: Blocks,
     pub delegates: Delegates,
@@ -13,12 +12,18 @@ pub struct One {
     pub transactions: Transactions
 }
 
+impl Api for One {
+    fn version() -> Version {
+        Version::One
+    }
+}
+
 impl One {
 
-    pub fn new(host: &String) -> One {
-        let client = Client::new(host, Version::One);
+    pub fn new(client: &mut Client) -> One {
+        client.set_version(One::version());
+
         One {
-            client: client.clone(),
             accounts: Accounts::new(client.clone()),
             blocks: Blocks::new(client.clone()),
             delegates: Delegates::new(client.clone()),

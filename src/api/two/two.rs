@@ -1,9 +1,8 @@
 use super::*;
 use http::client::Client;
-use connection::Version;
+use api::{Api, Version};
 
 pub struct Two {
-    client: Client,
     pub blocks: Blocks,
     pub delegates: Delegates,
     pub node: Node,
@@ -13,12 +12,18 @@ pub struct Two {
     pub wallets: Wallets
 }
 
+impl Api for Two {
+    fn version() -> Version {
+        Version::Two
+    }
+}
+
 impl Two {
 
-    pub fn new(host: &String) -> Two {
-        let client = Client::new(host, Version::Two);
+    pub fn new(client: &mut Client) -> Two {
+        client.set_version(Two::version());
+
         Two {
-            client: client.clone(),
             blocks: Blocks::new(client.clone()),
             delegates: Delegates::new(client.clone()),
             node: Node::new(client.clone()),

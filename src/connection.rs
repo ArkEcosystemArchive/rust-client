@@ -1,29 +1,33 @@
-#[derive(Clone, PartialEq, Debug)]
-pub enum Version {
-    One,
-    Two
+use api::Api;
+use api::one::One;
+use api::two::Two;
+use http::client::Client;
+use std::ops::Deref;
+
+#[derive(Debug)]
+pub struct Connection<T> where T: Api {
+    client: Client,
+    pub api: T
 }
 
-#[derive(Clone, Debug)]
-pub struct Connection {
-    pub host: String,
-    pub version: Version
+impl<T> Connection<T> where T: Api {
+    pub fn one(host: &str) -> Connection<One> {
+        let mut client = Client::new(host);
+        let one = One::new(&mut client);
+        Connection { client, api: one }
+    }
+
+    pub fn two(host: &str) -> Connection<Two> {
+        let mut client = Client::new(host);
+        let two = Two::new(&mut client);
+        Connection { client, api: two }
+    }
 }
 
-impl Connection {
+impl<T> Deref for Connection<T> where T: Api {
+    type Target = T;
 
-    pub fn new(host: String, version: Version) -> Connection {
-        Connection {
-            host, version
-        }
+    fn deref(&self) -> &T {
+        &self.api
     }
-
-    pub fn one(host: String) -> Connection {
-        Connection::new(host, Version::One)
-    }
-
-    pub fn two(host: String) -> Connection {
-        Connection::new(host, Version::Two)
-    }
-
 }

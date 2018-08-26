@@ -12,15 +12,15 @@ impl Node {
         Node { client }
     }
 
-    pub fn status(self) -> Result<Value, failure::Error> {
+    pub fn status(&self) -> Result<Value, failure::Error> {
         self.client.get("node/status")
     }
 
-    pub fn syncing(self) -> Result<Value, failure::Error> {
+    pub fn syncing(&self) -> Result<Value, failure::Error> {
         self.client.get("node/syncing")
     }
 
-    pub fn configuration(self) -> Result<Value, failure::Error> {
+    pub fn configuration(&self) -> Result<Value, failure::Error> {
         self.client.get("node/configuration")
     }
 }

@@ -12,17 +12,17 @@ impl Loader {
         Loader { client }
     }
 
-    pub fn status(self) -> Result<Value, failure::Error>
+    pub fn status(&self) -> Result<Value, failure::Error>
     {
         self.client.get("loader/status")
     }
 
-    pub fn sync(self) -> Result<Value, failure::Error>
+    pub fn sync(&self) -> Result<Value, failure::Error>
     {
         self.client.get("loader/status/sync")
     }
 
-    pub fn autoconfigure(self) -> Result<Value, failure::Error>
+    pub fn autoconfigure(&self) -> Result<Value, failure::Error>
     {
         self.client.get("loader/autoconfigure")
     }

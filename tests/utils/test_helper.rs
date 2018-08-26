@@ -1,11 +1,12 @@
-use arkecosystem_client::api::one::One;
-use arkecosystem_client::api::two::Two;
+use failure;
 use mockito::{mock, Mock, Matcher};
 use serde_json::{from_str, Value};
-use failure;
-
 use std::fs::File;
 use std::io::prelude::*;
+
+use arkecosystem_client::api::one::One;
+use arkecosystem_client::api::two::Two;
+use arkecosystem_client::connection::Connection;
 
 const MOCK_HOST: &'static str = "http://127.0.0.1:1234/api/";
 
@@ -30,12 +31,12 @@ pub fn mock_http_request_two(endpoint: &str) -> Mock {
         .create()
 }
 
-pub fn mock_client_one() -> One {
-    One::new(&MOCK_HOST.to_owned())
+pub fn mock_client_one() -> Connection<One> {
+    Connection::<One>::one(&MOCK_HOST)
 }
 
-pub fn mock_client_two() -> Two {
-    Two::new(&MOCK_HOST.to_owned())
+pub fn mock_client_two() -> Connection<Two> {
+    Connection::<Two>::two(&MOCK_HOST)
 }
 
 pub fn mock_assert_success_one(mock: &Mock, response: Result<Value, failure::Error>) {

@@ -13,13 +13,13 @@ impl Peers {
         Peers { client }
     }
 
-    pub fn status(self, ip_addr: String, port: String) -> Result<Value, failure::Error>
+    pub fn status(&self, ip_addr: String, port: String) -> Result<Value, failure::Error>
     {
         let params = &[("ip".to_owned(), ip_addr), ("port".to_owned(), port)];
         self.client.get_with_params("peers/get", params)
     }
 
-    pub fn all<I, K, V>(self, parameters: I) -> Result<Value, failure::Error>
+    pub fn all<I, K, V>(&self, parameters: I) -> Result<Value, failure::Error>
         where I: IntoIterator,
              I::Item: Borrow<(K, V)>,
              K: AsRef<str>,
@@ -28,7 +28,7 @@ impl Peers {
         self.client.get_with_params("peers", parameters)
     }
 
-    pub fn version(self) -> Result<Value, failure::Error>
+    pub fn version(&self) -> Result<Value, failure::Error>
     {
         self.client.get("peers/version")
     }
