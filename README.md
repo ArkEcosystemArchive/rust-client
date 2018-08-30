@@ -1,14 +1,14 @@
-# Ark Rust - Client
+# ARK Rust - Client
 
 <p align="center">
-    <img src="https://github.com/ArkEcosystem/rust-client/blob/master/banner.png" />
+    <img src="./banner.png" />
 </p>
 
 > A simple Rust API client for the Ark blockchain.
 
-[![Build Status](https://img.shields.io/travis/ArkEcosystem/rust-client/master.svg?style=flat-square)](https://travis-ci.org/ArkEcosystem/rust-client)
-[![Latest Version](https://img.shields.io/github/release/ArkEcosystem/rust-client.svg?style=flat-square)](https://github.com/ArkEcosystem/rust-client/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://badgen.now.sh/travis/ArkEcosystem/rust-client/master)](https://travis-ci.org/ArkEcosystem/rust-client)
+[![Latest Version](https://badgen.now.sh/github/release/ArkEcosystem/rust-client)](https://github.com/ArkEcosystem/rust-client/releases)
+[![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
 
 ## Installation
 
@@ -16,7 +16,7 @@ This crate uses [Reqwest](https://crates.io/crates/reqwest), which, in Linux req
 
 ## Documentation
 
-You can find installation instructions and detailed instructions on how to use this package at the [dedicated documentation site](https://docs.ark.io/v1.0/docs/clients-rust).
+You can find installation instructions and detailed instructions on how to use this package at the [dedicated documentation site](https://docs.ark.io/api/sdk/clients/rust.html).
 
 ## Security
 
@@ -25,7 +25,7 @@ If you discover a security vulnerability within this package, please send an e-m
 ## Credits
 
 - [Juan A. Martín](https://github.com/j-a-m-l)
-- [All Contributors](../../../../contributors)
+- [All Contributors](../../contributors)
 
 ## License
 
