@@ -7,6 +7,7 @@
 > A simple Rust API client for the Ark blockchain.
 
 [![Build Status](https://badgen.now.sh/travis/ArkEcosystem/rust-client/master)](https://travis-ci.org/ArkEcosystem/rust-client)
+[![Codecov](https://badgen.now.sh/codecov/c/github/arkecosystem/rust-client)](https://codecov.io/gh/arkecosystem/rust-client)
 [![Latest Version](https://badgen.now.sh/github/release/ArkEcosystem/rust-client)](https://github.com/ArkEcosystem/rust-client/releases)
 [![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
 
