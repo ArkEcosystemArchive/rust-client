@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "count": 0,
+    "pageCount": 0,
+    "totalCount": 0,
+    "next": null,
+    "previous": null,
+    "self": "/api/v2/wallets/AFnogpUHmLgnN11ExWQCyngL1RNB9J6i8Z/transactions/sent?page=1&limit=100",
+    "first": "/api/v2/wallets/AFnogpUHmLgnN11ExWQCyngL1RNB9J6i8Z/transactions/sent?page=1&limit=100",
+    "last": null
+  },
+  "data": []
+}
