@@ -1,8 +1,8 @@
 use failure;
-use std::borrow::Borrow;
 use http::client::Client;
-use utils;
 use serde_json::Value;
+use std::borrow::Borrow;
+use utils;
 
 pub struct Delegates {
     client: Client,

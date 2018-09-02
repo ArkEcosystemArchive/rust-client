@@ -1,7 +1,7 @@
 use failure;
-use std::borrow::Borrow;
 use http::client::Client;
 use serde_json::Value;
+use std::borrow::Borrow;
 
 pub struct Transactions {
     client: Client,

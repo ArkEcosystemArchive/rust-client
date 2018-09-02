@@ -1,7 +1,7 @@
-use std::collections::HashMap;
-use std::collections::hash_map::Values;
-use std::boxed::Box;
 use api::Api;
+use std::boxed::Box;
+use std::collections::hash_map::Values;
+use std::collections::HashMap;
 
 use connection::Connection;
 
