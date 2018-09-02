@@ -3,7 +3,7 @@ use std::collections::HashMap;
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Response<T> {
-    pub meta: Meta,
+    pub meta: Option<Meta>,
     pub data: T
 }
 
