@@ -6,6 +6,7 @@ pub mod peers;
 pub mod transactions;
 pub mod votes;
 pub mod wallets;
+pub mod models;
 
 use self::blocks::Blocks;
 use self::delegates::Delegates;
