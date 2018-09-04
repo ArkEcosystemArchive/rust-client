@@ -1,12 +1,12 @@
-pub mod two;
 pub mod blocks;
 pub mod delegates;
+pub mod models;
 pub mod node;
 pub mod peers;
 pub mod transactions;
+pub mod two;
 pub mod votes;
 pub mod wallets;
-pub mod models;
 
 use self::blocks::Blocks;
 use self::delegates::Delegates;

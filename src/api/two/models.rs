@@ -1,10 +1,15 @@
+use serde::de::{self, Deserialize, Deserializer, Error};
+use serde_json;
 use std::collections::HashMap;
+use std::fmt::Display;
+use std::str::FromStr;
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Response<T> {
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub meta: Option<Meta>,
-    pub data: T
+    pub data: T,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -18,7 +23,7 @@ pub struct Meta {
     #[serde(rename = "self")]
     pub _self_: String,
     pub first: String,
-    pub last: String
+    pub last: Option<String>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -33,20 +38,20 @@ pub struct Block {
     pub generator: Generator,
     pub signature: String,
     pub transactions: u32,
-    pub timestamp: Timestamp
+    pub timestamp: Timestamp,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct Forged {
     pub reward: u64,
     pub fee: u64,
-    pub total: u64
+    pub total: u64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct Payload {
     pub hash: String,
-    pub length: u32
+    pub length: u32,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -54,14 +59,14 @@ pub struct Payload {
 pub struct Generator {
     pub username: String,
     pub address: String,
-    pub public_key: String
+    pub public_key: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct Timestamp {
     pub epoch: u32,
     pub unix: u32,
-    pub human: String
+    pub human: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -73,26 +78,26 @@ pub struct Delegate {
     pub votes: u64,
     pub rank: u32,
     pub blocks: Blocks,
-    pub production: Production
+    pub production: Production,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct Blocks {
     pub produced: u64,
     pub missed: u64,
-    pub last: Last
+    pub last: Last,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct Production {
     pub approval: f64,
-    pub productivity: f64
+    pub productivity: f64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct Last {
     pub id: String,
-    pub timestamp: Timestamp
+    pub timestamp: Timestamp,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -107,12 +112,13 @@ pub struct Fees {
     pub ipfs: u64,
     pub timelock_transfer: u64,
     pub multi_payment: u64,
-    pub delegate_resignation: u64
+    pub delegate_resignation: u64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct NodeConfiguration {
+    #[serde(rename = "nethash")]
     pub nethash: String,
     pub token: String,
     pub symbol: String,
@@ -120,7 +126,7 @@ pub struct NodeConfiguration {
     pub version: u32,
     pub ports: HashMap<String, u16>,
     pub constants: NodeConstants,
-    pub fee_statistics: Vec<FeeStatistics>
+    pub fee_statistics: Vec<FeeStatistics>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -128,7 +134,7 @@ pub struct NodeConfiguration {
 pub struct NodeStatus {
     pub synced: bool,
     pub now: u64,
-    pub blocks_count: u64
+    pub blocks_count: u64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -136,7 +142,7 @@ pub struct NodeSyncing {
     pub syncing: bool,
     pub blocks: u64,
     pub height: u64,
-    pub id: String
+    pub id: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -145,10 +151,11 @@ pub struct NodeConstants {
     pub height: u64,
     pub reward: u64,
     pub active_delegates: u32,
-    pub block_time: u32,
+    pub blocktime: u32,
+    pub block: NodeBlock,
     pub epoch: String,
     pub fees: Fees,
-    pub dynamic_offsets: DynamicOffsets
+    pub dynamic_offsets: DynamicOffsets,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -170,14 +177,14 @@ pub struct DynamicOffsets {
     pub ipfs: u64,
     pub timelock_transfer: u64,
     pub multi_payment: u64,
-    pub delegate_resignation: u64
+    pub delegate_resignation: u64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct FeeStatistics {
     #[serde(rename = "type")]
     pub transaction_type: TransactionType,
-    pub fees: FeeStats
+    pub fees: FeeStats,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -196,10 +203,11 @@ pub struct Peer {
     pub height: u64,
     pub status: String,
     pub os: String,
-    pub latency: u32
+    pub latency: u32,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
+#[serde(default)]
 #[serde(rename_all = "camelCase")]
 pub struct Transaction {
     pub id: String,
@@ -209,13 +217,15 @@ pub struct Transaction {
     pub amount: u64,
     pub fee: u64,
     pub sender: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     pub recipient: String,
     pub signature: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
     pub vendor_field: String,
     #[serde(skip_serializing_if = "Asset::is_none")]
     pub asset: Asset,
     pub confirmations: u64,
-    pub timestamp: Timestamp
+    pub timestamp: Timestamp,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -229,16 +239,32 @@ pub struct TransactionTypes {
     pub ipfs: u64,
     pub timelock_transfer: u64,
     pub multi_payment: u64,
-    pub delegate_resignation: u64
+    pub delegate_resignation: u64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "lowercase")]
+#[serde(rename_all = "camelCase")]
 pub struct Wallet {
     pub address: String,
-    pub public_key: String,
+    pub public_key: Option<String>,
+    #[serde(deserialize_with = "deserialize_u64_as_number_or_string")]
     pub balance: u64,
-    pub is_delegate: bool
+    pub is_delegate: bool,
+}
+
+fn deserialize_u64_as_number_or_string<'de, D>(de: D) -> Result<u64, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    let deser_res: serde_json::Value = try!(Deserialize::deserialize(de));
+
+    match deser_res {
+        serde_json::Value::Number(ref obj) if obj.is_u64() => Ok(obj.as_u64().unwrap()),
+        serde_json::Value::String(ref obj) if obj.len() > 0 => {
+            Ok(obj.as_str().parse::<u64>().unwrap())
+        }
+        _ => Ok(0),
+    }
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]

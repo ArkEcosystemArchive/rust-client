@@ -10,8 +10,8 @@ name = "arkecosystem_client"
 path = "src/lib.rs"
 
 [dependencies]
-reqwest = "0.8.6"
 failure = "0.1.2"
+reqwest = "0.8.6"
 serde = "1.0.75"
 serde_derive = "1.0.75"
 serde_json = "1.0.26"

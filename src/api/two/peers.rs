@@ -1,7 +1,9 @@
 use failure;
-use std::borrow::Borrow;
 use http::client::Client;
-use serde_json::Value;
+use serde_json::from_value;
+use std::borrow::Borrow;
+
+use api::two::models::{Peer, Response};
 
 pub struct Peers {
     client: Client,
@@ -12,18 +14,20 @@ impl Peers {
         Peers { client }
     }
 
-    pub fn all<I, K, V>(&self, parameters: I) -> Result<Value, failure::Error>
+    pub fn all<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Peer>>, failure::Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("peers", parameters)
+        self.client
+            .get_with_params("peers", parameters)
+            .map(|v| from_value(v).unwrap())
     }
 
-    pub fn show(&self, ip_addr: String) -> Result<Value, failure::Error> {
+    pub fn show(&self, ip_addr: String) -> Result<Response<Peer>, failure::Error> {
         let endpoint = format!("delegates/{}", ip_addr);
-        self.client.get(&endpoint)
+        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }
 }

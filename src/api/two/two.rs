@@ -1,6 +1,6 @@
 use super::*;
-use http::client::Client;
 use api::{Api, Version};
+use http::client::Client;
 
 pub struct Two {
     pub blocks: Blocks,
