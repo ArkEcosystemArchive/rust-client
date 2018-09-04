@@ -1,8 +1,8 @@
 extern crate arkecosystem_client;
 
-use arkecosystem_client::connection_manager::ConnectionManager;
-use arkecosystem_client::connection::Connection;
 use arkecosystem_client::api::two::Two;
+use arkecosystem_client::connection::Connection;
+use arkecosystem_client::connection_manager::ConnectionManager;
 
 #[test]
 fn test_create_connection() {
@@ -45,14 +45,14 @@ fn test_get_connection() {
 
 #[test]
 fn test_get_non_existing_connection() {
-    let mut manager = ConnectionManager::new();
+    let manager = ConnectionManager::new();
     let default_conn = manager.connection_default();
     assert!(default_conn.is_none());
 }
 
 #[test]
 fn test_get_default_connection() {
-    let mut manager = ConnectionManager::new();
+    let manager = ConnectionManager::new();
     let default = manager.get_default_connection();
     assert_eq!(default, "main");
 }

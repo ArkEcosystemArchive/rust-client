@@ -1,8 +1,6 @@
-use serde::de::{self, Deserialize, Deserializer, Error};
+use serde::de::{Deserialize, Deserializer};
 use serde_json;
 use std::collections::HashMap;
-use std::fmt::Display;
-use std::str::FromStr;
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -248,20 +246,20 @@ pub struct Wallet {
     pub address: String,
     pub public_key: Option<String>,
     #[serde(deserialize_with = "deserialize_u64_as_number_or_string")]
-    pub balance: u64,
+    pub balance: i64,
     pub is_delegate: bool,
 }
 
-fn deserialize_u64_as_number_or_string<'de, D>(de: D) -> Result<u64, D::Error>
+fn deserialize_u64_as_number_or_string<'de, D>(de: D) -> Result<i64, D::Error>
 where
     D: Deserializer<'de>,
 {
     let deser_res: serde_json::Value = try!(Deserialize::deserialize(de));
 
     match deser_res {
-        serde_json::Value::Number(ref obj) if obj.is_u64() => Ok(obj.as_u64().unwrap()),
+        serde_json::Value::Number(ref obj) if obj.is_i64() => Ok(obj.as_i64().unwrap()),
         serde_json::Value::String(ref obj) if obj.len() > 0 => {
-            Ok(obj.as_str().parse::<u64>().unwrap())
+            Ok(obj.as_str().parse::<i64>().unwrap())
         }
         _ => Ok(0),
     }
