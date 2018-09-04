@@ -1,6 +1,5 @@
-use serde_json::Value;
-use serde_json::{from_str, to_string_pretty};
-use test_helper::{mock_client_two, mock_http_request_two};
+use *;
+use serde_json::{from_str, to_string_pretty, Value};
 
 #[test]
 fn test_status() {

@@ -1,5 +1,5 @@
+use *;
 use serde_json::to_string_pretty;
-use test_helper::{mock_client_two, mock_http_request_two};
 
 #[test]
 fn test_all_blocks() {
