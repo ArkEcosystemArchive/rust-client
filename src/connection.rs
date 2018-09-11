@@ -1,6 +1,6 @@
-use api::Api;
 use api::one::One;
 use api::two::Two;
+use api::Api;
 use http::client::Client;
 use std::ops::Deref;
 

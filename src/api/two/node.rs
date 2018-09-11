@@ -1,6 +1,8 @@
 use failure;
 use http::client::Client;
-use serde_json::Value;
+use serde_json::from_value;
+
+use api::two::models::{NodeConfiguration, NodeStatus, NodeSyncing, Response};
 
 pub struct Node {
     client: Client,
@@ -11,15 +13,21 @@ impl Node {
         Node { client }
     }
 
-    pub fn status(&self) -> Result<Value, failure::Error> {
-        self.client.get("node/status")
+    pub fn status(&self) -> Result<Response<NodeStatus>, failure::Error> {
+        self.client
+            .get("node/status")
+            .map(|v| from_value(v).unwrap())
     }
 
-    pub fn syncing(&self) -> Result<Value, failure::Error> {
-        self.client.get("node/syncing")
+    pub fn syncing(&self) -> Result<Response<NodeSyncing>, failure::Error> {
+        self.client
+            .get("node/syncing")
+            .map(|v| from_value(v).unwrap())
     }
 
-    pub fn configuration(&self) -> Result<Value, failure::Error> {
-        self.client.get("node/configuration")
+    pub fn configuration(&self) -> Result<Response<NodeConfiguration>, failure::Error> {
+        self.client
+            .get("node/configuration")
+            .map(|v| from_value(v).unwrap())
     }
 }

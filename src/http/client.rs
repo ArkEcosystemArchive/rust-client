@@ -1,9 +1,9 @@
+use api::Version;
 use failure;
-use std::borrow::Borrow;
 use reqwest::header::{ContentType, Headers};
 use reqwest::{RequestBuilder, Url};
 use serde_json::{from_str, to_string, Value};
-use api::Version;
+use std::borrow::Borrow;
 use utils;
 
 #[derive(Clone, Debug)]
@@ -91,7 +91,6 @@ impl Client {
 
     fn send(&self, builder: &mut RequestBuilder) -> Result<Value, failure::Error> {
         let response = builder.headers(self.headers.clone()).send()?.text()?;
-
         Ok(from_str(&response)?)
     }
 }
