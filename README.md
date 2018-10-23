@@ -1,4 +1,4 @@
-# ARK Rust - Client
+# Ark Rust - Client
 
 <p align="center">
     <img src="./banner.png" />
