@@ -1,0 +1,23 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/rust:latest
+    steps:
+      - checkout
+      - run: sudo apt-get install libssl-dev
+      - run:
+          name: Cargo build and test
+          command: |
+            cargo clean
+            cargo build
+            cargo test
+      - run:
+          name: Codecov
+          when: on_success
+          command: |
+            if [[ "$TRAVIS_RUST_VERSION" == stable ]]; then
+              RUSTFLAGS="--cfg procmacro2_semver_exempt" cargo install cargo-tarpaulin
+              cargo tarpaulin --out Xml
+              bash <(curl -s https://codecov.io/bash)
+            fi
