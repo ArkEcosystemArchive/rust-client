@@ -8,6 +8,7 @@ jobs:
       - run:
           name: Cargo build and test
           command: |
+            rustup update
             rustup install nightly
             rustup run nightly rustc --version --verbose
             rustup run nightly cargo --version --verbose
@@ -17,6 +18,18 @@ jobs:
           name: Codecov
           when: on_success
           command: bash <(curl -s https://codecov.io/bash)
+  build-beta:
+    docker:
+      - image: circleci/rust:latest
+    steps:
+      - checkout
+      - run:
+          name: Cargo build and test
+          command: |
+            rustup update
+            rustup install beta
+            rustup run beta cargo build
+            rustup run beta cargo test
   build-stable:
     docker:
       - image: circleci/rust:latest
@@ -34,4 +47,5 @@ workflows:
   build_and_test:
     jobs:
       - build-nightly
+      - build-beta
       - build-stable
