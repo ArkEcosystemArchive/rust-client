@@ -1,0 +1,51 @@
+version: 2
+jobs:
+  build-nightly:
+    docker:
+      - image: circleci/rust:latest
+    steps:
+      - checkout
+      - run:
+          name: Cargo build and test
+          command: |
+            rustup update
+            rustup install nightly
+            rustup run nightly rustc --version --verbose
+            rustup run nightly cargo --version --verbose
+            RUSTFLAGS="--cfg procmacro2_semver_exempt" rustup run nightly cargo install cargo-tarpaulin
+            rustup run nightly cargo tarpaulin --out Xml
+      - run:
+          name: Codecov
+          when: on_success
+          command: bash <(curl -s https://codecov.io/bash)
+  build-beta:
+    docker:
+      - image: circleci/rust:latest
+    steps:
+      - checkout
+      - run:
+          name: Cargo build and test
+          command: |
+            rustup update
+            rustup install beta
+            rustup run beta cargo build
+            rustup run beta cargo test
+  build-stable:
+    docker:
+      - image: circleci/rust:latest
+    steps:
+      - checkout
+      - run:
+          name: Cargo build and test
+          command: |
+            cargo clean
+            cargo build
+            cargo test
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build-nightly
+      - build-beta
+      - build-stable
