@@ -18,7 +18,7 @@ jobs:
           name: Codecov
           when: on_success
           command: |
-            RUSTFLAGS="--cfg procmacro2_semver_exempt" cargo install cargo-tarpaulin
+            RUSTFLAGS="--cfg procmacro2_semver_exempt" rustup run nightly cargo install cargo-tarpaulin
             rustup run nightly cargo tarpaulin --out Xml
             bash <(curl -s https://codecov.io/bash)
   build-stable:
