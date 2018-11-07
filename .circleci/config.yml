@@ -19,7 +19,7 @@ jobs:
           when: on_success
           command: |
             RUSTFLAGS="--cfg procmacro2_semver_exempt" cargo install cargo-tarpaulin
-            cargo tarpaulin --out Xml
+            rustup run nightly cargo tarpaulin --out Xml
             bash <(curl -s https://codecov.io/bash)
   build-stable:
     docker:
