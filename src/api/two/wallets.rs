@@ -38,14 +38,14 @@ impl Wallets {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn show(&self, id: String) -> Result<Response<Wallet>, failure::Error> {
+    pub fn show(&self, id: &str) -> Result<Response<Wallet>, failure::Error> {
         let endpoint = format!("wallets/{}", id);
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }
 
     pub fn transactions<I, K, V>(
         &self,
-        id: String,
+        id: &str,
         parameters: I,
     ) -> Result<Response<Vec<Transaction>>, failure::Error>
     where
@@ -62,7 +62,7 @@ impl Wallets {
 
     pub fn sent_transactions<I, K, V>(
         &self,
-        id: String,
+        id: &str,
         parameters: I,
     ) -> Result<Response<Vec<Transaction>>, failure::Error>
     where
@@ -79,7 +79,7 @@ impl Wallets {
 
     pub fn received_transactions<I, K, V>(
         &self,
-        id: String,
+        id: &str,
         parameters: I,
     ) -> Result<Response<Vec<Transaction>>, failure::Error>
     where
@@ -94,7 +94,7 @@ impl Wallets {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn votes(&self, id: String) -> Result<Response<Vec<Transaction>>, failure::Error> {
+    pub fn votes(&self, id: &str) -> Result<Response<Vec<Transaction>>, failure::Error> {
         let endpoint = format!("wallets/{}/votes", id);
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }

@@ -38,7 +38,7 @@ impl Transactions {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn show(&self, id: String) -> Result<Response<Transaction>, failure::Error> {
+    pub fn show(&self, id: &str) -> Result<Response<Transaction>, failure::Error> {
         let endpoint = format!("transactions/{}", id);
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }
@@ -60,7 +60,7 @@ impl Transactions {
 
     pub fn show_unconfirmed(
         &self,
-        id: String,
+        id: &str,
     ) -> Result<Response<Vec<Transaction>>, failure::Error> {
         let endpoint = format!("transactions/unconfirmed/{}", id);
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())

@@ -12,7 +12,7 @@ impl Peers {
         Peers { client }
     }
 
-    pub fn status(&self, ip_addr: String, port: String) -> Result<Value, failure::Error> {
+    pub fn status(&self, ip_addr: &str, port: &str) -> Result<Value, failure::Error> {
         let params = &[("ip".to_owned(), ip_addr), ("port".to_owned(), port)];
         self.client.get_with_params("peers/get", params)
     }

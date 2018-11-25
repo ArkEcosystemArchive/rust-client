@@ -22,8 +22,8 @@ impl Transactions {
         self.client.get_with_params("transactions", parameters)
     }
 
-    pub fn show(&self, id: String) -> Result<Value, failure::Error> {
-        let params = &[("id".to_owned(), id)];
+    pub fn show(&self, id: &str) -> Result<Value, failure::Error> {
+        let params = &[("id", id)];
         self.client.get_with_params("transactions/get", params)
     }
 
@@ -38,8 +38,8 @@ impl Transactions {
             .get_with_params("transactions/unconfirmed", parameters)
     }
 
-    pub fn show_unconfirmed(&self, id: String) -> Result<Value, failure::Error> {
-        let params = &[("id".to_owned(), id)];
+    pub fn show_unconfirmed(&self, id: &str) -> Result<Value, failure::Error> {
+        let params = &[("id", id)];
         self.client
             .get_with_params("transactions/unconfirmed/get", params)
     }

@@ -26,7 +26,7 @@ impl Blocks {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn show(&self, id: String) -> Result<Response<Block>, failure::Error> {
+    pub fn show(&self, id: &str) -> Result<Response<Block>, failure::Error> {
         let endpoint = format!("blocks/{}", id);
 
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
@@ -34,7 +34,7 @@ impl Blocks {
 
     pub fn transactions<I, K, V>(
         &self,
-        id: String,
+        id: &str,
         parameters: I,
     ) -> Result<Response<Vec<Transaction>>, failure::Error>
     where

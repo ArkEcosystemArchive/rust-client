@@ -22,7 +22,7 @@ fn test_show() {
     let (_mock, body) = mock_http_request_two("transactions/dummy");
     {
         let client = mock_client_two();
-        let response = client.transactions.show("dummy".to_owned()).unwrap();
+        let response = client.transactions.show("dummy").unwrap();
         let actual = to_string_pretty(&response).unwrap();
         assert_eq!(actual, body);
     }

@@ -37,7 +37,7 @@ impl Delegates {
         self.client.get("delegates/count")
     }
 
-    pub fn search<I, K, V>(&self, query: String, parameters: I) -> Result<Value, failure::Error>
+    pub fn search<I, K, V>(&self, query: &str, parameters: I) -> Result<Value, failure::Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -51,7 +51,7 @@ impl Delegates {
 
     pub fn voters<I, K, V>(
         &self,
-        public_key: String,
+        public_key: &'static str,
         parameters: I,
     ) -> Result<Value, failure::Error>
     where
@@ -69,7 +69,7 @@ impl Delegates {
         self.client.get("delegates/fee")
     }
 
-    pub fn forged_by_account(&self, generator_public_key: String) -> Result<Value, failure::Error> {
+    pub fn forged_by_account(&self, generator_public_key: &str) -> Result<Value, failure::Error> {
         self.client.get_with_params(
             "delegates/forging/getForgedByAccount",
             &[("generatorPublicKey", &generator_public_key)],
@@ -82,7 +82,7 @@ impl Delegates {
 
     pub fn forging_status<I, K, V>(
         &self,
-        public_key: String,
+        public_key: &str,
         parameters: I,
     ) -> Result<Value, failure::Error>
     where

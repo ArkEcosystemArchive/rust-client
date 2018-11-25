@@ -15,7 +15,7 @@ fn test_show() {
     let _mock = mock_http_request_one("blocks/get");
     {
         let client = mock_client_one();
-        let response = client.blocks.show("dummy".to_owned());
+        let response = client.blocks.show("dummy");
         mock_assert_success_one(&_mock, response);
     }
 }

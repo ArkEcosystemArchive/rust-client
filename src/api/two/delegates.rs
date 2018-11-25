@@ -26,14 +26,14 @@ impl Delegates {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn show(&self, id: String) -> Result<Response<Delegate>, failure::Error> {
+    pub fn show(&self, id: &str) -> Result<Response<Delegate>, failure::Error> {
         let endpoint = format!("delegates/{}", id);
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }
 
     pub fn blocks<I, K, V>(
         &self,
-        id: String,
+        id: &str,
         parameters: I,
     ) -> Result<Response<Vec<Block>>, failure::Error>
     where
@@ -50,7 +50,7 @@ impl Delegates {
 
     pub fn voters<I, K, V>(
         &self,
-        id: String,
+        id: &str,
         parameters: I,
     ) -> Result<Response<Vec<Wallet>>, failure::Error>
     where

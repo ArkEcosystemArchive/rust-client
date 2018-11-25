@@ -11,17 +11,17 @@ impl Accounts {
         Accounts { client }
     }
 
-    pub fn balance(&self, address: String) -> Result<Value, failure::Error> {
+    pub fn balance(&self, address: &str) -> Result<Value, failure::Error> {
         self.client
             .get_with_params("accounts/getBalance", &[("address", &address)])
     }
 
-    pub fn public_key(&self, address: String) -> Result<Value, failure::Error> {
+    pub fn public_key(&self, address: &str) -> Result<Value, failure::Error> {
         self.client
             .get_with_params("accounts/getPublicKey", &[("address", &address)])
     }
 
-    pub fn delegate(&self, address: String) -> Result<Value, failure::Error> {
+    pub fn delegate(&self, address: &str) -> Result<Value, failure::Error> {
         self.client
             .get_with_params("accounts/delegates", &[("address", &address)])
     }
@@ -30,7 +30,7 @@ impl Accounts {
         self.client.get("accounts/delegates/fee")
     }
 
-    pub fn account(&self, address: String) -> Result<Value, failure::Error> {
+    pub fn account(&self, address: &str) -> Result<Value, failure::Error> {
         self.client
             .get_with_params("accounts", &[("address", &address)])
     }

@@ -17,7 +17,7 @@ fn test_show() {
     let (_mock, body) = mock_http_request_two("wallets/dummy");
     {
         let client = mock_client_two();
-        let response = client.wallets.show("dummy".to_owned()).unwrap();
+        let response = client.wallets.show("dummy").unwrap();
         let actual = to_string_pretty(&response).unwrap();
         assert_eq!(actual, body);
     }
@@ -30,7 +30,7 @@ fn test_transactions() {
         let client = mock_client_two();
         let response = client
             .wallets
-            .transactions("dummy".to_owned(), Vec::<(String, String)>::new())
+            .transactions("dummy", Vec::<(String, String)>::new())
             .unwrap();
 
         let actual = to_string_pretty(&response).unwrap();
@@ -45,7 +45,7 @@ fn test_sent_transactions() {
         let client = mock_client_two();
         let response = client
             .wallets
-            .sent_transactions("dummy".to_owned(), Vec::<(String, String)>::new())
+            .sent_transactions("dummy", Vec::<(String, String)>::new())
             .unwrap();
 
         let actual = to_string_pretty(&response).unwrap();
@@ -60,7 +60,7 @@ fn test_received_transactions() {
         let client = mock_client_two();
         let response = client
             .wallets
-            .received_transactions("dummy".to_owned(), Vec::<(String, String)>::new())
+            .received_transactions("dummy", Vec::<(String, String)>::new())
             .unwrap();
 
         let actual = to_string_pretty(&response).unwrap();
@@ -73,7 +73,7 @@ fn test_votes() {
     let (_mock, body) = mock_http_request_two("wallets/dummy/votes");
     {
         let client = mock_client_two();
-        let response = client.wallets.votes("dummy".to_owned()).unwrap();
+        let response = client.wallets.votes("dummy").unwrap();
         let actual = to_string_pretty(&response).unwrap();
         assert_eq!(actual, body);
     }

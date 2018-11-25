@@ -26,7 +26,7 @@ impl Peers {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn show(&self, ip_addr: String) -> Result<Response<Peer>, failure::Error> {
+    pub fn show(&self, ip_addr: &str) -> Result<Response<Peer>, failure::Error> {
         let endpoint = format!("delegates/{}", ip_addr);
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }

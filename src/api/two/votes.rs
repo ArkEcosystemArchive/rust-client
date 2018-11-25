@@ -26,7 +26,7 @@ impl Votes {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn show(&self, id: String) -> Result<Response<Transaction>, failure::Error> {
+    pub fn show(&self, id: &str) -> Result<Response<Transaction>, failure::Error> {
         let endpoint = format!("votes/{}", id);
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }

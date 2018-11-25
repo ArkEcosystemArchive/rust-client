@@ -22,7 +22,7 @@ impl Blocks {
         self.client.get_with_params("blocks", parameters)
     }
 
-    pub fn show(&self, id: String) -> Result<Value, failure::Error> {
+    pub fn show(&self, id: &str) -> Result<Value, failure::Error> {
         self.client.get_with_params("blocks/get", &[("id", &id)])
     }
 
