@@ -14,7 +14,12 @@ impl Delegates {
         Delegates { client }
     }
 
-    pub fn all<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Delegate>>, failure::Error>
+    pub fn all(&self) -> Result<Response<Vec<Delegate>>, failure::Error>
+    {
+        self.all_params(Vec::<(String, String)>::new())
+    }
+
+    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Delegate>>, failure::Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -31,7 +36,12 @@ impl Delegates {
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }
 
-    pub fn blocks<I, K, V>(
+    pub fn blocks(&self, id: &str) -> Result<Response<Vec<Block>>, failure::Error>
+    {
+        self.blocks_params(id, Vec::<(String, String)>::new())
+    }
+
+    pub fn blocks_params<I, K, V>(
         &self,
         id: &str,
         parameters: I,
@@ -48,7 +58,12 @@ impl Delegates {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn voters<I, K, V>(
+    pub fn voters(&self, id: &str) -> Result<Response<Vec<Wallet>>, failure::Error>
+    {
+        self.voters_params(id, Vec::<(String, String)>::new())
+    }
+
+    pub fn voters_params<I, K, V>(
         &self,
         id: &str,
         parameters: I,

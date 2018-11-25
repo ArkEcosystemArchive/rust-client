@@ -8,7 +8,7 @@ fn test_all() {
         let client = mock_client_two();
         let response = client
             .transactions
-            .all(Vec::<(String, String)>::new())
+            .all()
             .unwrap();
         let mut actual = to_string_pretty(&response).unwrap();
         actual.push('\n');
