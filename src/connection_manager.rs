@@ -1,31 +1,29 @@
 use api::Api;
-use std::boxed::Box;
-use std::collections::hash_map::Values;
+use std::any::Any;
 use std::collections::HashMap;
+use std::collections::hash_map::Values;
 
-use connection::Connection;
-
-pub struct ConnectionManager {
-    connections: HashMap<String, Box<Connection<Api>>>,
+pub struct ConnectionManager<'a> {
+    connections: HashMap<String, &'a Any>,
     default_connection: String,
 }
 
-impl ConnectionManager {
-    pub fn new() -> ConnectionManager {
+impl<'a> ConnectionManager<'a> {
+    pub fn new() -> ConnectionManager<'a> {
         ConnectionManager {
-            connections: HashMap::<String, Box<Connection<Api>>>::new(),
+            connections: HashMap::<String, &'a Any>::new(),
             default_connection: String::from("main"),
         }
     }
 
-    pub fn connect<T: Api + 'static>(&mut self, connection: Connection<T>) -> Result<(), &str> {
+    pub fn connect<T: Api + 'static>(&mut self, connection: &'a T) -> Result<(), &str> {
         let default_connection = &self.get_default_connection();
         self.connect_as(connection, default_connection)
     }
 
     pub fn connect_as<T: Api + 'static>(
         &mut self,
-        connection: Connection<T>,
+        connection: &'a T,
         name: &str,
     ) -> Result<(), &str> {
         if self.connections.contains_key(name) {
@@ -33,7 +31,7 @@ impl ConnectionManager {
         }
 
         self.connections
-            .insert(name.to_owned(), Box::new(connection));
+            .insert(name.to_owned(), connection);
         Ok(())
     }
 
@@ -45,14 +43,21 @@ impl ConnectionManager {
         }
     }
 
-    // TODO: return T
-    pub fn connection_default(&self) -> Option<&Box<Connection<Api>>> {
-        self.connections.get(&self.get_default_connection())
+    pub fn connection<T: 'static +  Api>(&self) -> Option<&'a T> {
+        let connection_name = self.get_default_connection();
+        if let Some(conn) = self.connections.get(&connection_name) {
+            return conn.downcast_ref()
+        }
+
+        None
     }
 
-    // TODO: return T
-    pub fn connection(&self, name: &str) -> Option<&Box<Connection<Api>>> {
-        self.connections.get(name)
+    pub fn connection_by_name<T: Api + 'static>(&self, name: &str) -> Option<&'a T> {
+        if let Some(conn) = self.connections.get(name) {
+            return conn.downcast_ref()
+        }
+
+        None
     }
 
     pub fn get_default_connection(&self) -> String {
@@ -63,7 +68,7 @@ impl ConnectionManager {
         self.default_connection = name.to_owned();
     }
 
-    pub fn connections(&self) -> Values<String, Box<Connection<Api>>> {
+    pub fn connections(&self) -> Values<String, &'a Any> {
         self.connections.values()
     }
 }

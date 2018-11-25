@@ -10,6 +10,7 @@ pub struct Two {
     pub transactions: Transactions,
     pub votes: Votes,
     pub wallets: Wallets,
+    pub client: Client,
 }
 
 impl Api for Two {
@@ -19,9 +20,13 @@ impl Api for Two {
 }
 
 impl Two {
-    pub fn new(client: &mut Client) -> Two {
-        client.set_version(Two::version());
+    pub fn new(host: &str) -> Two {
+        Two::new_with_client(&Client::new(host))
+    }
 
+    pub fn new_with_client(client: &Client) -> Two {
+        let mut client = client.clone();
+        client.set_version(Two::version());
         Two {
             blocks: Blocks::new(client.clone()),
             delegates: Delegates::new(client.clone()),
@@ -30,6 +35,7 @@ impl Two {
             transactions: Transactions::new(client.clone()),
             votes: Votes::new(client.clone()),
             wallets: Wallets::new(client.clone()),
+            client
         }
     }
 }
