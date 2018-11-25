@@ -28,12 +28,7 @@ impl Client {
     pub fn set_version(&mut self, version: Version) {
         self.headers.insert(
             "API-Version",
-            HeaderValue::from_static(
-                match version {
-                    Version::One => "1",
-                    Version::Two => "2",
-                }
-            ),
+            HeaderValue::from_static(version.to_string())
         );
     }
 
