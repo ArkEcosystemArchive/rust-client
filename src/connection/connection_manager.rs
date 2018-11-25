@@ -2,6 +2,7 @@ use api::Api;
 use std::any::Any;
 use std::collections::HashMap;
 use std::collections::hash_map::Values;
+use super::connection::Connection;
 
 pub struct ConnectionManager<'a> {
     connections: HashMap<String, &'a Any>,
@@ -16,14 +17,14 @@ impl<'a> ConnectionManager<'a> {
         }
     }
 
-    pub fn connect<T: Api + 'static>(&mut self, connection: &'a T) -> Result<(), &str> {
+    pub fn connect<T: Any + Api + 'static>(&mut self, connection: &'a Connection<T>) -> Result<(), &str> {
         let default_connection = &self.get_default_connection();
         self.connect_as(connection, default_connection)
     }
 
-    pub fn connect_as<T: Api + 'static>(
+    pub fn connect_as<T: Any + Api + 'static> (
         &mut self,
-        connection: &'a T,
+        connection: &'a Connection<T>,
         name: &str,
     ) -> Result<(), &str> {
         if self.connections.contains_key(name) {
@@ -43,7 +44,7 @@ impl<'a> ConnectionManager<'a> {
         }
     }
 
-    pub fn connection<T: 'static +  Api>(&self) -> Option<&'a T> {
+    pub fn connection<T: Any + Api + 'static>(&self) -> Option<&'a Connection<T>> {
         let connection_name = self.get_default_connection();
         if let Some(conn) = self.connections.get(&connection_name) {
             return conn.downcast_ref()
@@ -52,7 +53,7 @@ impl<'a> ConnectionManager<'a> {
         None
     }
 
-    pub fn connection_by_name<T: Api + 'static>(&self, name: &str) -> Option<&'a T> {
+    pub fn connection_by_name<T: Any + Api + 'static>(&self, name: &str) -> Option<&'a Connection<T>> {
         if let Some(conn) = self.connections.get(name) {
             return conn.downcast_ref()
         }

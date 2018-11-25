@@ -1,7 +1,7 @@
 extern crate arkecosystem_client;
 
 use arkecosystem_client::api::{One, Two};
-use arkecosystem_client::connection_manager::ConnectionManager;
+use arkecosystem_client::connection::{Connection, ConnectionManager};
 
 #[test]
 fn test_create_connection() {
