@@ -1,11 +1,11 @@
 extern crate arkecosystem_client;
 
 use arkecosystem_client::api::{One, Two};
-use arkecosystem_client::connection::{Connection, ConnectionManager};
+use arkecosystem_client::{Connection, ConnectionManager};
 
 #[test]
 fn test_create_connection() {
-    let conn = Two::new("test");
+    let conn = Connection::<Two>::new("test");
     let mut manager = ConnectionManager::new();
 
     assert!(manager.connect(&conn).is_ok());
@@ -14,8 +14,8 @@ fn test_create_connection() {
 
 #[test]
 fn test_create_existing_connection() {
-    let conn1 = Two::new("test1");
-    let conn2 = Two::new("test2");
+    let conn1 = Connection::<Two>::new("test1");
+    let conn2 = Connection::<Two>::new("test2");
 
     let mut manager = ConnectionManager::new();
     assert!(manager.connect(&conn1).is_ok());
@@ -24,7 +24,7 @@ fn test_create_existing_connection() {
 
 #[test]
 fn test_remove_connection() {
-    let conn = Two::new("test1");
+    let conn = Connection::<Two>::new("test1");
     let mut manager = ConnectionManager::new();
 
     assert!(manager.connect(&conn).is_ok());
@@ -34,7 +34,7 @@ fn test_remove_connection() {
 
 #[test]
 fn test_get_connection() {
-    let conn = Two::new("test1");
+    let conn = Connection::<Two>::new("test1");
     let mut manager = ConnectionManager::new();
 
     assert!(manager.connect(&conn).is_ok());
@@ -67,9 +67,9 @@ fn test_set_default_connection() {
 
 #[test]
 fn test_get_all_connections() {
-    let conn1 = Two::new("test1");
-    let conn2 = One::new("test2");
-    let conn3 = Two::new("test3");
+    let conn1 = Connection::<Two>::new("test1");
+    let conn2 = Connection::<One>::new("test2");
+    let conn3 = Connection::<Two>::new("test3");
     let mut manager = ConnectionManager::new();
 
     assert!(manager.connect_as(&conn1, "test1").is_ok());

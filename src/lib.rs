@@ -12,5 +12,4 @@ pub mod api;
 pub mod connection;
 pub mod http;
 
-pub use api::*;
 pub use connection::*;

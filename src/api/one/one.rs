@@ -10,7 +10,6 @@ pub struct One {
     pub peers: Peers,
     pub signatures: Signatures,
     pub transactions: Transactions,
-    pub client: Client
 }
 
 impl Api for One {
@@ -20,11 +19,7 @@ impl Api for One {
 }
 
 impl One {
-    pub fn new(host: &str) -> One {
-        One::new_with_client(&Client::new(host))
-    }
-
-    pub fn new_with_client(client: &Client) -> One {
+    pub fn new(client: &Client) -> One {
         let mut client = client.clone();
         client.set_version(One::version());
         One {
@@ -35,7 +30,6 @@ impl One {
             peers: Peers::new(client.clone()),
             signatures: Signatures::new(client.clone()),
             transactions: Transactions::new(client.clone()),
-            client
         }
     }
 }

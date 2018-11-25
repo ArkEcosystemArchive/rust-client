@@ -13,7 +13,7 @@ where
 impl Connection<One> {
     pub fn new(host: &str) -> Connection<One> {
         let mut client = Client::new(host);
-        let one = One::new_with_client(&mut client);
+        let one = One::new(&mut client);
         Connection { client, api: one }
     }
 }
