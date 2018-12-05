@@ -1,6 +1,6 @@
 use api::Version;
 use failure;
-use reqwest::header::{ContentType, Headers};
+use reqwest::header::{HeaderMap, CONTENT_TYPE};
 use reqwest::{RequestBuilder, Url};
 use serde_json::{from_str, to_string, Value};
 use std::borrow::Borrow;
@@ -10,13 +10,13 @@ use utils;
 pub struct Client {
     pub host: String,
     client: ::reqwest::Client,
-    headers: Headers,
+    headers: HeaderMap,
 }
 
 impl Client {
     pub fn new(host: &str) -> Client {
-        let mut headers = Headers::new();
-        headers.set(ContentType::json());
+        let mut headers = HeaderMap::new();
+        headers.insert(CONTENT_TYPE, "application/json".parse().unwrap());
 
         Client {
             host: host.to_owned(),
@@ -26,12 +26,12 @@ impl Client {
     }
 
     pub fn set_version(&mut self, version: Version) {
-        self.headers.set_raw(
+        self.headers.insert(
             "API-Version",
             match version {
                 Version::One => "1",
                 Version::Two => "2",
-            },
+            }.parse().unwrap(),
         );
     }
 
@@ -67,8 +67,8 @@ impl Client {
     }
 
     fn internal_get(&self, url: &Url) -> Result<Value, failure::Error> {
-        let mut builder = self.client.get(url.as_str());
-        self.send(&mut builder)
+        let builder = self.client.get(url.as_str());
+        self.send(builder)
     }
 
     fn internal_post<I, K, V>(&self, url: &Url, payload: Option<I>) -> Result<Value, failure::Error>
@@ -78,7 +78,7 @@ impl Client {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        let mut builder = self.client.post(url.as_str());
+        let builder = self.client.post(url.as_str());
 
         let mut body = String::new();
         if payload.is_some() {
@@ -89,7 +89,7 @@ impl Client {
         self.send(builder.body(body))
     }
 
-    fn send(&self, builder: &mut RequestBuilder) -> Result<Value, failure::Error> {
+    fn send(&self, builder: RequestBuilder) -> Result<Value, failure::Error> {
         let response = builder.headers(self.headers.clone()).send()?.text()?;
         Ok(from_str(&response)?)
     }
