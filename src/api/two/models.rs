@@ -138,7 +138,7 @@ pub struct NodeStatus {
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct NodeSyncing {
     pub syncing: bool,
-    pub blocks: u64,
+    pub blocks: i64,
     pub height: u64,
     pub id: String,
 }
