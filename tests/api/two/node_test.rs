@@ -32,7 +32,7 @@ fn test_configuration() {
         let actual = response.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        // oder of ports is not the same, just compare it manually
+        // Order of ports is not the same, just compare it manually
         assert_eq!(
             actual.data.nethash,
             expected["data"]["nethash"].as_str().unwrap()

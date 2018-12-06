@@ -132,7 +132,7 @@ pub struct NodeConfiguration {
 pub struct NodeStatus {
     pub synced: bool,
     pub now: u64,
-    pub blocks_count: u64,
+    pub blocks_count: i64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
