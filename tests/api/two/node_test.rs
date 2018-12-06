@@ -1,14 +1,27 @@
 use *;
-use serde_json::{from_str, to_string_pretty, Value};
+use serde_json::{from_str, Value};
 
 #[test]
 fn test_status() {
     let (_mock, body) = mock_http_request_two("node/status");
     {
         let client = mock_client_two();
-        let response = client.node.status().unwrap();
-        let actual = to_string_pretty(&response).unwrap();
-        assert_eq!(actual, body);
+        let response = client.node.status();
+        let actual = response.unwrap();
+        let expected: Value = from_str(&body).unwrap();
+
+        assert_eq!(
+            actual.data.synced,
+            expected["data"]["synced"].as_bool().unwrap()
+        );
+        assert_eq!(
+            actual.data.now,
+            expected["data"]["now"].as_u64().unwrap()
+        );
+        assert_eq!(
+            actual.data.blocks_count,
+            expected["data"]["blocksCount"].as_i64().unwrap()
+        );
     }
 }
 
@@ -17,9 +30,26 @@ fn test_syncing() {
     let (_mock, body) = mock_http_request_two("node/syncing");
     {
         let client = mock_client_two();
-        let response = client.node.syncing().unwrap();
-        let actual = to_string_pretty(&response).unwrap();
-        assert_eq!(actual, body);
+        let response = client.node.syncing();
+        let actual = response.unwrap();
+        let expected: Value = from_str(&body).unwrap();
+
+        assert_eq!(
+            actual.data.syncing,
+            expected["data"]["syncing"].as_bool().unwrap()
+        );
+        assert_eq!(
+            actual.data.blocks,
+            expected["data"]["blocks"].as_i64().unwrap()
+        );
+        assert_eq!(
+            actual.data.height,
+            expected["data"]["height"].as_u64().unwrap()
+        );
+        assert_eq!(
+            actual.data.id,
+            expected["data"]["id"].as_str().unwrap()
+        );
     }
 }
 
@@ -32,7 +62,6 @@ fn test_configuration() {
         let actual = response.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        // Order of ports is not the same, just compare it manually
         assert_eq!(
             actual.data.nethash,
             expected["data"]["nethash"].as_str().unwrap()
@@ -53,9 +82,11 @@ fn test_configuration() {
             actual.data.version,
             expected["data"]["version"].as_u64().unwrap() as u32
         );
+
         assert!(actual.data.ports.contains_key("@arkecosystem/core-p2p"));
         assert!(actual.data.ports.contains_key("@arkecosystem/core-api"));
         assert!(actual.data.ports.contains_key("@arkecosystem/core-graphql"));
+
         assert_eq!(
             actual.data.constants.height,
             expected["data"]["constants"]["height"].as_u64().unwrap()
@@ -102,111 +133,126 @@ fn test_configuration() {
                 .as_bool()
                 .unwrap()
         );
+
+        let dynamic_fees = actual.data.constants.fees.dynamic_fees.unwrap();
         assert_eq!(
-            actual.data.constants.fees.transfer,
-            expected["data"]["constants"]["fees"]["transfer"]
+            dynamic_fees.min_fee_pool,
+            expected["data"]["constants"]["fees"]["dynamicFees"]["minFeePool"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.fees.second_signature,
-            expected["data"]["constants"]["fees"]["secondSignature"]
+            dynamic_fees.min_fee_broadcast,
+            expected["data"]["constants"]["fees"]["dynamicFees"]["minFeeBroadcast"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.fees.delegate_registration,
-            expected["data"]["constants"]["fees"]["delegateRegistration"]
+            dynamic_fees.addon_bytes.transfer,
+            expected["data"]["constants"]["fees"]["dynamicFees"]["addonBytes"]["transfer"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.fees.vote,
-            expected["data"]["constants"]["fees"]["vote"]
+            dynamic_fees.addon_bytes.second_signature,
+            expected["data"]["constants"]["fees"]["dynamicFees"]["addonBytes"]["secondSignature"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.fees.multi_signature,
-            expected["data"]["constants"]["fees"]["multiSignature"]
+            dynamic_fees.addon_bytes.delegate_registration,
+            expected["data"]["constants"]["fees"]["dynamicFees"]["addonBytes"]["delegateRegistration"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.fees.ipfs,
-            expected["data"]["constants"]["fees"]["ipfs"]
+            dynamic_fees.addon_bytes.vote,
+            expected["data"]["constants"]["fees"]["dynamicFees"]["addonBytes"]["vote"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.fees.timelock_transfer,
-            expected["data"]["constants"]["fees"]["timelockTransfer"]
+            dynamic_fees.addon_bytes.multi_signature,
+            expected["data"]["constants"]["fees"]["dynamicFees"]["addonBytes"]["multiSignature"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.fees.multi_payment,
-            expected["data"]["constants"]["fees"]["multiPayment"]
+            dynamic_fees.addon_bytes.ipfs,
+            expected["data"]["constants"]["fees"]["dynamicFees"]["addonBytes"]["ipfs"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.fees.delegate_resignation,
-            expected["data"]["constants"]["fees"]["delegateResignation"]
+            dynamic_fees.addon_bytes.timelock_transfer,
+            expected["data"]["constants"]["fees"]["dynamicFees"]["addonBytes"]["timelockTransfer"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.dynamic_offsets.transfer,
-            expected["data"]["constants"]["dynamicOffsets"]["transfer"]
+            dynamic_fees.addon_bytes.multi_payment,
+            expected["data"]["constants"]["fees"]["dynamicFees"]["addonBytes"]["multiPayment"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.dynamic_offsets.second_signature,
-            expected["data"]["constants"]["dynamicOffsets"]["secondSignature"]
+            dynamic_fees.addon_bytes.delegate_resignation,
+            expected["data"]["constants"]["fees"]["dynamicFees"]["addonBytes"]["delegateResignation"]
+                .as_u64()
+                .unwrap()
+        );
+
+        assert_eq!(
+            actual.data.constants.fees.static_fees.transfer,
+            expected["data"]["constants"]["fees"]["staticFees"]["transfer"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.dynamic_offsets.delegate_registration,
-            expected["data"]["constants"]["dynamicOffsets"]["delegateRegistration"]
+            actual.data.constants.fees.static_fees.second_signature,
+            expected["data"]["constants"]["fees"]["staticFees"]["secondSignature"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.dynamic_offsets.vote,
-            expected["data"]["constants"]["dynamicOffsets"]["vote"]
+            actual.data.constants.fees.static_fees.delegate_registration,
+            expected["data"]["constants"]["fees"]["staticFees"]["delegateRegistration"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.dynamic_offsets.multi_signature,
-            expected["data"]["constants"]["dynamicOffsets"]["multiSignature"]
+            actual.data.constants.fees.static_fees.vote,
+            expected["data"]["constants"]["fees"]["staticFees"]["vote"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.dynamic_offsets.ipfs,
-            expected["data"]["constants"]["dynamicOffsets"]["ipfs"]
+            actual.data.constants.fees.static_fees.multi_signature,
+            expected["data"]["constants"]["fees"]["staticFees"]["multiSignature"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.dynamic_offsets.timelock_transfer,
-            expected["data"]["constants"]["dynamicOffsets"]["timelockTransfer"]
+            actual.data.constants.fees.static_fees.ipfs,
+            expected["data"]["constants"]["fees"]["staticFees"]["ipfs"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.dynamic_offsets.multi_payment,
-            expected["data"]["constants"]["dynamicOffsets"]["multiPayment"]
+            actual.data.constants.fees.static_fees.timelock_transfer,
+            expected["data"]["constants"]["fees"]["staticFees"]["timelockTransfer"]
                 .as_u64()
                 .unwrap()
         );
         assert_eq!(
-            actual.data.constants.dynamic_offsets.delegate_resignation,
-            expected["data"]["constants"]["dynamicOffsets"]["delegateResignation"]
+            actual.data.constants.fees.static_fees.multi_payment,
+            expected["data"]["constants"]["fees"]["staticFees"]["multiPayment"]
+                .as_u64()
+                .unwrap()
+        );
+        assert_eq!(
+            actual.data.constants.fees.static_fees.delegate_resignation,
+            expected["data"]["constants"]["fees"]["staticFees"]["delegateResignation"]
                 .as_u64()
                 .unwrap()
         );
@@ -231,6 +277,102 @@ fn test_configuration() {
         assert_eq!(
             actual.data.fee_statistics[0].fees.avg_fee,
             expected["data"]["feeStatistics"][0]["fees"]["avgFee"]
+                .as_u64()
+                .unwrap()
+        );
+        assert_eq!(
+            actual.data.fee_statistics[1].transaction_type as u8,
+            expected["data"]["feeStatistics"][1]["type"]
+                .as_u64()
+                .unwrap() as u8
+        );
+        assert_eq!(
+            actual.data.fee_statistics[1].fees.min_fee,
+            expected["data"]["feeStatistics"][1]["fees"]["minFee"]
+                .as_u64()
+                .unwrap()
+        );
+        assert_eq!(
+            actual.data.fee_statistics[1].fees.max_fee,
+            expected["data"]["feeStatistics"][1]["fees"]["maxFee"]
+                .as_u64()
+                .unwrap()
+        );
+        assert_eq!(
+            actual.data.fee_statistics[1].fees.avg_fee,
+            expected["data"]["feeStatistics"][1]["fees"]["avgFee"]
+                .as_u64()
+                .unwrap()
+        );
+        assert_eq!(
+            actual.data.fee_statistics[2].transaction_type as u8,
+            expected["data"]["feeStatistics"][2]["type"]
+                .as_u64()
+                .unwrap() as u8
+        );
+        assert_eq!(
+            actual.data.fee_statistics[2].fees.min_fee,
+            expected["data"]["feeStatistics"][2]["fees"]["minFee"]
+                .as_u64()
+                .unwrap()
+        );
+        assert_eq!(
+            actual.data.fee_statistics[2].fees.max_fee,
+            expected["data"]["feeStatistics"][2]["fees"]["maxFee"]
+                .as_u64()
+                .unwrap()
+        );
+        assert_eq!(
+            actual.data.fee_statistics[2].fees.avg_fee,
+            expected["data"]["feeStatistics"][2]["fees"]["avgFee"]
+                .as_u64()
+                .unwrap()
+        );
+        assert_eq!(
+            actual.data.fee_statistics[3].transaction_type as u8,
+            expected["data"]["feeStatistics"][3]["type"]
+                .as_u64()
+                .unwrap() as u8
+        );
+        assert_eq!(
+            actual.data.fee_statistics[3].fees.min_fee,
+            expected["data"]["feeStatistics"][3]["fees"]["minFee"]
+                .as_u64()
+                .unwrap()
+        );
+        assert_eq!(
+            actual.data.fee_statistics[3].fees.max_fee,
+            expected["data"]["feeStatistics"][3]["fees"]["maxFee"]
+                .as_u64()
+                .unwrap()
+        );
+        assert_eq!(
+            actual.data.fee_statistics[3].fees.avg_fee,
+            expected["data"]["feeStatistics"][3]["fees"]["avgFee"]
+                .as_u64()
+                .unwrap()
+        );
+        assert_eq!(
+            actual.data.fee_statistics[4].transaction_type as u8,
+            expected["data"]["feeStatistics"][4]["type"]
+                .as_u64()
+                .unwrap() as u8
+        );
+        assert_eq!(
+            actual.data.fee_statistics[4].fees.min_fee,
+            expected["data"]["feeStatistics"][4]["fees"]["minFee"]
+                .as_u64()
+                .unwrap()
+        );
+        assert_eq!(
+            actual.data.fee_statistics[4].fees.max_fee,
+            expected["data"]["feeStatistics"][4]["fees"]["maxFee"]
+                .as_u64()
+                .unwrap()
+        );
+        assert_eq!(
+            actual.data.fee_statistics[4].fees.avg_fee,
+            expected["data"]["feeStatistics"][4]["fees"]["avgFee"]
                 .as_u64()
                 .unwrap()
         );
