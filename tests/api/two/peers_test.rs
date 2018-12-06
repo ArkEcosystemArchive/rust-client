@@ -6,7 +6,7 @@ fn test_all() {
     let (_mock, body) = mock_http_request_two("peers");
     {
         let client = mock_client_two();
-        let response = client.peers.all(Vec::<(String, String)>::new()).unwrap();
+        let response = client.peers.all().unwrap();
         let actual = to_string_pretty(&response).unwrap();
         assert_eq!(actual, body);
     }

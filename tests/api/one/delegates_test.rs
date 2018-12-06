@@ -35,7 +35,7 @@ fn test_search() {
     let _mock = mock_http_request_one("delegates/search");
     {
         let client = mock_client_one();
-        let response = client.delegates.search("dummy".to_owned(), vec![("", "")]);
+        let response = client.delegates.search("dummy", vec![("", "")]);
         mock_assert_success_one(&_mock, response);
     }
 }
@@ -45,7 +45,7 @@ fn test_voters() {
     let _mock = mock_http_request_one("delegates/voters");
     {
         let client = mock_client_one();
-        let response = client.delegates.voters("dummy".to_owned(), vec![("", "")]);
+        let response = client.delegates.voters("dummy", vec![("", "")]);
         mock_assert_success_one(&_mock, response);
     }
 }
@@ -65,7 +65,7 @@ fn test_forged_by_account() {
     let _mock = mock_http_request_one("delegates/forging/getForgedByAccount");
     {
         let client = mock_client_one();
-        let response = client.delegates.forged_by_account("dummy".to_owned());
+        let response = client.delegates.forged_by_account("dummy");
         mock_assert_success_one(&_mock, response);
     }
 }
@@ -87,7 +87,7 @@ fn test_forging_status() {
         let client = mock_client_one();
         let response = client
             .delegates
-            .forging_status("dummy".to_owned(), vec![("", "")]);
+            .forging_status("dummy", vec![("", "")]);
         mock_assert_success_one(&_mock, response);
     }
 }

@@ -1,6 +1,4 @@
-use api::one::One;
-use api::two::Two;
-use api::Api;
+use api::{Api, One, Two};
 use http::client::Client;
 use std::ops::Deref;
 
@@ -23,7 +21,7 @@ impl Connection<One> {
 impl Connection<Two> {
     pub fn new(host: &str) -> Connection<Two> {
         let mut client = Client::new(host);
-        let two = Two::new(&mut client);
+        let two = Two::new_with_client(&mut client);
         Connection { client, api: two }
     }
 }

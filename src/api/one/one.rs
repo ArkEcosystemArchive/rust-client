@@ -19,9 +19,9 @@ impl Api for One {
 }
 
 impl One {
-    pub fn new(client: &mut Client) -> One {
+    pub fn new(client: &Client) -> One {
+        let mut client = client.clone();
         client.set_version(One::version());
-
         One {
             accounts: Accounts::new(client.clone()),
             blocks: Blocks::new(client.clone()),

@@ -14,7 +14,12 @@ impl Blocks {
         Blocks { client }
     }
 
-    pub fn all<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Block>>, failure::Error>
+    pub fn all(&self) -> Result<Response<Vec<Block>>, failure::Error>
+    {
+        self.all_params(Vec::<(String, String)>::new())
+    }
+
+    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Block>>, failure::Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -26,15 +31,23 @@ impl Blocks {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn show(&self, id: String) -> Result<Response<Block>, failure::Error> {
+    pub fn show(&self, id: &str) -> Result<Response<Block>, failure::Error> {
         let endpoint = format!("blocks/{}", id);
 
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }
 
-    pub fn transactions<I, K, V>(
+    pub fn transactions(
         &self,
-        id: String,
+        id: &str,
+    ) -> Result<Response<Vec<Transaction>>, failure::Error>
+    {
+        self.transactions_params(id, Vec::<(String, String)>::new())
+    }
+
+    pub fn transactions_params<I, K, V>(
+        &self,
+        id: &str,
         parameters: I,
     ) -> Result<Response<Vec<Transaction>>, failure::Error>
     where

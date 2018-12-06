@@ -6,7 +6,7 @@ fn test_all_blocks() {
     let (_mock, body) = mock_http_request_two("blocks");
     {
         let client = mock_client_two();
-        let response = client.blocks.all(Vec::<(String, String)>::new()).unwrap();
+        let response = client.blocks.all().unwrap();
         let actual = to_string_pretty(&response).unwrap();
         assert_eq!(actual, body);
     }
@@ -17,7 +17,7 @@ fn test_show() {
     let (_mock, body) = mock_http_request_two("blocks/dummy");
     {
         let client = mock_client_two();
-        let response = client.blocks.show("dummy".to_owned()).unwrap();
+        let response = client.blocks.show("dummy").unwrap();
         let actual = to_string_pretty(&response).unwrap();
         assert_eq!(actual, body);
     }
@@ -30,7 +30,7 @@ fn test_transactions() {
         let client = mock_client_two();
         let response = client
             .blocks
-            .transactions("dummy".to_owned(), Vec::<(String, String)>::new())
+            .transactions("dummy")
             .unwrap();
 
         let actual = to_string_pretty(&response).unwrap();

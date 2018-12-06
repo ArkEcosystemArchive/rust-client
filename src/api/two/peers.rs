@@ -14,7 +14,12 @@ impl Peers {
         Peers { client }
     }
 
-    pub fn all<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Peer>>, failure::Error>
+    pub fn all(&self) -> Result<Response<Vec<Peer>>, failure::Error>
+    {
+        self.all_params(Vec::<(String, String)>::new())
+    }
+
+    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Peer>>, failure::Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -26,7 +31,7 @@ impl Peers {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn show(&self, ip_addr: String) -> Result<Response<Peer>, failure::Error> {
+    pub fn show(&self, ip_addr: &str) -> Result<Response<Peer>, failure::Error> {
         let endpoint = format!("delegates/{}", ip_addr);
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }

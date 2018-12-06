@@ -13,9 +13,8 @@ use serde_json::Value;
 use std::fs::File;
 use std::io::prelude::*;
 
-use arkecosystem_client::api::one::One;
-use arkecosystem_client::api::two::Two;
-use arkecosystem_client::connection::Connection;
+use arkecosystem_client::Connection;
+use arkecosystem_client::api::{One, Two};
 
 const MOCK_HOST: &'static str = "http://127.0.0.1:1234/api/";
 

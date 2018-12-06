@@ -10,9 +10,6 @@ mod macros;
 
 pub mod api;
 pub mod connection;
-pub mod connection_manager;
 pub mod http;
 
-pub use api::*;
 pub use connection::*;
-pub use connection_manager::*;
