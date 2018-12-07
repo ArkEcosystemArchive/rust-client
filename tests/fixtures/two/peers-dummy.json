@@ -1,0 +1,12 @@
+{
+  "data": {
+    "ip": "dummy",
+    "port": 4002,
+    "version": "2.0.13",
+    "height": 949465,
+    "status": 200,
+    "os": "linux",
+    "latency": 5,
+    "hashid": "2967118a"
+  }
+}

@@ -1,6 +1,8 @@
 use *;
 use serde_json::{from_str, Value};
 
+use arkecosystem_client::api::two::models::Peer;
+
 #[test]
 fn test_all() {
     let (_mock, body) = mock_http_request_two("peers");
@@ -43,49 +45,55 @@ fn test_all() {
             expected["meta"]["last"].as_str().unwrap()
         );
 
-        assert_eq!(
-            actual.data[0].ip,
-            expected["data"][0]["ip"].as_str().unwrap()
-        );
-        assert_eq!(
-            actual.data[0].port,
-            expected["data"][0]["port"].as_u64().unwrap() as u16
-        );
-        assert_eq!(
-            actual.data[0].version,
-            expected["data"][0]["version"].as_str().unwrap()
-        );
-        assert_eq!(
-            actual.data[0].height,
-            expected["data"][0]["height"].as_u64().unwrap()
-        );
-        assert_eq!(
-            actual.data[0].status,
-            expected["data"][0]["status"].as_u64().unwrap() as u16
-        );
-        assert_eq!(
-            actual.data[0].os,
-            expected["data"][0]["os"].as_str().unwrap()
-        );
-        assert_eq!(
-            actual.data[0].latency,
-            expected["data"][0]["latency"].as_u64().unwrap() as u32
-        );
-        assert_eq!(
-            actual.data[0].hashid,
-            expected["data"][0]["hashid"].as_str().unwrap()
-        );
+        let actual_data = actual.data[0].clone();
+        let expected_data = expected["data"][0].clone();
+        assert_peer_data(actual_data, expected_data);
     }
 }
 
 #[test]
 fn test_show() {
-    // TODO: missing fixture
-    // let _mock = mock_http_request_two("peers/dummy");
-    // {
-    //     let client = mock_client_two();
-    //     let response = client.blocks.show("dummy".to_owned());
-    //
-    //     //mock_assert_success_two(&_mock, "peers/dummy", response);
-    // }
+    let (_mock, body) = mock_http_request_two("peers/dummy");
+    {
+        let client = mock_client_two();
+        let actual = client.peers.show("dummy").unwrap();
+        let expected: Value = from_str(&body).unwrap();
+
+        assert_peer_data(actual.data, expected["data"].clone());
+    }
+}
+
+fn assert_peer_data(actual: Peer, expected: Value) {
+    assert_eq!(
+        actual.ip,
+        expected["ip"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.port,
+        expected["port"].as_u64().unwrap() as u16
+    );
+    assert_eq!(
+        actual.version,
+        expected["version"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.height,
+        expected["height"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.status,
+        expected["status"].as_u64().unwrap() as u16
+    );
+    assert_eq!(
+        actual.os,
+        expected["os"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.latency,
+        expected["latency"].as_u64().unwrap() as u32
+    );
+    assert_eq!(
+        actual.hashid,
+        expected["hashid"].as_str().unwrap()
+    );
 }
