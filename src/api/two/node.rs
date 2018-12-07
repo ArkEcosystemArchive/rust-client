@@ -1,7 +1,7 @@
 use failure;
-use http::client::Client;
 use serde_json::from_value;
 
+use http::client::Client;
 use api::two::models::{NodeConfiguration, NodeStatus, NodeSyncing, Response};
 
 pub struct Node {
