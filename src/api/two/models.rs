@@ -100,21 +100,6 @@ pub struct Last {
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub struct Fees {
-    pub dynamic: bool,
-    pub transfer: u64,
-    pub second_signature: u64,
-    pub delegate_registration: u64,
-    pub vote: u64,
-    pub multi_signature: u64,
-    pub ipfs: u64,
-    pub timelock_transfer: u64,
-    pub multi_payment: u64,
-    pub delegate_resignation: u64,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
 pub struct NodeConfiguration {
     #[serde(rename = "nethash")]
     pub nethash: String,
@@ -132,13 +117,13 @@ pub struct NodeConfiguration {
 pub struct NodeStatus {
     pub synced: bool,
     pub now: u64,
-    pub blocks_count: u64,
+    pub blocks_count: i64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct NodeSyncing {
     pub syncing: bool,
-    pub blocks: u64,
+    pub blocks: i64,
     pub height: u64,
     pub id: String,
 }
@@ -153,7 +138,6 @@ pub struct NodeConstants {
     pub block: NodeBlock,
     pub epoch: String,
     pub fees: Fees,
-    pub dynamic_offsets: DynamicOffsets,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -166,7 +150,24 @@ pub struct NodeBlock {
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub struct DynamicOffsets {
+pub struct Fees {
+    pub dynamic: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub dynamic_fees: Option<DynamicFees>,
+    pub static_fees: FeeSchema,
+}
+
+#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct DynamicFees {
+    pub min_fee_pool: u64,
+    pub min_fee_broadcast: u64,
+    pub addon_bytes: FeeSchema,
+}
+
+#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct FeeSchema {
     pub transfer: u64,
     pub second_signature: u64,
     pub delegate_registration: u64,
