@@ -1,0 +1,23 @@
+{
+  "data": {
+    "id": "09388f927614a02ff256b005c59b2861719266e49c59bae1dceef553572a1bb7",
+    "blockId": "382064156751342813",
+    "type": 3,
+    "amount": 0,
+    "fee": 100000000,
+    "sender": "DN7Lkk6Hk5qR2ZwwG9Ttr7KQRcGFr2BUQP",
+    "recipient": "DN7Lkk6Hk5qR2ZwwG9Ttr7KQRcGFr2BUQP",
+    "signature": "3045022100b030698301bc86ff86a3b2223efa4093f54a107d0cfb8ac376f94d39ae62c32d02206e179dcf492f0a09766f280bbbfbb8b2ab2a1ac418b9bde26e05b5976e4a63e4",
+    "asset": {
+      "votes": [
+        "+027894c17a95ef401eb448895ba60051bb34f752bb49aef1e69831b5a5f0c6d44b"
+      ]
+    },
+    "confirmations": 38366,
+    "timestamp": {
+      "epoch": 53748437,
+      "unix": 1543849637,
+      "human": "2018-12-03T15:07:17.000Z"
+    }
+  }
+}

@@ -33,6 +33,8 @@ impl Votes {
 
     pub fn show(&self, id: &str) -> Result<Response<Transaction>, failure::Error> {
         let endpoint = format!("votes/{}", id);
-        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
+        self.client
+            .get(&endpoint)
+            .map(|v| from_value(v).unwrap())
     }
 }
