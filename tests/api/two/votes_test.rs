@@ -75,7 +75,7 @@ fn assert_meta(actual: Meta, expected: Value) {
         expected["previous"].as_str().unwrap()
     );
     assert_eq!(
-        actual._self_,
+        actual.self_url,
         expected["self"].as_str().unwrap()
     );
     assert_eq!(
