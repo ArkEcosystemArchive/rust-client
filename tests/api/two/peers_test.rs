@@ -1,7 +1,7 @@
 use *;
 use serde_json::{from_str, Value};
 
-use arkecosystem_client::api::two::models::Peer;
+use arkecosystem_client::api::two::models::{Meta, Peer};
 
 #[test]
 fn test_all() {
@@ -11,39 +11,29 @@ fn test_all() {
         let actual = client.peers.all().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let meta = actual.meta.unwrap();
-        assert_eq!(
-            meta.count,
-            expected["meta"]["count"].as_u64().unwrap() as u32
-        );
-        assert_eq!(
-            meta.page_count,
-            expected["meta"]["pageCount"].as_u64().unwrap() as u32
-        );
-        assert_eq!(
-            meta.total_count,
-            expected["meta"]["totalCount"].as_u64().unwrap() as u32
-        );
-        assert_eq!(
-            meta.next.unwrap(),
-            expected["meta"]["next"].as_str().unwrap()
-        );
-        assert_eq!(
-            meta.previous.unwrap(),
-            expected["meta"]["previous"].as_str().unwrap()
-        );
-        assert_eq!(
-            meta.self_url,
-            expected["meta"]["self"].as_str().unwrap()
-        );
-        assert_eq!(
-            meta.first,
-            expected["meta"]["first"].as_str().unwrap()
-        );
-        assert_eq!(
-            meta.last.unwrap(),
-            expected["meta"]["last"].as_str().unwrap()
-        );
+        let actual_meta = actual.meta.unwrap();
+        let expected_meta = expected["meta"].clone();
+        assert_peer_meta(actual_meta, expected_meta);
+
+        let actual_data = actual.data[0].clone();
+        let expected_data = expected["data"][0].clone();
+        assert_peer_data(actual_data, expected_data);
+    }
+}
+
+#[test]
+fn test_all_params() {
+    // TODO use a different fixture to check that uses query strings
+    let (_mock, body) = mock_http_request_two("peers");
+    {
+        let client = mock_client_two();
+        let params = [("limit", "20")].iter();
+        let actual = client.peers.all_params(params).unwrap();
+        let expected: Value = from_str(&body).unwrap();
+
+        let actual_meta = actual.meta.unwrap();
+        let expected_meta = expected["meta"].clone();
+        assert_peer_meta(actual_meta, expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
@@ -61,6 +51,41 @@ fn test_show() {
 
         assert_peer_data(actual.data, expected["data"].clone());
     }
+}
+
+fn assert_peer_meta(actual: Meta, expected: Value) {
+    assert_eq!(
+        actual.count,
+        expected["count"].as_u64().unwrap() as u32
+    );
+    assert_eq!(
+        actual.page_count,
+        expected["pageCount"].as_u64().unwrap() as u32
+    );
+    assert_eq!(
+        actual.total_count,
+        expected["totalCount"].as_u64().unwrap() as u32
+    );
+    assert_eq!(
+        actual.next.unwrap(),
+        expected["next"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.previous.unwrap(),
+        expected["previous"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.self_url,
+        expected["self"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.first,
+        expected["first"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.last.unwrap(),
+        expected["last"].as_str().unwrap()
+    );
 }
 
 fn assert_peer_data(actual: Peer, expected: Value) {
