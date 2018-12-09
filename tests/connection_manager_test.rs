@@ -1,6 +1,6 @@
 extern crate arkecosystem_client;
 
-use arkecosystem_client::api::{One, Two};
+use arkecosystem_client::api::{Two};
 use arkecosystem_client::{Connection, ConnectionManager};
 
 #[test]
@@ -68,14 +68,12 @@ fn test_set_default_connection() {
 #[test]
 fn test_get_all_connections() {
     let conn1 = Connection::<Two>::new("test1");
-    let conn2 = Connection::<One>::new("test2");
-    let conn3 = Connection::<Two>::new("test3");
+    let conn2 = Connection::<Two>::new("test3");
     let mut manager = ConnectionManager::new();
 
     assert!(manager.connect_as(&conn1, "test1").is_ok());
-    assert!(manager.connect_as(&conn2, "test2").is_ok());
-    assert!(manager.connect_as(&conn3, "test3").is_ok());
+    assert!(manager.connect_as(&conn2, "test3").is_ok());
 
     let connections = manager.connections();
-    assert_eq!(connections.count(), 3);
+    assert_eq!(connections.count(), 2);
 }

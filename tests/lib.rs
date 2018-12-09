@@ -14,19 +14,9 @@ use std::fs::File;
 use std::io::prelude::*;
 
 use arkecosystem_client::Connection;
-use arkecosystem_client::api::{One, Two};
+use arkecosystem_client::api::{Two};
 
 const MOCK_HOST: &'static str = "http://127.0.0.1:1234/api/";
-
-pub fn mock_http_request_one(endpoint: &str) -> Mock {
-    let url = Matcher::Regex(endpoint.to_owned());
-
-    mock("GET", url)
-        .with_status(200)
-        .with_header("content-type", "application/json")
-        .with_body(&json!({"success": true}).to_string())
-        .create()
-}
 
 pub fn mock_http_request_two(endpoint: &str) -> (Mock, String) {
     let url = Matcher::Regex(endpoint.to_owned());
@@ -64,20 +54,8 @@ pub fn mock_http_request_two(endpoint: &str) -> (Mock, String) {
     (mock, response_body.to_owned())
 }
 
-pub fn mock_client_one() -> Connection<One> {
-    Connection::<One>::new(&MOCK_HOST)
-}
-
 pub fn mock_client_two() -> Connection<Two> {
     Connection::<Two>::new(&MOCK_HOST)
-}
-
-pub fn mock_assert_success_one(mock: &Mock, response: Result<Value, failure::Error>) {
-    mock.assert();
-    assert!(response.is_ok());
-
-    let value = response.unwrap();
-    assert!(value["success"] == true);
 }
 
 fn read_fixture(endpoint: &str) -> String {

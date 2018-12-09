@@ -1,4 +1,4 @@
-use api::{Api, One, Two};
+use api::{Api, Two};
 use http::client::Client;
 use std::ops::Deref;
 
@@ -8,14 +8,6 @@ where
 {
     pub client: Client,
     api: T,
-}
-
-impl Connection<One> {
-    pub fn new(host: &str) -> Connection<One> {
-        let mut client = Client::new(host);
-        let one = One::new(&mut client);
-        Connection { client, api: one }
-    }
 }
 
 impl Connection<Two> {
