@@ -99,16 +99,8 @@ fn assert_vote(actual: Transaction, expected: Value) {
         actual.confirmations,
         expected["confirmations"].as_u64().unwrap()
     );
-    assert_eq!(
-        actual.timestamp.epoch,
-        expected["timestamp"]["epoch"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.timestamp.unix,
-        expected["timestamp"]["unix"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.timestamp.human,
-        expected["timestamp"]["human"].as_str().unwrap()
+    assert_timestamp_data(
+        actual.timestamp,
+        expected["timestamp"].clone()
     );
 }
