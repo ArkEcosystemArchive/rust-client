@@ -44,6 +44,7 @@ pub struct Forged {
     pub reward: u64,
     pub fee: u64,
     pub total: u64,
+    pub amount: u64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
