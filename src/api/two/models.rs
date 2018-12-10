@@ -83,7 +83,8 @@ pub struct Delegate {
 pub struct Blocks {
     pub produced: u64,
     pub missed: u64,
-    pub last: Last,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub last: Option<Last>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
