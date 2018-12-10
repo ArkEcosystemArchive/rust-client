@@ -15,7 +15,7 @@ use std::io::prelude::*;
 
 use arkecosystem_client::Connection;
 use arkecosystem_client::api::{One, Two};
-use arkecosystem_client::api::two::models::{Meta};
+use arkecosystem_client::api::two::models::{Block, Meta, Timestamp, Wallet};
 
 const MOCK_HOST: &'static str = "http://127.0.0.1:1234/api/";
 
@@ -103,14 +103,18 @@ fn assert_meta(actual: Meta, expected: Value) {
         actual.total_count,
         expected["totalCount"].as_u64().unwrap() as u32
     );
-    assert_eq!(
-        actual.next.unwrap(),
-        expected["next"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.previous.unwrap(),
-        expected["previous"].as_str().unwrap()
-    );
+    if actual.next.is_some() {
+        assert_eq!(
+            actual.next.unwrap(),
+            expected["next"].as_str().unwrap()
+        );
+    }
+    if actual.previous.is_some() {
+        assert_eq!(
+            actual.previous.unwrap(),
+            expected["previous"].as_str().unwrap()
+        );
+    }
     assert_eq!(
         actual.self_url,
         expected["self"].as_str().unwrap()
@@ -119,8 +123,125 @@ fn assert_meta(actual: Meta, expected: Value) {
         actual.first,
         expected["first"].as_str().unwrap()
     );
+    if actual.last.is_some() {
+        assert_eq!(
+            actual.last.unwrap(),
+            expected["last"].as_str().unwrap()
+        );
+    }
+}
+
+fn assert_timestamp_data(actual: Timestamp, expected: Value) {
     assert_eq!(
-        actual.last.unwrap(),
-        expected["last"].as_str().unwrap()
+        actual.epoch,
+        expected["epoch"].as_u64().unwrap() as u32
+    );
+    assert_eq!(
+        actual.unix,
+        expected["unix"].as_u64().unwrap() as u32
+    );
+    assert_eq!(
+        actual.human,
+        expected["human"].as_str().unwrap()
+    );
+}
+
+fn assert_block(actual: Block, expected: Value) {
+    assert_eq!(
+        actual.id,
+        expected["id"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.version,
+        expected["version"].as_u64().unwrap() as u8
+    );
+    assert_eq!(
+        actual.height,
+        expected["height"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.previous,
+        expected["previous"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.signature,
+        expected["signature"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.forged.reward,
+        expected["forged"]["reward"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.forged.fee,
+        expected["forged"]["fee"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.forged.total,
+        expected["forged"]["total"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.forged.amount,
+        expected["forged"]["amount"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.payload.hash,
+        expected["payload"]["hash"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.payload.length,
+        expected["payload"]["length"].as_u64().unwrap() as u32
+    );
+    assert_eq!(
+        actual.generator.username,
+        expected["generator"]["username"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.generator.address,
+        expected["generator"]["address"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.generator.public_key,
+        expected["generator"]["publicKey"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.transactions,
+        expected["transactions"].as_u64().unwrap() as u32
+    );
+    assert_timestamp_data(
+        actual.timestamp,
+        expected["timestamp"].clone()
+    );
+}
+
+fn assert_wallet_data(actual: Wallet, expected: Value) {
+    assert_eq!(
+        actual.address,
+        expected["address"].as_str().unwrap()
+    );
+    if let Some(public_key) = actual.public_key {
+        assert_eq!(
+            public_key,
+            expected["publicKey"].as_str().unwrap()
+        );
+    }
+    if let Some(username) = actual.username {
+        assert_eq!(
+            username,
+            expected["username"].as_str().unwrap()
+        );
+    }
+    if let Some(second_public_key) = actual.second_public_key {
+        assert_eq!(
+            second_public_key,
+            expected["secondPublicKey"].as_str().unwrap()
+        );
+    }
+    assert_eq!(
+        actual.balance,
+        expected["balance"].as_i64().unwrap()
+    );
+    assert_eq!(
+        actual.is_delegate,
+        expected["isDelegate"].as_bool().unwrap()
     );
 }
