@@ -77,6 +77,7 @@ pub struct Delegate {
     pub rank: u32,
     pub blocks: Blocks,
     pub production: Production,
+    pub forged: DelegateForged,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -97,6 +98,13 @@ pub struct Production {
 pub struct Last {
     pub id: String,
     pub timestamp: Timestamp,
+}
+
+#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
+pub struct DelegateForged {
+    pub rewards: u64,
+    pub fees: u64,
+    pub total: u64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
