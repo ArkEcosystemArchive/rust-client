@@ -15,6 +15,7 @@ use std::io::prelude::*;
 
 use arkecosystem_client::Connection;
 use arkecosystem_client::api::{One, Two};
+use arkecosystem_client::api::two::models::{Meta};
 
 const MOCK_HOST: &'static str = "http://127.0.0.1:1234/api/";
 
@@ -87,4 +88,39 @@ fn read_fixture(endpoint: &str) -> String {
     file.read_to_string(&mut response_body).unwrap();
 
     response_body
+}
+
+fn assert_meta(actual: Meta, expected: Value) {
+    assert_eq!(
+        actual.count,
+        expected["count"].as_u64().unwrap() as u32
+    );
+    assert_eq!(
+        actual.page_count,
+        expected["pageCount"].as_u64().unwrap() as u32
+    );
+    assert_eq!(
+        actual.total_count,
+        expected["totalCount"].as_u64().unwrap() as u32
+    );
+    assert_eq!(
+        actual.next.unwrap(),
+        expected["next"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.previous.unwrap(),
+        expected["previous"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.self_url,
+        expected["self"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.first,
+        expected["first"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.last.unwrap(),
+        expected["last"].as_str().unwrap()
+    );
 }

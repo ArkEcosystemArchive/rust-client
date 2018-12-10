@@ -1,7 +1,7 @@
 use *;
 use serde_json::{from_str, Value};
 
-use arkecosystem_client::api::two::models::{Meta, Peer};
+use arkecosystem_client::api::two::models::Peer;
 
 #[test]
 fn test_all() {
@@ -13,7 +13,7 @@ fn test_all() {
 
         let actual_meta = actual.meta.unwrap();
         let expected_meta = expected["meta"].clone();
-        assert_peer_meta(actual_meta, expected_meta);
+        assert_meta(actual_meta, expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
@@ -33,7 +33,7 @@ fn test_all_params() {
 
         let actual_meta = actual.meta.unwrap();
         let expected_meta = expected["meta"].clone();
-        assert_peer_meta(actual_meta, expected_meta);
+        assert_meta(actual_meta, expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
@@ -51,41 +51,6 @@ fn test_show() {
 
         assert_peer_data(actual.data, expected["data"].clone());
     }
-}
-
-fn assert_peer_meta(actual: Meta, expected: Value) {
-    assert_eq!(
-        actual.count,
-        expected["count"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.page_count,
-        expected["pageCount"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.total_count,
-        expected["totalCount"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.next.unwrap(),
-        expected["next"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.previous.unwrap(),
-        expected["previous"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.self_url,
-        expected["self"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.first,
-        expected["first"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.last.unwrap(),
-        expected["last"].as_str().unwrap()
-    );
 }
 
 fn assert_peer_data(actual: Peer, expected: Value) {
