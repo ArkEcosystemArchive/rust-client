@@ -19,7 +19,7 @@ pub struct Meta {
     pub next: Option<String>,
     pub previous: Option<String>,
     #[serde(rename = "self")]
-    pub _self_: String,
+    pub self_url: String,
     pub first: String,
     pub last: Option<String>,
 }
@@ -200,9 +200,10 @@ pub struct Peer {
     pub port: u16,
     pub version: String,
     pub height: u64,
-    pub status: String,
+    pub status: u16,
     pub os: String,
     pub latency: u32,
+    pub hashid: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]

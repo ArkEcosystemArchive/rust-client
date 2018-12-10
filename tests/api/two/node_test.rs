@@ -6,8 +6,7 @@ fn test_status() {
     let (_mock, body) = mock_http_request_two("node/status");
     {
         let client = mock_client_two();
-        let response = client.node.status();
-        let actual = response.unwrap();
+        let actual = client.node.status().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_eq!(
