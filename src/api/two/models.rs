@@ -222,16 +222,20 @@ pub struct Peer {
 pub struct Transaction {
     pub id: String,
     pub block_id: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub version: Option<u16>,
     #[serde(rename = "type")]
     pub transaction_type: TransactionType,
     pub amount: u64,
     pub fee: u64,
     pub sender: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
-    pub recipient: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub recipient: Option<String>,
     pub signature: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
-    pub vendor_field: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub sign_signature: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub vendor_field: Option<String>,
     #[serde(skip_serializing_if = "Asset::is_none")]
     pub asset: Asset,
     pub confirmations: u64,
@@ -241,15 +245,15 @@ pub struct Transaction {
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub struct TransactionTypes {
-    pub transfer: u64,
-    pub second_signature: u64,
-    pub delegate_registration: u64,
-    pub vote: u64,
-    pub multi_signature: u64,
-    pub ipfs: u64,
-    pub timelock_transfer: u64,
-    pub multi_payment: u64,
-    pub delegate_resignation: u64,
+    pub transfer: u16,
+    pub second_signature: u16,
+    pub delegate_registration: u16,
+    pub vote: u16,
+    pub multi_signature: u16,
+    pub ipfs: u16,
+    pub timelock_transfer: u16,
+    pub multi_payment: u16,
+    pub delegate_resignation: u16,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
