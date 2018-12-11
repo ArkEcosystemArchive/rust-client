@@ -78,6 +78,7 @@ impl Transactions {
 
     pub fn search<I, K, V>(
         &self,
+        query: Option<I>,
         parameters: I,
     ) -> Result<Response<Vec<Transaction>>, failure::Error>
     where
@@ -87,7 +88,7 @@ impl Transactions {
         V: AsRef<str>,
     {
         self.client
-            .get_with_params("transactions/search", parameters)
+            .post_with_params("transactions/search", query, parameters)
             .map(|v| from_value(v).unwrap())
     }
 
