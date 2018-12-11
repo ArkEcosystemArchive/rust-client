@@ -238,7 +238,7 @@ fn assert_wallet_data(actual: Wallet, expected: Value) {
     }
     assert_eq!(
         actual.balance,
-        expected["balance"].as_i64().unwrap()
+        expected["balance"].as_u64().unwrap()
     );
     assert_eq!(
         actual.is_delegate,
