@@ -15,7 +15,7 @@ use std::io::prelude::*;
 
 use arkecosystem_client::Connection;
 use arkecosystem_client::api::{One, Two};
-use arkecosystem_client::api::two::models::{Block, Meta, Timestamp, Wallet};
+use arkecosystem_client::api::two::models::{Asset, Block, Meta, Timestamp, Transaction, Wallet};
 
 const MOCK_HOST: &'static str = "http://127.0.0.1:1234/api/";
 
@@ -206,6 +206,52 @@ fn assert_block(actual: Block, expected: Value) {
     assert_eq!(
         actual.transactions,
         expected["transactions"].as_u64().unwrap() as u32
+    );
+    assert_timestamp_data(
+        actual.timestamp,
+        expected["timestamp"].clone()
+    );
+}
+
+fn assert_transaction_data(actual: Transaction, expected: Value) {
+    assert_eq!(
+        actual.id,
+        expected["id"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.block_id,
+        expected["blockId"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.transaction_type as u64,
+        expected["type"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.amount,
+        expected["amount"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.fee,
+        expected["fee"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.sender,
+        expected["sender"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.recipient,
+        expected["recipient"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.signature,
+        expected["signature"].as_str().unwrap()
+    );
+
+    // NOTE: asset should be tested on each transaction type
+
+    assert_eq!(
+        actual.confirmations,
+        expected["confirmations"].as_u64().unwrap()
     );
     assert_timestamp_data(
         actual.timestamp,
