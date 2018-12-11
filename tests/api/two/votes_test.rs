@@ -1,7 +1,7 @@
 use *;
 use serde_json::{from_str};
 
-use arkecosystem_client::api::two::models::{Asset, Meta, Transaction};
+use arkecosystem_client::api::two::models::{Asset, Transaction};
 
 #[test]
 fn test_all() {
@@ -53,41 +53,6 @@ fn test_show() {
     }
 }
 
-fn assert_meta(actual: Meta, expected: Value) {
-    assert_eq!(
-        actual.count,
-        expected["count"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.page_count,
-        expected["pageCount"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.total_count,
-        expected["totalCount"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.next.unwrap(),
-        expected["next"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.previous.unwrap(),
-        expected["previous"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.self_url,
-        expected["self"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.first,
-        expected["first"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.last.unwrap(),
-        expected["last"].as_str().unwrap()
-    );
-}
-
 fn assert_vote(actual: Transaction, expected: Value) {
     assert_eq!(
         actual.id,
@@ -134,16 +99,8 @@ fn assert_vote(actual: Transaction, expected: Value) {
         actual.confirmations,
         expected["confirmations"].as_u64().unwrap()
     );
-    assert_eq!(
-        actual.timestamp.epoch,
-        expected["timestamp"]["epoch"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.timestamp.unix,
-        expected["timestamp"]["unix"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.timestamp.human,
-        expected["timestamp"]["human"].as_str().unwrap()
+    assert_timestamp_data(
+        actual.timestamp,
+        expected["timestamp"].clone()
     );
 }
