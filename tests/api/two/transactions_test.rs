@@ -175,3 +175,50 @@ fn test_create() {
         assert_transaction_data(actual.data, expected["data"].clone());
     }
 }
+
+#[test]
+fn test_fees() {
+    let (_mock, body) = mock_http_request_two("transactions/fees");
+    {
+        let client = mock_client_two();
+        let actual = client.transactions.fees().unwrap();
+        let expected: Value = from_str(&body).unwrap();
+
+        assert_eq!(
+            actual.data.transfer,
+            expected["data"]["transfer"].as_u64().unwrap()
+        );
+        assert_eq!(
+            actual.data.second_signature,
+            expected["data"]["secondSignature"].as_u64().unwrap()
+        );
+        assert_eq!(
+            actual.data.delegate_registration,
+            expected["data"]["delegateRegistration"].as_u64().unwrap()
+        );
+        assert_eq!(
+            actual.data.vote,
+            expected["data"]["vote"].as_u64().unwrap()
+        );
+        assert_eq!(
+            actual.data.multi_signature,
+            expected["data"]["multiSignature"].as_u64().unwrap()
+        );
+        assert_eq!(
+            actual.data.ipfs,
+            expected["data"]["ipfs"].as_u64().unwrap()
+        );
+        assert_eq!(
+            actual.data.timelock_transfer,
+            expected["data"]["timelockTransfer"].as_u64().unwrap()
+        );
+        assert_eq!(
+            actual.data.multi_payment,
+            expected["data"]["multiPayment"].as_u64().unwrap()
+        );
+        assert_eq!(
+            actual.data.delegate_resignation,
+            expected["data"]["delegateResignation"].as_u64().unwrap()
+        );
+    }
+}
