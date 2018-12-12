@@ -15,7 +15,7 @@ use std::io::prelude::*;
 
 use arkecosystem_client::Connection;
 use arkecosystem_client::api::{One, Two};
-use arkecosystem_client::api::two::models::{Block, Meta, Timestamp, Wallet};
+use arkecosystem_client::api::two::models::{Block, Meta, Timestamp, Transaction, Wallet};
 
 const MOCK_HOST: &'static str = "http://127.0.0.1:1234/api/";
 
@@ -61,6 +61,19 @@ pub fn mock_http_request_two(endpoint: &str) -> (Mock, String) {
             "\"balance\": 24509800000000000,\n",
         );
     }
+
+    (mock, response_body.to_owned())
+}
+
+pub fn mock_post_request(endpoint: &str) -> (Mock, String) {
+    let url = Matcher::Regex(endpoint.to_owned());
+    let response_body = read_fixture(&endpoint);
+
+    let mock = mock("POST", url)
+        .with_status(200)
+        .with_header("content-type", "application/json")
+        .with_body(&response_body)
+        .create();
 
     (mock, response_body.to_owned())
 }
@@ -206,6 +219,72 @@ fn assert_block(actual: Block, expected: Value) {
     assert_eq!(
         actual.transactions,
         expected["transactions"].as_u64().unwrap() as u32
+    );
+    assert_timestamp_data(
+        actual.timestamp,
+        expected["timestamp"].clone()
+    );
+}
+
+fn assert_transaction_data(actual: Transaction, expected: Value) {
+    assert_eq!(
+        actual.id,
+        expected["id"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.block_id,
+        expected["blockId"].as_str().unwrap()
+    );
+    if let Some(version) = actual.version {
+        assert_eq!(
+            version,
+            expected["version"].as_u64().unwrap() as u16
+        );
+    }
+    assert_eq!(
+        actual.transaction_type as u64,
+        expected["type"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.amount,
+        expected["amount"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.fee,
+        expected["fee"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.sender,
+        expected["sender"].as_str().unwrap()
+    );
+    if let Some(recipient) = actual.recipient {
+        assert_eq!(
+            recipient,
+            expected["recipient"].as_str().unwrap()
+        );
+    }
+    assert_eq!(
+        actual.signature,
+        expected["signature"].as_str().unwrap()
+    );
+    if let Some(sign_signature) = actual.sign_signature {
+        assert_eq!(
+            sign_signature,
+            expected["signSignature"].as_str().unwrap()
+        );
+    }
+    if let Some(vendor_field) = actual.vendor_field {
+        assert_eq!(
+            vendor_field,
+            expected["vendorField"].as_str().unwrap()
+        );
+    }
+
+    // NOTE: asset should be tested on each transaction type
+
+    assert_eq!(
+        actual.confirmations,
+        expected["confirmations"].as_u64().unwrap()
     );
     assert_timestamp_data(
         actual.timestamp,
