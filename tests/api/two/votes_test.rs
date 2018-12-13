@@ -1,7 +1,7 @@
 use *;
 use serde_json::{from_str};
 
-use arkecosystem_client::api::two::models::{Asset, Meta, Transaction};
+use arkecosystem_client::api::two::models::{Asset, Transaction};
 
 #[test]
 fn test_all() {
@@ -17,7 +17,7 @@ fn test_all() {
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_vote(actual_data, expected_data);
+        assert_vote_data(actual_data, expected_data);
     }
 }
 
@@ -37,7 +37,7 @@ fn test_all_params() {
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_vote(actual_data, expected_data);
+        assert_vote_data(actual_data, expected_data);
     }
 }
 
@@ -49,78 +49,13 @@ fn test_show() {
         let actual = client.votes.show("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        assert_vote(actual.data, expected["data"].clone());
+        assert_vote_data(actual.data, expected["data"].clone());
     }
 }
 
-fn assert_meta(actual: Meta, expected: Value) {
-    assert_eq!(
-        actual.count,
-        expected["count"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.page_count,
-        expected["pageCount"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.total_count,
-        expected["totalCount"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.next.unwrap(),
-        expected["next"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.previous.unwrap(),
-        expected["previous"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.self_url,
-        expected["self"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.first,
-        expected["first"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.last.unwrap(),
-        expected["last"].as_str().unwrap()
-    );
-}
+fn assert_vote_data(actual: Transaction, expected: Value) {
+    assert_transaction_data(actual.clone(), expected.clone());
 
-fn assert_vote(actual: Transaction, expected: Value) {
-    assert_eq!(
-        actual.id,
-        expected["id"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.block_id,
-        expected["blockId"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.transaction_type as u64,
-        expected["type"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.amount,
-        expected["amount"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.fee,
-        expected["fee"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.sender,
-        expected["sender"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.recipient,
-        expected["recipient"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.signature,
-        expected["signature"].as_str().unwrap()
-    );
     match actual.asset {
         Asset::Votes(votes) => {
             assert_eq!(
@@ -130,20 +65,4 @@ fn assert_vote(actual: Transaction, expected: Value) {
         },
         _ => panic!("Asset without votes")
     };
-    assert_eq!(
-        actual.confirmations,
-        expected["confirmations"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.timestamp.epoch,
-        expected["timestamp"]["epoch"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.timestamp.unix,
-        expected["timestamp"]["unix"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.timestamp.human,
-        expected["timestamp"]["human"].as_str().unwrap()
-    );
 }

@@ -1,8 +1,10 @@
 {
   "data": {
-    "address": "AFnogpUHmLgnN11ExWQCyngL1RNB9J6i8Z",
-    "publicKey": null,
-    "balance": "5000000000",
-    "isDelegate": false
+    "address": "DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9",
+    "publicKey": "03f0b2920da0ed04d73e4b9a32a8320ead3aca253716339361bf9cc1d7a8b2d210",
+    "username": "bulbasaur",
+    "secondPublicKey": null,
+    "balance": 100029800000000,
+    "isDelegate": true
   }
 }
