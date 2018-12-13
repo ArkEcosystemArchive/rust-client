@@ -63,6 +63,17 @@ impl Client {
         self.internal_post(&url, payload)
     }
 
+    pub fn post_with_params<I, K, V>(&self, endpoint: &str, payload: Option<I>, parameters: I) -> Result<Value, failure::Error>
+    where
+        I: IntoIterator,
+        I::Item: Borrow<(K, V)>,
+        K: AsRef<str>,
+        V: AsRef<str>,
+    {
+        let url = Url::parse_with_params(&format!("{}{}", self.host, endpoint), parameters)?;
+        self.internal_post(&url, payload)
+    }
+
     fn internal_get(&self, url: &Url) -> Result<Value, failure::Error> {
         let builder = self.client.get(url.as_str());
         self.send(builder)

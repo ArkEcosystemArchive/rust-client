@@ -44,6 +44,7 @@ pub struct Forged {
     pub reward: u64,
     pub fee: u64,
     pub total: u64,
+    pub amount: u64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -77,13 +78,15 @@ pub struct Delegate {
     pub rank: u32,
     pub blocks: Blocks,
     pub production: Production,
+    pub forged: DelegateForged,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct Blocks {
     pub produced: u64,
     pub missed: u64,
-    pub last: Last,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub last: Option<Last>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -96,6 +99,13 @@ pub struct Production {
 pub struct Last {
     pub id: String,
     pub timestamp: Timestamp,
+}
+
+#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
+pub struct DelegateForged {
+    pub rewards: u64,
+    pub fees: u64,
+    pub total: u64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -212,16 +222,20 @@ pub struct Peer {
 pub struct Transaction {
     pub id: String,
     pub block_id: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub version: Option<u16>,
     #[serde(rename = "type")]
     pub transaction_type: TransactionType,
     pub amount: u64,
     pub fee: u64,
     pub sender: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
-    pub recipient: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub recipient: Option<String>,
     pub signature: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
-    pub vendor_field: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub sign_signature: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub vendor_field: Option<String>,
     #[serde(skip_serializing_if = "Asset::is_none")]
     pub asset: Asset,
     pub confirmations: u64,
@@ -229,8 +243,8 @@ pub struct Transaction {
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-#[serde(rename_all = "SCREAMING_SNAKE_CASE")]
-pub struct TransactionTypes {
+#[serde(rename_all = "camelCase")]
+pub struct TransactionFees {
     pub transfer: u64,
     pub second_signature: u64,
     pub delegate_registration: u64,
@@ -242,26 +256,42 @@ pub struct TransactionTypes {
     pub delegate_resignation: u64,
 }
 
+#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
+#[serde(rename_all = "SCREAMING_SNAKE_CASE")]
+pub struct TransactionTypes {
+    pub transfer: u16,
+    pub second_signature: u16,
+    pub delegate_registration: u16,
+    pub vote: u16,
+    pub multi_signature: u16,
+    pub ipfs: u16,
+    pub timelock_transfer: u16,
+    pub multi_payment: u16,
+    pub delegate_resignation: u16,
+}
+
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Wallet {
     pub address: String,
     pub public_key: Option<String>,
+    pub username: Option<String>,
+    pub second_public_key: Option<String>,
     #[serde(deserialize_with = "deserialize_u64_as_number_or_string")]
-    pub balance: i64,
+    pub balance: u64,
     pub is_delegate: bool,
 }
 
-fn deserialize_u64_as_number_or_string<'de, D>(de: D) -> Result<i64, D::Error>
+fn deserialize_u64_as_number_or_string<'de, D>(de: D) -> Result<u64, D::Error>
 where
     D: Deserializer<'de>,
 {
-    let deser_res: serde_json::Value = try!(Deserialize::deserialize(de));
+    let deser_result: serde_json::Value = try!(Deserialize::deserialize(de));
 
-    match deser_res {
-        serde_json::Value::Number(ref obj) if obj.is_i64() => Ok(obj.as_i64().unwrap()),
+    match deser_result {
+        serde_json::Value::Number(ref obj) if obj.is_u64() => Ok(obj.as_u64().unwrap()),
         serde_json::Value::String(ref obj) if obj.len() > 0 => {
-            Ok(obj.as_str().parse::<i64>().unwrap())
+            Ok(obj.as_str().parse::<u64>().unwrap())
         }
         _ => Ok(0),
     }

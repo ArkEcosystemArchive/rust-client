@@ -5,15 +5,17 @@
     "totalCount": 1,
     "next": null,
     "previous": null,
-    "self": "/api/v2/delegates/022f2978d57f95c021b9d4bf082b482738ce392bcf6bc213710e7a21504cfeb5a0/voters?page=1&limit=100",
-    "first": "/api/v2/delegates/022f2978d57f95c021b9d4bf082b482738ce392bcf6bc213710e7a21504cfeb5a0/voters?page=1&limit=100",
-    "last": "/api/v2/delegates/022f2978d57f95c021b9d4bf082b482738ce392bcf6bc213710e7a21504cfeb5a0/voters?page=1&limit=100"
+    "self": "/api/v2/delegates/DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9/voters?limit=4&page=1",
+    "first": "/api/v2/delegates/DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9/voters?limit=4&page=1",
+    "last": "/api/v2/delegates/DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9/voters?limit=4&page=1"
   },
   "data": [
     {
-      "address": "AV6GP5qhhsZG6MHb4gShy22doUnVjEKHcN",
-      "publicKey": "022f2978d57f95c021b9d4bf082b482738ce392bcf6bc213710e7a21504cfeb5a0",
-      "balance": 245098000000000,
+      "address": "DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9",
+      "publicKey": "03f0b2920da0ed04d73e4b9a32a8320ead3aca253716339361bf9cc1d7a8b2d210",
+      "username": "bulbasaur",
+      "secondPublicKey": null,
+      "balance": 100028600000000,
       "isDelegate": true
     }
   ]
