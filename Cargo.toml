@@ -8,6 +8,7 @@ license = "MIT"
 [lib]
 name = "arkecosystem_client"
 path = "src/lib.rs"
+doctest = false
 
 [dependencies]
 failure = "0.1.3"

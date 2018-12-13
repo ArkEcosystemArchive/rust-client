@@ -3,7 +3,7 @@ use http::client::Client;
 use serde_json::from_value;
 use std::borrow::Borrow;
 
-use api::two::models::{Response, Transaction, TransactionTypes};
+use api::two::models::{Response, Transaction, TransactionFees, TransactionTypes};
 
 pub struct Transactions {
     client: Client,
@@ -95,6 +95,29 @@ impl Transactions {
     pub fn types(&self) -> Result<Response<TransactionTypes>, failure::Error> {
         self.client
             .get("transactions/types")
+            .map(|v| from_value(v).unwrap())
+    }
+
+    ///Returns the static fees of the last block processed by the node
+    ///
+    /// # Example
+    /// ```
+    /// # extern crate serde_json;
+    /// # extern crate arkecosystem_client;
+    ///
+    /// # use serde_json::to_string_pretty;
+    /// # use arkecosystem_client::connection::Connection;
+    /// # use arkecosystem_client::api::two::Two;
+    ///
+    /// # fn main() {
+    ///   # let client = Connection::<Two>::new("http://167.114.43.38:4003/api/");
+    ///   let fees = client.transactions.fees().unwrap();
+    ///   println!("{}", to_string_pretty(&fees).unwrap());
+    /// # }
+    /// ```
+    pub fn fees(&self) -> Result<Response<TransactionFees>, failure::Error> {
+        self.client
+            .get("transactions/fees")
             .map(|v| from_value(v).unwrap())
     }
 }
