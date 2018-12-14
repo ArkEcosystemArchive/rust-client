@@ -102,4 +102,38 @@ impl Delegates {
         let endpoint = format!("delegates/{}/voters/balances", id);
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }
+
+    /// Searches the delegates
+    ///
+    /// # Example
+    /// ```
+    /// # extern crate serde_json;
+    /// # extern crate arkecosystem_client;
+    ///
+    /// # use serde_json::to_string_pretty;
+    /// # use arkecosystem_client::connection::Connection;
+    /// # use arkecosystem_client::api::two::Two;
+    ///
+    /// # fn main() {
+    ///   # let client = Connection::<Two>::new("http://167.114.43.38:4003/api/");
+    ///   let payload = [("username", "p")].iter();
+    ///   let search = client.delegates.search(Some(payload), params).unwrap();
+    ///   assert_eq!("{}", to_string_pretty(&search).unwrap());
+    /// # }
+    /// ```
+    pub fn search<I, K, V>(
+        &self,
+        payload: Option<I>,
+        parameters: I,
+    ) -> Result<Response<Vec<Delegate>>, failure::Error>
+    where
+        I: IntoIterator,
+        I::Item: Borrow<(K, V)>,
+        K: AsRef<str>,
+        V: AsRef<str>,
+    {
+        self.client
+            .post_with_params("delegates/search", payload, parameters)
+            .map(|v| from_value(v).unwrap())
+    }
 }
