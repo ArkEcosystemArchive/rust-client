@@ -101,6 +101,8 @@ pub struct Last {
     pub timestamp: Timestamp,
 }
 
+pub type Balances = HashMap<String, u64>;
+
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct DelegateForged {
     pub rewards: u64,
