@@ -131,6 +131,26 @@ fn test_voters_params() {
     }
 }
 
+#[test]
+fn test_search() {
+    let (_mock, body) = mock_post_request("delegates/search");
+    {
+        let client = mock_client_two();
+        let payload = [("username", "dummy")].iter();
+        let params = [("limit", "20")].iter();
+        let actual = client.delegates.search(Some(payload), params).unwrap();
+        let expected: Value = from_str(&body).unwrap();
+
+        let actual_meta = actual.meta.unwrap();
+        let expected_meta = expected["meta"].clone();
+        assert_meta(actual_meta, expected_meta);
+
+        let actual_data = actual.data[0].clone();
+        let expected_data = expected["data"][0].clone();
+        assert_delegate_data(actual_data, expected_data);
+    }
+}
+
 fn assert_delegate_data(actual: Delegate, expected: Value) {
     assert_eq!(
         actual.username,
