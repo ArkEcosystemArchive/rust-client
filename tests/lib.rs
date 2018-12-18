@@ -1,12 +1,10 @@
 extern crate arkecosystem_client;
 extern crate failure;
 extern crate mockito;
-#[macro_use]
 extern crate serde_json;
 
 mod api;
-mod connection_manager_test;
-mod connection_test;
+mod connection;
 
 use mockito::{mock, Matcher, Mock};
 use serde_json::Value;
@@ -17,7 +15,7 @@ use arkecosystem_client::Connection;
 use arkecosystem_client::api::Two;
 use arkecosystem_client::api::two::models::{Block, Meta, Timestamp, Transaction, Wallet};
 
-const MOCK_HOST: &'static str = "http://127.0.0.1:1234/api/";
+const MOCK_HOST: &str = "http://127.0.0.1:1234/api/";
 
 pub fn mock_http_request_two(endpoint: &str) -> (Mock, String) {
     let url = Matcher::Regex(endpoint.to_owned());
@@ -81,7 +79,7 @@ fn read_fixture(endpoint: &str) -> String {
     response_body
 }
 
-fn assert_meta(actual: Meta, expected: Value) {
+fn assert_meta(actual: Meta, expected: &Value) {
     assert_eq!(
         actual.count,
         expected["count"].as_u64().unwrap() as u32
@@ -122,7 +120,7 @@ fn assert_meta(actual: Meta, expected: Value) {
     }
 }
 
-fn assert_timestamp_data(actual: Timestamp, expected: Value) {
+fn assert_timestamp_data(actual: &Timestamp, expected: &Value) {
     assert_eq!(
         actual.epoch,
         expected["epoch"].as_u64().unwrap() as u32
@@ -137,7 +135,7 @@ fn assert_timestamp_data(actual: Timestamp, expected: Value) {
     );
 }
 
-fn assert_block(actual: Block, expected: Value) {
+fn assert_block(actual: &Block, expected: &Value) {
     assert_eq!(
         actual.id,
         expected["id"].as_str().unwrap()
@@ -199,12 +197,12 @@ fn assert_block(actual: Block, expected: Value) {
         expected["transactions"].as_u64().unwrap() as u32
     );
     assert_timestamp_data(
-        actual.timestamp,
-        expected["timestamp"].clone()
+        &actual.timestamp,
+        &expected["timestamp"].clone()
     );
 }
 
-fn assert_transaction_data(actual: Transaction, expected: Value) {
+fn assert_transaction_data(actual: Transaction, expected: &Value) {
     assert_eq!(
         actual.id,
         expected["id"].as_str().unwrap()
@@ -265,12 +263,12 @@ fn assert_transaction_data(actual: Transaction, expected: Value) {
         expected["confirmations"].as_u64().unwrap()
     );
     assert_timestamp_data(
-        actual.timestamp,
-        expected["timestamp"].clone()
+        &actual.timestamp,
+        &expected["timestamp"].clone()
     );
 }
 
-fn assert_wallet_data(actual: Wallet, expected: Value) {
+fn assert_wallet_data(actual: Wallet, expected: &Value) {
     assert_eq!(
         actual.address,
         expected["address"].as_str().unwrap()

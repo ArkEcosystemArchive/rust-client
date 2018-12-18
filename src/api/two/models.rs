@@ -292,7 +292,7 @@ where
 
     match deser_result {
         serde_json::Value::Number(ref obj) if obj.is_u64() => Ok(obj.as_u64().unwrap()),
-        serde_json::Value::String(ref obj) if obj.len() > 0 => {
+        serde_json::Value::String(ref obj) if !obj.is_empty() => {
             Ok(obj.as_str().parse::<u64>().unwrap())
         }
         _ => Ok(0),

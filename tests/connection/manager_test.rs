@@ -1,12 +1,12 @@
 extern crate arkecosystem_client;
 
 use arkecosystem_client::api::{Two};
-use arkecosystem_client::{Connection, ConnectionManager};
+use arkecosystem_client::{Connection, Manager};
 
 #[test]
 fn test_create_connection() {
     let conn = Connection::<Two>::new("test");
-    let mut manager = ConnectionManager::new();
+    let mut manager = Manager::new();
 
     assert!(manager.connect(&conn).is_ok());
     assert_eq!(manager.connections().count(), 1);
@@ -17,7 +17,7 @@ fn test_create_existing_connection() {
     let conn1 = Connection::<Two>::new("test1");
     let conn2 = Connection::<Two>::new("test2");
 
-    let mut manager = ConnectionManager::new();
+    let mut manager = Manager::new();
     assert!(manager.connect(&conn1).is_ok());
     assert!(manager.connect(&conn2).is_err());
 }
@@ -25,7 +25,7 @@ fn test_create_existing_connection() {
 #[test]
 fn test_remove_connection() {
     let conn = Connection::<Two>::new("test1");
-    let mut manager = ConnectionManager::new();
+    let mut manager = Manager::new();
 
     assert!(manager.connect(&conn).is_ok());
     manager.disconnect("");
@@ -35,7 +35,7 @@ fn test_remove_connection() {
 #[test]
 fn test_get_connection() {
     let conn = Connection::<Two>::new("test1");
-    let mut manager = ConnectionManager::new();
+    let mut manager = Manager::new();
 
     assert!(manager.connect(&conn).is_ok());
     let default_conn = manager.connection::<Two>();
@@ -44,21 +44,21 @@ fn test_get_connection() {
 
 #[test]
 fn test_get_non_existing_connection() {
-    let manager = ConnectionManager::new();
+    let manager = Manager::new();
     let default_conn = manager.connection::<Two>();
     assert!(default_conn.is_none());
 }
 
 #[test]
 fn test_get_default_connection() {
-    let manager = ConnectionManager::new();
+    let manager = Manager::new();
     let default = manager.get_default_connection();
     assert_eq!(default, "main");
 }
 
 #[test]
 fn test_set_default_connection() {
-    let mut manager = ConnectionManager::new();
+    let mut manager = Manager::new();
     manager.set_default_connection("test");
 
     let default = manager.get_default_connection();
@@ -69,7 +69,7 @@ fn test_set_default_connection() {
 fn test_get_all_connections() {
     let conn1 = Connection::<Two>::new("test1");
     let conn2 = Connection::<Two>::new("test3");
-    let mut manager = ConnectionManager::new();
+    let mut manager = Manager::new();
 
     assert!(manager.connect_as(&conn1, "test1").is_ok());
     assert!(manager.connect_as(&conn2, "test3").is_ok());
