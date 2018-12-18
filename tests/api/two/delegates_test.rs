@@ -132,6 +132,23 @@ fn test_voters_params() {
 }
 
 #[test]
+fn test_voters_balances() {
+    let (_mock, body) = mock_http_request_two("delegates/dummy/voters/balances");
+    {
+        let client = mock_client_two();
+        let delegate_address = "dummy";
+        let actual = client.delegates.voters_balances(delegate_address).unwrap();
+        let expected: Value = from_str(&body).unwrap();
+
+        let actual_data = actual.data;
+        let expected_data = expected["data"].clone();
+        for (address, balance) in &actual_data {
+            assert_eq!(*balance, expected_data[address].as_u64().unwrap());
+        }
+    }
+}
+
+#[test]
 fn test_search() {
     let (_mock, body) = mock_post_request("delegates/search");
     {
