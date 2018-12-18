@@ -78,7 +78,7 @@ impl Transactions {
 
     pub fn search<I, K, V>(
         &self,
-        query: Option<I>,
+        payload: Option<I>,
         parameters: I,
     ) -> Result<Response<Vec<Transaction>>, failure::Error>
     where
@@ -88,7 +88,7 @@ impl Transactions {
         V: AsRef<str>,
     {
         self.client
-            .post_with_params("transactions/search", query, parameters)
+            .post_with_params("transactions/search", payload, parameters)
             .map(|v| from_value(v).unwrap())
     }
 
@@ -98,7 +98,7 @@ impl Transactions {
             .map(|v| from_value(v).unwrap())
     }
 
-    ///Returns the static fees of the last block processed by the node
+    /// Returns the static fees of the last block processed by the node
     ///
     /// # Example
     /// ```
