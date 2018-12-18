@@ -12,12 +12,19 @@ jobs:
             rustup install nightly
             rustup run nightly rustc --version --verbose
             rustup run nightly cargo --version --verbose
-            RUSTFLAGS="--cfg procmacro2_semver_exempt" rustup run nightly cargo install cargo-tarpaulin
-            rustup run nightly cargo tarpaulin --out Xml
+            rustup run nightly cargo test
+            # Currently only nightly supports this tool
+            # RUSTFLAGS="--cfg procmacro2_semver_exempt" rustup run nightly cargo install cargo-tarpaulin
+            # rustup run nightly cargo tarpaulin --out Xml
       - run:
-          name: Codecov
-          when: on_success
-          command: bash <(curl -s https://codecov.io/bash)
+          name: Clippy
+          command: |
+            rustup component add --toolchain nightly clippy
+            rustup run nightly cargo clippy --all-targets --all-features -- -D warnings
+      # - run:
+      #     name: Codecov
+      #     when: on_success
+      #     command: bash <(curl -s https://codecov.io/bash)
   build-beta:
     docker:
       - image: circleci/rust:latest
@@ -30,6 +37,11 @@ jobs:
             rustup install beta
             rustup run beta cargo build
             rustup run beta cargo test
+      - run:
+          name: Clippy
+          command: |
+            rustup component add --toolchain beta clippy
+            rustup run beta cargo clippy --all-targets --all-features -- -D warnings
   build-stable:
     docker:
       - image: circleci/rust:latest
@@ -41,6 +53,14 @@ jobs:
             cargo clean
             cargo build
             cargo test
+      - run:
+          name: Clippy
+          command: |
+            rustup update
+            rustup install stable
+            # Clippy is no longer available via crates.io
+            rustup component add --toolchain stable clippy
+            rustup run stable cargo clippy --all-targets --all-features -- -D warnings
 
 workflows:
   version: 2
