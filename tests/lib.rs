@@ -2,6 +2,8 @@ extern crate arkecosystem_client;
 extern crate failure;
 extern crate mockito;
 extern crate serde_json;
+#[macro_use]
+extern crate assert_float_eq;
 
 mod api;
 mod connection;

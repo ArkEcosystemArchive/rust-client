@@ -210,11 +210,11 @@ fn assert_delegate_data(actual: Delegate, expected: &Value) {
         );
     }
 
-    assert_eq!(
+    assert_f64_near!(
         actual.production.approval,
         expected["production"]["approval"].as_f64().unwrap()
     );
-    assert_eq!(
+    assert_f64_near!(
         actual.production.productivity,
         expected["production"]["productivity"].as_f64().unwrap()
     );
