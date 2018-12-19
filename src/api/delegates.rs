@@ -89,13 +89,12 @@ impl Delegates {
     ///
     /// # use serde_json::to_string_pretty;
     /// # use arkecosystem_client::connection::Connection;
-    /// # use arkecosystem_client::api::two::Two;
     ///
     /// # fn main() {
-    ///   # let client = Connection::<Two>::new("http://167.114.43.38:4003/api/");
+    ///   # let client = Connection::new("http://167.114.43.38:4003/api/");
     ///   let delegate_id = "yo";
     ///   let voters_balances = client.delegates.voters_balances(&delegate_id).unwrap();
-    ///   assert_eq!("{}", to_string_pretty(&voters_balances).unwrap());
+    ///   println!("{}", to_string_pretty(&voters_balances).unwrap());
     /// # }
     /// ```
     pub fn voters_balances(&self, id: &str) -> Result<Response<Balances>, failure::Error> {
@@ -112,13 +111,13 @@ impl Delegates {
     ///
     /// # use serde_json::to_string_pretty;
     /// # use arkecosystem_client::connection::Connection;
-    /// # use arkecosystem_client::api::two::Two;
     ///
     /// # fn main() {
-    ///   # let client = Connection::<Two>::new("http://167.114.43.38:4003/api/");
+    ///   # let client = Connection::new("http://167.114.43.38:4003/api/");
     ///   let payload = [("username", "p")].iter();
+    ///   let params = [("limit", "2")].iter();
     ///   let search = client.delegates.search(Some(payload), params).unwrap();
-    ///   assert_eq!("{}", to_string_pretty(&search).unwrap());
+    ///   println!("{}", to_string_pretty(&search).unwrap());
     /// # }
     /// ```
     pub fn search<I, K, V>(
