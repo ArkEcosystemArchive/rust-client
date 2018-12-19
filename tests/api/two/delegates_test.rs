@@ -1,13 +1,13 @@
 use *;
 use serde_json::{from_str};
 
-use arkecosystem_client::api::two::models::{Delegate};
+use arkecosystem_client::api::models::{Delegate};
 
 #[test]
 fn test_all() {
     let (_mock, body) = mock_http_request_two("delegates");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let actual = client.delegates.all().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -26,7 +26,7 @@ fn test_all_params() {
     // TODO use a different fixture to check that uses query strings
     let (_mock, body) = mock_http_request_two("delegates");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let params = [("limit", "20")].iter();
         let actual = client.delegates.all_params(params).unwrap();
         let expected: Value = from_str(&body).unwrap();
@@ -45,7 +45,7 @@ fn test_all_params() {
 fn test_show() {
     let (_mock, body) = mock_http_request_two("delegates/dummy");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let actual = client.delegates.show("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -57,7 +57,7 @@ fn test_show() {
 fn test_blocks() {
     let (_mock, body) = mock_http_request_two("delegates/dummy/blocks");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let delegate_address = "dummy";
         let actual = client.delegates.blocks(delegate_address).unwrap();
         let expected: Value = from_str(&body).unwrap();
@@ -76,7 +76,7 @@ fn test_blocks() {
 fn test_blocks_params() {
     let (_mock, body) = mock_http_request_two("delegates/dummy/blocks");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let delegate_address = "dummy";
         let params = [("limit", "20")].iter();
         let actual = client.delegates.blocks_params(delegate_address, params).unwrap();
@@ -96,7 +96,7 @@ fn test_blocks_params() {
 fn test_voters() {
     let (_mock, body) = mock_http_request_two("delegates/dummy/voters");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let delegate_address = "dummy";
         let actual = client.delegates.voters(delegate_address).unwrap();
         let expected: Value = from_str(&body).unwrap();
@@ -115,7 +115,7 @@ fn test_voters() {
 fn test_voters_params() {
     let (_mock, body) = mock_http_request_two("delegates/dummy/voters");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let delegate_address = "dummy";
         let params = [("limit", "20")].iter();
         let actual = client.delegates.voters_params(delegate_address, params).unwrap();
@@ -135,7 +135,7 @@ fn test_voters_params() {
 fn test_voters_balances() {
     let (_mock, body) = mock_http_request_two("delegates/dummy/voters/balances");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let delegate_address = "dummy";
         let actual = client.delegates.voters_balances(delegate_address).unwrap();
         let expected: Value = from_str(&body).unwrap();
@@ -152,7 +152,7 @@ fn test_voters_balances() {
 fn test_search() {
     let (_mock, body) = mock_post_request("delegates/search");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let payload = [("username", "dummy")].iter();
         let params = [("limit", "20")].iter();
         let actual = client.delegates.search(Some(payload), params).unwrap();

@@ -1,30 +1,28 @@
 mod manager;
 pub use self::manager::{Manager};
 
-use api::{Api, Two};
+use api::Api;
 use http::client::Client;
 use std::ops::Deref;
 
-pub struct Connection<T>
-where
-    T: Api + ?Sized,
+pub struct Connection
 {
     pub client: Client,
-    api: T,
+    api: Api,
 }
 
-impl Connection<Two> {
-    pub fn new(host: &str) -> Connection<Two> {
+impl Connection {
+    pub fn new(host: &str) -> Connection {
         let client = Client::new(host);
-        let two = Two::new_with_client(&client);
-        Connection { client, api: two }
+        let api = Api::new_with_client(&client);
+        Connection { client, api }
     }
 }
 
-impl<T: Api> Deref for Connection<T> {
-    type Target = T;
+impl Deref for Connection {
+    type Target = Api;
 
-    fn deref(&self) -> &T {
+    fn deref(&self) -> &Api {
         &self.api
     }
 }

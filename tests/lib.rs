@@ -14,8 +14,7 @@ use std::fs::File;
 use std::io::prelude::*;
 
 use arkecosystem_client::Connection;
-use arkecosystem_client::api::Two;
-use arkecosystem_client::api::two::models::{Block, Meta, Timestamp, Transaction, Wallet};
+use arkecosystem_client::api::models::{Block, Meta, Timestamp, Transaction, Wallet};
 
 const MOCK_HOST: &str = "http://127.0.0.1:1234/api/";
 
@@ -68,8 +67,8 @@ pub fn mock_post_request(endpoint: &str) -> (Mock, String) {
     (mock, response_body.to_owned())
 }
 
-pub fn mock_client_two() -> Connection<Two> {
-    Connection::<Two>::new(&MOCK_HOST)
+pub fn mock_client() -> Connection {
+    Connection::new(&MOCK_HOST)
 }
 
 fn read_fixture(endpoint: &str) -> String {
