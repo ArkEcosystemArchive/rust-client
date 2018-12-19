@@ -1,4 +1,3 @@
-use api::Version;
 use failure;
 use reqwest::header::{HeaderMap, HeaderValue};
 use reqwest::{RequestBuilder, Url};
@@ -25,10 +24,10 @@ impl Client {
         }
     }
 
-    pub fn set_version(&mut self, version: &Version) {
+    pub fn set_version(&mut self, version: &'static str) {
         self.headers.insert(
             "API-Version",
-            HeaderValue::from_static(version.to_string())
+            HeaderValue::from_static(version)
         );
     }
 

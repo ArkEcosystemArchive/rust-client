@@ -3,7 +3,7 @@ use serde_json::from_value;
 use std::borrow::Borrow;
 
 use http::client::Client;
-use api::two::models::{Peer, Response};
+use api::models::{Peer, Response};
 
 pub struct Peers {
     client: Client,

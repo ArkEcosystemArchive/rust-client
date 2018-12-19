@@ -1,13 +1,13 @@
 use *;
 use serde_json::{from_str, Value};
 
-use arkecosystem_client::api::two::models::Peer;
+use arkecosystem_client::api::models::Peer;
 
 #[test]
 fn test_all() {
     let (_mock, body) = mock_http_request_two("peers");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let actual = client.peers.all().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -26,7 +26,7 @@ fn test_all_params() {
     // TODO use a different fixture to check that uses query strings
     let (_mock, body) = mock_http_request_two("peers");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let params = [("limit", "20")].iter();
         let actual = client.peers.all_params(params).unwrap();
         let expected: Value = from_str(&body).unwrap();
@@ -45,7 +45,7 @@ fn test_all_params() {
 fn test_show() {
     let (_mock, body) = mock_http_request_two("peers/dummy");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let actual = client.peers.show("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 

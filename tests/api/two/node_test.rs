@@ -1,13 +1,13 @@
 use *;
 use serde_json::{from_str, Value};
 
-use arkecosystem_client::api::two::models::{FeeSchema, FeeStatistics};
+use arkecosystem_client::api::models::{FeeSchema, FeeStatistics};
 
 #[test]
 fn test_status() {
     let (_mock, body) = mock_http_request_two("node/status");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let actual = client.node.status().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -30,7 +30,7 @@ fn test_status() {
 fn test_syncing() {
     let (_mock, body) = mock_http_request_two("node/syncing");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let response = client.node.syncing();
         let actual = response.unwrap();
         let expected: Value = from_str(&body).unwrap();
@@ -58,7 +58,7 @@ fn test_syncing() {
 fn test_configuration() {
     let (_mock, body) = mock_http_request_two("node/configuration");
     {
-        let client = mock_client_two();
+        let client = mock_client();
         let response = client.node.configuration();
         let actual = response.unwrap();
         let expected: Value = from_str(&body).unwrap();

@@ -1,4 +1,3 @@
-use api::Api;
 use std::any::Any;
 use std::collections::HashMap;
 use std::collections::hash_map::Values;
@@ -18,14 +17,14 @@ impl<'a> Manager<'a> {
         }
     }
 
-    pub fn connect<T: Any + Api + 'static>(&mut self, connection: &'a Connection<T>) -> Result<(), &str> {
+    pub fn connect(&mut self, connection: &'a Connection) -> Result<(), &str> {
         let default_connection = &self.get_default_connection();
         self.connect_as(connection, default_connection)
     }
 
-    pub fn connect_as<T: Any + Api + 'static> (
+    pub fn connect_as(
         &mut self,
-        connection: &'a Connection<T>,
+        connection: &'a Connection,
         name: &str,
     ) -> Result<(), &str> {
         if self.connections.contains_key(name) {
@@ -45,7 +44,7 @@ impl<'a> Manager<'a> {
         }
     }
 
-    pub fn connection<T: Any + Api + 'static>(&self) -> Option<&'a Connection<T>> {
+    pub fn connection(&self) -> Option<&'a Connection> {
         let connection_name = self.get_default_connection();
         if let Some(conn) = self.connections.get(&connection_name) {
             return conn.downcast_ref()
@@ -54,7 +53,7 @@ impl<'a> Manager<'a> {
         None
     }
 
-    pub fn connection_by_name<T: Any + Api + 'static>(&self, name: &str) -> Option<&'a Connection<T>> {
+    pub fn connection_by_name(&self, name: &str) -> Option<&'a Connection> {
         if let Some(conn) = self.connections.get(name) {
             return conn.downcast_ref()
         }

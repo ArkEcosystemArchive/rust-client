@@ -3,7 +3,7 @@ use http::client::Client;
 use serde_json::from_value;
 use std::borrow::Borrow;
 
-use api::two::models::{Response, Transaction};
+use api::models::{Response, Transaction};
 
 pub struct Votes {
     client: Client,

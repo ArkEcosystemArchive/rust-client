@@ -3,7 +3,7 @@ use http::client::Client;
 use serde_json::from_value;
 use std::borrow::Borrow;
 
-use api::two::models::{Block, Delegate, Response, Balances, Wallet};
+use api::models::{Block, Delegate, Response, Balances, Wallet};
 
 pub struct Delegates {
     client: Client,
