@@ -2,8 +2,8 @@ use failure;
 use serde_json::from_value;
 use std::borrow::Borrow;
 
-use http::client::Client;
 use api::models::{Peer, Response};
+use http::client::Client;
 
 pub struct Peers {
     client: Client,
@@ -14,8 +14,7 @@ impl Peers {
         Peers { client }
     }
 
-    pub fn all(&self) -> Result<Response<Vec<Peer>>, failure::Error>
-    {
+    pub fn all(&self) -> Result<Response<Vec<Peer>>, failure::Error> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
@@ -33,8 +32,6 @@ impl Peers {
 
     pub fn show(&self, ip_addr: &str) -> Result<Response<Peer>, failure::Error> {
         let endpoint = format!("peers/{}", ip_addr);
-        self.client
-            .get(&endpoint)
-            .map(|v| from_value(v).unwrap())
+        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }
 }

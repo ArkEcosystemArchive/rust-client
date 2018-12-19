@@ -1,5 +1,5 @@
+use serde_json::from_str;
 use *;
-use serde_json::{from_str};
 
 use arkecosystem_client::api::models::{Asset, Transaction};
 
@@ -58,11 +58,8 @@ fn assert_vote_data(actual: Transaction, expected: &Value) {
 
     match actual.asset {
         Asset::Votes(votes) => {
-            assert_eq!(
-                votes[0],
-                expected["asset"]["votes"][0].as_str().unwrap()
-            );
-        },
-        _ => panic!("Asset without votes")
+            assert_eq!(votes[0], expected["asset"]["votes"][0].as_str().unwrap());
+        }
+        _ => panic!("Asset without votes"),
     };
 }

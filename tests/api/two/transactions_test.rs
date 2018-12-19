@@ -1,5 +1,5 @@
+use serde_json::from_str;
 use *;
-use serde_json::{from_str};
 
 #[test]
 fn test_all() {
@@ -196,18 +196,12 @@ fn test_fees() {
             actual.data.delegate_registration,
             expected["data"]["delegateRegistration"].as_u64().unwrap()
         );
-        assert_eq!(
-            actual.data.vote,
-            expected["data"]["vote"].as_u64().unwrap()
-        );
+        assert_eq!(actual.data.vote, expected["data"]["vote"].as_u64().unwrap());
         assert_eq!(
             actual.data.multi_signature,
             expected["data"]["multiSignature"].as_u64().unwrap()
         );
-        assert_eq!(
-            actual.data.ipfs,
-            expected["data"]["ipfs"].as_u64().unwrap()
-        );
+        assert_eq!(actual.data.ipfs, expected["data"]["ipfs"].as_u64().unwrap());
         assert_eq!(
             actual.data.timelock_transfer,
             expected["data"]["timelockTransfer"].as_u64().unwrap()

@@ -14,8 +14,7 @@ impl Blocks {
         Blocks { client }
     }
 
-    pub fn all(&self) -> Result<Response<Vec<Block>>, failure::Error>
-    {
+    pub fn all(&self) -> Result<Response<Vec<Block>>, failure::Error> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
@@ -37,11 +36,7 @@ impl Blocks {
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }
 
-    pub fn transactions(
-        &self,
-        id: &str,
-    ) -> Result<Response<Vec<Transaction>>, failure::Error>
-    {
+    pub fn transactions(&self, id: &str) -> Result<Response<Vec<Transaction>>, failure::Error> {
         self.transactions_params(id, Vec::<(String, String)>::new())
     }
 

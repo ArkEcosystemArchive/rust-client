@@ -1,12 +1,11 @@
 mod manager;
-pub use self::manager::{Manager};
+pub use self::manager::Manager;
 
 use api::Api;
 use http::client::Client;
 use std::ops::Deref;
 
-pub struct Connection
-{
+pub struct Connection {
     pub client: Client,
     api: Api,
 }

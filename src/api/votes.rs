@@ -14,12 +14,14 @@ impl Votes {
         Votes { client }
     }
 
-    pub fn all(&self) -> Result<Response<Vec<Transaction>>, failure::Error>
-    {
+    pub fn all(&self) -> Result<Response<Vec<Transaction>>, failure::Error> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Transaction>>, failure::Error>
+    pub fn all_params<I, K, V>(
+        &self,
+        parameters: I,
+    ) -> Result<Response<Vec<Transaction>>, failure::Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -33,8 +35,6 @@ impl Votes {
 
     pub fn show(&self, id: &str) -> Result<Response<Transaction>, failure::Error> {
         let endpoint = format!("votes/{}", id);
-        self.client
-            .get(&endpoint)
-            .map(|v| from_value(v).unwrap())
+        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }
 }

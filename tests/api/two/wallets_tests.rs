@@ -1,5 +1,5 @@
-use *;
 use serde_json::ser::to_string_pretty;
+use *;
 
 #[test]
 fn test_all() {
@@ -28,10 +28,7 @@ fn test_transactions() {
     let (_mock, body) = mock_http_request_two("wallets/dummy/transactions");
     {
         let client = mock_client();
-        let response = client
-            .wallets
-            .transactions("dummy")
-            .unwrap();
+        let response = client.wallets.transactions("dummy").unwrap();
 
         let actual = to_string_pretty(&response).unwrap();
         assert_eq!(actual, body);
@@ -43,10 +40,7 @@ fn test_sent_transactions() {
     let (_mock, body) = mock_http_request_two("wallets/dummy/transactions/sent");
     {
         let client = mock_client();
-        let response = client
-            .wallets
-            .sent_transactions("dummy")
-            .unwrap();
+        let response = client.wallets.sent_transactions("dummy").unwrap();
 
         let actual = to_string_pretty(&response).unwrap();
         assert_eq!(actual, body);
@@ -58,10 +52,7 @@ fn test_received_transactions() {
     let (_mock, body) = mock_http_request_two("wallets/dummy/transactions/received");
     {
         let client = mock_client();
-        let response = client
-            .wallets
-            .received_transactions("dummy")
-            .unwrap();
+        let response = client.wallets.received_transactions("dummy").unwrap();
 
         let actual = to_string_pretty(&response).unwrap();
         assert_eq!(actual, body);
