@@ -26,6 +26,7 @@ If you discover a security vulnerability within this package, please send an e-m
 ## Credits
 
 - [Joshua Noack](https://github.com/supaiku0)
+- [Juan A. Martín](https://github.com/j-a-m-l)
 - [All Contributors](../../contributors)
 
 ## License
