@@ -1,6 +1,6 @@
 [package]
 name = "arkecosystem-client"
-version = "0.1.0"
+version = "1.0.0"
 authors = ["Joshua Noack <joshua@ark.io>, Juan A. Martín <juan@ark.io>"]
 description = "A simple Rust API client for the ARK Blockchain."
 license = "MIT"
