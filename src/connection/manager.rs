@@ -2,16 +2,17 @@ use api::Api;
 use std::any::Any;
 use std::collections::HashMap;
 use std::collections::hash_map::Values;
-use super::connection::Connection;
+use Connection;
 
-pub struct ConnectionManager<'a> {
+#[derive(Default)]
+pub struct Manager<'a> {
     connections: HashMap<String, &'a Any>,
     default_connection: String,
 }
 
-impl<'a> ConnectionManager<'a> {
-    pub fn new() -> ConnectionManager<'a> {
-        ConnectionManager {
+impl<'a> Manager<'a> {
+    pub fn new() -> Manager<'a> {
+        Manager {
             connections: HashMap::<String, &'a Any>::new(),
             default_connection: String::from("main"),
         }

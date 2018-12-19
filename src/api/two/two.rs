@@ -26,7 +26,7 @@ impl Two {
 
     pub fn new_with_client(client: &Client) -> Two {
         let mut client = client.clone();
-        client.set_version(Two::version());
+        client.set_version(&Two::version());
         Two {
             blocks: Blocks::new(client.clone()),
             delegates: Delegates::new(client.clone()),

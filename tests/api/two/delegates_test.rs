@@ -13,11 +13,11 @@ fn test_all() {
 
         let actual_meta = actual.meta.unwrap();
         let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, expected_meta);
+        assert_meta(actual_meta, &expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_delegate_data(actual_data, expected_data);
+        assert_delegate_data(actual_data, &expected_data);
     }
 }
 
@@ -33,11 +33,11 @@ fn test_all_params() {
 
         let actual_meta = actual.meta.unwrap();
         let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, expected_meta);
+        assert_meta(actual_meta, &expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_delegate_data(actual_data, expected_data);
+        assert_delegate_data(actual_data, &expected_data);
     }
 }
 
@@ -49,7 +49,7 @@ fn test_show() {
         let actual = client.delegates.show("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        assert_delegate_data(actual.data, expected["data"].clone());
+        assert_delegate_data(actual.data, &expected["data"]);
     }
 }
 
@@ -64,11 +64,11 @@ fn test_blocks() {
 
         let actual_meta = actual.meta.unwrap();
         let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, expected_meta);
+        assert_meta(actual_meta, &expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_block(actual_data, expected_data);
+        assert_block(&actual_data, &expected_data);
     }
 }
 
@@ -84,11 +84,11 @@ fn test_blocks_params() {
 
         let actual_meta = actual.meta.unwrap();
         let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, expected_meta);
+        assert_meta(actual_meta, &expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_block(actual_data, expected_data);
+        assert_block(&actual_data, &expected_data);
     }
 }
 
@@ -103,11 +103,11 @@ fn test_voters() {
 
         let actual_meta = actual.meta.unwrap();
         let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, expected_meta);
+        assert_meta(actual_meta, &expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_wallet_data(actual_data, expected_data);
+        assert_wallet_data(actual_data, &expected_data);
     }
 }
 
@@ -123,11 +123,11 @@ fn test_voters_params() {
 
         let actual_meta = actual.meta.unwrap();
         let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, expected_meta);
+        assert_meta(actual_meta, &expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_wallet_data(actual_data, expected_data);
+        assert_wallet_data(actual_data, &expected_data);
     }
 }
 
@@ -160,15 +160,15 @@ fn test_search() {
 
         let actual_meta = actual.meta.unwrap();
         let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, expected_meta);
+        assert_meta(actual_meta, &expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_delegate_data(actual_data, expected_data);
+        assert_delegate_data(actual_data, &expected_data);
     }
 }
 
-fn assert_delegate_data(actual: Delegate, expected: Value) {
+fn assert_delegate_data(actual: Delegate, expected: &Value) {
     assert_eq!(
         actual.username,
         expected["username"].as_str().unwrap()
@@ -205,16 +205,16 @@ fn assert_delegate_data(actual: Delegate, expected: Value) {
             expected["blocks"]["last"]["id"].as_str().unwrap()
         );
         assert_timestamp_data(
-            last.timestamp,
-            expected["blocks"]["last"]["timestamp"].clone()
+            &last.timestamp,
+            &expected["blocks"]["last"]["timestamp"].clone()
         );
     }
 
-    assert_eq!(
+    assert_f64_near!(
         actual.production.approval,
         expected["production"]["approval"].as_f64().unwrap()
     );
-    assert_eq!(
+    assert_f64_near!(
         actual.production.productivity,
         expected["production"]["productivity"].as_f64().unwrap()
     );

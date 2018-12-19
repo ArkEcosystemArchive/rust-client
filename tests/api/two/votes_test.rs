@@ -13,11 +13,11 @@ fn test_all() {
 
         let actual_meta = actual.meta.unwrap();
         let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, expected_meta);
+        assert_meta(actual_meta, &expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_vote_data(actual_data, expected_data);
+        assert_vote_data(actual_data, &expected_data);
     }
 }
 
@@ -33,11 +33,11 @@ fn test_all_params() {
 
         let actual_meta = actual.meta.unwrap();
         let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, expected_meta);
+        assert_meta(actual_meta, &expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_vote_data(actual_data, expected_data);
+        assert_vote_data(actual_data, &expected_data);
     }
 }
 
@@ -49,12 +49,12 @@ fn test_show() {
         let actual = client.votes.show("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        assert_vote_data(actual.data, expected["data"].clone());
+        assert_vote_data(actual.data, &expected["data"]);
     }
 }
 
-fn assert_vote_data(actual: Transaction, expected: Value) {
-    assert_transaction_data(actual.clone(), expected.clone());
+fn assert_vote_data(actual: Transaction, expected: &Value) {
+    assert_transaction_data(actual.clone(), &expected);
 
     match actual.asset {
         Asset::Votes(votes) => {

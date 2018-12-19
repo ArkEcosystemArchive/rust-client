@@ -21,11 +21,11 @@ impl Client {
         Client {
             host: host.to_owned(),
             client: ::reqwest::Client::new(),
-            headers: headers,
+            headers,
         }
     }
 
-    pub fn set_version(&mut self, version: Version) {
+    pub fn set_version(&mut self, version: &Version) {
         self.headers.insert(
             "API-Version",
             HeaderValue::from_static(version.to_string())
@@ -88,11 +88,12 @@ impl Client {
     {
         let builder = self.client.post(url.as_str());
 
-        let mut body = String::new();
-        if payload.is_some() {
+        let body = if payload.is_some() {
             let map = utils::to_map(payload.unwrap());
-            body = to_string(&map)?;
-        }
+            to_string(&map)?
+        } else {
+            String::new()
+        };
 
         self.send(builder.body(body))
     }

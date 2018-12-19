@@ -19,3 +19,4 @@ serde_json = "1.0.32"
 
 [dev-dependencies]
 mockito = "0.13.0"
+assert_float_eq = "1"

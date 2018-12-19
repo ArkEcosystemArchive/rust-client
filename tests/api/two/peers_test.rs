@@ -13,11 +13,11 @@ fn test_all() {
 
         let actual_meta = actual.meta.unwrap();
         let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, expected_meta);
+        assert_meta(actual_meta, &expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_peer_data(actual_data, expected_data);
+        assert_peer_data(&actual_data, &expected_data);
     }
 }
 
@@ -33,11 +33,11 @@ fn test_all_params() {
 
         let actual_meta = actual.meta.unwrap();
         let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, expected_meta);
+        assert_meta(actual_meta, &expected_meta);
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_peer_data(actual_data, expected_data);
+        assert_peer_data(&actual_data, &expected_data);
     }
 }
 
@@ -49,11 +49,11 @@ fn test_show() {
         let actual = client.peers.show("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        assert_peer_data(actual.data, expected["data"].clone());
+        assert_peer_data(&actual.data, &expected["data"]);
     }
 }
 
-fn assert_peer_data(actual: Peer, expected: Value) {
+fn assert_peer_data(actual: &Peer, expected: &Value) {
     assert_eq!(
         actual.ip,
         expected["ip"].as_str().unwrap()
