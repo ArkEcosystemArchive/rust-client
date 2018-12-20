@@ -1,7 +1,7 @@
+use serde_json::from_str;
 use *;
-use serde_json::{from_str};
 
-use arkecosystem_client::api::models::{Delegate};
+use arkecosystem_client::api::models::Delegate;
 
 #[test]
 fn test_all() {
@@ -79,7 +79,10 @@ fn test_blocks_params() {
         let client = mock_client();
         let delegate_address = "dummy";
         let params = [("limit", "20")].iter();
-        let actual = client.delegates.blocks_params(delegate_address, params).unwrap();
+        let actual = client
+            .delegates
+            .blocks_params(delegate_address, params)
+            .unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         let actual_meta = actual.meta.unwrap();
@@ -118,7 +121,10 @@ fn test_voters_params() {
         let client = mock_client();
         let delegate_address = "dummy";
         let params = [("limit", "20")].iter();
-        let actual = client.delegates.voters_params(delegate_address, params).unwrap();
+        let actual = client
+            .delegates
+            .voters_params(delegate_address, params)
+            .unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         let actual_meta = actual.meta.unwrap();
@@ -169,26 +175,11 @@ fn test_search() {
 }
 
 fn assert_delegate_data(actual: Delegate, expected: &Value) {
-    assert_eq!(
-        actual.username,
-        expected["username"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.address,
-        expected["address"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.public_key,
-        expected["publicKey"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.votes,
-        expected["votes"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.rank,
-        expected["rank"].as_u64().unwrap() as u32
-    );
+    assert_eq!(actual.username, expected["username"].as_str().unwrap());
+    assert_eq!(actual.address, expected["address"].as_str().unwrap());
+    assert_eq!(actual.public_key, expected["publicKey"].as_str().unwrap());
+    assert_eq!(actual.votes, expected["votes"].as_u64().unwrap());
+    assert_eq!(actual.rank, expected["rank"].as_u64().unwrap() as u32);
     assert_eq!(
         actual.blocks.produced,
         expected["blocks"]["produced"].as_u64().unwrap()
@@ -200,13 +191,10 @@ fn assert_delegate_data(actual: Delegate, expected: &Value) {
 
     if actual.blocks.last.is_some() {
         let last = actual.blocks.last.unwrap().clone();
-        assert_eq!(
-            last.id,
-            expected["blocks"]["last"]["id"].as_str().unwrap()
-        );
+        assert_eq!(last.id, expected["blocks"]["last"]["id"].as_str().unwrap());
         assert_timestamp_data(
             &last.timestamp,
-            &expected["blocks"]["last"]["timestamp"].clone()
+            &expected["blocks"]["last"]["timestamp"].clone(),
         );
     }
 

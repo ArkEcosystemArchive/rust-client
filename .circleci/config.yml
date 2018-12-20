@@ -21,6 +21,11 @@ jobs:
             rustup component add --toolchain nightly clippy
             rustup run nightly cargo clippy --all-targets --all-features -- -D warnings
       - run:
+          name: rustfmt
+          command: |
+            rustup component add --toolchain nightly rustfmt
+            rustup run nightly cargo fmt -- --check
+      - run:
           name: Codecov
           when: on_success
           command: bash <(curl -s https://codecov.io/bash)
@@ -41,6 +46,11 @@ jobs:
           command: |
             rustup component add --toolchain beta clippy
             rustup run beta cargo clippy --all-targets --all-features -- -D warnings
+      - run:
+          name: rustfmt
+          command: |
+            rustup component add --toolchain beta rustfmt
+            rustup run beta cargo fmt -- --check
   build-stable:
     docker:
       - image: circleci/rust:latest
@@ -60,6 +70,11 @@ jobs:
             # Clippy is no longer available via crates.io
             rustup component add --toolchain stable clippy
             rustup run stable cargo clippy --all-targets --all-features -- -D warnings
+      - run:
+          name: rustfmt
+          command: |
+            rustup component add --toolchain stable rustfmt
+            rustup run stable cargo fmt -- --check
 
 workflows:
   version: 2

@@ -1,6 +1,6 @@
 use std::any::Any;
-use std::collections::HashMap;
 use std::collections::hash_map::Values;
+use std::collections::HashMap;
 use Connection;
 
 #[derive(Default)]
@@ -22,17 +22,12 @@ impl<'a> Manager<'a> {
         self.connect_as(connection, default_connection)
     }
 
-    pub fn connect_as(
-        &mut self,
-        connection: &'a Connection,
-        name: &str,
-    ) -> Result<(), &str> {
+    pub fn connect_as(&mut self, connection: &'a Connection, name: &str) -> Result<(), &str> {
         if self.connections.contains_key(name) {
             return Err("Connection already exists.");
         }
 
-        self.connections
-            .insert(name.to_owned(), connection);
+        self.connections.insert(name.to_owned(), connection);
         Ok(())
     }
 
@@ -47,7 +42,7 @@ impl<'a> Manager<'a> {
     pub fn connection(&self) -> Option<&'a Connection> {
         let connection_name = self.get_default_connection();
         if let Some(conn) = self.connections.get(&connection_name) {
-            return conn.downcast_ref()
+            return conn.downcast_ref();
         }
 
         None
@@ -55,7 +50,7 @@ impl<'a> Manager<'a> {
 
     pub fn connection_by_name(&self, name: &str) -> Option<&'a Connection> {
         if let Some(conn) = self.connections.get(name) {
-            return conn.downcast_ref()
+            return conn.downcast_ref();
         }
 
         None

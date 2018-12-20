@@ -1,5 +1,5 @@
-use *;
 use serde_json::{from_str, Value};
+use *;
 
 use arkecosystem_client::api::models::{FeeSchema, FeeStatistics};
 
@@ -15,10 +15,7 @@ fn test_status() {
             actual.data.synced,
             expected["data"]["synced"].as_bool().unwrap()
         );
-        assert_eq!(
-            actual.data.now,
-            expected["data"]["now"].as_u64().unwrap()
-        );
+        assert_eq!(actual.data.now, expected["data"]["now"].as_u64().unwrap());
         assert_eq!(
             actual.data.blocks_count,
             expected["data"]["blocksCount"].as_i64().unwrap()
@@ -47,10 +44,7 @@ fn test_syncing() {
             actual.data.height,
             expected["data"]["height"].as_u64().unwrap()
         );
-        assert_eq!(
-            actual.data.id,
-            expected["data"]["id"].as_str().unwrap()
-        );
+        assert_eq!(actual.data.id, expected["data"]["id"].as_str().unwrap());
     }
 }
 
@@ -151,28 +145,25 @@ fn test_configuration() {
 
         assert_configuration_fees(
             &dynamic_fees.addon_bytes,
-            &expected["data"]["constants"]["fees"]["dynamicFees"]["addonBytes"]
+            &expected["data"]["constants"]["fees"]["dynamicFees"]["addonBytes"],
         );
 
         assert_configuration_fees(
             &actual.data.constants.fees.static_fees,
-            &expected["data"]["constants"]["fees"]["staticFees"]
+            &expected["data"]["constants"]["fees"]["staticFees"],
         );
 
         for i in 0..=4 {
             assert_fee_statistics(
                 &actual.data.fee_statistics[i],
-                &expected["data"]["feeStatistics"][i]
+                &expected["data"]["feeStatistics"][i],
             );
         }
     }
 }
 
 fn assert_configuration_fees(actual: &FeeSchema, expected: &Value) {
-    assert_eq!(
-        actual.transfer,
-        expected["transfer"].as_u64().unwrap()
-    );
+    assert_eq!(actual.transfer, expected["transfer"].as_u64().unwrap());
     assert_eq!(
         actual.second_signature,
         expected["secondSignature"].as_u64().unwrap()
@@ -181,18 +172,12 @@ fn assert_configuration_fees(actual: &FeeSchema, expected: &Value) {
         actual.delegate_registration,
         expected["delegateRegistration"].as_u64().unwrap()
     );
-    assert_eq!(
-        actual.vote,
-        expected["vote"].as_u64().unwrap()
-    );
+    assert_eq!(actual.vote, expected["vote"].as_u64().unwrap());
     assert_eq!(
         actual.multi_signature,
         expected["multiSignature"].as_u64().unwrap()
     );
-    assert_eq!(
-        actual.ipfs,
-        expected["ipfs"].as_u64().unwrap()
-    );
+    assert_eq!(actual.ipfs, expected["ipfs"].as_u64().unwrap());
     assert_eq!(
         actual.timelock_transfer,
         expected["timelockTransfer"].as_u64().unwrap()

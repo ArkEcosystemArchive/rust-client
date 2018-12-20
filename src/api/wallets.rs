@@ -14,12 +14,14 @@ impl Wallets {
         Wallets { client }
     }
 
-    pub fn all(&self) -> Result<Response<Vec<Wallet>>, failure::Error>
-    {
+    pub fn all(&self) -> Result<Response<Vec<Wallet>>, failure::Error> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Wallet>>, failure::Error>
+    pub fn all_params<I, K, V>(
+        &self,
+        parameters: I,
+    ) -> Result<Response<Vec<Wallet>>, failure::Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -31,12 +33,14 @@ impl Wallets {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn top(&self) -> Result<Response<Vec<Wallet>>, failure::Error>
-    {
+    pub fn top(&self) -> Result<Response<Vec<Wallet>>, failure::Error> {
         self.top_params(Vec::<(String, String)>::new())
     }
 
-    pub fn top_params<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Wallet>>, failure::Error>
+    pub fn top_params<I, K, V>(
+        &self,
+        parameters: I,
+    ) -> Result<Response<Vec<Wallet>>, failure::Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -53,8 +57,7 @@ impl Wallets {
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }
 
-    pub fn transactions(&self, id: &str) -> Result<Response<Vec<Transaction>>, failure::Error>
-    {
+    pub fn transactions(&self, id: &str) -> Result<Response<Vec<Transaction>>, failure::Error> {
         self.transactions_params(id, Vec::<(String, String)>::new())
     }
 
@@ -75,8 +78,10 @@ impl Wallets {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn sent_transactions(&self, id: &str) -> Result<Response<Vec<Transaction>>, failure::Error>
-    {
+    pub fn sent_transactions(
+        &self,
+        id: &str,
+    ) -> Result<Response<Vec<Transaction>>, failure::Error> {
         self.sent_transactions_params(id, Vec::<(String, String)>::new())
     }
 
@@ -97,8 +102,10 @@ impl Wallets {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn received_transactions(&self, id: &str) -> Result<Response<Vec<Transaction>>, failure::Error>
-    {
+    pub fn received_transactions(
+        &self,
+        id: &str,
+    ) -> Result<Response<Vec<Transaction>>, failure::Error> {
         self.received_transactions_params(id, Vec::<(String, String)>::new())
     }
 

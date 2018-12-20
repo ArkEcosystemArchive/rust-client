@@ -3,7 +3,7 @@ use http::client::Client;
 use serde_json::from_value;
 use std::borrow::Borrow;
 
-use api::models::{Block, Delegate, Response, Balances, Wallet};
+use api::models::{Balances, Block, Delegate, Response, Wallet};
 
 pub struct Delegates {
     client: Client,
@@ -14,12 +14,14 @@ impl Delegates {
         Delegates { client }
     }
 
-    pub fn all(&self) -> Result<Response<Vec<Delegate>>, failure::Error>
-    {
+    pub fn all(&self) -> Result<Response<Vec<Delegate>>, failure::Error> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Delegate>>, failure::Error>
+    pub fn all_params<I, K, V>(
+        &self,
+        parameters: I,
+    ) -> Result<Response<Vec<Delegate>>, failure::Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -36,8 +38,7 @@ impl Delegates {
         self.client.get(&endpoint).map(|v| from_value(v).unwrap())
     }
 
-    pub fn blocks(&self, id: &str) -> Result<Response<Vec<Block>>, failure::Error>
-    {
+    pub fn blocks(&self, id: &str) -> Result<Response<Vec<Block>>, failure::Error> {
         self.blocks_params(id, Vec::<(String, String)>::new())
     }
 
@@ -58,8 +59,7 @@ impl Delegates {
             .map(|v| from_value(v).unwrap())
     }
 
-    pub fn voters(&self, id: &str) -> Result<Response<Vec<Wallet>>, failure::Error>
-    {
+    pub fn voters(&self, id: &str) -> Result<Response<Vec<Wallet>>, failure::Error> {
         self.voters_params(id, Vec::<(String, String)>::new())
     }
 

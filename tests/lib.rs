@@ -13,8 +13,8 @@ use serde_json::Value;
 use std::fs::File;
 use std::io::prelude::*;
 
-use arkecosystem_client::Connection;
 use arkecosystem_client::api::models::{Block, Meta, Timestamp, Transaction, Wallet};
+use arkecosystem_client::Connection;
 
 const MOCK_HOST: &str = "http://127.0.0.1:1234/api/";
 
@@ -81,10 +81,7 @@ fn read_fixture(endpoint: &str) -> String {
 }
 
 fn assert_meta(actual: Meta, expected: &Value) {
-    assert_eq!(
-        actual.count,
-        expected["count"].as_u64().unwrap() as u32
-    );
+    assert_eq!(actual.count, expected["count"].as_u64().unwrap() as u32);
     assert_eq!(
         actual.page_count,
         expected["pageCount"].as_u64().unwrap() as u32
@@ -94,10 +91,7 @@ fn assert_meta(actual: Meta, expected: &Value) {
         expected["totalCount"].as_u64().unwrap() as u32
     );
     if actual.next.is_some() {
-        assert_eq!(
-            actual.next.unwrap(),
-            expected["next"].as_str().unwrap()
-        );
+        assert_eq!(actual.next.unwrap(), expected["next"].as_str().unwrap());
     }
     if actual.previous.is_some() {
         assert_eq!(
@@ -105,58 +99,25 @@ fn assert_meta(actual: Meta, expected: &Value) {
             expected["previous"].as_str().unwrap()
         );
     }
-    assert_eq!(
-        actual.self_url,
-        expected["self"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.first,
-        expected["first"].as_str().unwrap()
-    );
+    assert_eq!(actual.self_url, expected["self"].as_str().unwrap());
+    assert_eq!(actual.first, expected["first"].as_str().unwrap());
     if actual.last.is_some() {
-        assert_eq!(
-            actual.last.unwrap(),
-            expected["last"].as_str().unwrap()
-        );
+        assert_eq!(actual.last.unwrap(), expected["last"].as_str().unwrap());
     }
 }
 
 fn assert_timestamp_data(actual: &Timestamp, expected: &Value) {
-    assert_eq!(
-        actual.epoch,
-        expected["epoch"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.unix,
-        expected["unix"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.human,
-        expected["human"].as_str().unwrap()
-    );
+    assert_eq!(actual.epoch, expected["epoch"].as_u64().unwrap() as u32);
+    assert_eq!(actual.unix, expected["unix"].as_u64().unwrap() as u32);
+    assert_eq!(actual.human, expected["human"].as_str().unwrap());
 }
 
 fn assert_block(actual: &Block, expected: &Value) {
-    assert_eq!(
-        actual.id,
-        expected["id"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.version,
-        expected["version"].as_u64().unwrap() as u8
-    );
-    assert_eq!(
-        actual.height,
-        expected["height"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.previous,
-        expected["previous"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.signature,
-        expected["signature"].as_str().unwrap()
-    );
+    assert_eq!(actual.id, expected["id"].as_str().unwrap());
+    assert_eq!(actual.version, expected["version"].as_u64().unwrap() as u8);
+    assert_eq!(actual.height, expected["height"].as_u64().unwrap());
+    assert_eq!(actual.previous, expected["previous"].as_str().unwrap());
+    assert_eq!(actual.signature, expected["signature"].as_str().unwrap());
     assert_eq!(
         actual.forged.reward,
         expected["forged"]["reward"].as_u64().unwrap()
@@ -197,64 +158,31 @@ fn assert_block(actual: &Block, expected: &Value) {
         actual.transactions,
         expected["transactions"].as_u64().unwrap() as u32
     );
-    assert_timestamp_data(
-        &actual.timestamp,
-        &expected["timestamp"].clone()
-    );
+    assert_timestamp_data(&actual.timestamp, &expected["timestamp"].clone());
 }
 
 fn assert_transaction_data(actual: Transaction, expected: &Value) {
-    assert_eq!(
-        actual.id,
-        expected["id"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.block_id,
-        expected["blockId"].as_str().unwrap()
-    );
+    assert_eq!(actual.id, expected["id"].as_str().unwrap());
+    assert_eq!(actual.block_id, expected["blockId"].as_str().unwrap());
     if let Some(version) = actual.version {
-        assert_eq!(
-            version,
-            expected["version"].as_u64().unwrap() as u16
-        );
+        assert_eq!(version, expected["version"].as_u64().unwrap() as u16);
     }
     assert_eq!(
         actual.transaction_type as u64,
         expected["type"].as_u64().unwrap()
     );
-    assert_eq!(
-        actual.amount,
-        expected["amount"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.fee,
-        expected["fee"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.sender,
-        expected["sender"].as_str().unwrap()
-    );
+    assert_eq!(actual.amount, expected["amount"].as_u64().unwrap());
+    assert_eq!(actual.fee, expected["fee"].as_u64().unwrap());
+    assert_eq!(actual.sender, expected["sender"].as_str().unwrap());
     if let Some(recipient) = actual.recipient {
-        assert_eq!(
-            recipient,
-            expected["recipient"].as_str().unwrap()
-        );
+        assert_eq!(recipient, expected["recipient"].as_str().unwrap());
     }
-    assert_eq!(
-        actual.signature,
-        expected["signature"].as_str().unwrap()
-    );
+    assert_eq!(actual.signature, expected["signature"].as_str().unwrap());
     if let Some(sign_signature) = actual.sign_signature {
-        assert_eq!(
-            sign_signature,
-            expected["signSignature"].as_str().unwrap()
-        );
+        assert_eq!(sign_signature, expected["signSignature"].as_str().unwrap());
     }
     if let Some(vendor_field) = actual.vendor_field {
-        assert_eq!(
-            vendor_field,
-            expected["vendorField"].as_str().unwrap()
-        );
+        assert_eq!(vendor_field, expected["vendorField"].as_str().unwrap());
     }
 
     // NOTE: asset should be tested on each transaction type
@@ -263,28 +191,16 @@ fn assert_transaction_data(actual: Transaction, expected: &Value) {
         actual.confirmations,
         expected["confirmations"].as_u64().unwrap()
     );
-    assert_timestamp_data(
-        &actual.timestamp,
-        &expected["timestamp"].clone()
-    );
+    assert_timestamp_data(&actual.timestamp, &expected["timestamp"].clone());
 }
 
 fn assert_wallet_data(actual: Wallet, expected: &Value) {
-    assert_eq!(
-        actual.address,
-        expected["address"].as_str().unwrap()
-    );
+    assert_eq!(actual.address, expected["address"].as_str().unwrap());
     if let Some(public_key) = actual.public_key {
-        assert_eq!(
-            public_key,
-            expected["publicKey"].as_str().unwrap()
-        );
+        assert_eq!(public_key, expected["publicKey"].as_str().unwrap());
     }
     if let Some(username) = actual.username {
-        assert_eq!(
-            username,
-            expected["username"].as_str().unwrap()
-        );
+        assert_eq!(username, expected["username"].as_str().unwrap());
     }
     if let Some(second_public_key) = actual.second_public_key {
         assert_eq!(
@@ -292,10 +208,7 @@ fn assert_wallet_data(actual: Wallet, expected: &Value) {
             expected["secondPublicKey"].as_str().unwrap()
         );
     }
-    assert_eq!(
-        actual.balance,
-        expected["balance"].as_u64().unwrap()
-    );
+    assert_eq!(actual.balance, expected["balance"].as_u64().unwrap());
     assert_eq!(
         actual.is_delegate,
         expected["isDelegate"].as_bool().unwrap()

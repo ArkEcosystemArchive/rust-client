@@ -49,7 +49,7 @@ impl Api {
             transactions: Transactions::new(client.clone()),
             votes: Votes::new(client.clone()),
             wallets: Wallets::new(client.clone()),
-            client
+            client,
         }
     }
 }

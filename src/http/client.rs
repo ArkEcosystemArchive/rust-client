@@ -25,10 +25,8 @@ impl Client {
     }
 
     pub fn set_version(&mut self, version: &'static str) {
-        self.headers.insert(
-            "API-Version",
-            HeaderValue::from_static(version)
-        );
+        self.headers
+            .insert("API-Version", HeaderValue::from_static(version));
     }
 
     pub fn get(&self, endpoint: &str) -> Result<Value, failure::Error> {
@@ -62,7 +60,12 @@ impl Client {
         self.internal_post(&url, payload)
     }
 
-    pub fn post_with_params<I, K, V>(&self, endpoint: &str, payload: Option<I>, parameters: I) -> Result<Value, failure::Error>
+    pub fn post_with_params<I, K, V>(
+        &self,
+        endpoint: &str,
+        payload: Option<I>,
+        parameters: I,
+    ) -> Result<Value, failure::Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
