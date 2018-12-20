@@ -1,13 +1,13 @@
 {
   "data": {
-    "TRANSFER": 0,
-    "SECOND_SIGNATURE": 1,
-    "DELEGATE_REGISTRATION": 2,
-    "VOTE": 3,
-    "MULTI_SIGNATURE": 4,
-    "IPFS": 5,
-    "TIMELOCK_TRANSFER": 6,
-    "MULTI_PAYMENT": 7,
-    "DELEGATE_RESIGNATION": 8
+    "Transfer": 0,
+    "SecondSignature": 1,
+    "DelegateRegistration": 2,
+    "Vote": 3,
+    "MultiSignature": 4,
+    "Ipfs": 5,
+    "TimelockTransfer": 6,
+    "MultiPayment": 7,
+    "DelegateResignation": 8
   }
 }

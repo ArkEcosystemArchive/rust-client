@@ -259,7 +259,7 @@ pub struct TransactionFees {
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-#[serde(rename_all = "SCREAMING_SNAKE_CASE")]
+#[serde(rename_all = "PascalCase")]
 pub struct TransactionTypes {
     pub transfer: u16,
     pub second_signature: u16,
