@@ -126,39 +126,39 @@ fn test_types() {
 
         assert_eq!(
             actual.data.transfer,
-            expected["data"]["TRANSFER"].as_u64().unwrap() as u16
+            expected["data"]["Transfer"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.second_signature,
-            expected["data"]["SECOND_SIGNATURE"].as_u64().unwrap() as u16
+            expected["data"]["SecondSignature"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.delegate_registration,
-            expected["data"]["DELEGATE_REGISTRATION"].as_u64().unwrap() as u16
+            expected["data"]["DelegateRegistration"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.vote,
-            expected["data"]["VOTE"].as_u64().unwrap() as u16
+            expected["data"]["Vote"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.multi_signature,
-            expected["data"]["MULTI_SIGNATURE"].as_u64().unwrap() as u16
+            expected["data"]["MultiSignature"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.ipfs,
-            expected["data"]["IPFS"].as_u64().unwrap() as u16
+            expected["data"]["Ipfs"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.timelock_transfer,
-            expected["data"]["TIMELOCK_TRANSFER"].as_u64().unwrap() as u16
+            expected["data"]["TimelockTransfer"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.multi_payment,
-            expected["data"]["MULTI_PAYMENT"].as_u64().unwrap() as u16
+            expected["data"]["MultiPayment"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.delegate_resignation,
-            expected["data"]["DELEGATE_RESIGNATION"].as_u64().unwrap() as u16
+            expected["data"]["DelegateResignation"].as_u64().unwrap() as u16
         );
     }
 }

@@ -90,6 +90,22 @@ impl Transactions {
             .map(|v| from_value(v).unwrap())
     }
 
+    /// Returns the transaction types and their ID
+    ///
+    /// # Example
+    /// ```
+    /// # extern crate serde_json;
+    /// # extern crate arkecosystem_client;
+    ///
+    /// # use serde_json::to_string_pretty;
+    /// # use arkecosystem_client::connection::Connection;
+    ///
+    /// # fn main() {
+    ///   # let client = Connection::new("http://95.179.170.23:4003/api/");
+    ///   let types = client.transactions.types().unwrap();
+    ///   println!("{}", to_string_pretty(&types).unwrap());
+    /// # }
+    /// ```
     pub fn types(&self) -> Result<Response<TransactionTypes>, failure::Error> {
         self.client
             .get("transactions/types")
@@ -105,10 +121,9 @@ impl Transactions {
     ///
     /// # use serde_json::to_string_pretty;
     /// # use arkecosystem_client::connection::Connection;
-    /// # use arkecosystem_client::api::two::Two;
     ///
     /// # fn main() {
-    ///   # let client = Connection::<Two>::new("http://167.114.43.38:4003/api/");
+    ///   # let client = Connection::new("http://167.114.43.38:4003/api/");
     ///   let fees = client.transactions.fees().unwrap();
     ///   println!("{}", to_string_pretty(&fees).unwrap());
     /// # }
