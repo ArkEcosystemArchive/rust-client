@@ -1,8 +1,8 @@
 use http::client::Client;
 use std::borrow::Borrow;
 
-use api::models::{Block, Response, Transaction};
-use api::ApiResult;
+use api::models::{Block, Transaction};
+use api::Result;
 
 pub struct Blocks {
     client: Client,
@@ -13,11 +13,11 @@ impl Blocks {
         Blocks { client }
     }
 
-    pub fn all(&self) -> ApiResult<Response<Vec<Block>>> {
+    pub fn all(&self) -> Result<Vec<Block>> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_params<I, K, V>(&self, parameters: I) -> ApiResult<Response<Vec<Block>>>
+    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Vec<Block>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -28,13 +28,13 @@ impl Blocks {
             .get_with_params("blocks", parameters)
     }
 
-    pub fn show(&self, id: &str) -> ApiResult<Response<Block>> {
+    pub fn show(&self, id: &str) -> Result<Block> {
         let endpoint = format!("blocks/{}", id);
 
         self.client.get(&endpoint)
     }
 
-    pub fn transactions(&self, id: &str) -> ApiResult<Response<Vec<Transaction>>> {
+    pub fn transactions(&self, id: &str) -> Result<Vec<Transaction>> {
         self.transactions_params(id, Vec::<(String, String)>::new())
     }
 
@@ -42,7 +42,7 @@ impl Blocks {
         &self,
         id: &str,
         parameters: I,
-    ) -> ApiResult<Response<Vec<Transaction>>>
+    ) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -54,7 +54,7 @@ impl Blocks {
             .get_with_params(&endpoint, parameters)
     }
 
-    pub fn search<I, K, V>(&self, parameters: I) -> ApiResult<Response<Vec<Block>>>
+    pub fn search<I, K, V>(&self, parameters: I) -> Result<Vec<Block>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,

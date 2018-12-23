@@ -1,8 +1,8 @@
 use http::client::Client;
 use std::borrow::Borrow;
 
-use api::ApiResult;
-use api::models::{Response, Transaction, Wallet};
+use api::Result;
+use api::models::{Transaction, Wallet};
 
 pub struct Wallets {
     client: Client,
@@ -13,14 +13,14 @@ impl Wallets {
         Wallets { client }
     }
 
-    pub fn all(&self) -> ApiResult<Response<Vec<Wallet>>> {
+    pub fn all(&self) -> Result<Vec<Wallet>> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
     pub fn all_params<I, K, V>(
         &self,
         parameters: I,
-    ) -> ApiResult<Response<Vec<Wallet>>>
+    ) -> Result<Vec<Wallet>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -31,14 +31,14 @@ impl Wallets {
             .get_with_params("wallets", parameters)
     }
 
-    pub fn top(&self) -> ApiResult<Response<Vec<Wallet>>> {
+    pub fn top(&self) -> Result<Vec<Wallet>> {
         self.top_params(Vec::<(String, String)>::new())
     }
 
     pub fn top_params<I, K, V>(
         &self,
         parameters: I,
-    ) -> ApiResult<Response<Vec<Wallet>>>
+    ) -> Result<Vec<Wallet>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -49,12 +49,12 @@ impl Wallets {
             .get_with_params("wallets/top", parameters)
     }
 
-    pub fn show(&self, id: &str) -> ApiResult<Response<Wallet>> {
+    pub fn show(&self, id: &str) -> Result<Wallet> {
         let endpoint = format!("wallets/{}", id);
         self.client.get(&endpoint)
     }
 
-    pub fn transactions(&self, id: &str) -> ApiResult<Response<Vec<Transaction>>> {
+    pub fn transactions(&self, id: &str) -> Result<Vec<Transaction>> {
         self.transactions_params(id, Vec::<(String, String)>::new())
     }
 
@@ -62,7 +62,7 @@ impl Wallets {
         &self,
         id: &str,
         parameters: I,
-    ) -> ApiResult<Response<Vec<Transaction>>>
+    ) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -77,7 +77,7 @@ impl Wallets {
     pub fn sent_transactions(
         &self,
         id: &str,
-    ) -> ApiResult<Response<Vec<Transaction>>> {
+    ) -> Result<Vec<Transaction>> {
         self.sent_transactions_params(id, Vec::<(String, String)>::new())
     }
 
@@ -85,7 +85,7 @@ impl Wallets {
         &self,
         id: &str,
         parameters: I,
-    ) -> ApiResult<Response<Vec<Transaction>>>
+    ) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -100,7 +100,7 @@ impl Wallets {
     pub fn received_transactions(
         &self,
         id: &str,
-    ) -> ApiResult<Response<Vec<Transaction>>> {
+    ) -> Result<Vec<Transaction>> {
         self.received_transactions_params(id, Vec::<(String, String)>::new())
     }
 
@@ -108,7 +108,7 @@ impl Wallets {
         &self,
         id: &str,
         parameters: I,
-    ) -> ApiResult<Response<Vec<Transaction>>>
+    ) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -120,12 +120,12 @@ impl Wallets {
             .get_with_params(&endpoint, parameters)
     }
 
-    pub fn votes(&self, id: &str) -> ApiResult<Response<Vec<Transaction>>> {
+    pub fn votes(&self, id: &str) -> Result<Vec<Transaction>> {
         let endpoint = format!("wallets/{}/votes", id);
         self.client.get(&endpoint)
     }
 
-    pub fn search<I, K, V>(&self, parameters: I) -> ApiResult<Response<Vec<Wallet>>>
+    pub fn search<I, K, V>(&self, parameters: I) -> Result<Vec<Wallet>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,

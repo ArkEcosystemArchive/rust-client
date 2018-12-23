@@ -27,7 +27,7 @@ impl error::Error for Error {
 
     fn description(&self) -> &str {
         match *self {
-            Error::Api(ref err) => "API request error.",
+            Error::Api(ref _err) => "API request error.",
             Error::ReqwestHttp(ref err) => err.description(),
             Error::ReqwestUrl(ref err) => err.description(),
             Error::Serde(ref err) => err.description()

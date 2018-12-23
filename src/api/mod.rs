@@ -14,11 +14,12 @@ use self::peers::Peers;
 use self::transactions::Transactions;
 use self::votes::Votes;
 use self::wallets::Wallets;
+use self::models::Response;
 
 use http::client::Client;
 use super::error::Error;
 
-pub type ApiResult<T> = std::result::Result<T, Error>;
+pub type Result<T> = std::result::Result<Response<T>, Error>;
 
 pub struct Api {
     pub blocks: Blocks,

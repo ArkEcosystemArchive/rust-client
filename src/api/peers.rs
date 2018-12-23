@@ -1,7 +1,7 @@
 use std::borrow::Borrow;
 
-use api::ApiResult;
-use api::models::{Peer, Response};
+use api::Result;
+use api::models::Peer;
 use http::client::Client;
 
 pub struct Peers {
@@ -13,11 +13,11 @@ impl Peers {
         Peers { client }
     }
 
-    pub fn all(&self) -> ApiResult<Response<Vec<Peer>>> {
+    pub fn all(&self) -> Result<Vec<Peer>> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_params<I, K, V>(&self, parameters: I) -> ApiResult<Response<Vec<Peer>>>
+    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Vec<Peer>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -28,7 +28,7 @@ impl Peers {
             .get_with_params("peers", parameters)
     }
 
-    pub fn show(&self, ip_addr: &str) -> ApiResult<Response<Peer>> {
+    pub fn show(&self, ip_addr: &str) -> Result<Peer> {
         let endpoint = format!("peers/{}", ip_addr);
         self.client.get(&endpoint)
     }

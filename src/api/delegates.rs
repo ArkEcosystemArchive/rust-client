@@ -1,8 +1,8 @@
 use http::client::Client;
 use std::borrow::Borrow;
 
-use api::models::{Balances, Block, Delegate, Response, Wallet};
-use api::ApiResult;
+use api::models::{Balances, Block, Delegate, Wallet};
+use api::Result;
 
 pub struct Delegates {
     client: Client,
@@ -13,14 +13,14 @@ impl Delegates {
         Delegates { client }
     }
 
-    pub fn all(&self) -> ApiResult<Response<Vec<Delegate>>> {
+    pub fn all(&self) -> Result<Vec<Delegate>> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
     pub fn all_params<I, K, V>(
         &self,
         parameters: I,
-    ) -> ApiResult<Response<Vec<Delegate>>>
+    ) -> Result<Vec<Delegate>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -31,12 +31,12 @@ impl Delegates {
             .get_with_params("delegates", parameters)
     }
 
-    pub fn show(&self, id: &str) -> ApiResult<Response<Delegate>> {
+    pub fn show(&self, id: &str) -> Result<Delegate> {
         let endpoint = format!("delegates/{}", id);
         self.client.get(&endpoint)
     }
 
-    pub fn blocks(&self, id: &str) -> ApiResult<Response<Vec<Block>>> {
+    pub fn blocks(&self, id: &str) -> Result<Vec<Block>> {
         self.blocks_params(id, Vec::<(String, String)>::new())
     }
 
@@ -44,7 +44,7 @@ impl Delegates {
         &self,
         id: &str,
         parameters: I,
-    ) -> ApiResult<Response<Vec<Block>>>
+    ) -> Result<Vec<Block>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -56,7 +56,7 @@ impl Delegates {
             .get_with_params(&endpoint, parameters)
     }
 
-    pub fn voters(&self, id: &str) -> ApiResult<Response<Vec<Wallet>>> {
+    pub fn voters(&self, id: &str) -> Result<Vec<Wallet>> {
         self.voters_params(id, Vec::<(String, String)>::new())
     }
 
@@ -64,7 +64,7 @@ impl Delegates {
         &self,
         id: &str,
         parameters: I,
-    ) -> ApiResult<Response<Vec<Wallet>>>
+    ) -> Result<Vec<Wallet>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -93,7 +93,7 @@ impl Delegates {
     ///   println!("{}", to_string_pretty(&voters_balances).unwrap());
     /// # }
     /// ```
-    pub fn voters_balances(&self, id: &str) -> ApiResult<Response<Balances>> {
+    pub fn voters_balances(&self, id: &str) -> Result<Balances> {
         let endpoint = format!("delegates/{}/voters/balances", id);
         self.client.get(&endpoint)
     }
@@ -120,7 +120,7 @@ impl Delegates {
         &self,
         payload: Option<I>,
         parameters: I,
-    ) -> ApiResult<Response<Vec<Delegate>>>
+    ) -> Result<Vec<Delegate>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,

@@ -1,6 +1,6 @@
-use api::models::{NodeConfiguration, NodeStatus, NodeSyncing, Response};
+use api::models::{NodeConfiguration, NodeStatus, NodeSyncing};
 use http::client::Client;
-use api::ApiResult;
+use api::Result;
 
 pub struct Node {
     client: Client,
@@ -11,17 +11,17 @@ impl Node {
         Node { client }
     }
 
-    pub fn status(&self) -> ApiResult<Response<NodeStatus>> {
+    pub fn status(&self) -> Result<NodeStatus> {
         self.client
             .get("node/status")
     }
 
-    pub fn syncing(&self) -> ApiResult<Response<NodeSyncing>> {
+    pub fn syncing(&self) -> Result<NodeSyncing> {
         self.client
             .get("node/syncing")
     }
 
-    pub fn configuration(&self) -> ApiResult<Response<NodeConfiguration>> {
+    pub fn configuration(&self) -> Result<NodeConfiguration> {
         self.client
             .get("node/configuration")
     }

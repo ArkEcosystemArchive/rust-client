@@ -1,8 +1,8 @@
 use http::client::Client;
 use std::borrow::Borrow;
 
-use api::ApiResult;
-use api::models::{Response, Transaction};
+use api::Result;
+use api::models::Transaction;
 
 pub struct Votes {
     client: Client,
@@ -13,14 +13,14 @@ impl Votes {
         Votes { client }
     }
 
-    pub fn all(&self) -> ApiResult<Response<Vec<Transaction>>> {
+    pub fn all(&self) -> Result<Vec<Transaction>> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
     pub fn all_params<I, K, V>(
         &self,
         parameters: I,
-    ) -> ApiResult<Response<Vec<Transaction>>>
+    ) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -31,7 +31,7 @@ impl Votes {
             .get_with_params("votes", parameters)
     }
 
-    pub fn show(&self, id: &str) -> ApiResult<Response<Transaction>> {
+    pub fn show(&self, id: &str) -> Result<Transaction> {
         let endpoint = format!("votes/{}", id);
         self.client.get(&endpoint)
     }

@@ -4,8 +4,8 @@ use serde::de::{DeserializeOwned};
 use serde_json::{from_str, to_string, from_value};
 use std::borrow::Borrow;
 use utils;
-use error::Error;
-use api::models::RequestError;
+use api::Result;
+use api::models::{Response, RequestError};
 
 #[derive(Clone, Debug)]
 pub struct Client {
@@ -31,7 +31,7 @@ impl Client {
             .insert("API-Version", HeaderValue::from_static(version));
     }
 
-    pub fn get<T: DeserializeOwned>(&self, endpoint: &str) -> Result<T, Error> {
+    pub fn get<T: DeserializeOwned>(&self, endpoint: &str) -> Result<T> {
         let url = Url::parse(&format!("{}{}", self.host, endpoint))?;
         self.internal_get(&url)
     }
@@ -40,7 +40,7 @@ impl Client {
         &self,
         endpoint: &str,
         parameters: I,
-    ) -> Result<T, Error>
+    ) -> Result<T>
     where
         T: DeserializeOwned,
         I: IntoIterator,
@@ -52,7 +52,7 @@ impl Client {
         self.internal_get(&url)
     }
 
-    pub fn post<T, I, K, V>(&self, endpoint: &str, payload: Option<I>) -> Result<T, Error>
+    pub fn post<T, I, K, V>(&self, endpoint: &str, payload: Option<I>) -> Result<T>
     where
         T: DeserializeOwned,
         I: IntoIterator,
@@ -69,7 +69,7 @@ impl Client {
         endpoint: &str,
         payload: Option<I>,
         parameters: I,
-    ) -> Result<T, Error>
+    ) -> Result<T>
     where
         T: DeserializeOwned,
         I: IntoIterator,
@@ -81,12 +81,12 @@ impl Client {
         self.internal_post(&url, payload)
     }
 
-    fn internal_get<T: DeserializeOwned>(&self, url: &Url) -> Result<T, Error> {
+    fn internal_get<T: DeserializeOwned>(&self, url: &Url) -> Result<T> {
         let builder = self.client.get(url.as_str());
         self.send(builder)
     }
 
-    fn internal_post<T, I, K, V>(&self, url: &Url, payload: Option<I>) -> Result<T, Error>
+    fn internal_post<T, I, K, V>(&self, url: &Url, payload: Option<I>) -> Result<T>
     where
         T: DeserializeOwned,
         I: IntoIterator,
@@ -102,20 +102,20 @@ impl Client {
         self.send(builder.body(body?))
     }
 
-    fn send<T: DeserializeOwned>(&self, builder: RequestBuilder) -> Result<T, Error> {
+    fn send<T: DeserializeOwned>(&self, builder: RequestBuilder) -> Result<T> {
         let response = builder.headers(self.headers.clone()).send()?.text()?;
         let value: serde_json::Value = from_str(&response)?;
 
         // Try to deserialize into T. If it fails, assume the API returned
         // an error.
-        let parsed = from_value::<T>(value.clone());
-
-        if parsed.is_err() {
-            // Assume the API returned a RequestError.
-            let request_error = from_value::<RequestError>(value)?;
-            return Err(request_error.into());
+        let parsed = from_value::<Response<T>>(value.clone());
+        match parsed {
+            Ok(item) => Ok(item),
+            Err(_) => {
+                // Assume the API returned a RequestError.
+                let request_error = from_value::<RequestError>(value)?;
+                return Err(request_error.into());
+            }
         }
-
-        return parsed.map_err(|err| From::from(err));
     }
 }
