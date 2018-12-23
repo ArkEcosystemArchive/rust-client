@@ -2,9 +2,6 @@ use reqwest;
 use serde_json;
 use std::fmt;
 use std::error;
-use std::result;
-
-type Result<T> = result::Result<T, Error>;
 
 #[derive(Debug)]
 pub struct ApiError {

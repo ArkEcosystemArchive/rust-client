@@ -16,6 +16,9 @@ use self::votes::Votes;
 use self::wallets::Wallets;
 
 use http::client::Client;
+use super::error::Error;
+
+pub type ApiResult<T> = std::result::Result<T, Error>;
 
 pub struct Api {
     pub blocks: Blocks,
