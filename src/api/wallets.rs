@@ -1,6 +1,5 @@
 use failure;
 use http::client::Client;
-use serde_json::from_value;
 use std::borrow::Borrow;
 
 use api::models::{Response, Transaction, Wallet};
@@ -30,7 +29,6 @@ impl Wallets {
     {
         self.client
             .get_with_params("wallets", parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn top(&self) -> Result<Response<Vec<Wallet>>, failure::Error> {
@@ -49,12 +47,11 @@ impl Wallets {
     {
         self.client
             .get_with_params("wallets/top", parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn show(&self, id: &str) -> Result<Response<Wallet>, failure::Error> {
         let endpoint = format!("wallets/{}", id);
-        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
+        self.client.get(&endpoint)
     }
 
     pub fn transactions(&self, id: &str) -> Result<Response<Vec<Transaction>>, failure::Error> {
@@ -75,7 +72,6 @@ impl Wallets {
         let endpoint = format!("wallets/{}/transactions", id);
         self.client
             .get_with_params(&endpoint, parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn sent_transactions(
@@ -99,7 +95,6 @@ impl Wallets {
         let endpoint = format!("wallets/{}/transactions/sent", id);
         self.client
             .get_with_params(&endpoint, parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn received_transactions(
@@ -123,12 +118,11 @@ impl Wallets {
         let endpoint = format!("wallets/{}/transactions/received", id);
         self.client
             .get_with_params(&endpoint, parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn votes(&self, id: &str) -> Result<Response<Vec<Transaction>>, failure::Error> {
         let endpoint = format!("wallets/{}/votes", id);
-        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
+        self.client.get(&endpoint)
     }
 
     pub fn search<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Wallet>>, failure::Error>
@@ -140,6 +134,5 @@ impl Wallets {
     {
         self.client
             .get_with_params("wallets/search", parameters)
-            .map(|v| from_value(v).unwrap())
     }
 }

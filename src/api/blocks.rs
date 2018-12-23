@@ -1,6 +1,5 @@
 use failure;
 use http::client::Client;
-use serde_json::from_value;
 use std::borrow::Borrow;
 
 use api::models::{Block, Response, Transaction};
@@ -27,13 +26,12 @@ impl Blocks {
     {
         self.client
             .get_with_params("blocks", parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn show(&self, id: &str) -> Result<Response<Block>, failure::Error> {
         let endpoint = format!("blocks/{}", id);
 
-        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
+        self.client.get(&endpoint)
     }
 
     pub fn transactions(&self, id: &str) -> Result<Response<Vec<Transaction>>, failure::Error> {
@@ -54,7 +52,6 @@ impl Blocks {
         let endpoint = format!("blocks/{}/transactions", id);
         self.client
             .get_with_params(&endpoint, parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn search<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Block>>, failure::Error>
@@ -66,6 +63,5 @@ impl Blocks {
     {
         self.client
             .get_with_params("blocks/search", parameters)
-            .map(|v| from_value(v).unwrap())
     }
 }

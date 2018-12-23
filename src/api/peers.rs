@@ -1,5 +1,4 @@
 use failure;
-use serde_json::from_value;
 use std::borrow::Borrow;
 
 use api::models::{Peer, Response};
@@ -27,11 +26,10 @@ impl Peers {
     {
         self.client
             .get_with_params("peers", parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn show(&self, ip_addr: &str) -> Result<Response<Peer>, failure::Error> {
         let endpoint = format!("peers/{}", ip_addr);
-        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
+        self.client.get(&endpoint)
     }
 }

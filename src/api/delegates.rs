@@ -1,6 +1,5 @@
 use failure;
 use http::client::Client;
-use serde_json::from_value;
 use std::borrow::Borrow;
 
 use api::models::{Balances, Block, Delegate, Response, Wallet};
@@ -30,12 +29,11 @@ impl Delegates {
     {
         self.client
             .get_with_params("delegates", parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn show(&self, id: &str) -> Result<Response<Delegate>, failure::Error> {
         let endpoint = format!("delegates/{}", id);
-        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
+        self.client.get(&endpoint)
     }
 
     pub fn blocks(&self, id: &str) -> Result<Response<Vec<Block>>, failure::Error> {
@@ -56,7 +54,6 @@ impl Delegates {
         let endpoint = format!("delegates/{}/blocks", id);
         self.client
             .get_with_params(&endpoint, parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn voters(&self, id: &str) -> Result<Response<Vec<Wallet>>, failure::Error> {
@@ -77,7 +74,6 @@ impl Delegates {
         let endpoint = format!("delegates/{}/voters", id);
         self.client
             .get_with_params(&endpoint, parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     /// Returns the voters of a delegate and their balances
@@ -99,7 +95,7 @@ impl Delegates {
     /// ```
     pub fn voters_balances(&self, id: &str) -> Result<Response<Balances>, failure::Error> {
         let endpoint = format!("delegates/{}/voters/balances", id);
-        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
+        self.client.get(&endpoint)
     }
 
     /// Searches the delegates
@@ -133,6 +129,5 @@ impl Delegates {
     {
         self.client
             .post_with_params("delegates/search", payload, parameters)
-            .map(|v| from_value(v).unwrap())
     }
 }

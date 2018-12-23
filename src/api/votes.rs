@@ -1,6 +1,5 @@
 use failure;
 use http::client::Client;
-use serde_json::from_value;
 use std::borrow::Borrow;
 
 use api::models::{Response, Transaction};
@@ -30,11 +29,10 @@ impl Votes {
     {
         self.client
             .get_with_params("votes", parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn show(&self, id: &str) -> Result<Response<Transaction>, failure::Error> {
         let endpoint = format!("votes/{}", id);
-        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
+        self.client.get(&endpoint)
     }
 }

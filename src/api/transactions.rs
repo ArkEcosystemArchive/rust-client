@@ -1,6 +1,5 @@
 use failure;
 use http::client::Client;
-use serde_json::from_value;
 use std::borrow::Borrow;
 
 use api::models::{Response, Transaction, TransactionFees, TransactionTypes};
@@ -30,7 +29,6 @@ impl Transactions {
     {
         self.client
             .get_with_params("transactions", parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn create<I, K, V>(&self, payload: I) -> Result<Response<Transaction>, failure::Error>
@@ -42,12 +40,11 @@ impl Transactions {
     {
         self.client
             .post("transactions", Some(payload))
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn show(&self, id: &str) -> Result<Response<Transaction>, failure::Error> {
         let endpoint = format!("transactions/{}", id);
-        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
+        self.client.get(&endpoint)
     }
 
     pub fn all_unconfirmed(&self) -> Result<Response<Vec<Transaction>>, failure::Error> {
@@ -66,12 +63,11 @@ impl Transactions {
     {
         self.client
             .get_with_params("transactions/unconfirmed", parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     pub fn show_unconfirmed(&self, id: &str) -> Result<Response<Vec<Transaction>>, failure::Error> {
         let endpoint = format!("transactions/unconfirmed/{}", id);
-        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
+        self.client.get(&endpoint)
     }
 
     pub fn search<I, K, V>(
@@ -87,7 +83,6 @@ impl Transactions {
     {
         self.client
             .post_with_params("transactions/search", payload, parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     /// Returns the transaction types and their ID
@@ -109,7 +104,6 @@ impl Transactions {
     pub fn types(&self) -> Result<Response<TransactionTypes>, failure::Error> {
         self.client
             .get("transactions/types")
-            .map(|v| from_value(v).unwrap())
     }
 
     /// Returns the static fees of the last block processed by the node
@@ -131,6 +125,5 @@ impl Transactions {
     pub fn fees(&self) -> Result<Response<TransactionFees>, failure::Error> {
         self.client
             .get("transactions/fees")
-            .map(|v| from_value(v).unwrap())
     }
 }
