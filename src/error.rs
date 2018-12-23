@@ -2,17 +2,11 @@ use reqwest;
 use serde_json;
 use std::fmt;
 use std::error;
-
-#[derive(Debug)]
-pub struct ApiError {
-    pub status_code: i16,
-    pub message: String,
-    pub description: String
-}
+use api::models::RequestError;
 
 #[derive(Debug)]
 pub enum Error {
-    Api(ApiError), // node response for statusCode != 200
+    Api(RequestError), // node response for statusCode != 200
     ReqwestHttp(reqwest::Error),
     ReqwestUrl(reqwest::UrlError),
     Serde(serde_json::Error),
@@ -21,7 +15,7 @@ pub enum Error {
 impl fmt::Display for Error {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match *self {
-            Error::Api(ref err) => write!(f, "Status: {}, Message: {}, Description: {}", err.status_code, err.message, err.description),
+            Error::Api(ref err) => write!(f, "{:?}", err),
             Error::ReqwestHttp(ref err) => write!(f, "Reqwest Http Error: {}", err),
             Error::ReqwestUrl(ref err) => write!(f, "Reqwest Url Error: {}", err),
             Error::Serde(ref err) => write!(f, "Serde Error: {}", err)
@@ -33,7 +27,7 @@ impl error::Error for Error {
 
     fn description(&self) -> &str {
         match *self {
-            Error::Api(ref err) => &err.description,
+            Error::Api(ref err) => "API request error.",
             Error::ReqwestHttp(ref err) => err.description(),
             Error::ReqwestUrl(ref err) => err.description(),
             Error::Serde(ref err) => err.description()
@@ -50,8 +44,8 @@ impl error::Error for Error {
     }
 }
 
-impl From<ApiError> for Error {
-    fn from(err: ApiError) -> Error {
+impl From<RequestError> for Error {
+    fn from(err: RequestError) -> Error {
         Error::Api(err)
     }
 }

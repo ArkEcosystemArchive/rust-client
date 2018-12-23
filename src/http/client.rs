@@ -1,10 +1,11 @@
 use reqwest::header::{HeaderMap, HeaderValue};
 use reqwest::{RequestBuilder, Url};
 use serde::de::{DeserializeOwned};
-use serde_json::{from_str, to_string, Value, from_value};
+use serde_json::{from_str, to_string, from_value};
 use std::borrow::Borrow;
 use utils;
 use error::Error;
+use api::models::RequestError;
 
 #[derive(Clone, Debug)]
 pub struct Client {
@@ -82,7 +83,7 @@ impl Client {
 
     fn internal_get<T: DeserializeOwned>(&self, url: &Url) -> Result<T, Error> {
         let builder = self.client.get(url.as_str());
-        self.send(builder).map(|v| from_value(v).unwrap())
+        self.send(builder)
     }
 
     fn internal_post<T, I, K, V>(&self, url: &Url, payload: Option<I>) -> Result<T, Error>
@@ -95,18 +96,26 @@ impl Client {
     {
         let builder = self.client.post(url.as_str());
 
-        let body = if payload.is_some() {
-            let map = utils::to_map(payload.unwrap());
-            to_string(&map)?
-        } else {
-            String::new()
-        };
+        let body = payload
+            .map_or_else(|| Ok(String::default()), |v| to_string(&utils::to_map(v)));
 
-        self.send(builder.body(body)).map(|v| from_value(v).unwrap())
+        self.send(builder.body(body?))
     }
 
-    fn send(&self, builder: RequestBuilder) -> Result<Value, Error> {
+    fn send<T: DeserializeOwned>(&self, builder: RequestBuilder) -> Result<T, Error> {
         let response = builder.headers(self.headers.clone()).send()?.text()?;
-        Ok(from_str(&response)?)
+        let value: serde_json::Value = from_str(&response)?;
+
+        // Try to deserialize into T. If it fails, assume the API returned
+        // an error.
+        let parsed = from_value::<T>(value.clone());
+
+        if parsed.is_err() {
+            // Assume the API returned a RequestError.
+            let request_error = from_value::<RequestError>(value)?;
+            return Err(request_error.into());
+        }
+
+        return parsed.map_err(|err| From::from(err));
     }
 }
