@@ -92,7 +92,7 @@ fn test_show_unconfirmed() {
     //     let client = mock_client();
     //     let response = client.transactions.show_unconfirmed("dummy".to_owned());
     //
-    //     mock_assert_success_two(&_mock, "transactions/unconfirmed/dummy", response);
+    //     mock_assert_success(&_mock, "transactions/unconfirmed/dummy", response);
     // }
 }
 

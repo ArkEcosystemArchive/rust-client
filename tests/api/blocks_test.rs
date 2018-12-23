@@ -42,6 +42,6 @@ fn test_search() {
     // {
     //     let client = mock_client();
     //     let response = client.blocks.search(vec![("id", "dummy")]);
-    //     //mock_assert_success_two(&_mock, "blocks/search", response);
+    //     //mock_assert_success(&_mock, "blocks/search", response);
     // }
 }

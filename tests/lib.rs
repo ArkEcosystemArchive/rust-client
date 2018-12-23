@@ -72,7 +72,7 @@ pub fn mock_client() -> Connection {
 
 fn read_fixture(endpoint: &str) -> String {
     let fixture_name = endpoint.replace("/", "-") + ".json";
-    let mut file = File::open(format!("tests/fixtures/two/{}", fixture_name)).unwrap();
+    let mut file = File::open(format!("tests/fixtures/{}", fixture_name)).unwrap();
     let mut response_body = String::new();
     file.read_to_string(&mut response_body).unwrap();
 

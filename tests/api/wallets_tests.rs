@@ -78,7 +78,7 @@ fn test_search() {
     //     let client = mock_client();
     //     let response = client.wallets.search(Vec::<(String, String)>::new()).unwrap();
     //
-    //     //mock_assert_success_two(&_mock, "wallets/search", response);
+    //     //mock_assert_success(&_mock, "wallets/search", response);
     // }
 }
 
