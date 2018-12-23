@@ -3,7 +3,7 @@ use *;
 
 #[test]
 fn test_all() {
-    let (_mock, body) = mock_http_request_two("wallets");
+    let (_mock, body) = mock_http_request("wallets");
     {
         let client = mock_client();
         let response = client.wallets.all().unwrap();
@@ -14,7 +14,7 @@ fn test_all() {
 
 #[test]
 fn test_show() {
-    let (_mock, body) = mock_http_request_two("wallets/dummy");
+    let (_mock, body) = mock_http_request("wallets/dummy");
     {
         let client = mock_client();
         let response = client.wallets.show("dummy").unwrap();
@@ -25,7 +25,7 @@ fn test_show() {
 
 #[test]
 fn test_transactions() {
-    let (_mock, body) = mock_http_request_two("wallets/dummy/transactions");
+    let (_mock, body) = mock_http_request("wallets/dummy/transactions");
     {
         let client = mock_client();
         let response = client.wallets.transactions("dummy").unwrap();
@@ -37,7 +37,7 @@ fn test_transactions() {
 
 #[test]
 fn test_sent_transactions() {
-    let (_mock, body) = mock_http_request_two("wallets/dummy/transactions/sent");
+    let (_mock, body) = mock_http_request("wallets/dummy/transactions/sent");
     {
         let client = mock_client();
         let response = client.wallets.sent_transactions("dummy").unwrap();
@@ -49,7 +49,7 @@ fn test_sent_transactions() {
 
 #[test]
 fn test_received_transactions() {
-    let (_mock, body) = mock_http_request_two("wallets/dummy/transactions/received");
+    let (_mock, body) = mock_http_request("wallets/dummy/transactions/received");
     {
         let client = mock_client();
         let response = client.wallets.received_transactions("dummy").unwrap();
@@ -61,7 +61,7 @@ fn test_received_transactions() {
 
 #[test]
 fn test_votes() {
-    let (_mock, body) = mock_http_request_two("wallets/dummy/votes");
+    let (_mock, body) = mock_http_request("wallets/dummy/votes");
     {
         let client = mock_client();
         let response = client.wallets.votes("dummy").unwrap();
@@ -73,7 +73,7 @@ fn test_votes() {
 #[test]
 fn test_search() {
     // TODO: missing fixture
-    // let (_mock, body) = mock_http_request_two("wallets/search");
+    // let (_mock, body) = mock_http_request("wallets/search");
     // {
     //     let client = mock_client();
     //     let response = client.wallets.search(Vec::<(String, String)>::new()).unwrap();
@@ -84,7 +84,7 @@ fn test_search() {
 
 #[test]
 fn test_top() {
-    let (_mock, body) = mock_http_request_two("wallets/top");
+    let (_mock, body) = mock_http_request("wallets/top");
     {
         let client = mock_client();
         let response = client.wallets.top().unwrap();

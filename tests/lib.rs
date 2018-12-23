@@ -18,7 +18,7 @@ use arkecosystem_client::Connection;
 
 const MOCK_HOST: &str = "http://127.0.0.1:1234/api/";
 
-pub fn mock_http_request_two(endpoint: &str) -> (Mock, String) {
+pub fn mock_http_request(endpoint: &str) -> (Mock, String) {
     let url = Matcher::Regex(endpoint.to_owned());
     let mut response_body = read_fixture(&endpoint);
 

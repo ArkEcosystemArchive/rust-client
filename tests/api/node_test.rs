@@ -5,7 +5,7 @@ use arkecosystem_client::api::models::{FeeSchema, FeeStatistics};
 
 #[test]
 fn test_status() {
-    let (_mock, body) = mock_http_request_two("node/status");
+    let (_mock, body) = mock_http_request("node/status");
     {
         let client = mock_client();
         let actual = client.node.status().unwrap();
@@ -25,7 +25,7 @@ fn test_status() {
 
 #[test]
 fn test_syncing() {
-    let (_mock, body) = mock_http_request_two("node/syncing");
+    let (_mock, body) = mock_http_request("node/syncing");
     {
         let client = mock_client();
         let response = client.node.syncing();
@@ -50,7 +50,7 @@ fn test_syncing() {
 
 #[test]
 fn test_configuration() {
-    let (_mock, body) = mock_http_request_two("node/configuration");
+    let (_mock, body) = mock_http_request("node/configuration");
     {
         let client = mock_client();
         let response = client.node.configuration();
