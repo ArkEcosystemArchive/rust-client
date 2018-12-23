@@ -9,7 +9,7 @@ mod macros;
 
 pub mod api;
 pub mod connection;
-pub mod http;
 pub mod error;
+pub mod http;
 
 pub use connection::*;

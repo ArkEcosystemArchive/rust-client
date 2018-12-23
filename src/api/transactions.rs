@@ -1,8 +1,8 @@
 use http::client::Client;
 use std::borrow::Borrow;
 
-use api::Result;
 use api::models::{Transaction, TransactionFees, TransactionTypes};
+use api::Result;
 
 pub struct Transactions {
     client: Client,
@@ -17,29 +17,24 @@ impl Transactions {
         self.all_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_params<I, K, V>(
-        &self,
-        parameters: I,
-    ) -> Result<Vec<Transaction>>
+    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client
-            .get_with_params("transactions", parameters)
+        self.client.get_with_params("transactions", parameters)
     }
 
-    pub fn create<I, K, V>(&self, payload: I) -> Result<Transaction> 
+    pub fn create<I, K, V>(&self, payload: I) -> Result<Transaction>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client
-            .post("transactions", Some(payload))
+        self.client.post("transactions", Some(payload))
     }
 
     pub fn show(&self, id: &str) -> Result<Transaction> {
@@ -51,10 +46,7 @@ impl Transactions {
         self.all_unconfirmed_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_unconfirmed_params<I, K, V>(
-        &self,
-        parameters: I,
-    ) -> Result<Vec<Transaction>>
+    pub fn all_unconfirmed_params<I, K, V>(&self, parameters: I) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -70,11 +62,7 @@ impl Transactions {
         self.client.get(&endpoint)
     }
 
-    pub fn search<I, K, V>(
-        &self,
-        payload: Option<I>,
-        parameters: I,
-    ) -> Result<Vec<Transaction>>
+    pub fn search<I, K, V>(&self, payload: Option<I>, parameters: I) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -102,8 +90,7 @@ impl Transactions {
     /// # }
     /// ```
     pub fn types(&self) -> Result<TransactionTypes> {
-        self.client
-            .get("transactions/types")
+        self.client.get("transactions/types")
     }
 
     /// Returns the static fees of the last block processed by the node
@@ -123,7 +110,6 @@ impl Transactions {
     /// # }
     /// ```
     pub fn fees(&self) -> Result<TransactionFees> {
-        self.client
-            .get("transactions/fees")
+        self.client.get("transactions/fees")
     }
 }

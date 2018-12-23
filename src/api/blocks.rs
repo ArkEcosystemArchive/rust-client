@@ -24,8 +24,7 @@ impl Blocks {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client
-            .get_with_params("blocks", parameters)
+        self.client.get_with_params("blocks", parameters)
     }
 
     pub fn show(&self, id: &str) -> Result<Block> {
@@ -38,11 +37,7 @@ impl Blocks {
         self.transactions_params(id, Vec::<(String, String)>::new())
     }
 
-    pub fn transactions_params<I, K, V>(
-        &self,
-        id: &str,
-        parameters: I,
-    ) -> Result<Vec<Transaction>>
+    pub fn transactions_params<I, K, V>(&self, id: &str, parameters: I) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -50,8 +45,7 @@ impl Blocks {
         V: AsRef<str>,
     {
         let endpoint = format!("blocks/{}/transactions", id);
-        self.client
-            .get_with_params(&endpoint, parameters)
+        self.client.get_with_params(&endpoint, parameters)
     }
 
     pub fn search<I, K, V>(&self, parameters: I) -> Result<Vec<Block>>
@@ -61,7 +55,6 @@ impl Blocks {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client
-            .get_with_params("blocks/search", parameters)
+        self.client.get_with_params("blocks/search", parameters)
     }
 }

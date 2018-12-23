@@ -1,7 +1,7 @@
 use std::borrow::Borrow;
 
-use api::Result;
 use api::models::Peer;
+use api::Result;
 use http::client::Client;
 
 pub struct Peers {
@@ -24,8 +24,7 @@ impl Peers {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client
-            .get_with_params("peers", parameters)
+        self.client.get_with_params("peers", parameters)
     }
 
     pub fn show(&self, ip_addr: &str) -> Result<Peer> {

@@ -1,11 +1,11 @@
+use api::models::{RequestError, Response};
+use api::Result;
 use reqwest::header::{HeaderMap, HeaderValue};
 use reqwest::{RequestBuilder, Url};
-use serde::de::{DeserializeOwned};
-use serde_json::{from_str, to_string, from_value};
+use serde::de::DeserializeOwned;
+use serde_json::{from_str, from_value, to_string};
 use std::borrow::Borrow;
 use utils;
-use api::Result;
-use api::models::{Response, RequestError};
 
 #[derive(Clone, Debug)]
 pub struct Client {
@@ -36,11 +36,7 @@ impl Client {
         self.internal_get(&url)
     }
 
-    pub fn get_with_params<T, I, K, V>(
-        &self,
-        endpoint: &str,
-        parameters: I,
-    ) -> Result<T>
+    pub fn get_with_params<T, I, K, V>(&self, endpoint: &str, parameters: I) -> Result<T>
     where
         T: DeserializeOwned,
         I: IntoIterator,
@@ -96,8 +92,7 @@ impl Client {
     {
         let builder = self.client.post(url.as_str());
 
-        let body = payload
-            .map_or_else(|| Ok(String::default()), |v| to_string(&utils::to_map(v)));
+        let body = payload.map_or_else(|| Ok(String::default()), |v| to_string(&utils::to_map(v)));
 
         self.send(builder.body(body?))
     }

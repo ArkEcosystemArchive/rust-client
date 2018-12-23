@@ -17,18 +17,14 @@ impl Delegates {
         self.all_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_params<I, K, V>(
-        &self,
-        parameters: I,
-    ) -> Result<Vec<Delegate>>
+    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Vec<Delegate>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client
-            .get_with_params("delegates", parameters)
+        self.client.get_with_params("delegates", parameters)
     }
 
     pub fn show(&self, id: &str) -> Result<Delegate> {
@@ -40,11 +36,7 @@ impl Delegates {
         self.blocks_params(id, Vec::<(String, String)>::new())
     }
 
-    pub fn blocks_params<I, K, V>(
-        &self,
-        id: &str,
-        parameters: I,
-    ) -> Result<Vec<Block>>
+    pub fn blocks_params<I, K, V>(&self, id: &str, parameters: I) -> Result<Vec<Block>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -52,19 +44,14 @@ impl Delegates {
         V: AsRef<str>,
     {
         let endpoint = format!("delegates/{}/blocks", id);
-        self.client
-            .get_with_params(&endpoint, parameters)
+        self.client.get_with_params(&endpoint, parameters)
     }
 
     pub fn voters(&self, id: &str) -> Result<Vec<Wallet>> {
         self.voters_params(id, Vec::<(String, String)>::new())
     }
 
-    pub fn voters_params<I, K, V>(
-        &self,
-        id: &str,
-        parameters: I,
-    ) -> Result<Vec<Wallet>>
+    pub fn voters_params<I, K, V>(&self, id: &str, parameters: I) -> Result<Vec<Wallet>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -72,8 +59,7 @@ impl Delegates {
         V: AsRef<str>,
     {
         let endpoint = format!("delegates/{}/voters", id);
-        self.client
-            .get_with_params(&endpoint, parameters)
+        self.client.get_with_params(&endpoint, parameters)
     }
 
     /// Returns the voters of a delegate and their balances
@@ -116,11 +102,7 @@ impl Delegates {
     ///   println!("{}", to_string_pretty(&search).unwrap());
     /// # }
     /// ```
-    pub fn search<I, K, V>(
-        &self,
-        payload: Option<I>,
-        parameters: I,
-    ) -> Result<Vec<Delegate>>
+    pub fn search<I, K, V>(&self, payload: Option<I>, parameters: I) -> Result<Vec<Delegate>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,

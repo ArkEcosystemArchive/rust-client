@@ -1,8 +1,8 @@
+use api::models::RequestError;
 use reqwest;
 use serde_json;
-use std::fmt;
 use std::error;
-use api::models::RequestError;
+use std::fmt;
 
 #[derive(Debug)]
 pub enum Error {
@@ -18,19 +18,18 @@ impl fmt::Display for Error {
             Error::Api(ref err) => write!(f, "{:?}", err),
             Error::ReqwestHttp(ref err) => write!(f, "Reqwest Http Error: {}", err),
             Error::ReqwestUrl(ref err) => write!(f, "Reqwest Url Error: {}", err),
-            Error::Serde(ref err) => write!(f, "Serde Error: {}", err)
+            Error::Serde(ref err) => write!(f, "Serde Error: {}", err),
         }
     }
 }
 
 impl error::Error for Error {
-
     fn description(&self) -> &str {
         match *self {
             Error::Api(ref _err) => "API request error.",
             Error::ReqwestHttp(ref err) => err.description(),
             Error::ReqwestUrl(ref err) => err.description(),
-            Error::Serde(ref err) => err.description()
+            Error::Serde(ref err) => err.description(),
         }
     }
 
@@ -39,7 +38,7 @@ impl error::Error for Error {
             Error::Api(ref _err) => None,
             Error::ReqwestHttp(ref err) => Some(err),
             Error::ReqwestUrl(ref err) => Some(err),
-            Error::Serde(ref err) => Some(err)
+            Error::Serde(ref err) => Some(err),
         }
     }
 }
