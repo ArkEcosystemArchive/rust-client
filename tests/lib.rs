@@ -1,5 +1,4 @@
 extern crate arkecosystem_client;
-extern crate failure;
 extern crate mockito;
 extern crate serde_json;
 #[macro_use]

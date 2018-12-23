@@ -1,8 +1,8 @@
-use failure;
 use http::client::Client;
 use std::borrow::Borrow;
 
 use api::models::{Response, Transaction, TransactionFees, TransactionTypes};
+use error::Error;
 
 pub struct Transactions {
     client: Client,
@@ -13,14 +13,14 @@ impl Transactions {
         Transactions { client }
     }
 
-    pub fn all(&self) -> Result<Response<Vec<Transaction>>, failure::Error> {
+    pub fn all(&self) -> Result<Response<Vec<Transaction>>, Error> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
     pub fn all_params<I, K, V>(
         &self,
         parameters: I,
-    ) -> Result<Response<Vec<Transaction>>, failure::Error>
+    ) -> Result<Response<Vec<Transaction>>, Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -31,7 +31,7 @@ impl Transactions {
             .get_with_params("transactions", parameters)
     }
 
-    pub fn create<I, K, V>(&self, payload: I) -> Result<Response<Transaction>, failure::Error>
+    pub fn create<I, K, V>(&self, payload: I) -> Result<Response<Transaction>, Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -42,19 +42,19 @@ impl Transactions {
             .post("transactions", Some(payload))
     }
 
-    pub fn show(&self, id: &str) -> Result<Response<Transaction>, failure::Error> {
+    pub fn show(&self, id: &str) -> Result<Response<Transaction>, Error> {
         let endpoint = format!("transactions/{}", id);
         self.client.get(&endpoint)
     }
 
-    pub fn all_unconfirmed(&self) -> Result<Response<Vec<Transaction>>, failure::Error> {
+    pub fn all_unconfirmed(&self) -> Result<Response<Vec<Transaction>>, Error> {
         self.all_unconfirmed_params(Vec::<(String, String)>::new())
     }
 
     pub fn all_unconfirmed_params<I, K, V>(
         &self,
         parameters: I,
-    ) -> Result<Response<Vec<Transaction>>, failure::Error>
+    ) -> Result<Response<Vec<Transaction>>, Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -65,7 +65,7 @@ impl Transactions {
             .get_with_params("transactions/unconfirmed", parameters)
     }
 
-    pub fn show_unconfirmed(&self, id: &str) -> Result<Response<Vec<Transaction>>, failure::Error> {
+    pub fn show_unconfirmed(&self, id: &str) -> Result<Response<Vec<Transaction>>, Error> {
         let endpoint = format!("transactions/unconfirmed/{}", id);
         self.client.get(&endpoint)
     }
@@ -74,7 +74,7 @@ impl Transactions {
         &self,
         payload: Option<I>,
         parameters: I,
-    ) -> Result<Response<Vec<Transaction>>, failure::Error>
+    ) -> Result<Response<Vec<Transaction>>, Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -101,7 +101,7 @@ impl Transactions {
     ///   println!("{}", to_string_pretty(&types).unwrap());
     /// # }
     /// ```
-    pub fn types(&self) -> Result<Response<TransactionTypes>, failure::Error> {
+    pub fn types(&self) -> Result<Response<TransactionTypes>, Error> {
         self.client
             .get("transactions/types")
     }
@@ -122,7 +122,7 @@ impl Transactions {
     ///   println!("{}", to_string_pretty(&fees).unwrap());
     /// # }
     /// ```
-    pub fn fees(&self) -> Result<Response<TransactionFees>, failure::Error> {
+    pub fn fees(&self) -> Result<Response<TransactionFees>, Error> {
         self.client
             .get("transactions/fees")
     }

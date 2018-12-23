@@ -1,8 +1,8 @@
-use failure;
 use http::client::Client;
 use std::borrow::Borrow;
 
 use api::models::{Block, Response, Transaction};
+use error::Error;
 
 pub struct Blocks {
     client: Client,
@@ -13,11 +13,11 @@ impl Blocks {
         Blocks { client }
     }
 
-    pub fn all(&self) -> Result<Response<Vec<Block>>, failure::Error> {
+    pub fn all(&self) -> Result<Response<Vec<Block>>, Error> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Block>>, failure::Error>
+    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Block>>, Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -28,13 +28,13 @@ impl Blocks {
             .get_with_params("blocks", parameters)
     }
 
-    pub fn show(&self, id: &str) -> Result<Response<Block>, failure::Error> {
+    pub fn show(&self, id: &str) -> Result<Response<Block>, Error> {
         let endpoint = format!("blocks/{}", id);
 
         self.client.get(&endpoint)
     }
 
-    pub fn transactions(&self, id: &str) -> Result<Response<Vec<Transaction>>, failure::Error> {
+    pub fn transactions(&self, id: &str) -> Result<Response<Vec<Transaction>>, Error> {
         self.transactions_params(id, Vec::<(String, String)>::new())
     }
 
@@ -42,7 +42,7 @@ impl Blocks {
         &self,
         id: &str,
         parameters: I,
-    ) -> Result<Response<Vec<Transaction>>, failure::Error>
+    ) -> Result<Response<Vec<Transaction>>, Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -54,7 +54,7 @@ impl Blocks {
             .get_with_params(&endpoint, parameters)
     }
 
-    pub fn search<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Block>>, failure::Error>
+    pub fn search<I, K, V>(&self, parameters: I) -> Result<Response<Vec<Block>>, Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,

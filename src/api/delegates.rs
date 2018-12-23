@@ -1,7 +1,7 @@
-use failure;
 use http::client::Client;
 use std::borrow::Borrow;
 
+use error::Error;
 use api::models::{Balances, Block, Delegate, Response, Wallet};
 
 pub struct Delegates {
@@ -13,14 +13,14 @@ impl Delegates {
         Delegates { client }
     }
 
-    pub fn all(&self) -> Result<Response<Vec<Delegate>>, failure::Error> {
+    pub fn all(&self) -> Result<Response<Vec<Delegate>>, Error> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
     pub fn all_params<I, K, V>(
         &self,
         parameters: I,
-    ) -> Result<Response<Vec<Delegate>>, failure::Error>
+    ) -> Result<Response<Vec<Delegate>>, Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -31,12 +31,12 @@ impl Delegates {
             .get_with_params("delegates", parameters)
     }
 
-    pub fn show(&self, id: &str) -> Result<Response<Delegate>, failure::Error> {
+    pub fn show(&self, id: &str) -> Result<Response<Delegate>, Error> {
         let endpoint = format!("delegates/{}", id);
         self.client.get(&endpoint)
     }
 
-    pub fn blocks(&self, id: &str) -> Result<Response<Vec<Block>>, failure::Error> {
+    pub fn blocks(&self, id: &str) -> Result<Response<Vec<Block>>, Error> {
         self.blocks_params(id, Vec::<(String, String)>::new())
     }
 
@@ -44,7 +44,7 @@ impl Delegates {
         &self,
         id: &str,
         parameters: I,
-    ) -> Result<Response<Vec<Block>>, failure::Error>
+    ) -> Result<Response<Vec<Block>>, Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -56,7 +56,7 @@ impl Delegates {
             .get_with_params(&endpoint, parameters)
     }
 
-    pub fn voters(&self, id: &str) -> Result<Response<Vec<Wallet>>, failure::Error> {
+    pub fn voters(&self, id: &str) -> Result<Response<Vec<Wallet>>, Error> {
         self.voters_params(id, Vec::<(String, String)>::new())
     }
 
@@ -64,7 +64,7 @@ impl Delegates {
         &self,
         id: &str,
         parameters: I,
-    ) -> Result<Response<Vec<Wallet>>, failure::Error>
+    ) -> Result<Response<Vec<Wallet>>, Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -93,7 +93,7 @@ impl Delegates {
     ///   println!("{}", to_string_pretty(&voters_balances).unwrap());
     /// # }
     /// ```
-    pub fn voters_balances(&self, id: &str) -> Result<Response<Balances>, failure::Error> {
+    pub fn voters_balances(&self, id: &str) -> Result<Response<Balances>, Error> {
         let endpoint = format!("delegates/{}/voters/balances", id);
         self.client.get(&endpoint)
     }
@@ -120,7 +120,7 @@ impl Delegates {
         &self,
         payload: Option<I>,
         parameters: I,
-    ) -> Result<Response<Vec<Delegate>>, failure::Error>
+    ) -> Result<Response<Vec<Delegate>>, Error>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
