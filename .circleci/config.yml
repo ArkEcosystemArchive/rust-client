@@ -80,6 +80,6 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build-nightly
+      # - build-nightly
       - build-beta
       - build-stable
