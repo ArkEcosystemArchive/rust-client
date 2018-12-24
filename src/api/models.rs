@@ -123,6 +123,13 @@ pub struct DelegateForged {
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
+pub struct DelegateForged {
+    pub rewards: u64,
+    pub fees: u64,
+    pub total: u64,
+}
+
+#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct NodeConfiguration {
     #[serde(rename = "nethash")]
@@ -304,7 +311,7 @@ where
 
     match deser_result {
         serde_json::Value::Number(ref obj) if obj.is_u64() => Ok(obj.as_u64().unwrap()),
-        serde_json::Value::String(ref obj) if !obj.is_empty() => {
+        serde_json::Value::String(ref obj) if obj.len() > 0 => {
             Ok(obj.as_str().parse::<u64>().unwrap())
         }
         _ => Ok(0),
