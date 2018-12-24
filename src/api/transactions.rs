@@ -1,8 +1,8 @@
+use api::models::{Transaction, TransactionFees, TransactionTypes};
+use api::Result;
 use http::client::Client;
 use std::borrow::Borrow;
 use std::collections::HashMap;
-use api::models::{Transaction, TransactionFees, TransactionTypes};
-use api::Result;
 
 pub struct Transactions {
     client: Client,
@@ -27,8 +27,7 @@ impl Transactions {
         self.client.get_with_params("transactions", parameters)
     }
 
-    pub fn create(&self, transactions: Vec<&str>) -> Result<Transaction>
-    {
+    pub fn create(&self, transactions: Vec<&str>) -> Result<Transaction> {
         let mut payload = HashMap::<&str, Vec<&str>>::new();
         payload.insert("transactions", transactions);
 
@@ -60,7 +59,11 @@ impl Transactions {
         self.client.get(&endpoint)
     }
 
-    pub fn search<I, K, V>(&self, payload: Option<HashMap<&str, &str>>, parameters: I) -> Result<Vec<Transaction>>
+    pub fn search<I, K, V>(
+        &self,
+        payload: Option<HashMap<&str, &str>>,
+        parameters: I,
+    ) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,

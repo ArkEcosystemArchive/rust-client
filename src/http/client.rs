@@ -4,9 +4,9 @@ use reqwest::header::{HeaderMap, HeaderValue};
 use reqwest::{RequestBuilder, Url};
 use serde::de::DeserializeOwned;
 use serde::ser::Serialize;
-use std::collections::HashMap;
 use serde_json::{from_str, from_value, to_string};
 use std::borrow::Borrow;
+use std::collections::HashMap;
 
 #[derive(Clone, Debug)]
 pub struct Client {
