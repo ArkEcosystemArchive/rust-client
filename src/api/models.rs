@@ -115,12 +115,6 @@ pub struct Last {
 
 pub type Balances = HashMap<String, u64>;
 
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-pub struct DelegateForged {
-    pub rewards: u64,
-    pub fees: u64,
-    pub total: u64,
-}
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct DelegateForged {
