@@ -3,9 +3,10 @@ use api::Result;
 use reqwest::header::{HeaderMap, HeaderValue};
 use reqwest::{RequestBuilder, Url};
 use serde::de::DeserializeOwned;
+use serde::ser::Serialize;
+use std::collections::HashMap;
 use serde_json::{from_str, from_value, to_string};
 use std::borrow::Borrow;
-use utils;
 
 #[derive(Clone, Debug)]
 pub struct Client {
@@ -48,26 +49,24 @@ impl Client {
         self.internal_get(&url)
     }
 
-    pub fn post<T, I, K, V>(&self, endpoint: &str, payload: Option<I>) -> Result<T>
+    pub fn post<T, V>(&self, endpoint: &str, payload: Option<HashMap<&str, V>>) -> Result<T>
     where
         T: DeserializeOwned,
-        I: IntoIterator,
-        I::Item: Borrow<(K, V)>,
-        K: AsRef<str>,
-        V: AsRef<str>,
+        V: Serialize,
     {
         let url = Url::parse(&format!("{}{}", self.host, endpoint))?;
         self.internal_post(&url, payload)
     }
 
-    pub fn post_with_params<T, I, K, V>(
+    pub fn post_with_params<T, H, I, K, V>(
         &self,
         endpoint: &str,
-        payload: Option<I>,
+        payload: Option<HashMap<&str, H>>,
         parameters: I,
     ) -> Result<T>
     where
         T: DeserializeOwned,
+        H: Serialize,
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
@@ -82,17 +81,14 @@ impl Client {
         self.send(builder)
     }
 
-    fn internal_post<T, I, K, V>(&self, url: &Url, payload: Option<I>) -> Result<T>
+    fn internal_post<T, V>(&self, url: &Url, payload: Option<HashMap<&str, V>>) -> Result<T>
     where
         T: DeserializeOwned,
-        I: IntoIterator,
-        I::Item: Borrow<(K, V)>,
-        K: AsRef<str>,
-        V: AsRef<str>,
+        V: Serialize,
     {
         let builder = self.client.post(url.as_str());
 
-        let body = payload.map_or_else(|| Ok(String::default()), |v| to_string(&utils::to_map(v)));
+        let body = payload.map_or_else(|| Ok(String::default()), |v| to_string(&v));
 
         self.send(builder.body(body?))
     }

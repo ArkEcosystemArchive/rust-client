@@ -1,4 +1,5 @@
 use serde_json::from_str;
+use std::collections::HashMap;
 use *;
 
 #[test]
@@ -101,7 +102,9 @@ fn test_search() {
     let (_mock, body) = mock_post_request("transactions/search");
     {
         let client = mock_client();
-        let query = [("senderId", "dummy")].iter();
+        let mut query = HashMap::new();
+        query.insert("senderId", "dummy");
+
         let params = [("limit", "20")].iter();
         let actual = client.transactions.search(Some(query), params).unwrap();
         let expected: Value = from_str(&body).unwrap();

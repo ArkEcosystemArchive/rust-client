@@ -1,4 +1,5 @@
 use serde_json::from_str;
+use std::collections::HashMap;
 use *;
 
 use arkecosystem_client::api::models::Delegate;
@@ -159,7 +160,9 @@ fn test_search() {
     let (_mock, body) = mock_post_request("delegates/search");
     {
         let client = mock_client();
-        let payload = [("username", "dummy")].iter();
+        let mut payload = HashMap::new();
+        payload.insert("username", "dummy");
+
         let params = [("limit", "20")].iter();
         let actual = client.delegates.search(Some(payload), params).unwrap();
         let expected: Value = from_str(&body).unwrap();

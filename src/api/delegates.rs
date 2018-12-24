@@ -1,5 +1,6 @@
 use http::client::Client;
 use std::borrow::Borrow;
+use std::collections::HashMap;
 
 use api::models::{Balances, Block, Delegate, Wallet};
 use api::Result;
@@ -102,7 +103,7 @@ impl Delegates {
     ///   println!("{}", to_string_pretty(&search).unwrap());
     /// # }
     /// ```
-    pub fn search<I, K, V>(&self, payload: Option<I>, parameters: I) -> Result<Vec<Delegate>>
+    pub fn search<I, K, V>(&self, payload: Option<HashMap<&str, &str>>, parameters: I) -> Result<Vec<Delegate>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
