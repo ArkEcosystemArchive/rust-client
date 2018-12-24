@@ -109,7 +109,7 @@ impl Client {
             Err(_) => {
                 // Assume the API returned a RequestError.
                 let request_error = from_value::<RequestError>(value)?;
-                return Err(request_error.into());
+                Err(request_error.into())
             }
         }
     }
