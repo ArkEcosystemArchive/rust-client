@@ -5,7 +5,7 @@ use arkecosystem_client::api::models::{Asset, Transaction};
 
 #[test]
 fn test_all() {
-    let (_mock, body) = mock_http_request_two("votes");
+    let (_mock, body) = mock_http_request("votes");
     {
         let client = mock_client();
         let actual = client.votes.all().unwrap();
@@ -24,7 +24,7 @@ fn test_all() {
 #[test]
 fn test_all_params() {
     // TODO use a different fixture to check that uses query strings
-    let (_mock, body) = mock_http_request_two("votes");
+    let (_mock, body) = mock_http_request("votes");
     {
         let client = mock_client();
         let params = [("limit", "20")].iter();
@@ -43,7 +43,7 @@ fn test_all_params() {
 
 #[test]
 fn test_show() {
-    let (_mock, body) = mock_http_request_two("votes/dummy");
+    let (_mock, body) = mock_http_request("votes/dummy");
     {
         let client = mock_client();
         let actual = client.votes.show("dummy").unwrap();

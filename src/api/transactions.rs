@@ -1,9 +1,8 @@
-use failure;
+use api::models::{Transaction, TransactionFees, TransactionTypes};
+use api::Result;
 use http::client::Client;
-use serde_json::from_value;
 use std::borrow::Borrow;
-
-use api::models::{Response, Transaction, TransactionFees, TransactionTypes};
+use std::collections::HashMap;
 
 pub struct Transactions {
     client: Client,
@@ -14,50 +13,37 @@ impl Transactions {
         Transactions { client }
     }
 
-    pub fn all(&self) -> Result<Response<Vec<Transaction>>, failure::Error> {
+    pub fn all(&self) -> Result<Vec<Transaction>> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_params<I, K, V>(
-        &self,
-        parameters: I,
-    ) -> Result<Response<Vec<Transaction>>, failure::Error>
+    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client
-            .get_with_params("transactions", parameters)
-            .map(|v| from_value(v).unwrap())
+        self.client.get_with_params("transactions", parameters)
     }
 
-    pub fn create<I, K, V>(&self, payload: I) -> Result<Response<Transaction>, failure::Error>
-    where
-        I: IntoIterator,
-        I::Item: Borrow<(K, V)>,
-        K: AsRef<str>,
-        V: AsRef<str>,
-    {
-        self.client
-            .post("transactions", Some(payload))
-            .map(|v| from_value(v).unwrap())
+    pub fn create(&self, transactions: Vec<&str>) -> Result<Transaction> {
+        let mut payload = HashMap::<&str, Vec<&str>>::new();
+        payload.insert("transactions", transactions);
+
+        self.client.post("transactions", Some(payload))
     }
 
-    pub fn show(&self, id: &str) -> Result<Response<Transaction>, failure::Error> {
+    pub fn show(&self, id: &str) -> Result<Transaction> {
         let endpoint = format!("transactions/{}", id);
-        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
+        self.client.get(&endpoint)
     }
 
-    pub fn all_unconfirmed(&self) -> Result<Response<Vec<Transaction>>, failure::Error> {
+    pub fn all_unconfirmed(&self) -> Result<Vec<Transaction>> {
         self.all_unconfirmed_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_unconfirmed_params<I, K, V>(
-        &self,
-        parameters: I,
-    ) -> Result<Response<Vec<Transaction>>, failure::Error>
+    pub fn all_unconfirmed_params<I, K, V>(&self, parameters: I) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -66,19 +52,18 @@ impl Transactions {
     {
         self.client
             .get_with_params("transactions/unconfirmed", parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
-    pub fn show_unconfirmed(&self, id: &str) -> Result<Response<Vec<Transaction>>, failure::Error> {
+    pub fn show_unconfirmed(&self, id: &str) -> Result<Vec<Transaction>> {
         let endpoint = format!("transactions/unconfirmed/{}", id);
-        self.client.get(&endpoint).map(|v| from_value(v).unwrap())
+        self.client.get(&endpoint)
     }
 
     pub fn search<I, K, V>(
         &self,
-        payload: Option<I>,
+        payload: Option<HashMap<&str, &str>>,
         parameters: I,
-    ) -> Result<Response<Vec<Transaction>>, failure::Error>
+    ) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -87,7 +72,6 @@ impl Transactions {
     {
         self.client
             .post_with_params("transactions/search", payload, parameters)
-            .map(|v| from_value(v).unwrap())
     }
 
     /// Returns the transaction types and their ID
@@ -106,10 +90,8 @@ impl Transactions {
     ///   println!("{}", to_string_pretty(&types).unwrap());
     /// # }
     /// ```
-    pub fn types(&self) -> Result<Response<TransactionTypes>, failure::Error> {
-        self.client
-            .get("transactions/types")
-            .map(|v| from_value(v).unwrap())
+    pub fn types(&self) -> Result<TransactionTypes> {
+        self.client.get("transactions/types")
     }
 
     /// Returns the static fees of the last block processed by the node
@@ -128,9 +110,7 @@ impl Transactions {
     ///   println!("{}", to_string_pretty(&fees).unwrap());
     /// # }
     /// ```
-    pub fn fees(&self) -> Result<Response<TransactionFees>, failure::Error> {
-        self.client
-            .get("transactions/fees")
-            .map(|v| from_value(v).unwrap())
+    pub fn fees(&self) -> Result<TransactionFees> {
+        self.client.get("transactions/fees")
     }
 }

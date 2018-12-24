@@ -5,7 +5,7 @@ use arkecosystem_client::api::models::Peer;
 
 #[test]
 fn test_all() {
-    let (_mock, body) = mock_http_request_two("peers");
+    let (_mock, body) = mock_http_request("peers");
     {
         let client = mock_client();
         let actual = client.peers.all().unwrap();
@@ -24,7 +24,7 @@ fn test_all() {
 #[test]
 fn test_all_params() {
     // TODO use a different fixture to check that uses query strings
-    let (_mock, body) = mock_http_request_two("peers");
+    let (_mock, body) = mock_http_request("peers");
     {
         let client = mock_client();
         let params = [("limit", "20")].iter();
@@ -43,7 +43,7 @@ fn test_all_params() {
 
 #[test]
 fn test_show() {
-    let (_mock, body) = mock_http_request_two("peers/dummy");
+    let (_mock, body) = mock_http_request("peers/dummy");
     {
         let client = mock_client();
         let actual = client.peers.show("dummy").unwrap();

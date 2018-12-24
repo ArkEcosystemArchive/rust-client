@@ -1,5 +1,4 @@
 extern crate arkecosystem_client;
-extern crate failure;
 extern crate mockito;
 extern crate serde_json;
 #[macro_use]
@@ -18,7 +17,7 @@ use arkecosystem_client::Connection;
 
 const MOCK_HOST: &str = "http://127.0.0.1:1234/api/";
 
-pub fn mock_http_request_two(endpoint: &str) -> (Mock, String) {
+pub fn mock_http_request(endpoint: &str) -> (Mock, String) {
     let url = Matcher::Regex(endpoint.to_owned());
     let mut response_body = read_fixture(&endpoint);
 
@@ -73,7 +72,7 @@ pub fn mock_client() -> Connection {
 
 fn read_fixture(endpoint: &str) -> String {
     let fixture_name = endpoint.replace("/", "-") + ".json";
-    let mut file = File::open(format!("tests/fixtures/two/{}", fixture_name)).unwrap();
+    let mut file = File::open(format!("tests/fixtures/{}", fixture_name)).unwrap();
     let mut response_body = String::new();
     file.read_to_string(&mut response_body).unwrap();
 

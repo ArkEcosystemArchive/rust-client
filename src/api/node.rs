@@ -1,7 +1,5 @@
-use failure;
-use serde_json::from_value;
-
-use api::models::{NodeConfiguration, NodeStatus, NodeSyncing, Response};
+use api::models::{NodeConfiguration, NodeStatus, NodeSyncing};
+use api::Result;
 use http::client::Client;
 
 pub struct Node {
@@ -13,21 +11,15 @@ impl Node {
         Node { client }
     }
 
-    pub fn status(&self) -> Result<Response<NodeStatus>, failure::Error> {
-        self.client
-            .get("node/status")
-            .map(|v| from_value(v).unwrap())
+    pub fn status(&self) -> Result<NodeStatus> {
+        self.client.get("node/status")
     }
 
-    pub fn syncing(&self) -> Result<Response<NodeSyncing>, failure::Error> {
-        self.client
-            .get("node/syncing")
-            .map(|v| from_value(v).unwrap())
+    pub fn syncing(&self) -> Result<NodeSyncing> {
+        self.client.get("node/syncing")
     }
 
-    pub fn configuration(&self) -> Result<Response<NodeConfiguration>, failure::Error> {
-        self.client
-            .get("node/configuration")
-            .map(|v| from_value(v).unwrap())
+    pub fn configuration(&self) -> Result<NodeConfiguration> {
+        self.client.get("node/configuration")
     }
 }
