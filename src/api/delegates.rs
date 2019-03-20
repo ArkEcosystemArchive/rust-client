@@ -2,7 +2,7 @@ use http::client::Client;
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
-use api::models::{Balances, Block, Delegate, Wallet};
+use api::models::{Block, Delegate, Wallet};
 use api::Result;
 
 pub struct Delegates {
