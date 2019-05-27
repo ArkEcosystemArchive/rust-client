@@ -17,7 +17,7 @@ This crate uses [Reqwest](https://crates.io/crates/reqwest), which, in Linux req
 
 ## Documentation
 
-You can find installation instructions and detailed instructions on how to use this package at the [dedicated documentation site](https://docs.ark.io/sdk/clients/rust.html).
+You can find installation instructions and detailed instructions on how to use this package at the [dedicated documentation site](https://docs.ark.io/sdk/clients/usage.html).
 
 ## Security
 
