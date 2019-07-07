@@ -38,7 +38,7 @@ impl Api {
     }
 
     pub fn new_with_client(client: &Client) -> Api {
-        let mut client = client.clone();
+        let client = client.clone();
 
         Api {
             blocks: Blocks::new(client.clone()),
