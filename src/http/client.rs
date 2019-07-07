@@ -27,11 +27,6 @@ impl Client {
         }
     }
 
-    pub fn set_version(&mut self, version: &'static str) {
-        self.headers
-            .insert("API-Version", HeaderValue::from_static(version));
-    }
-
     pub fn get<T: DeserializeOwned>(&self, endpoint: &str) -> Result<T> {
         let url = Url::parse(&format!("{}{}", self.host, endpoint))?;
         self.internal_get(&url)
