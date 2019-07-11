@@ -1,10 +1,10 @@
 use std::collections::hash_map::Values;
 use std::collections::HashMap;
-use Connection;
 use std::rc::Rc;
+use Connection;
 
 #[derive(Default)]
-pub struct Manager{
+pub struct Manager {
     connections: HashMap<String, Rc<Connection>>,
     default_connection: String,
 }
@@ -27,7 +27,8 @@ impl Manager {
             return Err("Connection already exists.");
         }
 
-        self.connections.insert(name.to_owned(), Rc::new(connection));
+        self.connections
+            .insert(name.to_owned(), Rc::new(connection));
         Ok(())
     }
 
