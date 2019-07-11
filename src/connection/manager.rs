@@ -1,33 +1,34 @@
-use std::any::Any;
 use std::collections::hash_map::Values;
 use std::collections::HashMap;
+use std::rc::Rc;
 use Connection;
 
 #[derive(Default)]
-pub struct Manager<'a> {
-    connections: HashMap<String, &'a Any>,
+pub struct Manager {
+    connections: HashMap<String, Rc<Connection>>,
     default_connection: String,
 }
 
-impl<'a> Manager<'a> {
-    pub fn new() -> Manager<'a> {
+impl Manager {
+    pub fn new() -> Manager {
         Manager {
-            connections: HashMap::<String, &'a Any>::new(),
+            connections: HashMap::new(),
             default_connection: String::from("main"),
         }
     }
 
-    pub fn connect(&mut self, connection: &'a Connection) -> Result<(), &str> {
+    pub fn connect(&mut self, connection: Connection) -> Result<(), &str> {
         let default_connection = &self.get_default_connection();
         self.connect_as(connection, default_connection)
     }
 
-    pub fn connect_as(&mut self, connection: &'a Connection, name: &str) -> Result<(), &str> {
+    pub fn connect_as(&mut self, connection: Connection, name: &str) -> Result<(), &str> {
         if self.connections.contains_key(name) {
             return Err("Connection already exists.");
         }
 
-        self.connections.insert(name.to_owned(), connection);
+        self.connections
+            .insert(name.to_owned(), Rc::new(connection));
         Ok(())
     }
 
@@ -39,18 +40,18 @@ impl<'a> Manager<'a> {
         }
     }
 
-    pub fn connection(&self) -> Option<&'a Connection> {
+    pub fn connection(&self) -> Option<Rc<Connection>> {
         let connection_name = self.get_default_connection();
         if let Some(conn) = self.connections.get(&connection_name) {
-            return conn.downcast_ref();
+            return Some(conn.clone());
         }
 
         None
     }
 
-    pub fn connection_by_name(&self, name: &str) -> Option<&'a Connection> {
+    pub fn connection_by_name(&self, name: &str) -> Option<Rc<Connection>> {
         if let Some(conn) = self.connections.get(name) {
-            return conn.downcast_ref();
+            return Some(conn.clone());
         }
 
         None
@@ -64,7 +65,7 @@ impl<'a> Manager<'a> {
         self.default_connection = name.to_owned();
     }
 
-    pub fn connections(&self) -> Values<String, &'a Any> {
+    pub fn connections(&self) -> Values<String, Rc<Connection>> {
         self.connections.values()
     }
 }

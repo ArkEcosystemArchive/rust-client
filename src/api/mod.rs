@@ -33,17 +33,12 @@ pub struct Api {
 }
 
 impl Api {
-    fn version() -> &'static str {
-        "2"
-    }
-
     pub fn new(host: &str) -> Api {
         Api::new_with_client(&Client::new(host))
     }
 
     pub fn new_with_client(client: &Client) -> Api {
-        let mut client = client.clone();
-        client.set_version(&Api::version());
+        let client = client.clone();
 
         Api {
             blocks: Blocks::new(client.clone()),
