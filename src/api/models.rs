@@ -1,5 +1,5 @@
 use serde::de::{Deserialize, Deserializer};
-use serde_json;
+use serde_json::Value;
 use std::collections::HashMap;
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -48,15 +48,16 @@ pub struct Block {
     pub generator: Generator,
     pub signature: String,
     pub transactions: u32,
+    pub confirmations: u64,
     pub timestamp: Timestamp,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct Forged {
-    pub reward: u64,
-    pub fee: u64,
-    pub total: u64,
-    pub amount: u64,
+    pub reward: String,
+    pub fee: String,
+    pub total: String,
+    pub amount: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -131,9 +132,9 @@ pub struct NodeConfiguration {
     pub symbol: String,
     pub explorer: String,
     pub version: u32,
-    pub ports: HashMap<String, u16>,
+    pub ports: HashMap<String, Option<u16>>,
     pub constants: NodeConstants,
-    pub fee_statistics: Vec<FeeStatistics>,
+    pub transaction_pool: TransactionPool,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -142,6 +143,7 @@ pub struct NodeStatus {
     pub synced: bool,
     pub now: u64,
     pub blocks_count: i64,
+    pub timestamp: u32,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -161,7 +163,6 @@ pub struct NodeConstants {
     pub blocktime: u32,
     pub block: NodeBlock,
     pub epoch: String,
-    pub fees: Fees,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -174,11 +175,9 @@ pub struct NodeBlock {
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub struct Fees {
-    pub dynamic: bool,
+pub struct TransactionPool {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dynamic_fees: Option<DynamicFees>,
-    pub static_fees: FeeSchema,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -213,21 +212,19 @@ pub struct FeeStatistics {
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct FeeStats {
-    pub min_fee: u64,
-    pub max_fee: u64,
-    pub avg_fee: u64,
+    pub min_fee: String,
+    pub max_fee: String,
+    pub avg_fee: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct Peer {
     pub ip: String,
     pub port: u16,
+    pub ports: HashMap<String, i16>,
     pub version: String,
     pub height: u64,
-    pub status: u16,
-    pub os: String,
     pub latency: u32,
-    pub hashid: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -240,19 +237,21 @@ pub struct Transaction {
     pub version: Option<u16>,
     #[serde(rename = "type")]
     pub transaction_type: TransactionType,
-    pub amount: u64,
-    pub fee: u64,
+    pub amount: String,
+    pub fee: String,
+    pub sender_public_key: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub second_public_key: Option<String>,
     pub sender: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recipient: Option<String>,
     pub signature: String,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub sign_signature: Option<String>,
+    pub second_signature: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vendor_field: Option<String>,
     #[serde(skip_serializing_if = "Asset::is_none")]
     pub asset: Asset,
-    pub confirmations: u64,
     pub timestamp: Timestamp,
 }
 
@@ -291,24 +290,8 @@ pub struct Wallet {
     pub public_key: Option<String>,
     pub username: Option<String>,
     pub second_public_key: Option<String>,
-    #[serde(deserialize_with = "deserialize_u64_as_number_or_string")]
-    pub balance: u64,
+    pub balance: String,
     pub is_delegate: bool,
-}
-
-fn deserialize_u64_as_number_or_string<'de, D>(de: D) -> Result<u64, D::Error>
-where
-    D: Deserializer<'de>,
-{
-    let deser_result: serde_json::Value = try!(Deserialize::deserialize(de));
-
-    match deser_result {
-        serde_json::Value::Number(ref obj) if obj.is_u64() => Ok(obj.as_u64().unwrap()),
-        serde_json::Value::String(ref obj) if !obj.is_empty() => {
-            Ok(obj.as_str().parse::<u64>().unwrap())
-        }
-        _ => Ok(0),
-    }
 }
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
@@ -360,6 +343,7 @@ enum_number!(TransactionType {
 });
 
 use std::mem::transmute;
+
 impl From<u8> for TransactionType {
     fn from(t: u8) -> TransactionType {
         assert!(
