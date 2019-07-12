@@ -4,7 +4,7 @@ use reqwest::header::{HeaderMap, HeaderValue};
 use reqwest::{RequestBuilder, Url};
 use serde::de::DeserializeOwned;
 use serde::ser::Serialize;
-use serde_json::{from_str, from_value, to_string};
+use serde_json::{from_str, from_value, to_string, Value};
 use std::borrow::Borrow;
 use std::collections::HashMap;
 

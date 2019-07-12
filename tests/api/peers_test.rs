@@ -1,5 +1,5 @@
-use serde_json::{from_str, Value};
 use crate::*;
+use serde_json::{from_str, Value};
 
 use arkecosystem_client::api::models::Peer;
 

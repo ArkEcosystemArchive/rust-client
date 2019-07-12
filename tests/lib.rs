@@ -179,7 +179,10 @@ fn assert_transaction_data(actual: Transaction, expected: &Value) {
     }
     assert_eq!(actual.signature, expected["signature"].as_str().unwrap());
     if let Some(second_signature) = actual.second_signature {
-        assert_eq!(second_signature, expected["secondSignature"].as_str().unwrap());
+        assert_eq!(
+            second_signature,
+            expected["secondSignature"].as_str().unwrap()
+        );
     }
     if let Some(vendor_field) = actual.vendor_field {
         assert_eq!(vendor_field, expected["vendorField"].as_str().unwrap());

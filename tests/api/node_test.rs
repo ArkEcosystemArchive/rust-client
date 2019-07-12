@@ -1,5 +1,5 @@
-use serde_json::{from_str, Value};
 use crate::*;
+use serde_json::{from_str, Value};
 
 use arkecosystem_client::api::models::{FeeSchema, FeeStatistics};
 
@@ -163,7 +163,6 @@ fn test_fees() {
     }
 }
 
-
 fn assert_configuration_fees(actual: &FeeSchema, expected: &Value) {
     assert_eq!(actual.transfer, expected["transfer"].as_u64().unwrap());
     assert_eq!(
@@ -199,20 +198,8 @@ fn assert_fee_statistics(actual: &FeeStatistics, expected: &Value) {
         actual.transaction_type as u8,
         expected["type"].as_u64().unwrap() as u8
     );
-    assert_eq!(
-        actual.avg,
-        expected["avg"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.min,
-        expected["min"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.max,
-        expected["max"].as_str().unwrap()
-    );
-    assert_eq!(
-        actual.sum,
-        expected["sum"].as_str().unwrap()
-    );
+    assert_eq!(actual.avg, expected["avg"].as_str().unwrap());
+    assert_eq!(actual.min, expected["min"].as_str().unwrap());
+    assert_eq!(actual.max, expected["max"].as_str().unwrap());
+    assert_eq!(actual.sum, expected["sum"].as_str().unwrap());
 }

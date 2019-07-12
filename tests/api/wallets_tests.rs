@@ -1,8 +1,7 @@
+use crate::*;
+use serde::Serialize;
 use serde_json::ser::to_string_pretty;
 use serde_json::Value;
-use serde::Serialize;
-use crate::*;
-
 
 #[test]
 fn test_all() {
@@ -18,7 +17,7 @@ fn test_show() {
     let (_mock, body) = mock_http_request("wallets/dummy");
     {
         let client = mock_client();
-client.wallets.show("dummy").unwrap();
+        client.wallets.show("dummy").unwrap();
     }
 }
 

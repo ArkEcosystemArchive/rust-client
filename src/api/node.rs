@@ -1,4 +1,4 @@
-use api::models::{NodeConfiguration, NodeStatus, NodeSyncing, NodeFees};
+use api::models::{NodeConfiguration, NodeFees, NodeStatus, NodeSyncing};
 use api::Result;
 use http::client::Client;
 

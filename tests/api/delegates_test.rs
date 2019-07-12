@@ -1,6 +1,6 @@
+use crate::*;
 use serde_json::{from_str, Value};
 use std::collections::HashMap;
-use crate::*;
 
 use arkecosystem_client::api::models::Delegate;
 

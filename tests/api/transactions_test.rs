@@ -1,6 +1,6 @@
+use crate::*;
 use serde_json::from_str;
 use std::collections::HashMap;
-use crate::*;
 
 #[test]
 fn test_all() {

@@ -1,5 +1,5 @@
-use serde_json::to_string_pretty;
 use crate::*;
+use serde_json::to_string_pretty;
 
 #[test]
 fn test_all_blocks() {
@@ -25,7 +25,6 @@ fn test_transactions() {
     {
         let client = mock_client();
         client.blocks.transactions("dummy").unwrap();
-
     }
 }
 
