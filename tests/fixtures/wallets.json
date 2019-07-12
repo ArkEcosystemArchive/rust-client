@@ -1,54 +1,55 @@
 {
-  "meta": {
-    "count": 5,
-    "pageCount": 37216,
-    "totalCount": 186076,
-    "next": "/api/v2/wallets?limit=5&page=2",
-    "previous": null,
-    "self": "/api/v2/wallets?limit=5&page=1",
-    "first": "/api/v2/wallets?limit=5&page=1",
-    "last": "/api/v2/wallets?limit=5&page=37216"
-  },
-  "data": [
-    {
-      "address": "DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9",
-      "publicKey": "03f0b2920da0ed04d73e4b9a32a8320ead3aca253716339361bf9cc1d7a8b2d210",
-      "username": "bulbasaur",
-      "secondPublicKey": null,
-      "balance": 100029800000000,
-      "isDelegate": true
+    "meta": {
+        "count": 5,
+        "pageCount": 39292,
+        "totalCount": 196459,
+        "next": "/api/wallets?limit=5&page=3",
+        "previous": "/api/wallets?limit=5&page=1",
+        "self": "/api/wallets?limit=5&page=2",
+        "first": "/api/wallets?limit=5&page=1",
+        "last": "/api/wallets?limit=5&page=39292"
     },
-    {
-      "address": "DNjuJEDQkhrJ7cA9FZ2iVXt5anYiM8Jtc9",
-      "publicKey": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec",
-      "username": "arkx",
-      "secondPublicKey": null,
-      "balance": 43083134346224,
-      "isDelegate": true
-    },
-    {
-      "address": "D5NfW3xozpdZfPjXAtp5LGyNmLA8DdqHPd",
-      "publicKey": "037a78fa57503ddf6f0aaff64650bdb5752cc47d96294516f778c1e95e1cba1995",
-      "username": "nidoqueen",
-      "secondPublicKey": null,
-      "balance": 10030109203719,
-      "isDelegate": true
-    },
-    {
-      "address": "DCWhQ1TdjG3jD1gd64SMBG5VM3NXXaCBYz",
-      "publicKey": "02fa68d16abd29a597c5cbd97704e6c6bfe8c7dd9f7a6871f485ced040b76621d5",
-      "username": "spearow",
-      "secondPublicKey": null,
-      "balance": 10030000000020,
-      "isDelegate": true
-    },
-    {
-      "address": "DReMmBucGQETgLkVNnNBymGChDeNtau4fp",
-      "publicKey": "0242bc62535379f627df2def3cc0c825050723ff8e0bc97b1e73c6aae57248d022",
-      "username": "metapod",
-      "secondPublicKey": null,
-      "balance": 10030000000010,
-      "isDelegate": true
-    }
-  ]
+    "data": [
+        {
+            "address": "DBk4cPYpqp7EBcvkstVDpyX7RQJNHxpMg8",
+            "publicKey": "0236d5232cdbd1e7ab87fad10ebe689c4557bc9d0c408b6773be964c837231d5f0",
+            "username": "itsanametoo",
+            "secondPublicKey": "03e7cfaa3ae06e89c217df2057e92cae2bc40164aeaa5ab955645690141b1b7be6",
+            "balance": "35221469803440",
+            "isDelegate": true,
+            "vote": "0236d5232cdbd1e7ab87fad10ebe689c4557bc9d0c408b6773be964c837231d5f0"
+        },
+        {
+            "address": "DKZXdbi8Di4JUjoRFRsGVqfAcRUtXd7vuq",
+            "publicKey": "02c2a320d263320fe5bb8495bf334af396993d3a2739d068d6fc9c10db3c90cb63",
+            "username": "dmak",
+            "balance": "31716411140003",
+            "isDelegate": true,
+            "vote": "02c2a320d263320fe5bb8495bf334af396993d3a2739d068d6fc9c10db3c90cb63"
+        },
+        {
+            "address": "DKfEF2sykKCZzom3vFg1dp9D2kisB8hM2Q",
+            "publicKey": "036a520acf24036ff691a4f8ba19514828e9b5aa36ca4ba0452e9012023caccfef",
+            "username": "munich",
+            "balance": "30808631137989",
+            "isDelegate": true,
+            "vote": "036a520acf24036ff691a4f8ba19514828e9b5aa36ca4ba0452e9012023caccfef"
+        },
+        {
+            "address": "D9a4Y1qokJxTDEJcfzqW2io1bykdaoW5mp",
+            "publicKey": "02d0244d939fad9004cc104f71b46b428d903e4f2988a65f39fdaa1b7482894c9e",
+            "username": "cryptology",
+            "balance": "29746171933579",
+            "isDelegate": true,
+            "vote": "02d0244d939fad9004cc104f71b46b428d903e4f2988a65f39fdaa1b7482894c9e"
+        },
+        {
+            "address": "DJ8K2tb6DxbZNmQRpmtkTtAr6rM7y1PWkA",
+            "publicKey": "02d2f48a7ebb5b6d484de15b4cab8ab13c1d39b7141301efe048714aa9d82eb1cd",
+            "username": "dated_test_del",
+            "balance": "22170624061381",
+            "isDelegate": true,
+            "vote": "02d2f48a7ebb5b6d484de15b4cab8ab13c1d39b7141301efe048714aa9d82eb1cd"
+        }
+    ]
 }

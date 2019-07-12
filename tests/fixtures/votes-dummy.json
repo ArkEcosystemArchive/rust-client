@@ -1,23 +1,25 @@
 {
-  "data": {
-    "id": "09388f927614a02ff256b005c59b2861719266e49c59bae1dceef553572a1bb7",
-    "blockId": "382064156751342813",
-    "type": 3,
-    "amount": 0,
-    "fee": 100000000,
-    "sender": "DN7Lkk6Hk5qR2ZwwG9Ttr7KQRcGFr2BUQP",
-    "recipient": "DN7Lkk6Hk5qR2ZwwG9Ttr7KQRcGFr2BUQP",
-    "signature": "3045022100b030698301bc86ff86a3b2223efa4093f54a107d0cfb8ac376f94d39ae62c32d02206e179dcf492f0a09766f280bbbfbb8b2ab2a1ac418b9bde26e05b5976e4a63e4",
-    "asset": {
-      "votes": [
-        "+027894c17a95ef401eb448895ba60051bb34f752bb49aef1e69831b5a5f0c6d44b"
-      ]
-    },
-    "confirmations": 38366,
-    "timestamp": {
-      "epoch": 53748437,
-      "unix": 1543849637,
-      "human": "2018-12-03T15:07:17.000Z"
+    "data": {
+        "id": "057a0bf90fe4a280fb2235cd891850712e0a330a4d293caee334181d293d8616",
+        "blockId": "b9bb1129fe6488489afe22a05aebde6b793fd36e04c97105af90a405df662b4a",
+        "version": 1,
+        "type": 3,
+        "amount": "0",
+        "fee": "95446623",
+        "sender": "D9pdjP9HW71E4b56eCaCqHHVazD44cnAVZ",
+        "senderPublicKey": "0358c2c18eddf9c08befc44c8436a744fe366b3fbcd6eaf4cb9fc2d56e17ba9700",
+        "recipient": "D9pdjP9HW71E4b56eCaCqHHVazD44cnAVZ",
+        "signature": "3045022100b410ad6f78d3729b52c643fa18437057188415ed90c1c12eca43303a3e29454602203d036ae01f5db8176c09b45eba974d63edc45151ccab44b72667ee6d395a1fa5",
+        "asset": {
+            "votes": [
+                "-0215789ac26155b7a338708f595b97c453e08918d0630c896cbd31d83fe2ad1c33"
+            ]
+        },
+        "confirmations": 10893,
+        "timestamp": {
+            "epoch": 72747317,
+            "unix": 1562848517,
+            "human": "2019-07-11T12:35:17.000Z"
+        }
     }
-  }
 }

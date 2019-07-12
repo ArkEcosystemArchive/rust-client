@@ -1,4 +1,4 @@
-use api::models::{NodeConfiguration, NodeStatus, NodeSyncing};
+use api::models::{NodeConfiguration, NodeStatus, NodeSyncing, NodeFees};
 use api::Result;
 use http::client::Client;
 
@@ -21,5 +21,9 @@ impl Node {
 
     pub fn configuration(&self) -> Result<NodeConfiguration> {
         self.client.get("node/configuration")
+    }
+
+    pub fn fees(&self) -> Result<NodeFees> {
+        self.client.get("node/fees")
     }
 }

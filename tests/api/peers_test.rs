@@ -1,5 +1,5 @@
 use serde_json::{from_str, Value};
-use *;
+use crate::*;
 
 use arkecosystem_client::api::models::Peer;
 
@@ -58,8 +58,5 @@ fn assert_peer_data(actual: &Peer, expected: &Value) {
     assert_eq!(actual.port, expected["port"].as_u64().unwrap() as u16);
     assert_eq!(actual.version, expected["version"].as_str().unwrap());
     assert_eq!(actual.height, expected["height"].as_u64().unwrap());
-    assert_eq!(actual.status, expected["status"].as_u64().unwrap() as u16);
-    assert_eq!(actual.os, expected["os"].as_str().unwrap());
     assert_eq!(actual.latency, expected["latency"].as_u64().unwrap() as u32);
-    assert_eq!(actual.hashid, expected["hashid"].as_str().unwrap());
 }

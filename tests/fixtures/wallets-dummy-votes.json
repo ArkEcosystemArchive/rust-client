@@ -1,13 +1,39 @@
 {
-  "meta": {
-    "count": 0,
-    "pageCount": 0,
-    "totalCount": 0,
-    "next": null,
-    "previous": null,
-    "self": "/api/v2/wallets/AFnogpUHmLgnN11ExWQCyngL1RNB9J6i8Z/votes?page=1&limit=100",
-    "first": "/api/v2/wallets/AFnogpUHmLgnN11ExWQCyngL1RNB9J6i8Z/votes?page=1&limit=100",
-    "last": null
-  },
-  "data": []
+    "meta": {
+        "totalCountIsEstimate": true,
+        "count": 1,
+        "pageCount": 1,
+        "totalCount": 1,
+        "next": null,
+        "previous": null,
+        "self": "/api/wallets/DBk4cPYpqp7EBcvkstVDpyX7RQJNHxpMg8/votes?page=1&limit=1&transform=true",
+        "first": "/api/wallets/DBk4cPYpqp7EBcvkstVDpyX7RQJNHxpMg8/votes?page=1&limit=1&transform=true",
+        "last": "/api/wallets/DBk4cPYpqp7EBcvkstVDpyX7RQJNHxpMg8/votes?page=1&limit=1&transform=true"
+    },
+    "data": [
+        {
+            "id": "33b7e8c737fc089abb2a82858865974d917d324c14013ee6ecf72384e044b578",
+            "blockId": "396ee5747daab11c23fc8d94b00a07fc13bc9960343c46a885bd58b9ff95d0b1",
+            "version": 1,
+            "type": 3,
+            "amount": "0",
+            "fee": "63542712",
+            "sender": "DBk4cPYpqp7EBcvkstVDpyX7RQJNHxpMg8",
+            "senderPublicKey": "0236d5232cdbd1e7ab87fad10ebe689c4557bc9d0c408b6773be964c837231d5f0",
+            "recipient": "DBk4cPYpqp7EBcvkstVDpyX7RQJNHxpMg8",
+            "signature": "3045022100bfab3495b1df2677eda0c17659959b89cf4505dc8aa3279bb3144d6f033bdb72022044d4da41d3bf67b777e1856b5b70ea0a5719a6c28b5d19ffe3b367a1b3dfe15d",
+            "signSignature": "304402207384e5e4b7cf6d1b01998859047d4a32d0d7be1e13689642e60d9f7c932d626502201b1d9a519be5e815f07136f42682a9bf6fb634713b383aa18436df3155f34ba5",
+            "asset": {
+                "votes": [
+                    "+0236d5232cdbd1e7ab87fad10ebe689c4557bc9d0c408b6773be964c837231d5f0"
+                ]
+            },
+            "confirmations": 922665,
+            "timestamp": {
+                "epoch": 64389816,
+                "unix": 1554491016,
+                "human": "2019-04-05T19:03:36.000Z"
+            }
+        }
+    ]
 }

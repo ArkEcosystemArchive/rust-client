@@ -1,5 +1,5 @@
 use serde_json::{from_str, Value};
-use *;
+use crate::*;
 
 use arkecosystem_client::api::models::{FeeSchema, FeeStatistics};
 
@@ -148,6 +148,22 @@ fn test_configuration() {
     }
 }
 
+#[test]
+fn test_fees() {
+    let (_mock, body) = mock_http_request("node/fees");
+    {
+        let client = mock_client();
+        let response = client.node.fees();
+        let actual = response.unwrap();
+        let expected = from_str::<Value>(&body).unwrap();
+
+        for i in 0..actual.data.len() {
+            assert_fee_statistics(&actual.data[i], &expected["data"].as_array().unwrap()[i]);
+        }
+    }
+}
+
+
 fn assert_configuration_fees(actual: &FeeSchema, expected: &Value) {
     assert_eq!(actual.transfer, expected["transfer"].as_u64().unwrap());
     assert_eq!(
@@ -184,15 +200,19 @@ fn assert_fee_statistics(actual: &FeeStatistics, expected: &Value) {
         expected["type"].as_u64().unwrap() as u8
     );
     assert_eq!(
-        actual.fees.min_fee,
-        expected["fees"]["minFee"].as_str().unwrap()
+        actual.avg,
+        expected["avg"].as_str().unwrap()
     );
     assert_eq!(
-        actual.fees.max_fee,
-        expected["fees"]["maxFee"].as_str().unwrap()
+        actual.min,
+        expected["min"].as_str().unwrap()
     );
     assert_eq!(
-        actual.fees.avg_fee,
-        expected["fees"]["avgFee"].as_str().unwrap()
+        actual.max,
+        expected["max"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.sum,
+        expected["sum"].as_str().unwrap()
     );
 }

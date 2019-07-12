@@ -1,54 +1,54 @@
 {
-  "meta": {
-    "count": 5,
-    "pageCount": 37216,
-    "totalCount": 186076,
-    "next": "/api/v2/wallets?limit=5&page=2",
-    "previous": null,
-    "self": "/api/v2/wallets?limit=5&page=1",
-    "first": "/api/v2/wallets?limit=5&page=1",
-    "last": "/api/v2/wallets?limit=5&page=37216"
-  },
-  "data": [
-    {
-      "address": "DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9",
-      "publicKey": "03f0b2920da0ed04d73e4b9a32a8320ead3aca253716339361bf9cc1d7a8b2d210",
-      "username": "bulbasaur",
-      "secondPublicKey": null,
-      "balance": 100029800000000,
-      "isDelegate": true
+    "meta": {
+        "count": 5,
+        "pageCount": 39292,
+        "totalCount": 196459,
+        "next": "/api/wallets?page=2&limit=5",
+        "previous": null,
+        "self": "/api/wallets?page=1&limit=5",
+        "first": "/api/wallets?page=1&limit=5",
+        "last": "/api/wallets?page=39292&limit=5"
     },
-    {
-      "address": "DNjuJEDQkhrJ7cA9FZ2iVXt5anYiM8Jtc9",
-      "publicKey": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec",
-      "username": "arkx",
-      "secondPublicKey": null,
-      "balance": 43083134346224,
-      "isDelegate": true
-    },
-    {
-      "address": "D5NfW3xozpdZfPjXAtp5LGyNmLA8DdqHPd",
-      "publicKey": "037a78fa57503ddf6f0aaff64650bdb5752cc47d96294516f778c1e95e1cba1995",
-      "username": "nidoqueen",
-      "secondPublicKey": null,
-      "balance": 10030109203719,
-      "isDelegate": true
-    },
-    {
-      "address": "DCWhQ1TdjG3jD1gd64SMBG5VM3NXXaCBYz",
-      "publicKey": "02fa68d16abd29a597c5cbd97704e6c6bfe8c7dd9f7a6871f485ced040b76621d5",
-      "username": "spearow",
-      "secondPublicKey": null,
-      "balance": 10030000000020,
-      "isDelegate": true
-    },
-    {
-      "address": "DReMmBucGQETgLkVNnNBymGChDeNtau4fp",
-      "publicKey": "0242bc62535379f627df2def3cc0c825050723ff8e0bc97b1e73c6aae57248d022",
-      "username": "metapod",
-      "secondPublicKey": null,
-      "balance": 10030000000010,
-      "isDelegate": true
-    }
-  ]
+    "data": [
+        {
+            "address": "D6Z26L69gdk9qYmTv5uzk3uGepigtHY4ax",
+            "publicKey": "03d3fdad9c5b25bf8880e6b519eb3611a5c0b31adebc8455f0e096175b28321aff",
+            "balance": "9898440219335676",
+            "isDelegate": false
+        },
+        {
+            "address": "DEyaFhDuaoQyKbFH4gJtYZvKkB6umyrEUj",
+            "publicKey": "033c59dcdc36944cc28f68c1e4b47ac370fe326e53f9adf5f07764d3e8b74b1838",
+            "username": "whalessio",
+            "secondPublicKey": "03820f214bd49a09c636fa366b4b3c1a0dbd2953d14aac7e68a596e0636e662dfb",
+            "balance": "2000044819999638",
+            "isDelegate": true,
+            "vote": "033a5474f68f92f254691e93c06a2f22efaf7d66b543a53efcece021819653a200"
+        },
+        {
+            "address": "DSyG9hK9CE8eyfddUoEvsga4kNVQLdw2ve",
+            "publicKey": "033a5474f68f92f254691e93c06a2f22efaf7d66b543a53efcece021819653a200",
+            "username": "alessio",
+            "secondPublicKey": "026de1cd4321a7e78a7b4d8453d1b1ca210eaf991022c55a99e9b0b9ebddbbd502",
+            "balance": "114823690652148",
+            "isDelegate": true,
+            "vote": "0215789ac26155b7a338708f595b97c453e08918d0630c896cbd31d83fe2ad1c33"
+        },
+        {
+            "address": "DEz1Mr4uJ7NaiufwKEj28atCRPTmsUqh9t",
+            "publicKey": "0215789ac26155b7a338708f595b97c453e08918d0630c896cbd31d83fe2ad1c33",
+            "username": "alexxio",
+            "balance": "101126381762576",
+            "isDelegate": true,
+            "vote": "03ad5c6e2a38a42d869dfd5994e6380ca11fd7393f4a1a5903fc25c99ab8072b71"
+        },
+        {
+            "address": "DNjuJEDQkhrJ7cA9FZ2iVXt5anYiM8Jtc9",
+            "publicKey": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec",
+            "username": "arkx",
+            "balance": "51010692995031",
+            "isDelegate": true,
+            "vote": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec"
+        }
+    ]
 }

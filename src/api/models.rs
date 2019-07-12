@@ -25,14 +25,23 @@ pub struct Response<T> {
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Meta {
+    #[serde(skip_if = Option::is_none)]
+    pub total_count_is_estimate: Option<bool>,
+    #[serde(default)]
     pub count: u32,
+    #[serde(default)]
     pub page_count: u32,
+    #[serde(default)]
     pub total_count: u32,
+    #[serde(default)]
     pub next: Option<String>,
+    #[serde(default)]
     pub previous: Option<String>,
-    #[serde(rename = "self")]
-    pub self_url: String,
-    pub first: String,
+    #[serde(rename = "self", default)]
+    pub self_url: Option<String>,
+    #[serde(default)]
+    pub first: Option<String>,
+    #[serde(default)]
     pub last: Option<String>,
 }
 
@@ -87,7 +96,7 @@ pub struct Delegate {
     pub username: String,
     pub address: String,
     pub public_key: String,
-    pub votes: u64,
+    pub votes: String,
     pub rank: u32,
     pub blocks: Blocks,
     pub production: Production,
@@ -97,7 +106,6 @@ pub struct Delegate {
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct Blocks {
     pub produced: u64,
-    pub missed: u64,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub last: Option<Last>,
 }
@@ -105,7 +113,6 @@ pub struct Blocks {
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct Production {
     pub approval: f64,
-    pub productivity: f64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -114,13 +121,13 @@ pub struct Last {
     pub timestamp: Timestamp,
 }
 
-pub type Balances = HashMap<String, u64>;
+pub type Balances = HashMap<String, String>;
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct DelegateForged {
-    pub rewards: u64,
-    pub fees: u64,
-    pub total: u64,
+    pub rewards: String,
+    pub fees: String,
+    pub total: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -173,6 +180,8 @@ pub struct NodeBlock {
     pub max_payload: u64,
 }
 
+pub type NodeFees = Vec<FeeStatistics>;
+
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct TransactionPool {
@@ -206,15 +215,10 @@ pub struct FeeSchema {
 pub struct FeeStatistics {
     #[serde(rename = "type")]
     pub transaction_type: TransactionType,
-    pub fees: FeeStats,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct FeeStats {
-    pub min_fee: String,
-    pub max_fee: String,
-    pub avg_fee: String,
+    pub avg: String,
+    pub min: String,
+    pub max: String,
+    pub sum: String,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -239,19 +243,23 @@ pub struct Transaction {
     pub transaction_type: TransactionType,
     pub amount: String,
     pub fee: String,
+    pub sender: String,
     pub sender_public_key: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub second_public_key: Option<String>,
-    pub sender: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub recipient: Option<String>,
     pub signature: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub sign_signature: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub second_signature: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vendor_field: Option<String>,
     #[serde(skip_serializing_if = "Asset::is_none")]
     pub asset: Asset,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub confirmations: Option<u64>,
     pub timestamp: Timestamp,
 }
 

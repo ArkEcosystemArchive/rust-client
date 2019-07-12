@@ -1,98 +1,68 @@
 {
-  "meta": {
-    "count": 3,
-    "pageCount": 123,
-    "totalCount": 368,
-    "next": "/api/v2/delegates?limit=3&page=2",
-    "previous": null,
-    "self": "/api/v2/delegates?limit=3&page=1",
-    "first": "/api/v2/delegates?limit=3&page=1",
-    "last": "/api/v2/delegates?limit=3&page=123"
-  },
-  "data": [
-    {
-      "username": "bulbasaur",
-      "address": "DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9",
-      "publicKey": "03f0b2920da0ed04d73e4b9a32a8320ead3aca253716339361bf9cc1d7a8b2d210",
-      "votes": 100027200000000,
-      "rank": 1,
-      "blocks": {
-        "produced": 149,
-        "missed": 0,
-        "last": {
-          "id": "18337314392167298987",
-          "timestamp": {
-            "epoch": 54330032,
-            "unix": 1544431232,
-            "human": "2018-12-10T08:40:32.000Z"
-          }
-        }
-      },
-      "production": {
-        "approval": 0.79,
-        "productivity": 100
-      },
-      "forged": {
-        "fees": 0,
-        "rewards": 29800000000,
-        "total": 29800000000
-      }
+    "meta": {
+        "count": 2,
+        "pageCount": 197,
+        "totalCount": 393,
+        "next": "/api/delegates?limit=2&offset=5&page=2",
+        "previous": null,
+        "self": "/api/delegates?limit=2&offset=5&page=1",
+        "first": "/api/delegates?limit=2&offset=5&page=1",
+        "last": "/api/delegates?limit=2&offset=5&page=197"
     },
-    {
-      "username": "arkx",
-      "address": "DNjuJEDQkhrJ7cA9FZ2iVXt5anYiM8Jtc9",
-      "publicKey": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec",
-      "votes": 44191107818913,
-      "rank": 2,
-      "blocks": {
-        "produced": 19872,
-        "missed": 771,
-        "last": {
-          "id": "5865885755500979725",
-          "timestamp": {
-            "epoch": 54329762,
-            "unix": 1544430962,
-            "human": "2018-12-10T08:36:02.000Z"
-          }
+    "data": [
+        {
+            "username": "dmak",
+            "address": "DKZXdbi8Di4JUjoRFRsGVqfAcRUtXd7vuq",
+            "publicKey": "02c2a320d263320fe5bb8495bf334af396993d3a2739d068d6fc9c10db3c90cb63",
+            "votes": "31717083562440",
+            "rank": 6,
+            "blocks": {
+                "produced": 42563,
+                "last": {
+                    "id": "77185309b8a8dc034aeb41c1bd4c8a563756b24360a43409d3a0546b664b7b3b",
+                    "height": 2932303,
+                    "timestamp": {
+                        "epoch": 72833944,
+                        "unix": 1562935144,
+                        "human": "2019-07-12T12:39:04.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.25
+            },
+            "forged": {
+                "fees": "7605583418",
+                "rewards": "8512600000000",
+                "total": "8520205583418"
+            }
+        },
+        {
+            "username": "cryptology",
+            "address": "D9a4Y1qokJxTDEJcfzqW2io1bykdaoW5mp",
+            "publicKey": "02d0244d939fad9004cc104f71b46b428d903e4f2988a65f39fdaa1b7482894c9e",
+            "votes": "31709868650395",
+            "rank": 7,
+            "blocks": {
+                "produced": 54666,
+                "last": {
+                    "id": "41263ea873677686b10cccf5a7add7a18f6a4d51b231aba537739b00350fb2e2",
+                    "height": 2932258,
+                    "timestamp": {
+                        "epoch": 72833584,
+                        "unix": 1562934784,
+                        "human": "2019-07-12T12:33:04.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.25
+            },
+            "forged": {
+                "fees": "203750574557",
+                "rewards": "10892400000000",
+                "total": "11096150574557"
+            }
         }
-      },
-      "production": {
-        "approval": 0.35,
-        "productivity": 96.27
-      },
-      "forged": {
-        "fees": 147708259062,
-        "rewards": 3931600000000,
-        "total": 4079308259062
-      }
-    },
-    {
-      "username": "spearow",
-      "address": "DCWhQ1TdjG3jD1gd64SMBG5VM3NXXaCBYz",
-      "publicKey": "02fa68d16abd29a597c5cbd97704e6c6bfe8c7dd9f7a6871f485ced040b76621d5",
-      "votes": 10027600000020,
-      "rank": 3,
-      "blocks": {
-        "produced": 151,
-        "missed": 0,
-        "last": {
-          "id": "17169944379504516184",
-          "timestamp": {
-            "epoch": 54330096,
-            "unix": 1544431296,
-            "human": "2018-12-10T08:41:36.000Z"
-          }
-        }
-      },
-      "production": {
-        "approval": 0.08,
-        "productivity": 100
-      },
-      "forged": {
-        "fees": 0,
-        "rewards": 30200000000,
-        "total": 30200000000
-      }
-    }
-  ]
+    ]
 }

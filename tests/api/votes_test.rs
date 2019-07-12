@@ -1,5 +1,5 @@
 use serde_json::from_str;
-use *;
+use crate::*;
 
 use arkecosystem_client::api::models::{Asset, Transaction};
 

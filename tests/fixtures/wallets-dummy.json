@@ -1,10 +1,11 @@
 {
-  "data": {
-    "address": "DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9",
-    "publicKey": "03f0b2920da0ed04d73e4b9a32a8320ead3aca253716339361bf9cc1d7a8b2d210",
-    "username": "bulbasaur",
-    "secondPublicKey": null,
-    "balance": 100029800000000,
-    "isDelegate": true
-  }
+    "data": {
+        "address": "DBk4cPYpqp7EBcvkstVDpyX7RQJNHxpMg8",
+        "publicKey": "0236d5232cdbd1e7ab87fad10ebe689c4557bc9d0c408b6773be964c837231d5f0",
+        "username": "itsanametoo",
+        "secondPublicKey": "03e7cfaa3ae06e89c217df2057e92cae2bc40164aeaa5ab955645690141b1b7be6",
+        "balance": "35221469803440",
+        "isDelegate": true,
+        "vote": "0236d5232cdbd1e7ab87fad10ebe689c4557bc9d0c408b6773be964c837231d5f0"
+    }
 }

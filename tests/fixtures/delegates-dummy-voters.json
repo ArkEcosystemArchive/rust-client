@@ -1,22 +1,45 @@
 {
-  "meta": {
-    "count": 1,
-    "pageCount": 1,
-    "totalCount": 1,
-    "next": null,
-    "previous": null,
-    "self": "/api/v2/delegates/DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9/voters?limit=4&page=1",
-    "first": "/api/v2/delegates/DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9/voters?limit=4&page=1",
-    "last": "/api/v2/delegates/DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9/voters?limit=4&page=1"
-  },
-  "data": [
-    {
-      "address": "DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9",
-      "publicKey": "03f0b2920da0ed04d73e4b9a32a8320ead3aca253716339361bf9cc1d7a8b2d210",
-      "username": "bulbasaur",
-      "secondPublicKey": null,
-      "balance": 100028600000000,
-      "isDelegate": true
-    }
-  ]
+    "meta": {
+        "count": 4,
+        "pageCount": 1252,
+        "totalCount": 5006,
+        "next": "/api/delegates/arkx/voters?limit=4&page=2&transform=true",
+        "previous": null,
+        "self": "/api/delegates/arkx/voters?limit=4&page=1&transform=true",
+        "first": "/api/delegates/arkx/voters?limit=4&page=1&transform=true",
+        "last": "/api/delegates/arkx/voters?limit=4&page=1252&transform=true"
+    },
+    "data": [
+        {
+            "address": "DNjuJEDQkhrJ7cA9FZ2iVXt5anYiM8Jtc9",
+            "publicKey": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec",
+            "username": "arkx",
+            "balance": "51010292995031",
+            "isDelegate": true,
+            "vote": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec"
+        },
+        {
+            "address": "DPTj92butfhy527V13bSXMj9SVYZGAVZ1R",
+            "publicKey": "028889b36c5e68bc028c21879ff52fa9cc2503246cb9de40bd53d2e2dfd1eaf711",
+            "balance": "493480000000",
+            "isDelegate": false,
+            "vote": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec"
+        },
+        {
+            "address": "DQMAWxNTx83xj8ZorYe4ShJqW6nGPnnQws",
+            "publicKey": "03f73b1b283ae1b258622b9f3ab8720a5e5d17157e54e23ed08d6544a06c9bbd24",
+            "username": "sample",
+            "balance": "108140000000",
+            "isDelegate": true,
+            "vote": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec"
+        },
+        {
+            "address": "DFyDKsyvR4x9D9zrfEaPmeJxSniT5N5qY8",
+            "publicKey": "0310c283aac7b35b4ae6fab201d36e8322c3408331149982e16013a5bcb917081c",
+            "username": "a",
+            "balance": "84113842581",
+            "isDelegate": true,
+            "vote": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec"
+        }
+    ]
 }

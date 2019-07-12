@@ -1,22 +1,20 @@
 {
-  "data": {
-    "username": "electra",
-    "address": "DAARDY5gaSAuoQt4QAHWMrgVDGbyBavfB7",
-    "publicKey": "03f491fb7db792de6a4bfe5111e81beaa66a306b7a2a13759265f73282b2aa4b23",
-    "votes": 0,
-    "rank": 362,
-    "blocks": {
-      "produced": 0,
-      "missed": 0
-    },
-    "production": {
-      "approval": 0,
-      "productivity": 0
-    },
-    "forged": {
-      "fees": 0,
-      "rewards": 0,
-      "total": 0
+    "data": {
+        "username": "electra",
+        "address": "DAARDY5gaSAuoQt4QAHWMrgVDGbyBavfB7",
+        "publicKey": "03f491fb7db792de6a4bfe5111e81beaa66a306b7a2a13759265f73282b2aa4b23",
+        "votes": "0",
+        "rank": 385,
+        "blocks": {
+            "produced": 0
+        },
+        "production": {
+            "approval": 0
+        },
+        "forged": {
+            "fees": "0",
+            "rewards": "0",
+            "total": "0"
+        }
     }
-  }
 }

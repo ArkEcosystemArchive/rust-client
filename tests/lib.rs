@@ -3,6 +3,7 @@ extern crate mockito;
 extern crate serde_json;
 #[macro_use]
 extern crate assert_float_eq;
+extern crate serde;
 
 mod api;
 mod connection;
@@ -98,8 +99,8 @@ fn assert_meta(actual: Meta, expected: &Value) {
             expected["previous"].as_str().unwrap()
         );
     }
-    assert_eq!(actual.self_url, expected["self"].as_str().unwrap());
-    assert_eq!(actual.first, expected["first"].as_str().unwrap());
+    assert_eq!(actual.self_url.unwrap(), expected["self"].as_str().unwrap());
+    assert_eq!(actual.first.unwrap(), expected["first"].as_str().unwrap());
     if actual.last.is_some() {
         assert_eq!(actual.last.unwrap(), expected["last"].as_str().unwrap());
     }
@@ -119,19 +120,19 @@ fn assert_block(actual: &Block, expected: &Value) {
     assert_eq!(actual.signature, expected["signature"].as_str().unwrap());
     assert_eq!(
         actual.forged.reward,
-        expected["forged"]["reward"].as_u64().unwrap()
+        expected["forged"]["reward"].as_str().unwrap()
     );
     assert_eq!(
         actual.forged.fee,
-        expected["forged"]["fee"].as_u64().unwrap()
+        expected["forged"]["fee"].as_str().unwrap()
     );
     assert_eq!(
         actual.forged.total,
-        expected["forged"]["total"].as_u64().unwrap()
+        expected["forged"]["total"].as_str().unwrap()
     );
     assert_eq!(
         actual.forged.amount,
-        expected["forged"]["amount"].as_u64().unwrap()
+        expected["forged"]["amount"].as_str().unwrap()
     );
     assert_eq!(
         actual.payload.hash,
@@ -170,26 +171,21 @@ fn assert_transaction_data(actual: Transaction, expected: &Value) {
         actual.transaction_type as u64,
         expected["type"].as_u64().unwrap()
     );
-    assert_eq!(actual.amount, expected["amount"].as_u64().unwrap());
-    assert_eq!(actual.fee, expected["fee"].as_u64().unwrap());
+    assert_eq!(actual.amount, expected["amount"].as_str().unwrap());
+    assert_eq!(actual.fee, expected["fee"].as_str().unwrap());
     assert_eq!(actual.sender, expected["sender"].as_str().unwrap());
     if let Some(recipient) = actual.recipient {
         assert_eq!(recipient, expected["recipient"].as_str().unwrap());
     }
     assert_eq!(actual.signature, expected["signature"].as_str().unwrap());
-    if let Some(sign_signature) = actual.sign_signature {
-        assert_eq!(sign_signature, expected["signSignature"].as_str().unwrap());
+    if let Some(second_signature) = actual.second_signature {
+        assert_eq!(second_signature, expected["secondSignature"].as_str().unwrap());
     }
     if let Some(vendor_field) = actual.vendor_field {
         assert_eq!(vendor_field, expected["vendorField"].as_str().unwrap());
     }
 
     // NOTE: asset should be tested on each transaction type
-
-    assert_eq!(
-        actual.confirmations,
-        expected["confirmations"].as_u64().unwrap()
-    );
     assert_timestamp_data(&actual.timestamp, &expected["timestamp"].clone());
 }
 
@@ -207,7 +203,7 @@ fn assert_wallet_data(actual: Wallet, expected: &Value) {
             expected["secondPublicKey"].as_str().unwrap()
         );
     }
-    assert_eq!(actual.balance, expected["balance"].as_u64().unwrap());
+    assert_eq!(actual.balance, expected["balance"].as_str().unwrap());
     assert_eq!(
         actual.is_delegate,
         expected["isDelegate"].as_bool().unwrap()

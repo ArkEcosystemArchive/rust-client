@@ -1,58 +1,79 @@
 {
-  "meta": {
-    "count": 5,
-    "pageCount": 17,
-    "totalCount": 83,
-    "next": "/api/v2/peers?limit=5&page=3",
-    "previous": "/api/v2/peers?limit=5&page=1",
-    "self": "/api/v2/peers?limit=5&page=2",
-    "first": "/api/v2/peers?limit=5&page=1",
-    "last": "/api/v2/peers?limit=5&page=17"
-  },
-  "data": [{
-    "ip": "167.114.29.46",
-    "port": 4002,
-    "version": "2.0.13",
-    "height": 948209,
-    "status": 200,
-    "os": "linux",
-    "latency": 2,
-    "hashid": "2967118a"
-  }, {
-    "ip": "167.114.29.39",
-    "port": 4002,
-    "version": "2.0.13",
-    "height": 948210,
-    "status": 200,
-    "os": "linux",
-    "latency": 2,
-    "hashid": "2967118a"
-  }, {
-    "ip": "167.114.43.43",
-    "port": 4002,
-    "version": "2.0.13",
-    "height": 948209,
-    "status": 200,
-    "os": "linux",
-    "latency": 2,
-    "hashid": "2967118a"
-  }, {
-    "ip": "167.114.29.49",
-    "port": 4002,
-    "version": "2.0.13",
-    "height": 948212,
-    "status": 200,
-    "os": "linux",
-    "latency": 3,
-    "hashid": "2967118a"
-  }, {
-    "ip": "167.114.29.43",
-    "port": 4002,
-    "version": "2.0.13",
-    "height": 948211,
-    "status": 200,
-    "os": "linux",
-    "latency": 3,
-    "hashid": "2967118a"
-  }]
+    "meta": {
+        "count": 5,
+        "pageCount": 39,
+        "totalCount": 191,
+        "next": "/api/peers?limit=5&page=4",
+        "previous": "/api/peers?limit=5&page=2",
+        "self": "/api/peers?limit=5&page=3",
+        "first": "/api/peers?limit=5&page=1",
+        "last": "/api/peers?limit=5&page=39"
+    },
+    "data": [
+        {
+            "ip": "167.114.236.183",
+            "port": 4002,
+            "ports": {
+                "@arkecosystem/core-webhooks": -1,
+                "@arkecosystem/core-exchange-json-rpc": -1,
+                "@arkecosystem/core-wallet-api": 4040,
+                "@arkecosystem/core-api": 4003
+            },
+            "version": "2.5.0-next.9",
+            "height": 2932354,
+            "latency": 28
+        },
+        {
+            "ip": "82.165.164.22",
+            "port": 4002,
+            "ports": {
+                "@arkecosystem/core-webhooks": -1,
+                "@arkecosystem/core-exchange-json-rpc": -1,
+                "@arkecosystem/core-wallet-api": 4040,
+                "@arkecosystem/core-api": 4003
+            },
+            "version": "2.5.0-next.9",
+            "height": 2932354,
+            "latency": 30
+        },
+        {
+            "ip": "167.114.254.29",
+            "port": 4002,
+            "ports": {
+                "@arkecosystem/core-webhooks": -1,
+                "@arkecosystem/core-exchange-json-rpc": -1,
+                "@arkecosystem/core-api": 4003,
+                "@arkecosystem/core-wallet-api": 4040
+            },
+            "version": "2.5.0-next.9",
+            "height": 2932354,
+            "latency": 36
+        },
+        {
+            "ip": "149.202.172.89",
+            "port": 4002,
+            "ports": {
+                "@arkecosystem/core-webhooks": -1,
+                "@arkecosystem/core-exchange-json-rpc": -1,
+                "@arkecosystem/core-wallet-api": 4040,
+                "@arkecosystem/core-api": 4003
+            },
+            "version": "2.5.0-next.9",
+            "height": 2932354,
+            "latency": 39
+        },
+        {
+            "ip": "37.59.70.165",
+            "port": 4002,
+            "ports": {
+                "@arkecosystem/core-webhooks": -1,
+                "@arkecosystem/core-exchange-json-rpc": -1,
+                "@arkecosystem/core-api": 4003,
+                "@arkecosystem/core-wallet-api": 4040
+            },
+            "version": "2.5.0-next.9",
+            "height": 2932356,
+            "latency": 45
+        }
+    ]
 }
