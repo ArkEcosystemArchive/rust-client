@@ -4,7 +4,7 @@ use reqwest::header::{HeaderMap, HeaderValue};
 use reqwest::{RequestBuilder, Url};
 use serde::de::DeserializeOwned;
 use serde::Serialize;
-use serde_json::{from_str, from_value, to_string};
+use serde_json::{from_str, from_value, to_string, Value};
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
@@ -90,17 +90,15 @@ impl Client {
 
     fn send<T: DeserializeOwned>(&self, builder: RequestBuilder) -> Result<T> {
         let response = builder.headers(self.headers.clone()).send()?.text()?;
-        let value: serde_json::Value = from_str(&response)?;
+        let parsed = from_str::<Value>(&response)?;
 
-        // Try to deserialize into T. If it fails, assume the API returned
-        // an error.
-        let parsed = from_value::<Response<T>>(value.clone());
-        match parsed {
-            Ok(item) => Ok(item),
-            Err(_) => {
-                // Assume the API returned a RequestError.
-                let request_error = from_value::<RequestError>(value)?;
-                Err(request_error.into())
+        if parsed.is_object() && parsed.as_object().unwrap().contains_key("statusCode") {
+            let request_error = from_value::<RequestError>(parsed)?;
+            Err(request_error.into())
+        } else {
+            match from_value::<Response<T>>(parsed) {
+                Ok(response) => Ok(response),
+                Err(err) => Err(err.into()),
             }
         }
     }
