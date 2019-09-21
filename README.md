@@ -11,6 +11,8 @@
 [![Latest Version](https://badgen.now.sh/github/release/ArkEcosystem/rust-client)](https://github.com/ArkEcosystem/rust-client/releases)
 [![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
 
+> Lead Maintainer: [Joshua Noack](https://github.com/supaiku0)
+
 ## Installation
 
 This crate uses [Reqwest](https://crates.io/crates/reqwest), which, in Linux requires OpenSSL 1.0.1, 1.0.2, or 1.1.0 with headers or LibreSSL. More details at [rust-openssl](https://github.com/sfackler/rust-openssl).
@@ -25,10 +27,8 @@ If you discover a security vulnerability within this package, please send an e-m
 
 ## Credits
 
-- [Joshua Noack](https://github.com/supaiku0)
-- [Juan A. Martín](https://github.com/j-a-m-l)
-- [All Contributors](../../contributors)
+This project exists thanks to all the people who [contribute](../../contributors).
 
 ## License
 
-[MIT](LICENSE) © [ArkEcosystem](https://ark.io)
+[MIT](LICENSE) © [ARK Ecosystem](https://ark.io)
