@@ -3,26 +3,24 @@ name: Test - Stable
 on: [push, pull_request]
 
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v1
-    - name: Clean
-      run: cargo clean --verbose
-    - name: Build
-      run: cargo build --verbose
-    - name: Run tests
-      run: cargo test --verbose
-    - name: Clippy
-      run: |
-        rustup update
-        rustup install stable
-        # Clippy is no longer available via crates.io
-        rustup component add --toolchain stable clippy
-        rustup run stable cargo clippy --all-targets --all-features -- -D warnings
-    - name: rustfmt
-      run: |
-        rustup component add --toolchain stable rustfmt
-        rustup run stable cargo fmt -- --check
+        steps:
+            - uses: actions/checkout@v1
+            - name: Cargo build and test
+              run: |
+                  cargo clean
+                  cargo build
+                  cargo test
+            - name: Clippy
+              run: |
+                  rustup update
+                  rustup install stable
+                  # Clippy is no longer available via crates.io
+                  rustup component add --toolchain stable clippy
+                  rustup run stable cargo clippy --all-targets --all-features -- -D warnings
+            - name: rustfmt
+              run: |
+                  rustup component add --toolchain stable rustfmt
+                  rustup run stable cargo fmt -- --check
