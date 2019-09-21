@@ -1,0 +1,27 @@
+name: Test - Beta
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Update
+      run: rustup update
+    - name: Install beta
+      run: rustup install beta
+    - name: Build
+      run: rustup run beta cargo build --verbose
+    - name: Run tests
+      run: rustup run beta cargo test --verbose
+    - name: Clippy
+      run: |
+        rustup component add --toolchain beta clippy
+        rustup run beta cargo clippy --all-targets --all-features -- -D warnings
+    - name: rustfmt
+      run: |
+        rustup component add --toolchain beta rustfmt
+        rustup run beta cargo fmt -- --check
