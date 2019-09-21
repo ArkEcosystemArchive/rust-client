@@ -1,0 +1,31 @@
+name: Test - Nightly
+
+on: [push, pull_request]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Update
+              run: rustup update
+            - name: Cargo build and test
+              run: |
+                  rustup update
+                  rustup install nightly
+                  rustup run nightly rustc --version --verbose
+                  rustup run nightly cargo --version --verbose
+                  # Currently only nightly supports this tool
+                  RUSTFLAGS="--cfg procmacro2_semver_exempt" rustup run nightly cargo install cargo-tarpaulin
+                  rustup run nightly cargo tarpaulin --out Xml
+            - name: Clippy
+              run: |
+                  rustup component add --toolchain nightly clippy
+                  rustup run nightly cargo clippy --all-targets --all-features -- -D warnings
+            - name: rustfmt
+              run: |
+                  rustup component add --toolchain nightly rustfmt
+                  rustup run nightly cargo fmt -- --check
+            - name: Codecov
+              run: bash <(curl -s https://codecov.io/bash)
