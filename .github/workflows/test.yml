@@ -38,6 +38,8 @@ jobs:
                   rustup install beta
                   rustup run beta cargo build
                   rustup run beta cargo test
+            - name: Codecov
+              run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }}
 
     stable:
         runs-on: ubuntu-latest
@@ -49,3 +51,5 @@ jobs:
                   cargo clean
                   cargo build
                   cargo test
+            - name: Codecov
+              run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }}
