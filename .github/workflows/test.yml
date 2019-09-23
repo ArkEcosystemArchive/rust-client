@@ -1,0 +1,51 @@
+name: Test
+
+on:
+    push:
+        branches:
+            - '**'
+    pull_request:
+        types: [opened]
+
+jobs:
+    nightly:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Update
+              run: rustup update
+            - name: Cargo build and test
+              run: |
+                  rustup update
+                  rustup install nightly
+                  rustup run nightly rustc --version --verbose
+                  rustup run nightly cargo --version --verbose
+                  # Currently only nightly supports this tool
+                  RUSTFLAGS="--cfg procmacro2_semver_exempt" rustup run nightly cargo install cargo-tarpaulin
+                  rustup run nightly cargo tarpaulin --out Xml
+            - name: Codecov
+              run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }}
+
+    beta:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Cargo build and test
+              run: |
+                  rustup update
+                  rustup install beta
+                  rustup run beta cargo build
+                  rustup run beta cargo test
+
+    stable:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Cargo build and test
+              run: |
+                  cargo clean
+                  cargo build
+                  cargo test
