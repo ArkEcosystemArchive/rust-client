@@ -17,5 +17,5 @@ serde_derive = "1.0.102"
 serde_json = "1.0.41"
 
 [dev-dependencies]
-mockito = "0.21.0"
+mockito = "0.22.0"
 assert_float_eq = "1.1.3"
