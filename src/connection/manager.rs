@@ -1,7 +1,7 @@
+use crate::Connection;
 use std::collections::hash_map::Values;
 use std::collections::HashMap;
 use std::rc::Rc;
-use Connection;
 
 #[derive(Default)]
 pub struct Manager {

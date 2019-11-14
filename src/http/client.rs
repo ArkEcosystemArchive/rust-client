@@ -1,9 +1,9 @@
-use api::models::{RequestError, Response};
-use api::Result;
+use crate::api::models::{RequestError, Response};
+use crate::api::Result;
 use reqwest::header::{HeaderMap, HeaderValue};
 use reqwest::{RequestBuilder, Url};
 use serde::de::DeserializeOwned;
-use serde::ser::Serialize;
+use serde::Serialize;
 use serde_json::{from_str, from_value, to_string};
 use std::borrow::Borrow;
 use std::collections::HashMap;
@@ -27,12 +27,12 @@ impl Client {
         }
     }
 
-    pub fn get<T: DeserializeOwned>(&self, endpoint: &str) -> Result<T> {
+    pub fn get<T: DeserializeOwned>(&mut self, endpoint: &str) -> Result<T> {
         let url = Url::parse(&format!("{}{}", self.host, endpoint))?;
         self.internal_get(&url)
     }
 
-    pub fn get_with_params<T, I, K, V>(&self, endpoint: &str, parameters: I) -> Result<T>
+    pub fn get_with_params<T, I, K, V>(&mut self, endpoint: &str, parameters: I) -> Result<T>
     where
         T: DeserializeOwned,
         I: IntoIterator,

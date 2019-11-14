@@ -1,4 +1,4 @@
-use api::models::RequestError;
+use crate::api::models::RequestError;
 use reqwest;
 use serde_json;
 use std::error;

@@ -1,8 +1,8 @@
 mod manager;
 pub use self::manager::Manager;
 
-use api::Api;
-use http::client::Client;
+use crate::api::Api;
+use crate::http::client::Client;
 use std::ops::Deref;
 
 pub struct Connection {

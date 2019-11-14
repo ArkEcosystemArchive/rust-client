@@ -17,7 +17,7 @@ use self::votes::Votes;
 use self::wallets::Wallets;
 
 use super::error::Error;
-use http::client::Client;
+use crate::http::client::Client;
 
 pub type Result<T> = std::result::Result<Response<T>, Error>;
 

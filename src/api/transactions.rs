@@ -1,6 +1,6 @@
-use api::models::{Transaction, TransactionFees, TransactionTypes};
-use api::Result;
-use http::client::Client;
+use crate::api::models::{Transaction, TransactionFees, TransactionTypes};
+use crate::api::Result;
+use crate::http::client::Client;
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
@@ -13,11 +13,11 @@ impl Transactions {
         Transactions { client }
     }
 
-    pub fn all(&self) -> Result<Vec<Transaction>> {
+    pub fn all(&mut self) -> Result<Vec<Transaction>> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Vec<Transaction>>
+    pub fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -27,23 +27,23 @@ impl Transactions {
         self.client.get_with_params("transactions", parameters)
     }
 
-    pub fn create(&self, transactions: Vec<&str>) -> Result<Transaction> {
+    pub fn create(&mut self, transactions: Vec<&str>) -> Result<Transaction> {
         let mut payload = HashMap::<&str, Vec<&str>>::new();
         payload.insert("transactions", transactions);
 
         self.client.post("transactions", Some(payload))
     }
 
-    pub fn show(&self, id: &str) -> Result<Transaction> {
+    pub fn show(&mut self, id: &str) -> Result<Transaction> {
         let endpoint = format!("transactions/{}", id);
         self.client.get(&endpoint)
     }
 
-    pub fn all_unconfirmed(&self) -> Result<Vec<Transaction>> {
+    pub fn all_unconfirmed(&mut self) -> Result<Vec<Transaction>> {
         self.all_unconfirmed_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_unconfirmed_params<I, K, V>(&self, parameters: I) -> Result<Vec<Transaction>>
+    pub fn all_unconfirmed_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -54,13 +54,13 @@ impl Transactions {
             .get_with_params("transactions/unconfirmed", parameters)
     }
 
-    pub fn show_unconfirmed(&self, id: &str) -> Result<Vec<Transaction>> {
+    pub fn show_unconfirmed(&mut self, id: &str) -> Result<Vec<Transaction>> {
         let endpoint = format!("transactions/unconfirmed/{}", id);
         self.client.get(&endpoint)
     }
 
     pub fn search<I, K, V>(
-        &self,
+        &mut self,
         payload: Option<HashMap<&str, &str>>,
         parameters: I,
     ) -> Result<Vec<Transaction>>
@@ -90,7 +90,7 @@ impl Transactions {
     ///   println!("{}", to_string_pretty(&types).unwrap());
     /// # }
     /// ```
-    pub fn types(&self) -> Result<TransactionTypes> {
+    pub fn types(&mut self) -> Result<TransactionTypes> {
         self.client.get("transactions/types")
     }
 
@@ -110,7 +110,7 @@ impl Transactions {
     ///   println!("{}", to_string_pretty(&fees).unwrap());
     /// # }
     /// ```
-    pub fn fees(&self) -> Result<TransactionFees> {
+    pub fn fees(&mut self) -> Result<TransactionFees> {
         self.client.get("transactions/fees")
     }
 }

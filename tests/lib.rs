@@ -1,12 +1,3 @@
-extern crate arkecosystem_client;
-extern crate mockito;
-extern crate serde_json;
-#[macro_use]
-extern crate assert_float_eq;
-
-mod api;
-mod connection;
-
 use mockito::{mock, Matcher, Mock};
 use serde_json::Value;
 use std::fs::File;

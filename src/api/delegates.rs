@@ -1,9 +1,9 @@
-use http::client::Client;
+use crate::http::client::Client;
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
-use api::models::{Balances, Block, Delegate, Wallet};
-use api::Result;
+use crate::api::models::{Balances, Block, Delegate, Wallet};
+use crate::api::Result;
 
 pub struct Delegates {
     client: Client,
@@ -14,11 +14,11 @@ impl Delegates {
         Delegates { client }
     }
 
-    pub fn all(&self) -> Result<Vec<Delegate>> {
+    pub fn all(&mut self) -> Result<Vec<Delegate>> {
         self.all_params(Vec::<(String, String)>::new())
     }
 
-    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Vec<Delegate>>
+    pub fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Delegate>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -28,16 +28,16 @@ impl Delegates {
         self.client.get_with_params("delegates", parameters)
     }
 
-    pub fn show(&self, id: &str) -> Result<Delegate> {
+    pub fn show(&mut self, id: &str) -> Result<Delegate> {
         let endpoint = format!("delegates/{}", id);
         self.client.get(&endpoint)
     }
 
-    pub fn blocks(&self, id: &str) -> Result<Vec<Block>> {
+    pub fn blocks(&mut self, id: &str) -> Result<Vec<Block>> {
         self.blocks_params(id, Vec::<(String, String)>::new())
     }
 
-    pub fn blocks_params<I, K, V>(&self, id: &str, parameters: I) -> Result<Vec<Block>>
+    pub fn blocks_params<I, K, V>(&mut self, id: &str, parameters: I) -> Result<Vec<Block>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -48,11 +48,11 @@ impl Delegates {
         self.client.get_with_params(&endpoint, parameters)
     }
 
-    pub fn voters(&self, id: &str) -> Result<Vec<Wallet>> {
+    pub fn voters(&mut self, id: &str) -> Result<Vec<Wallet>> {
         self.voters_params(id, Vec::<(String, String)>::new())
     }
 
-    pub fn voters_params<I, K, V>(&self, id: &str, parameters: I) -> Result<Vec<Wallet>>
+    pub fn voters_params<I, K, V>(&mut self, id: &str, parameters: I) -> Result<Vec<Wallet>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -80,7 +80,7 @@ impl Delegates {
     ///   println!("{}", to_string_pretty(&voters_balances).unwrap());
     /// # }
     /// ```
-    pub fn voters_balances(&self, id: &str) -> Result<Balances> {
+    pub fn voters_balances(&mut self, id: &str) -> Result<Balances> {
         let endpoint = format!("delegates/{}/voters/balances", id);
         self.client.get(&endpoint)
     }
@@ -104,7 +104,7 @@ impl Delegates {
     /// # }
     /// ```
     pub fn search<I, K, V>(
-        &self,
+        &mut self,
         payload: Option<HashMap<&str, &str>>,
         parameters: I,
     ) -> Result<Vec<Delegate>>
