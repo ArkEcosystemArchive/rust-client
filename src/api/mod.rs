@@ -1,6 +1,7 @@
 pub mod blocks;
 pub mod delegates;
 pub mod models;
+pub mod models_new;
 pub mod node;
 pub mod peers;
 pub mod transactions;

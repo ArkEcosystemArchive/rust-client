@@ -1,6 +1,6 @@
 use serde_json::{from_str, Value};
 
-use arkecosystem_client::api::models::{FeeSchema, FeeStatistics};
+use arkecosystem_client::api::models_new::fee::FeeSchema;
 
 use crate::common::*;
 
@@ -20,6 +20,10 @@ fn test_status() {
         assert_eq!(
             actual.data.blocks_count,
             expected["data"]["blocksCount"].as_i64().unwrap()
+        );
+        assert_eq!(
+            actual.data.timestamp,
+            expected["data"]["timestamp"].as_u64().unwrap()
         );
     }
 }
@@ -56,7 +60,6 @@ fn test_configuration() {
         let mut client = mock_client();
         let response = client.node.configuration();
         let actual = response.unwrap();
-        println!("{:?}", actual);
         let expected: Value = from_str(&body).unwrap();
 
         assert_eq!(
@@ -123,43 +126,10 @@ fn test_configuration() {
             actual.data.constants.epoch,
             expected["data"]["constants"]["epoch"].as_str().unwrap()
         );
-        assert_eq!(
-            actual.data.constants.fees.dynamic,
-            expected["data"]["constants"]["fees"]["dynamic"]
-                .as_bool()
-                .unwrap()
-        );
-
-        let dynamic_fees = actual.data.constants.fees.dynamic_fees.unwrap();
-        assert_eq!(
-            dynamic_fees.min_fee_pool,
-            expected["data"]["constants"]["fees"]["dynamicFees"]["minFeePool"]
-                .as_u64()
-                .unwrap()
-        );
-        assert_eq!(
-            dynamic_fees.min_fee_broadcast,
-            expected["data"]["constants"]["fees"]["dynamicFees"]["minFeeBroadcast"]
-                .as_u64()
-                .unwrap()
-        );
-
-        assert_configuration_fees(
-            &dynamic_fees.addon_bytes,
-            &expected["data"]["constants"]["fees"]["dynamicFees"]["addonBytes"],
-        );
-
         assert_configuration_fees(
             &actual.data.constants.fees.static_fees,
             &expected["data"]["constants"]["fees"]["staticFees"],
         );
-
-        for i in 0..=4 {
-            assert_fee_statistics(
-                &actual.data.fee_statistics[i],
-                &expected["data"]["feeStatistics"][i],
-            );
-        }
     }
 }
 
@@ -180,34 +150,11 @@ pub fn assert_configuration_fees(actual: &FeeSchema, expected: &Value) {
     );
     assert_eq!(actual.ipfs, expected["ipfs"].as_u64().unwrap());
     assert_eq!(
-        actual.timelock_transfer,
-        expected["timelockTransfer"].as_u64().unwrap()
-    );
-    assert_eq!(
         actual.multi_payment,
         expected["multiPayment"].as_u64().unwrap()
     );
     assert_eq!(
         actual.delegate_resignation,
         expected["delegateResignation"].as_u64().unwrap()
-    );
-}
-
-pub fn assert_fee_statistics(actual: &FeeStatistics, expected: &Value) {
-    assert_eq!(
-        actual.transaction_type as u8,
-        expected["type"].as_u64().unwrap() as u8
-    );
-    assert_eq!(
-        actual.fees.min_fee,
-        expected["fees"]["minFee"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.fees.max_fee,
-        expected["fees"]["maxFee"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.fees.avg_fee,
-        expected["fees"]["avgFee"].as_u64().unwrap()
     );
 }

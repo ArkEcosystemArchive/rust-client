@@ -124,102 +124,6 @@ pub struct DelegateForged {
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct NodeConfiguration {
-    #[serde(rename = "nethash")]
-    pub nethash: String,
-    pub token: String,
-    pub symbol: String,
-    pub explorer: String,
-    pub version: u32,
-    pub ports: HashMap<String, u16>,
-    pub constants: NodeConstants,
-    pub fee_statistics: Vec<FeeStatistics>,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct NodeStatus {
-    pub synced: bool,
-    pub now: u64,
-    pub blocks_count: i64,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-pub struct NodeSyncing {
-    pub syncing: bool,
-    pub blocks: i64,
-    pub height: u64,
-    pub id: String,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct NodeConstants {
-    pub height: u64,
-    pub reward: u64,
-    pub active_delegates: u32,
-    pub blocktime: u32,
-    pub block: NodeBlock,
-    pub epoch: String,
-    pub fees: Fees,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct NodeBlock {
-    pub version: u32,
-    pub max_transactions: u64,
-    pub max_payload: u64,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct Fees {
-    pub dynamic: bool,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub dynamic_fees: Option<DynamicFees>,
-    pub static_fees: FeeSchema,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct DynamicFees {
-    pub min_fee_pool: u64,
-    pub min_fee_broadcast: u64,
-    pub addon_bytes: FeeSchema,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct FeeSchema {
-    pub transfer: u64,
-    pub second_signature: u64,
-    pub delegate_registration: u64,
-    pub vote: u64,
-    pub multi_signature: u64,
-    pub ipfs: u64,
-    pub timelock_transfer: u64,
-    pub multi_payment: u64,
-    pub delegate_resignation: u64,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-pub struct FeeStatistics {
-    #[serde(rename = "type")]
-    pub transaction_type: TransactionType,
-    pub fees: FeeStats,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct FeeStats {
-    pub min_fee: u64,
-    pub max_fee: u64,
-    pub avg_fee: u64,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct Peer {
     pub ip: String,
     pub port: u16,
@@ -358,6 +262,9 @@ enum_number!(TransactionType {
     TimelockTransfer = 6,
     MultiPayment = 7,
     DelegateResignation = 8,
+    HtlcLock = 9,
+    HtlcClaim = 10,
+    HtlcRefund = 11,
 });
 
 use std::mem::transmute;

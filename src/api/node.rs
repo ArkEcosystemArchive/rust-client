@@ -1,4 +1,4 @@
-use crate::api::models::{NodeConfiguration, NodeStatus, NodeSyncing};
+use crate::api::models_new::node::{NodeConfiguration, NodeStatus, NodeSyncing};
 use crate::api::Result;
 use crate::http::client::Client;
 
