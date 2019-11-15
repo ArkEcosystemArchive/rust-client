@@ -26,20 +26,6 @@ pub fn mock_http_request(endpoint: &str) -> (Mock, String) {
             response_body.replace("\"productivity\": 100\n", "\"productivity\": 100.0\n");
     }
 
-    // Wallet fixes
-    if endpoint.contains("wallet") {
-        // Some balances are deserialized from string to number, serialization then obviously results in a number.
-        // TODO: remove when fixed
-        response_body = response_body.replace(
-            "\"balance\": \"5000000000\",\n",
-            "\"balance\": 5000000000,\n",
-        );
-        response_body = response_body.replace(
-            "\"balance\": \"24509800000000000\",\n",
-            "\"balance\": 24509800000000000,\n",
-        );
-    }
-
     (mock, response_body.to_owned())
 }
 
