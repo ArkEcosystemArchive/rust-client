@@ -2,6 +2,7 @@
 pub mod macros;
 
 pub mod api;
+pub mod common;
 pub mod connection;
 pub mod error;
 pub mod http;
