@@ -1,4 +1,8 @@
-use arkecosystem_client::api::models::{Block, Meta, Timestamp, Transaction, Wallet};
+use arkecosystem_client::api::models::{Meta, Wallet};
+use arkecosystem_client::api::models_new::block::Block;
+use arkecosystem_client::api::models_new::timestamp::Timestamp;
+use arkecosystem_client::api::models_new::transaction::Transaction;
+
 use arkecosystem_client::Connection;
 use mockito::{mock, Matcher, Mock};
 use serde_json::Value;
@@ -146,9 +150,17 @@ pub fn assert_transaction_data(actual: Transaction, expected: &Value) {
         actual.transaction_type as u64,
         expected["type"].as_u64().unwrap()
     );
+    /*if let Some(type_group) = actual.type_group {
+        assert_eq!(type_group, expected["type_group"].as_u64().unwrap() as u16);
+    }*/
     assert_eq!(actual.amount, expected["amount"].as_u64().unwrap());
     assert_eq!(actual.fee, expected["fee"].as_u64().unwrap());
     assert_eq!(actual.sender, expected["sender"].as_str().unwrap());
+    assert_eq!(
+        actual.sender_public_key,
+        expected["senderPublicKey"].as_str().unwrap()
+    );
+
     if let Some(recipient) = actual.recipient {
         assert_eq!(recipient, expected["recipient"].as_str().unwrap());
     }
@@ -167,6 +179,7 @@ pub fn assert_transaction_data(actual: Transaction, expected: &Value) {
         expected["confirmations"].as_u64().unwrap()
     );
     assert_timestamp_data(&actual.timestamp, &expected["timestamp"].clone());
+    assert_eq!(actual.nonce, expected["nonce"].as_u64().unwrap());
 }
 
 pub fn assert_wallet_data(actual: Wallet, expected: &Value) {

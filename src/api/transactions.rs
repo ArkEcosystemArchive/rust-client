@@ -1,4 +1,4 @@
-use crate::api::models::{Transaction, TransactionFees, TransactionTypes};
+use crate::api::models_new::transaction::{Transaction, TransactionFees, TransactionTypes};
 use crate::api::Result;
 use crate::http::client::Client;
 use std::borrow::Borrow;

@@ -1,7 +1,7 @@
 use crate::http::client::Client;
 use std::borrow::Borrow;
 
-use crate::api::models::Transaction;
+use crate::api::models_new::transaction::Transaction;
 use crate::api::Result;
 
 pub struct Votes {

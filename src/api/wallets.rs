@@ -1,7 +1,8 @@
 use crate::http::client::Client;
 use std::borrow::Borrow;
 
-use crate::api::models::{Transaction, Wallet};
+use crate::api::models::Wallet;
+use crate::api::models_new::transaction::Transaction;
 use crate::api::Result;
 
 pub struct Wallets {
