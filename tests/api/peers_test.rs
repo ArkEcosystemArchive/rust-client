@@ -1,13 +1,14 @@
 use serde_json::{from_str, Value};
-use *;
 
 use arkecosystem_client::api::models::Peer;
+
+use crate::common::*;
 
 #[test]
 fn test_all() {
     let (_mock, body) = mock_http_request("peers");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let actual = client.peers.all().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -26,7 +27,7 @@ fn test_all_params() {
     // TODO use a different fixture to check that uses query strings
     let (_mock, body) = mock_http_request("peers");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let params = [("limit", "20")].iter();
         let actual = client.peers.all_params(params).unwrap();
         let expected: Value = from_str(&body).unwrap();
@@ -45,7 +46,7 @@ fn test_all_params() {
 fn test_show() {
     let (_mock, body) = mock_http_request("peers/dummy");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let actual = client.peers.show("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 

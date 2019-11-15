@@ -1,13 +1,14 @@
 use serde_json::{from_str, Value};
-use *;
 
 use arkecosystem_client::api::models::{FeeSchema, FeeStatistics};
+
+use crate::common::*;
 
 #[test]
 fn test_status() {
     let (_mock, body) = mock_http_request("node/status");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let actual = client.node.status().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -27,7 +28,7 @@ fn test_status() {
 fn test_syncing() {
     let (_mock, body) = mock_http_request("node/syncing");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let response = client.node.syncing();
         let actual = response.unwrap();
         let expected: Value = from_str(&body).unwrap();
@@ -52,9 +53,10 @@ fn test_syncing() {
 fn test_configuration() {
     let (_mock, body) = mock_http_request("node/configuration");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let response = client.node.configuration();
         let actual = response.unwrap();
+        println!("{:?}", actual);
         let expected: Value = from_str(&body).unwrap();
 
         assert_eq!(
@@ -80,7 +82,6 @@ fn test_configuration() {
 
         assert!(actual.data.ports.contains_key("@arkecosystem/core-p2p"));
         assert!(actual.data.ports.contains_key("@arkecosystem/core-api"));
-        assert!(actual.data.ports.contains_key("@arkecosystem/core-graphql"));
 
         assert_eq!(
             actual.data.constants.height,
@@ -162,7 +163,7 @@ fn test_configuration() {
     }
 }
 
-fn assert_configuration_fees(actual: &FeeSchema, expected: &Value) {
+pub fn assert_configuration_fees(actual: &FeeSchema, expected: &Value) {
     assert_eq!(actual.transfer, expected["transfer"].as_u64().unwrap());
     assert_eq!(
         actual.second_signature,
@@ -192,7 +193,7 @@ fn assert_configuration_fees(actual: &FeeSchema, expected: &Value) {
     );
 }
 
-fn assert_fee_statistics(actual: &FeeStatistics, expected: &Value) {
+pub fn assert_fee_statistics(actual: &FeeStatistics, expected: &Value) {
     assert_eq!(
         actual.transaction_type as u8,
         expected["type"].as_u64().unwrap() as u8

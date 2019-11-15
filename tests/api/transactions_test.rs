@@ -1,12 +1,13 @@
+use crate::common::*;
 use serde_json::from_str;
+use serde_json::Value;
 use std::collections::HashMap;
-use *;
 
 #[test]
 fn test_all() {
     let (_mock, body) = mock_http_request("transactions");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let actual = client.transactions.all().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -25,7 +26,7 @@ fn test_all_param() {
     // TODO use a different fixture to check that uses query strings
     let (_mock, body) = mock_http_request("transactions");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let params = [("limit", "20")].iter();
         let actual = client.transactions.all_params(params).unwrap();
         let expected: Value = from_str(&body).unwrap();
@@ -44,7 +45,7 @@ fn test_all_param() {
 fn test_show() {
     let (_mock, body) = mock_http_request("transactions/dummy");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let actual = client.transactions.show("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -57,7 +58,7 @@ fn test_all_unconfirmed() {
     // TODO fixture with data
     let (_mock, body) = mock_http_request("transactions/unconfirmed");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let actual = client.transactions.all_unconfirmed().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -73,7 +74,7 @@ fn test_all_unconfirmed_params() {
     // TODO use a different fixture to check that uses query strings
     let (_mock, body) = mock_http_request("transactions/unconfirmed");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let params = [("limit", "20")].iter();
         let actual = client.transactions.all_unconfirmed_params(params).unwrap();
         let expected: Value = from_str(&body).unwrap();
@@ -101,7 +102,7 @@ fn test_show_unconfirmed() {
 fn test_search() {
     let (_mock, body) = mock_post_request("transactions/search");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let mut query = HashMap::new();
         query.insert("senderId", "dummy");
 
@@ -123,7 +124,7 @@ fn test_search() {
 fn test_types() {
     let (_mock, body) = mock_http_request("transactions/types");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let actual = client.transactions.types().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -171,7 +172,7 @@ fn test_types() {
 fn test_create() {
     let (_mock, body) = mock_post_request("transactions");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let actual = client.transactions.show("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -183,7 +184,7 @@ fn test_create() {
 fn test_fees() {
     let (_mock, body) = mock_http_request("transactions/fees");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let actual = client.transactions.fees().unwrap();
         let expected: Value = from_str(&body).unwrap();
 

@@ -1,11 +1,11 @@
+use crate::common::*;
 use serde_json::ser::to_string_pretty;
-use *;
 
 #[test]
 fn test_all() {
     let (_mock, body) = mock_http_request("wallets");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let response = client.wallets.all().unwrap();
         let actual = to_string_pretty(&response).unwrap();
         assert_eq!(actual, body);
@@ -16,7 +16,7 @@ fn test_all() {
 fn test_show() {
     let (_mock, body) = mock_http_request("wallets/dummy");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let response = client.wallets.show("dummy").unwrap();
         let actual = to_string_pretty(&response).unwrap();
         assert_eq!(actual, body);
@@ -27,7 +27,7 @@ fn test_show() {
 fn test_transactions() {
     let (_mock, body) = mock_http_request("wallets/dummy/transactions");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let response = client.wallets.transactions("dummy").unwrap();
 
         let actual = to_string_pretty(&response).unwrap();
@@ -39,7 +39,7 @@ fn test_transactions() {
 fn test_sent_transactions() {
     let (_mock, body) = mock_http_request("wallets/dummy/transactions/sent");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let response = client.wallets.sent_transactions("dummy").unwrap();
 
         let actual = to_string_pretty(&response).unwrap();
@@ -51,7 +51,7 @@ fn test_sent_transactions() {
 fn test_received_transactions() {
     let (_mock, body) = mock_http_request("wallets/dummy/transactions/received");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let response = client.wallets.received_transactions("dummy").unwrap();
 
         let actual = to_string_pretty(&response).unwrap();
@@ -63,7 +63,7 @@ fn test_received_transactions() {
 fn test_votes() {
     let (_mock, body) = mock_http_request("wallets/dummy/votes");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let response = client.wallets.votes("dummy").unwrap();
         let actual = to_string_pretty(&response).unwrap();
         assert_eq!(actual, body);
@@ -86,7 +86,7 @@ fn test_search() {
 fn test_top() {
     let (_mock, body) = mock_http_request("wallets/top");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let response = client.wallets.top().unwrap();
         let actual = to_string_pretty(&response).unwrap();
         assert_eq!(actual, body);
