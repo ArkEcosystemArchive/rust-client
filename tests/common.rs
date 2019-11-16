@@ -93,27 +93,28 @@ pub fn assert_timestamp_data(actual: &Timestamp, expected: &Value) {
     assert_eq!(actual.human, expected["human"].as_str().unwrap());
 }
 
-pub fn assert_block(actual: &Block, expected: &Value) {
+pub fn assert_block_data(actual: &Block, expected: &Value) {
     assert_eq!(actual.id, expected["id"].as_str().unwrap());
     assert_eq!(actual.version, expected["version"].as_u64().unwrap() as u8);
     assert_eq!(actual.height, expected["height"].as_u64().unwrap());
     assert_eq!(actual.previous, expected["previous"].as_str().unwrap());
     assert_eq!(actual.signature, expected["signature"].as_str().unwrap());
+
     assert_eq!(
         actual.forged.reward,
-        expected["forged"]["reward"].as_u64().unwrap()
+        u64::from_str(expected["forged"]["reward"].as_str().unwrap()).unwrap()
     );
     assert_eq!(
         actual.forged.fee,
-        expected["forged"]["fee"].as_u64().unwrap()
+        u64::from_str(expected["forged"]["fee"].as_str().unwrap()).unwrap()
     );
     assert_eq!(
         actual.forged.total,
-        expected["forged"]["total"].as_u64().unwrap()
+        u64::from_str(expected["forged"]["total"].as_str().unwrap()).unwrap()
     );
     assert_eq!(
         actual.forged.amount,
-        expected["forged"]["amount"].as_u64().unwrap()
+        u64::from_str(expected["forged"]["amount"].as_str().unwrap()).unwrap()
     );
     assert_eq!(
         actual.payload.hash,

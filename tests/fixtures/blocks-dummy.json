@@ -1,9 +1,9 @@
 {
     "data": {
-        "id": "994e048f3933c730757afee36303914f7f0739eb5f5d497a9fc7b733abc86602",
+        "id": "eded2315c05b312e9118fa6c44bd9ad49bf6c8f51d00a21ae7cb3b9e1c68a427",
         "version": 0,
-        "height": 4168948,
-        "previous": "a36685cb1ac0d6974e771db68711acf625f0cc3a1fce89c3d5ed154fcffea450",
+        "height": 4179121,
+        "previous": "0589bed1a304cb5c91384c884114cbc01f0f9908ccbf275f1d85f3cdf153ed49",
         "forged": {
             "reward": "200000000",
             "fee": "0",
@@ -15,17 +15,17 @@
             "length": 0
         },
         "generator": {
-            "username": "alexxio",
-            "address": "DEz1Mr4uJ7NaiufwKEj28atCRPTmsUqh9t",
-            "publicKey": "0215789ac26155b7a338708f595b97c453e08918d0630c896cbd31d83fe2ad1c33"
+            "username": "crna_zmija",
+            "address": "DDvZXuzyVFuJ1tcB2vKwPW7i9GVXTbSVK9",
+            "publicKey": "035c14e8c5f0ee049268c3e75f02f05b4246e746dc42f99271ff164b7be20cf5b8"
         },
-        "signature": "304402203c4657d20c6c6f12bce8824d68d223a56596c806824e15c4c5249648bac43920022060971f1a4484d98effac8f8710ea7aae3bf69ac9629d2f4b15a3d130d0a0a161",
+        "signature": "3044022077bd2aa7e52111458ee4274848a37486783490b3fecbeb274b1b21152e9aeadd02204ecebd53034ba0915c1de56494e9d89e5fdda7cf13fbfb011b27e98fc89cbec9",
         "confirmations": 0,
         "transactions": 0,
         "timestamp": {
-            "epoch": 83722464,
-            "unix": 1573823664,
-            "human": "2019-11-15T13:14:24.000Z"
+            "epoch": 83823096,
+            "unix": 1573924296,
+            "human": "2019-11-16T17:11:36.000Z"
         }
     }
 }

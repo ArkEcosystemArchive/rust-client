@@ -71,7 +71,7 @@ fn test_blocks() {
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_block(&actual_data, &expected_data);
+        assert_block_data(&actual_data, &expected_data);
     }
 }
 
@@ -94,7 +94,7 @@ fn test_blocks_params() {
 
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
-        assert_block(&actual_data, &expected_data);
+        assert_block_data(&actual_data, &expected_data);
     }
 }
 
