@@ -1,7 +1,6 @@
 pub mod blocks;
 pub mod delegates;
 pub mod models;
-pub mod models_new;
 pub mod node;
 pub mod peers;
 pub mod transactions;
@@ -10,7 +9,7 @@ pub mod wallets;
 
 use self::blocks::Blocks;
 use self::delegates::Delegates;
-use self::models::Response;
+use self::models::shared::Response;
 use self::node::Node;
 use self::peers::Peers;
 use self::transactions::Transactions;

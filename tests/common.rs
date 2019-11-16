@@ -1,7 +1,8 @@
-use arkecosystem_client::api::models::{Meta, Wallet};
-use arkecosystem_client::api::models_new::block::Block;
-use arkecosystem_client::api::models_new::timestamp::Timestamp;
-use arkecosystem_client::api::models_new::transaction::Transaction;
+use arkecosystem_client::api::models::block::Block;
+use arkecosystem_client::api::models::shared::Meta;
+use arkecosystem_client::api::models::timestamp::Timestamp;
+use arkecosystem_client::api::models::transaction::Transaction;
+use arkecosystem_client::api::models::wallet::Wallet;
 
 use arkecosystem_client::Connection;
 use mockito::{mock, Matcher, Mock};

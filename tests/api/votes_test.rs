@@ -1,8 +1,8 @@
 use serde_json::from_str;
 
 use crate::common::*;
-use arkecosystem_client::api::models_new::asset::Asset;
-use arkecosystem_client::api::models_new::transaction::Transaction;
+use arkecosystem_client::api::models::asset::Asset;
+use arkecosystem_client::api::models::transaction::Transaction;
 use serde_json::Value;
 
 #[test]

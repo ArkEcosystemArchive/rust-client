@@ -2,7 +2,7 @@ use serde_json::from_str;
 use serde_json::Value;
 use std::collections::HashMap;
 
-use arkecosystem_client::api::models::Delegate;
+use arkecosystem_client::api::models::delegate::Delegate;
 
 use crate::common::*;
 

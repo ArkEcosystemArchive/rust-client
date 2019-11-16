@@ -1,6 +1,10 @@
 pub mod asset;
 pub mod block;
+pub mod delegate;
 pub mod fee;
 pub mod node;
+pub mod peer;
+pub mod shared;
 pub mod timestamp;
 pub mod transaction;
+pub mod wallet;

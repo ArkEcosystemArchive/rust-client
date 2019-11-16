@@ -1,6 +1,6 @@
 use std::borrow::Borrow;
 
-use crate::api::models::Peer;
+use crate::api::models::peer::Peer;
 use crate::api::Result;
 use crate::http::client::Client;
 

@@ -1,4 +1,4 @@
-use crate::api::models::{RequestError, Response};
+use crate::api::models::shared::{RequestError, Response};
 use crate::api::Result;
 use reqwest::header::{HeaderMap, HeaderValue};
 use reqwest::{RequestBuilder, Url};

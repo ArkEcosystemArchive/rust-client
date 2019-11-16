@@ -2,8 +2,10 @@ use crate::http::client::Client;
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
-use crate::api::models::{Balances, Delegate, Wallet};
-use crate::api::models_new::block::Block;
+use crate::api::models::block::Block;
+use crate::api::models::delegate::Delegate;
+use crate::api::models::wallet::{Balances, Wallet};
+
 use crate::api::Result;
 
 pub struct Delegates {

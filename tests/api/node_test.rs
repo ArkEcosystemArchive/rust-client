@@ -1,6 +1,6 @@
 use serde_json::{from_str, Value};
 
-use arkecosystem_client::api::models_new::fee::FeeSchema;
+use arkecosystem_client::api::models::fee::FeeSchema;
 
 use crate::common::*;
 

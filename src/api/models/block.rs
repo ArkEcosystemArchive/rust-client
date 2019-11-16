@@ -1,7 +1,7 @@
 use serde::Deserialize;
 use serde::Serialize;
 
-use crate::api::models_new::timestamp::Timestamp;
+use crate::api::models::timestamp::Timestamp;
 use crate::common::deserialize_u64_as_number_or_string;
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]

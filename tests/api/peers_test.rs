@@ -1,6 +1,6 @@
 use serde_json::{from_str, Value};
 
-use arkecosystem_client::api::models::Peer;
+use arkecosystem_client::api::models::peer::Peer;
 
 use crate::common::*;
 
