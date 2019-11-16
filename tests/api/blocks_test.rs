@@ -38,7 +38,7 @@ fn test_block_transactions() {
         let response = client.blocks.transactions("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        for i in 0..=2 {
+        for i in 0..=response.data.len() - 1 {
             let rest_trx = response.data[i].clone();
             let desered_trx = expected["data"][i].clone();
             assert_transaction_data(rest_trx, &desered_trx);

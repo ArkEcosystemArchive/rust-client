@@ -130,39 +130,51 @@ fn test_types() {
 
         assert_eq!(
             actual.data.transfer,
-            expected["data"]["Transfer"].as_u64().unwrap() as u16
+            expected["data"]["1"]["Transfer"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.second_signature,
-            expected["data"]["SecondSignature"].as_u64().unwrap() as u16
+            expected["data"]["1"]["SecondSignature"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.delegate_registration,
-            expected["data"]["DelegateRegistration"].as_u64().unwrap() as u16
+            expected["data"]["1"]["DelegateRegistration"]
+                .as_u64()
+                .unwrap() as u16
         );
         assert_eq!(
             actual.data.vote,
-            expected["data"]["Vote"].as_u64().unwrap() as u16
+            expected["data"]["1"]["Vote"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.multi_signature,
-            expected["data"]["MultiSignature"].as_u64().unwrap() as u16
+            expected["data"]["1"]["MultiSignature"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.ipfs,
-            expected["data"]["Ipfs"].as_u64().unwrap() as u16
-        );
-        assert_eq!(
-            actual.data.timelock_transfer,
-            expected["data"]["TimelockTransfer"].as_u64().unwrap() as u16
+            expected["data"]["1"]["Ipfs"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.multi_payment,
-            expected["data"]["MultiPayment"].as_u64().unwrap() as u16
+            expected["data"]["1"]["MultiPayment"].as_u64().unwrap() as u16
         );
         assert_eq!(
             actual.data.delegate_resignation,
-            expected["data"]["DelegateResignation"].as_u64().unwrap() as u16
+            expected["data"]["1"]["HtlcLock"].as_u64().unwrap() as u16
+        );
+        assert_eq!(
+            actual.data.delegate_resignation,
+            expected["data"]["1"]["HtlcClaim"].as_u64().unwrap() as u16
+        );
+        assert_eq!(
+            actual.data.delegate_resignation,
+            expected["data"]["1"]["HtlcRefund"].as_u64().unwrap() as u16
+        );
+        assert_eq!(
+            actual.data.delegate_resignation,
+            expected["data"]["1"]["DelegateResignation"]
+                .as_u64()
+                .unwrap() as u16
         );
     }
 }
@@ -207,16 +219,24 @@ fn test_fees() {
         );
         assert_eq!(actual.data.ipfs, expected["data"]["ipfs"].as_u64().unwrap());
         assert_eq!(
-            actual.data.timelock_transfer,
-            expected["data"]["timelockTransfer"].as_u64().unwrap()
-        );
-        assert_eq!(
             actual.data.multi_payment,
             expected["data"]["multiPayment"].as_u64().unwrap()
         );
         assert_eq!(
             actual.data.delegate_resignation,
             expected["data"]["delegateResignation"].as_u64().unwrap()
+        );
+        assert_eq!(
+            actual.data.delegate_resignation,
+            expected["data"]["htlc_lock"].as_u64().unwrap()
+        );
+        assert_eq!(
+            actual.data.delegate_resignation,
+            expected["data"]["htlc_claim"].as_u64().unwrap()
+        );
+        assert_eq!(
+            actual.data.delegate_resignation,
+            expected["data"]["htlc_refund"].as_u64().unwrap()
         );
     }
 }

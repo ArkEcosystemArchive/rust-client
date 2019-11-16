@@ -16,8 +16,7 @@ pub struct Transaction {
     pub version: Option<u16>,
     #[serde(rename = "type")]
     pub transaction_type: TransactionType,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub type_group: Option<u16>,
+    pub type_group: u64,
     #[serde(deserialize_with = "deserialize_u64_as_number_or_string")]
     pub amount: u64,
     #[serde(deserialize_with = "deserialize_u64_as_number_or_string")]
@@ -47,9 +46,11 @@ pub struct TransactionFees {
     pub vote: u64,
     pub multi_signature: u64,
     pub ipfs: u64,
-    pub timelock_transfer: u64,
     pub multi_payment: u64,
     pub delegate_resignation: u64,
+    pub htlc_lock: u64,
+    pub htl_claim: u64,
+    pub htlc_refund: u64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -61,24 +62,25 @@ pub struct TransactionTypes {
     pub vote: u16,
     pub multi_signature: u16,
     pub ipfs: u16,
-    pub timelock_transfer: u16,
     pub multi_payment: u16,
     pub delegate_resignation: u16,
+    pub htlc_lock: u16,
+    pub htl_claim: u16,
+    pub htlc_refund: u16,
 }
 
 enum_number!(TransactionType {
     Transfer = 0,
-    SecondSignatureRegistration = 1,
+    SecondSignature = 1,
     DelegateRegistration = 2,
     Vote = 3,
-    MultiSignatureRegistration = 4,
+    MultiSignature = 4,
     Ipfs = 5,
-    TimelockTransfer = 6,
-    MultiPayment = 7,
-    DelegateResignation = 8,
-    HtlcLock = 9,
-    HtlcClaim = 10,
-    HtlcRefund = 11,
+    MultiPayment = 6,
+    DelegateResignation = 7,
+    HtlcLock = 8,
+    HtlcClaim = 9,
+    HtlcRefund = 10,
 });
 
 use std::mem::transmute;

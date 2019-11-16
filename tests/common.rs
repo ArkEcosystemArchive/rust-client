@@ -8,6 +8,7 @@ use mockito::{mock, Matcher, Mock};
 use serde_json::Value;
 use std::fs::File;
 use std::io::prelude::*;
+use std::str::FromStr;
 
 const MOCK_HOST: &str = "http://127.0.0.1:1234/api/";
 
@@ -150,11 +151,21 @@ pub fn assert_transaction_data(actual: Transaction, expected: &Value) {
         actual.transaction_type as u64,
         expected["type"].as_u64().unwrap()
     );
-    /*if let Some(type_group) = actual.type_group {
-        assert_eq!(type_group, expected["type_group"].as_u64().unwrap() as u16);
-    }*/
-    assert_eq!(actual.amount, expected["amount"].as_u64().unwrap());
-    assert_eq!(actual.fee, expected["fee"].as_u64().unwrap());
+    assert_eq!(
+        actual.type_group as u64,
+        expected["typeGroup"].as_u64().unwrap()
+    );
+
+    assert_eq!(
+        actual.amount,
+        u64::from_str(expected["amount"].as_str().unwrap()).unwrap()
+    );
+
+    assert_eq!(
+        actual.fee,
+        u64::from_str(expected["fee"].as_str().unwrap()).unwrap()
+    );
+
     assert_eq!(actual.sender, expected["sender"].as_str().unwrap());
     assert_eq!(
         actual.sender_public_key,
@@ -172,14 +183,17 @@ pub fn assert_transaction_data(actual: Transaction, expected: &Value) {
         assert_eq!(vendor_field, expected["vendorField"].as_str().unwrap());
     }
 
-    // NOTE: asset should be tested on each transaction type
+    // TODO: asset should be tested on each transaction type
 
     assert_eq!(
         actual.confirmations,
         expected["confirmations"].as_u64().unwrap()
     );
     assert_timestamp_data(&actual.timestamp, &expected["timestamp"].clone());
-    assert_eq!(actual.nonce, expected["nonce"].as_u64().unwrap());
+    assert_eq!(
+        actual.nonce,
+        u64::from_str(expected["nonce"].as_str().unwrap()).unwrap()
+    );
 }
 
 pub fn assert_wallet_data(actual: Wallet, expected: &Value) {
