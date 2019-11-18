@@ -40,7 +40,6 @@ fn test_block_transactions() {
         for (pos, trx) in response.data.iter().enumerate() {
             assert_transaction_data(trx.clone(), &expected["data"][pos]);
         }
-
     }
 }
 
