@@ -105,19 +105,13 @@ fn test_wallet_top() {
 }
 
 fn test_transaction_array(actual: Vec<Transaction>, expected: Value) {
-    for i in 1..=actual.len() {
-        let rest_trx = &actual[i - 1];
-        let deser_trx = &expected["data"][i - 1];
-
-        assert_transaction_data(rest_trx.clone(), deser_trx);
+    for (pos, trx) in actual.iter().enumerate() {
+        assert_transaction_data(trx.clone(), &expected["data"][pos]);
     }
 }
 
 fn test_wallet_array(actual: Vec<Wallet>, expected: Value) {
-    for i in 1..=actual.len() {
-        let rest_wallet = actual[i - 1].clone();
-        let deser_wallet = expected["data"][i - 1].clone();
-
-        assert_wallet_data(rest_wallet.clone(), &deser_wallet);
+    for (pos, wallet) in actual.iter().enumerate() {
+        assert_wallet_data(wallet.clone(), &expected["data"][pos]);
     }
 }

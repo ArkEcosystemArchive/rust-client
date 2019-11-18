@@ -11,10 +11,8 @@ fn test_blocks_all() {
         let response = client.blocks.all().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        for i in 1..=response.data.len() {
-            let rest_block = response.data[i - 1].clone();
-            let deser_block = expected["data"][i - 1].clone();
-            assert_block_data(&rest_block, &deser_block);
+        for (pos, block) in response.data.iter().enumerate() {
+            assert_block_data(block, &expected["data"][pos]);
         }
     }
 }
@@ -39,11 +37,10 @@ fn test_block_transactions() {
         let response = client.blocks.transactions("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        for i in 0..=response.data.len() - 1 {
-            let rest_trx = response.data[i].clone();
-            let desered_trx = expected["data"][i].clone();
-            assert_transaction_data(rest_trx, &desered_trx);
+        for (pos, trx) in response.data.iter().enumerate() {
+            assert_transaction_data(trx.clone(), &expected["data"][pos]);
         }
+
     }
 }
 
