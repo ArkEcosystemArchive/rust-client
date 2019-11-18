@@ -163,7 +163,7 @@ pub fn assert_wallet_data(actual: Wallet, expected: &Value) {
         );
     }
     assert_eq!(actual.nonce,
-                u64::from_str(expected["nonce"].as_str().unwrap()).unwrap()
+               u64::from_str(expected["nonce"].as_str().unwrap()).unwrap()
     );
     assert_eq!(actual.balance,
                u64::from_str(expected["balance"].as_str().unwrap()).unwrap()
@@ -242,12 +242,12 @@ pub fn assert_delegate_data(actual: Delegate, expected: &Value) {
 
 pub fn assert_peer_data(actual: &Peer, expected: &Value) {
     assert_eq!(actual.ip, expected["ip"].as_str().unwrap());
-    assert_eq!(actual.port, expected["port"].as_u64().unwrap() as u16);
+    assert_eq!(actual.port, expected["port"].as_i64().unwrap() as i16);
     assert_eq!(actual.version, expected["version"].as_str().unwrap());
     assert_eq!(actual.height, expected["height"].as_u64().unwrap());
-    assert_eq!(actual.status, expected["status"].as_u64().unwrap() as u16);
-    assert_eq!(actual.os, expected["os"].as_str().unwrap());
-    assert_eq!(actual.latency, expected["latency"].as_u64().unwrap() as u32);
-    assert_eq!(actual.hashid, expected["hashid"].as_str().unwrap());
+    assert_eq!(actual.latency, expected["latency"].as_i64().unwrap() as u32);
+
+    assert_eq!(actual.ports.len(), 4);
+    assert_eq!(actual.ports.get("@arkecosystem/core-api"), Some(&i16::from_str("4003").unwrap()));
 }
 

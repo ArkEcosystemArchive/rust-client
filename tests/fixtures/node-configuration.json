@@ -11,7 +11,7 @@
         "explorer": "https://dexplorer.ark.io",
         "version": 30,
         "ports": {
-            "@arkecosystem/core-p2p": 4002,
+            "@arkecosystem/core-p2p": null,
             "@arkecosystem/core-api": 4003
         },
         "constants": {
