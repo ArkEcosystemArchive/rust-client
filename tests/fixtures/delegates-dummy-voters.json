@@ -1,22 +1,53 @@
 {
-  "meta": {
-    "count": 1,
-    "pageCount": 1,
-    "totalCount": 1,
-    "next": null,
-    "previous": null,
-    "self": "/api/v2/delegates/DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9/voters?limit=4&page=1",
-    "first": "/api/v2/delegates/DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9/voters?limit=4&page=1",
-    "last": "/api/v2/delegates/DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9/voters?limit=4&page=1"
-  },
-  "data": [
-    {
-      "address": "DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9",
-      "publicKey": "03f0b2920da0ed04d73e4b9a32a8320ead3aca253716339361bf9cc1d7a8b2d210",
-      "username": "bulbasaur",
-      "secondPublicKey": null,
-      "balance": 100028600000000,
-      "isDelegate": true
-    }
-  ]
+    "meta": {
+        "count": 4,
+        "pageCount": 1,
+        "totalCount": 4,
+        "next": null,
+        "previous": null,
+        "self": "/api/delegates/03120f521f7025f76341a09112f88a6c072411c549e4bfa8c92946fcf1c57cdf1e/voters?transform=true&page=1&limit=100",
+        "first": "/api/delegates/03120f521f7025f76341a09112f88a6c072411c549e4bfa8c92946fcf1c57cdf1e/voters?transform=true&page=1&limit=100",
+        "last": "/api/delegates/03120f521f7025f76341a09112f88a6c072411c549e4bfa8c92946fcf1c57cdf1e/voters?transform=true&page=1&limit=100"
+    },
+    "data": [
+        {
+            "address": "DPEGnyKEpHfFL7vtbFNFsTgJSk9WoDRvV8",
+            "publicKey": "03120f521f7025f76341a09112f88a6c072411c549e4bfa8c92946fcf1c57cdf1e",
+            "username": "proxima_centauri_b",
+            "nonce": "8077",
+            "balance": "14038627712548",
+            "isDelegate": true,
+            "isResigned": false,
+            "vote": "03120f521f7025f76341a09112f88a6c072411c549e4bfa8c92946fcf1c57cdf1e"
+        },
+        {
+            "address": "DKcFDN6mhLAheRAfmN6LT1e4AeyF1Fd9bY",
+            "publicKey": "02a1b28b59216ea270349c6be5881fba356cb324f320cb59b74a13f28588cce253",
+            "username": "starshot",
+            "nonce": "29775",
+            "balance": "13859125561279",
+            "isDelegate": true,
+            "isResigned": false,
+            "vote": "03120f521f7025f76341a09112f88a6c072411c549e4bfa8c92946fcf1c57cdf1e"
+        },
+        {
+            "address": "DCUkCstXb2kH6upCi6qkZC9HWJ1GDtDpji",
+            "publicKey": "03121ca9d04e57ba9434a28212fa1c43bcd73852a5962b04156a020f549a2d3a58",
+            "username": "mobiledanstop",
+            "nonce": "6",
+            "balance": "45060000000",
+            "isDelegate": true,
+            "isResigned": false,
+            "vote": "03120f521f7025f76341a09112f88a6c072411c549e4bfa8c92946fcf1c57cdf1e"
+        },
+        {
+            "address": "DU5cawAnqtP2EQjf4wzuvzQ4iAMoEDpYSb",
+            "publicKey": "028ed2c10d58b60beb7a97c6645d12543b40a58367449b855504a466735042a314",
+            "nonce": "5",
+            "balance": "859999910",
+            "isDelegate": false,
+            "isResigned": false,
+            "vote": "03120f521f7025f76341a09112f88a6c072411c549e4bfa8c92946fcf1c57cdf1e"
+        }
+    ]
 }

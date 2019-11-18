@@ -80,7 +80,7 @@ fn test_blocks_params() {
     {
         let mut client = mock_client();
         let delegate_address = "dummy";
-        let params = [("limit", "20")].iter();
+        let params = [("limit", "10")].iter();
         let actual = client
             .delegates
             .blocks_params(delegate_address, params)
@@ -122,7 +122,7 @@ fn test_voters_params() {
     {
         let mut client = mock_client();
         let delegate_address = "dummy";
-        let params = [("limit", "20")].iter();
+        let params = [("limit", "4")].iter();
         let actual = client
             .delegates
             .voters_params(delegate_address, params)
@@ -136,23 +136,6 @@ fn test_voters_params() {
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
         assert_wallet_data(actual_data, &expected_data);
-    }
-}
-
-#[test]
-fn test_voters_balances() {
-    let (_mock, body) = mock_http_request("delegates/dummy/voters/balances");
-    {
-        let mut client = mock_client();
-        let delegate_address = "dummy";
-        let actual = client.delegates.voters_balances(delegate_address).unwrap();
-        let expected: Value = from_str(&body).unwrap();
-
-        let actual_data = actual.data;
-        let expected_data = expected["data"].clone();
-        for (address, balance) in &actual_data {
-            assert_eq!(*balance, expected_data[address].as_u64().unwrap());
-        }
     }
 }
 

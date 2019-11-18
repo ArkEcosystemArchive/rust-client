@@ -162,10 +162,20 @@ pub fn assert_wallet_data(actual: Wallet, expected: &Value) {
             expected["secondPublicKey"].as_str().unwrap()
         );
     }
-    assert_eq!(actual.balance, expected["balance"].as_u64().unwrap());
+    assert_eq!(actual.nonce,
+                u64::from_str(expected["nonce"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(actual.balance,
+               u64::from_str(expected["balance"].as_str().unwrap()).unwrap()
+    );
+
     assert_eq!(
         actual.is_delegate,
         expected["isDelegate"].as_bool().unwrap()
+    );
+    assert_eq!(
+        actual.is_resigned,
+        expected["isResigned"].as_bool().unwrap()
     );
 }
 
