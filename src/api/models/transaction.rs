@@ -1,4 +1,3 @@
-use std::collections::HashMap;
 use std::mem::transmute;
 
 use serde::Deserialize;

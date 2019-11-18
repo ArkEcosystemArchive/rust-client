@@ -126,9 +126,9 @@ fn test_search() {
 #[test]
 #[ignore]
 fn test_types() {
-    let (_mock, body) = mock_http_request("transactions/types");
+    /*let (_mock, body) = mock_http_request("transactions/types");
     {
-        /* let mut client = mock_client();
+        let mut client = mock_client();
         let actual = client.transactions.types().unwrap();
          println!("{:?}", actual);
 
@@ -181,8 +181,8 @@ fn test_types() {
             expected["data"]["1"]["DelegateResignation"]
                 .as_u64()
                 .unwrap() as u16
-        );*/
-    }
+        );
+    }*/
 }
 
 #[test]
