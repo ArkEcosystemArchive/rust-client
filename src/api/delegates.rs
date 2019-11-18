@@ -1,12 +1,11 @@
-use crate::http::client::Client;
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
 use crate::api::models::block::Block;
 use crate::api::models::delegate::Delegate;
 use crate::api::models::wallet::{Balances, Wallet};
-
 use crate::api::Result;
+use crate::http::client::Client;
 
 pub struct Delegates {
     client: Client,
@@ -70,9 +69,6 @@ impl Delegates {
     ///
     /// # Example
     /// ```
-    /// # extern crate serde_json;
-    /// # extern crate arkecosystem_client;
-    ///
     /// # use serde_json::to_string_pretty;
     /// # use arkecosystem_client::connection::Connection;
     ///
@@ -92,19 +88,14 @@ impl Delegates {
     ///
     /// # Example
     /// ```
-    /// # extern crate serde_json;
-    /// # extern crate arkecosystem_client;
+    /// use serde_json::to_string_pretty;
+    /// use arkecosystem_client::connection::Connection;
     ///
-    /// # use serde_json::to_string_pretty;
-    /// # use arkecosystem_client::connection::Connection;
-    ///
-    /// # fn main() {
-    ///   # let client = Connection::new("http://167.114.43.38:4003/api/");
-    ///   let payload = [("username", "p")].iter();
-    ///   let params = [("limit", "2")].iter();
-    ///   let search = client.delegates.search(Some(payload), params).unwrap();
-    ///   println!("{}", to_string_pretty(&search).unwrap());
-    /// # }
+    /// let client = Connection::new("http://167.114.43.38:4003/api/");
+    /// let payload = [("username", "p")].iter();
+    /// let params = [("limit", "2")].iter();
+    /// let search = client.delegates.search(Some(payload), params).unwrap();
+    /// println!("{}", to_string_pretty(&search).unwrap());
     /// ```
     pub fn search<I, K, V>(
         &mut self,

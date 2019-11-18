@@ -1,8 +1,9 @@
+use std::borrow::Borrow;
+use std::collections::HashMap;
+
 use crate::api::models::transaction::{Transaction, TransactionFees, TransactionTypes};
 use crate::api::Result;
 use crate::http::client::Client;
-use std::borrow::Borrow;
-use std::collections::HashMap;
 
 pub struct Transactions {
     client: Client,
@@ -78,14 +79,12 @@ impl Transactions {
     ///
     /// # Example
     /// ```
-    /// # use serde_json::to_string_pretty;
-    /// # use arkecosystem_client::connection::Connection;
+    /// use serde_json::to_string_pretty;
+    /// use arkecosystem_client::connection::Connection;
     ///
-    /// # fn main() {
-    ///   # let client = Connection::new("http://95.179.170.23:4003/api/");
-    ///   let types = client.transactions.types().unwrap();
-    ///   println!("{}", to_string_pretty(&types).unwrap());
-    /// # }
+    /// let client = Connection::new("http://95.179.170.23:4003/api/");
+    /// let types = client.transactions.types().unwrap();
+    /// println!("{}", to_string_pretty(&types).unwrap());
     /// ```
     pub fn types(&mut self) -> Result<HashMap<String, TransactionTypes>> {
         self.client.get("transactions/types")
@@ -95,14 +94,12 @@ impl Transactions {
     ///
     /// # Example
     /// ```
-    /// # use serde_json::to_string_pretty;
-    /// # use arkecosystem_client::connection::Connection;
+    /// use serde_json::to_string_pretty;
+    /// use arkecosystem_client::connection::Connection;
     ///
-    /// # fn main() {
-    ///   # let client = Connection::new("http://167.114.43.38:4003/api/");
-    ///   let fees = client.transactions.fees().unwrap();
-    ///   println!("{}", to_string_pretty(&fees).unwrap());
-    /// # }
+    /// let client = Connection::new("http://167.114.43.38:4003/api/");
+    /// let fees = client.transactions.fees().unwrap();
+    /// println!("{}", to_string_pretty(&fees).unwrap());
     /// ```
     pub fn fees(&mut self) -> Result<TransactionFees> {
         self.client.get("transactions/fees")
