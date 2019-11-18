@@ -1,23 +1,27 @@
 {
-  "data": {
-    "id": "09388f927614a02ff256b005c59b2861719266e49c59bae1dceef553572a1bb7",
-    "blockId": "382064156751342813",
-    "type": 3,
-    "amount": 0,
-    "fee": 100000000,
-    "sender": "DN7Lkk6Hk5qR2ZwwG9Ttr7KQRcGFr2BUQP",
-    "recipient": "DN7Lkk6Hk5qR2ZwwG9Ttr7KQRcGFr2BUQP",
-    "signature": "3045022100b030698301bc86ff86a3b2223efa4093f54a107d0cfb8ac376f94d39ae62c32d02206e179dcf492f0a09766f280bbbfbb8b2ab2a1ac418b9bde26e05b5976e4a63e4",
-    "asset": {
-      "votes": [
-        "+027894c17a95ef401eb448895ba60051bb34f752bb49aef1e69831b5a5f0c6d44b"
-      ]
-    },
-    "confirmations": 38366,
-    "timestamp": {
-      "epoch": 53748437,
-      "unix": 1543849637,
-      "human": "2018-12-03T15:07:17.000Z"
+    "data": {
+        "id": "bff1ad225320b7077bfcb5c780a4d425e0734577da7a03632b83538b57efb45d",
+        "blockId": "6b50b5e3516538a3756c913c961bdeffbba658567ccfceaed67732eb26893c2b",
+        "version": 1,
+        "type": 3,
+        "typeGroup": 1,
+        "amount": "0",
+        "fee": "1000000",
+        "sender": "DD16cbib1gHqrz76KuukQH3yJHSZJpWNCd",
+        "senderPublicKey": "02a67f0c57edadd2a18f5bcc834211f41d42c9c9f60e5c0fc75668089d9ec78f8a",
+        "recipient": "DD16cbib1gHqrz76KuukQH3yJHSZJpWNCd",
+        "signature": "30440220500dda205f3dbf20c8945c3b45f4a276938feee26037c9757e77166210e7d5b7022047fa3ba281b31d1ef874bb5a922f2735aa3166b4427d83a8e787064779d4bc4a",
+        "asset": {
+            "votes": [
+                "+03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232"
+            ]
+        },
+        "confirmations": 446466,
+        "timestamp": {
+            "epoch": 79519922,
+            "unix": 1569621122,
+            "human": "2019-09-27T21:52:02.000Z"
+        },
+        "nonce": "8"
     }
-  }
 }
