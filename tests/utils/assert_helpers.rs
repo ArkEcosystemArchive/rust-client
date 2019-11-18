@@ -162,11 +162,13 @@ pub fn assert_wallet_data(actual: Wallet, expected: &Value) {
             expected["secondPublicKey"].as_str().unwrap()
         );
     }
-    assert_eq!(actual.nonce,
-               u64::from_str(expected["nonce"].as_str().unwrap()).unwrap()
+    assert_eq!(
+        actual.nonce,
+        u64::from_str(expected["nonce"].as_str().unwrap()).unwrap()
     );
-    assert_eq!(actual.balance,
-               u64::from_str(expected["balance"].as_str().unwrap()).unwrap()
+    assert_eq!(
+        actual.balance,
+        u64::from_str(expected["balance"].as_str().unwrap()).unwrap()
     );
 
     assert_eq!(
@@ -219,7 +221,10 @@ pub fn assert_delegate_data(actual: Delegate, expected: &Value) {
     if actual.blocks.last.is_some() {
         let last = actual.blocks.last.unwrap().clone();
         assert_eq!(last.id, expected["blocks"]["last"]["id"].as_str().unwrap());
-        assert_eq!(last.height, expected["blocks"]["last"]["height"].as_u64().unwrap());
+        assert_eq!(
+            last.height,
+            expected["blocks"]["last"]["height"].as_u64().unwrap()
+        );
 
         assert_timestamp_data(
             &last.timestamp,
@@ -248,6 +253,8 @@ pub fn assert_peer_data(actual: &Peer, expected: &Value) {
     assert_eq!(actual.latency, expected["latency"].as_i64().unwrap() as u32);
 
     assert_eq!(actual.ports.len(), 4);
-    assert_eq!(actual.ports.get("@arkecosystem/core-api"), Some(&i16::from_str("4003").unwrap()));
+    assert_eq!(
+        actual.ports.get("@arkecosystem/core-api"),
+        Some(&i16::from_str("4003").unwrap())
+    );
 }
-

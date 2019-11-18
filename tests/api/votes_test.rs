@@ -1,9 +1,7 @@
 use serde_json::from_str;
 
-
-use crate::utils::assert_helpers::{assert_transaction_data, assert_meta};
+use crate::utils::assert_helpers::{assert_meta, assert_transaction_data};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
-
 
 use arkecosystem_client::api::models::asset::Asset;
 use arkecosystem_client::api::models::transaction::Transaction;

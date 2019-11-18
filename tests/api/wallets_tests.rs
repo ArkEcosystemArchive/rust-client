@@ -104,7 +104,6 @@ fn test_wallet_top() {
     }
 }
 
-
 fn test_transaction_array(actual: Vec<Transaction>, expected: Value) {
     for i in 1..=actual.len() {
         let rest_trx = &actual[i - 1];

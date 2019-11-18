@@ -2,13 +2,11 @@ use serde_json::{from_str, Value};
 
 use arkecosystem_client::api::models::peer::Peer;
 
-use arkecosystem_client::Connection;
 use arkecosystem_client::api::models::shared::Response;
+use arkecosystem_client::Connection;
 
-
-use crate::utils::assert_helpers::{assert_peer_data, assert_meta};
+use crate::utils::assert_helpers::{assert_meta, assert_peer_data};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
-
 
 #[test]
 fn test_all() {
@@ -59,4 +57,3 @@ fn test_show() {
         assert_peer_data(&actual.data, &expected["data"]);
     }
 }
-

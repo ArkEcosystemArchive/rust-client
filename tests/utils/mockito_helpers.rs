@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::prelude::*;
 
-use mockito::{Matcher, mock, Mock};
+use mockito::{mock, Matcher, Mock};
 
 use arkecosystem_client::Connection;
 

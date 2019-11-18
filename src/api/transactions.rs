@@ -87,7 +87,7 @@ impl Transactions {
     ///   println!("{}", to_string_pretty(&types).unwrap());
     /// # }
     /// ```
-    pub fn types(&mut self) -> Result<HashMap<String,TransactionTypes>> {
+    pub fn types(&mut self) -> Result<HashMap<String, TransactionTypes>> {
         self.client.get("transactions/types")
     }
 

@@ -1,6 +1,6 @@
 use serde_json::{from_str, Value};
 
-use crate::utils::assert_helpers::{assert_transaction_data, assert_block_data};
+use crate::utils::assert_helpers::{assert_block_data, assert_transaction_data};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
 
 #[test]
@@ -12,8 +12,8 @@ fn test_blocks_all() {
         let expected: Value = from_str(&body).unwrap();
 
         for i in 1..=response.data.len() {
-            let rest_block = response.data[i-1].clone();
-            let deser_block = expected["data"][i-1].clone();
+            let rest_block = response.data[i - 1].clone();
+            let deser_block = expected["data"][i - 1].clone();
             assert_block_data(&rest_block, &deser_block);
         }
     }

@@ -2,7 +2,9 @@ use std::collections::HashMap;
 
 use serde_json::{from_str, Value};
 
-use crate::utils::assert_helpers::{assert_block_data, assert_delegate_data, assert_meta, assert_wallet_data};
+use crate::utils::assert_helpers::{
+    assert_block_data, assert_delegate_data, assert_meta, assert_wallet_data,
+};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request, mock_post_request};
 
 #[test]

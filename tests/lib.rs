@@ -1,3 +1,3 @@
 mod api;
-mod utils;
 mod connection;
+mod utils;

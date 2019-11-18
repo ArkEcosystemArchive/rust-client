@@ -86,9 +86,7 @@ enum_number!(TransactionType {
 
 impl From<u8> for TransactionType {
     fn from(t: u8) -> TransactionType {
-        assert!(
-            TransactionType::Transfer as u8 <= t && t <= TransactionType::HtlcRefund as u8
-        );
+        assert!(TransactionType::Transfer as u8 <= t && t <= TransactionType::HtlcRefund as u8);
         unsafe { transmute(t) }
     }
 }
