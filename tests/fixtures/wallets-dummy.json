@@ -1,10 +1,11 @@
 {
-  "data": {
-    "address": "DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9",
-    "publicKey": "03f0b2920da0ed04d73e4b9a32a8320ead3aca253716339361bf9cc1d7a8b2d210",
-    "username": "bulbasaur",
-    "secondPublicKey": null,
-    "balance": 100029800000000,
-    "isDelegate": true
-  }
+    "data": {
+        "address": "DUE8o4xJXzjBMN8PWCCHkUuwFyGgLytqQ4",
+        "publicKey": "03c22410bf8b2a307ddc880ac0f8bcfcbd4e88e5dd0f3a44c2e1e1dc6b128c4926",
+        "nonce": "3",
+        "balance": "3706532497352",
+        "isDelegate": false,
+        "isResigned": false,
+        "vote": "0389301207e25addec690be9efa3b2ca2d111b86386da7ff5fcc1c0344954b2acc"
+    }
 }
