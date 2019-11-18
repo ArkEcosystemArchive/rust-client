@@ -69,15 +69,13 @@ impl Delegates {
     ///
     /// # Example
     /// ```
-    /// # use serde_json::to_string_pretty;
-    /// # use arkecosystem_client::connection::Connection;
+    /// use serde_json::to_string_pretty;
+    /// use arkecosystem_client::connection::Connection;
     ///
-    /// # fn main() {
-    ///   # let client = Connection::new("http://167.114.43.38:4003/api/");
-    ///   let delegate_id = "yo";
-    ///   let voters_balances = client.delegates.voters_balances(&delegate_id).unwrap();
-    ///   println!("{}", to_string_pretty(&voters_balances).unwrap());
-    /// # }
+    /// let client = Connection::new("http://167.114.43.38:4003/api/");
+    /// let delegate_id = "yo";
+    /// let voters_balances = client.delegates.voters_balances(&delegate_id).unwrap();
+    /// println!("{}", to_string_pretty(&voters_balances).unwrap());
     /// ```
     pub fn voters_balances(&mut self, id: &str) -> Result<Balances> {
         let endpoint = format!("delegates/{}/voters/balances", id);
