@@ -17,15 +17,6 @@ pub fn mock_http_request(endpoint: &str) -> (Mock, String) {
         .with_body(&response_body)
         .create();
 
-
-    //TODO: check if we can remove section
-    // Delegates: replace integers in response body which are deserialized from serde as floats
-    // to correctly match.
-    /*if endpoint.contains("delegate") {
-        response_body =
-            response_body.replace("\"productivity\": 100\n", "\"productivity\": 100.0\n");
-    }*/
-
     (mock, response_body.to_owned())
 }
 

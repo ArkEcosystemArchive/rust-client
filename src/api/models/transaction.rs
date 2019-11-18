@@ -1,9 +1,11 @@
+use std::collections::HashMap;
+use std::mem::transmute;
+
 use serde::Deserialize;
 use serde::Serialize;
 
 use crate::api::models::asset::Asset;
 use crate::api::models::timestamp::Timestamp;
-
 use crate::common::deserialize_u64_as_number_or_string;
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -49,7 +51,7 @@ pub struct TransactionFees {
     pub multi_payment: u64,
     pub delegate_resignation: u64,
     pub htlc_lock: u64,
-    pub htl_claim: u64,
+    pub htlc_claim: u64,
     pub htlc_refund: u64,
 }
 
@@ -65,7 +67,7 @@ pub struct TransactionTypes {
     pub multi_payment: u16,
     pub delegate_resignation: u16,
     pub htlc_lock: u16,
-    pub htl_claim: u16,
+    pub htlc_claim: u16,
     pub htlc_refund: u16,
 }
 
@@ -83,11 +85,10 @@ enum_number!(TransactionType {
     HtlcRefund = 10,
 });
 
-use std::mem::transmute;
 impl From<u8> for TransactionType {
     fn from(t: u8) -> TransactionType {
         assert!(
-            TransactionType::Transfer as u8 <= t && t <= TransactionType::DelegateResignation as u8
+            TransactionType::Transfer as u8 <= t && t <= TransactionType::HtlcRefund as u8
         );
         unsafe { transmute(t) }
     }

@@ -4,7 +4,6 @@ use serde::Serialize;
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct FeeStatistics {
     #[serde(rename = "type")]
-    // pub transaction_type: TransactionType,
     pub fees: FeeStats,
 }
 

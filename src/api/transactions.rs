@@ -78,9 +78,6 @@ impl Transactions {
     ///
     /// # Example
     /// ```
-    /// # extern crate serde_json;
-    /// # extern crate arkecosystem_client;
-    ///
     /// # use serde_json::to_string_pretty;
     /// # use arkecosystem_client::connection::Connection;
     ///
@@ -90,7 +87,7 @@ impl Transactions {
     ///   println!("{}", to_string_pretty(&types).unwrap());
     /// # }
     /// ```
-    pub fn types(&mut self) -> Result<TransactionTypes> {
+    pub fn types(&mut self) -> Result<HashMap<String,TransactionTypes>> {
         self.client.get("transactions/types")
     }
 
@@ -98,9 +95,6 @@ impl Transactions {
     ///
     /// # Example
     /// ```
-    /// # extern crate serde_json;
-    /// # extern crate arkecosystem_client;
-    ///
     /// # use serde_json::to_string_pretty;
     /// # use arkecosystem_client::connection::Connection;
     ///
