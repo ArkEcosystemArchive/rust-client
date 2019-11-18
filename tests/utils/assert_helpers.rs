@@ -4,7 +4,7 @@ use serde_json::Value;
 
 use arkecosystem_client::api::models::block::Block;
 use arkecosystem_client::api::models::delegate::Delegate;
-use arkecosystem_client::api::models::fee::FeeSchema;
+use arkecosystem_client::api::models::fee::{FeeSchema, FeeStats};
 use arkecosystem_client::api::models::peer::Peer;
 use arkecosystem_client::api::models::shared::Meta;
 use arkecosystem_client::api::models::timestamp::Timestamp;
@@ -256,5 +256,12 @@ pub fn assert_peer_data(actual: &Peer, expected: &Value) {
     assert_eq!(
         actual.ports.get("@arkecosystem/core-api"),
         Some(&i16::from_str("4003").unwrap())
+    );
+}
+
+pub fn assert_node_fee_stats(actual: &FeeStats, expected: &Value) {
+    assert_eq!(
+        actual.transaction_type as u64,
+        expected["type"].as_u64().unwrap()
     );
 }

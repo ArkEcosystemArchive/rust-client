@@ -70,6 +70,7 @@ fn test_blocks() {
         let expected_meta = expected["meta"].clone();
         assert_meta(actual_meta, &expected_meta);
 
+        // TODO: for
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
         assert_block_data(&actual_data, &expected_data);
@@ -93,6 +94,7 @@ fn test_blocks_params() {
         let expected_meta = expected["meta"].clone();
         assert_meta(actual_meta, &expected_meta);
 
+        // TODO: for
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
         assert_block_data(&actual_data, &expected_data);
@@ -112,6 +114,7 @@ fn test_voters() {
         let expected_meta = expected["meta"].clone();
         assert_meta(actual_meta, &expected_meta);
 
+        // TODO: for
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
         assert_wallet_data(actual_data, &expected_data);
@@ -135,6 +138,7 @@ fn test_voters_params() {
         let expected_meta = expected["meta"].clone();
         assert_meta(actual_meta, &expected_meta);
 
+        // TODO: for
         let actual_data = actual.data[0].clone();
         let expected_data = expected["data"][0].clone();
         assert_wallet_data(actual_data, &expected_data);

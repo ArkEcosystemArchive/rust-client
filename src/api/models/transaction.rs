@@ -5,7 +5,7 @@ use serde::Serialize;
 
 use crate::api::models::asset::Asset;
 use crate::api::models::timestamp::Timestamp;
-use crate::common::deserialize_u64_as_number_or_string;
+use crate::common::deserialize_as_u64_from_number_or_string;
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(default)]
@@ -18,9 +18,9 @@ pub struct Transaction {
     #[serde(rename = "type")]
     pub transaction_type: TransactionType,
     pub type_group: u64,
-    #[serde(deserialize_with = "deserialize_u64_as_number_or_string")]
+    #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
     pub amount: u64,
-    #[serde(deserialize_with = "deserialize_u64_as_number_or_string")]
+    #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
     pub fee: u64,
     pub sender: String,
     pub sender_public_key: String,
@@ -34,7 +34,7 @@ pub struct Transaction {
     pub asset: Asset,
     pub confirmations: u64,
     pub timestamp: Timestamp,
-    #[serde(deserialize_with = "deserialize_u64_as_number_or_string")]
+    #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
     pub nonce: u64,
 }
 

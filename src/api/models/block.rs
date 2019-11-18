@@ -2,7 +2,7 @@ use serde::Deserialize;
 use serde::Serialize;
 
 use crate::api::models::timestamp::Timestamp;
-use crate::common::deserialize_u64_as_number_or_string;
+use crate::common::deserialize_as_u64_from_number_or_string;
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -22,13 +22,13 @@ pub struct Block {
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 pub struct Forged {
-    #[serde(deserialize_with = "deserialize_u64_as_number_or_string")]
+    #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
     pub reward: u64,
-    #[serde(deserialize_with = "deserialize_u64_as_number_or_string")]
+    #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
     pub fee: u64,
-    #[serde(deserialize_with = "deserialize_u64_as_number_or_string")]
+    #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
     pub total: u64,
-    #[serde(deserialize_with = "deserialize_u64_as_number_or_string")]
+    #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
     pub amount: u64,
 }
 

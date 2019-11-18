@@ -1,18 +1,22 @@
 use serde::Deserialize;
 use serde::Serialize;
 
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-pub struct FeeStatistics {
-    #[serde(rename = "type")]
-    pub fees: FeeStats,
-}
+use crate::api::models::transaction::TransactionType;
+use crate::common::deserialize_as_u64_from_number_or_string;
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct FeeStats {
-    pub min_fee: u64,
-    pub max_fee: u64,
-    pub avg_fee: u64,
+    #[serde(rename = "type")]
+    pub transaction_type: u64,
+    #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
+    pub avg: u64,
+    #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
+    pub min: u64,
+    #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
+    pub max: u64,
+    #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
+    pub sum: u64,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]

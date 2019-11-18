@@ -1,7 +1,7 @@
 use serde::Deserialize;
 use serde::Deserializer;
 
-pub fn deserialize_u64_as_number_or_string<'de, D>(de: D) -> Result<u64, D::Error>
+pub fn deserialize_as_u64_from_number_or_string<'de, D>(de: D) -> Result<u64, D::Error>
 where
     D: Deserializer<'de>,
 {
