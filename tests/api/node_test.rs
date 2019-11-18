@@ -1,8 +1,8 @@
 use serde_json::{from_str, Value};
 
-use arkecosystem_client::api::models::fee::FeeSchema;
 
-use crate::common::*;
+use crate::utils::assert_helpers::assert_configuration_fees;
+use crate::utils::mockito_helpers::{mock_client, mock_http_request};
 
 #[test]
 fn test_status() {
@@ -133,28 +133,4 @@ fn test_configuration() {
     }
 }
 
-pub fn assert_configuration_fees(actual: &FeeSchema, expected: &Value) {
-    assert_eq!(actual.transfer, expected["transfer"].as_u64().unwrap());
-    assert_eq!(
-        actual.second_signature,
-        expected["secondSignature"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.delegate_registration,
-        expected["delegateRegistration"].as_u64().unwrap()
-    );
-    assert_eq!(actual.vote, expected["vote"].as_u64().unwrap());
-    assert_eq!(
-        actual.multi_signature,
-        expected["multiSignature"].as_u64().unwrap()
-    );
-    assert_eq!(actual.ipfs, expected["ipfs"].as_u64().unwrap());
-    assert_eq!(
-        actual.multi_payment,
-        expected["multiPayment"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.delegate_resignation,
-        expected["delegateResignation"].as_u64().unwrap()
-    );
-}
+

@@ -1,5 +1,6 @@
-use crate::common::*;
 use serde_json::ser::to_string_pretty;
+
+use crate::utils::mockito_helpers::{mock_client, mock_http_request};
 
 #[test]
 fn test_all() {

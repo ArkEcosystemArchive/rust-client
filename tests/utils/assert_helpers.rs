@@ -1,65 +1,15 @@
+use std::str::FromStr;
+
+use serde_json::Value;
+
 use arkecosystem_client::api::models::block::Block;
+use arkecosystem_client::api::models::delegate::Delegate;
+use arkecosystem_client::api::models::fee::FeeSchema;
+use arkecosystem_client::api::models::peer::Peer;
 use arkecosystem_client::api::models::shared::Meta;
 use arkecosystem_client::api::models::timestamp::Timestamp;
 use arkecosystem_client::api::models::transaction::Transaction;
 use arkecosystem_client::api::models::wallet::Wallet;
-
-use arkecosystem_client::Connection;
-use mockito::{mock, Matcher, Mock};
-use serde_json::Value;
-use std::fs::File;
-use std::io::prelude::*;
-use std::str::FromStr;
-
-const MOCK_HOST: &str = "http://127.0.0.1:1234/api/";
-
-pub fn mock_http_request(endpoint: &str) -> (Mock, String) {
-    let url = Matcher::Regex(endpoint.to_owned());
-    let mut response_body = read_fixture(&endpoint);
-
-    let mock = mock("GET", url)
-        .with_status(200)
-        .with_header("content-type", "application/json")
-        .with_body(&response_body)
-        .create();
-
-    // Modify json string to make sure tests pass, nothing critical.
-
-    // Delegates: replace integers in response body which are deserialized from serde as floats
-    // to correctly match.
-    if endpoint.contains("delegate") {
-        response_body =
-            response_body.replace("\"productivity\": 100\n", "\"productivity\": 100.0\n");
-    }
-
-    (mock, response_body.to_owned())
-}
-
-pub fn mock_post_request(endpoint: &str) -> (Mock, String) {
-    let url = Matcher::Regex(endpoint.to_owned());
-    let response_body = read_fixture(&endpoint);
-
-    let mock = mock("POST", url)
-        .with_status(200)
-        .with_header("content-type", "application/json")
-        .with_body(&response_body)
-        .create();
-
-    (mock, response_body.to_owned())
-}
-
-pub fn mock_client() -> Connection {
-    Connection::new(&MOCK_HOST)
-}
-
-fn read_fixture(endpoint: &str) -> String {
-    let fixture_name = endpoint.replace("/", "-") + ".json";
-    let mut file = File::open(format!("tests/fixtures/{}", fixture_name)).unwrap();
-    let mut response_body = String::new();
-    file.read_to_string(&mut response_body).unwrap();
-
-    response_body
-}
 
 pub fn assert_meta(actual: Meta, expected: &Value) {
     assert_eq!(actual.count, expected["count"].as_u64().unwrap() as u32);
@@ -218,3 +168,76 @@ pub fn assert_wallet_data(actual: Wallet, expected: &Value) {
         expected["isDelegate"].as_bool().unwrap()
     );
 }
+
+pub fn assert_configuration_fees(actual: &FeeSchema, expected: &Value) {
+    assert_eq!(actual.transfer, expected["transfer"].as_u64().unwrap());
+    assert_eq!(
+        actual.second_signature,
+        expected["secondSignature"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.delegate_registration,
+        expected["delegateRegistration"].as_u64().unwrap()
+    );
+    assert_eq!(actual.vote, expected["vote"].as_u64().unwrap());
+    assert_eq!(
+        actual.multi_signature,
+        expected["multiSignature"].as_u64().unwrap()
+    );
+    assert_eq!(actual.ipfs, expected["ipfs"].as_u64().unwrap());
+    assert_eq!(
+        actual.multi_payment,
+        expected["multiPayment"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.delegate_resignation,
+        expected["delegateResignation"].as_u64().unwrap()
+    );
+}
+
+pub fn assert_delegate_data(actual: Delegate, expected: &Value) {
+    assert_eq!(actual.username, expected["username"].as_str().unwrap());
+    assert_eq!(actual.address, expected["address"].as_str().unwrap());
+    assert_eq!(actual.public_key, expected["publicKey"].as_str().unwrap());
+    assert_eq!(actual.votes, expected["votes"].as_str().unwrap());
+    assert_eq!(actual.rank, expected["rank"].as_u64().unwrap() as u32);
+    assert_eq!(
+        actual.blocks.produced,
+        expected["blocks"]["produced"].as_u64().unwrap()
+    );
+
+    if actual.blocks.last.is_some() {
+        let last = actual.blocks.last.unwrap().clone();
+        assert_eq!(last.id, expected["blocks"]["last"]["id"].as_str().unwrap());
+        assert_eq!(last.height, expected["blocks"]["last"]["height"].as_u64().unwrap());
+
+        assert_timestamp_data(
+            &last.timestamp,
+            &expected["blocks"]["last"]["timestamp"].clone(),
+        );
+    }
+    assert_eq!(
+        actual.forged.rewards,
+        u64::from_str(expected["forged"]["rewards"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(
+        actual.forged.fees,
+        u64::from_str(expected["forged"]["fees"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(
+        actual.forged.total,
+        u64::from_str(expected["forged"]["total"].as_str().unwrap()).unwrap()
+    );
+}
+
+pub fn assert_peer_data(actual: &Peer, expected: &Value) {
+    assert_eq!(actual.ip, expected["ip"].as_str().unwrap());
+    assert_eq!(actual.port, expected["port"].as_u64().unwrap() as u16);
+    assert_eq!(actual.version, expected["version"].as_str().unwrap());
+    assert_eq!(actual.height, expected["height"].as_u64().unwrap());
+    assert_eq!(actual.status, expected["status"].as_u64().unwrap() as u16);
+    assert_eq!(actual.os, expected["os"].as_str().unwrap());
+    assert_eq!(actual.latency, expected["latency"].as_u64().unwrap() as u32);
+    assert_eq!(actual.hashid, expected["hashid"].as_str().unwrap());
+}
+

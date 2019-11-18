@@ -1,10 +1,9 @@
-use serde_json::from_str;
-use serde_json::Value;
 use std::collections::HashMap;
 
-use arkecosystem_client::api::models::delegate::Delegate;
+use serde_json::{from_str, Value};
 
-use crate::common::*;
+use crate::utils::assert_helpers::{assert_block_data, assert_delegate_data, assert_meta, assert_wallet_data};
+use crate::utils::mockito_helpers::{mock_client, mock_http_request, mock_post_request};
 
 #[test]
 fn test_all() {
@@ -177,52 +176,4 @@ fn test_search() {
         let expected_data = expected["data"][0].clone();
         assert_delegate_data(actual_data, &expected_data);
     }
-}
-
-fn assert_delegate_data(actual: Delegate, expected: &Value) {
-    assert_eq!(actual.username, expected["username"].as_str().unwrap());
-    assert_eq!(actual.address, expected["address"].as_str().unwrap());
-    assert_eq!(actual.public_key, expected["publicKey"].as_str().unwrap());
-    assert_eq!(actual.votes, expected["votes"].as_u64().unwrap());
-    assert_eq!(actual.rank, expected["rank"].as_u64().unwrap() as u32);
-    assert_eq!(
-        actual.blocks.produced,
-        expected["blocks"]["produced"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.blocks.missed,
-        expected["blocks"]["missed"].as_u64().unwrap()
-    );
-
-    if actual.blocks.last.is_some() {
-        let last = actual.blocks.last.unwrap().clone();
-        assert_eq!(last.id, expected["blocks"]["last"]["id"].as_str().unwrap());
-        assert_timestamp_data(
-            &last.timestamp,
-            &expected["blocks"]["last"]["timestamp"].clone(),
-        );
-    }
-
-    // TODO: check assert
-    /* assert_f64_near!(
-        actual.production.approval,
-        expected["production"]["approval"].as_f64().unwrap()
-    );
-    assert_f64_near!(
-        actual.production.productivity,
-        expected["production"]["productivity"].as_f64().unwrap()
-    );
-    */
-    assert_eq!(
-        actual.forged.rewards,
-        expected["forged"]["rewards"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.forged.fees,
-        expected["forged"]["fees"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.forged.total,
-        expected["forged"]["total"].as_u64().unwrap()
-    );
 }

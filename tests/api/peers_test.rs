@@ -2,7 +2,13 @@ use serde_json::{from_str, Value};
 
 use arkecosystem_client::api::models::peer::Peer;
 
-use crate::common::*;
+use arkecosystem_client::Connection;
+use arkecosystem_client::api::models::shared::Response;
+
+
+use crate::utils::assert_helpers::{assert_peer_data, assert_meta};
+use crate::utils::mockito_helpers::{mock_client, mock_http_request};
+
 
 #[test]
 fn test_all() {
@@ -46,21 +52,11 @@ fn test_all_params() {
 fn test_show() {
     let (_mock, body) = mock_http_request("peers/dummy");
     {
-        let mut client = mock_client();
-        let actual = client.peers.show("dummy").unwrap();
+        let mut client: Connection = mock_client();
+        let actual: Response<Peer> = client.peers.show("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_peer_data(&actual.data, &expected["data"]);
     }
 }
 
-fn assert_peer_data(actual: &Peer, expected: &Value) {
-    assert_eq!(actual.ip, expected["ip"].as_str().unwrap());
-    assert_eq!(actual.port, expected["port"].as_u64().unwrap() as u16);
-    assert_eq!(actual.version, expected["version"].as_str().unwrap());
-    assert_eq!(actual.height, expected["height"].as_u64().unwrap());
-    assert_eq!(actual.status, expected["status"].as_u64().unwrap() as u16);
-    assert_eq!(actual.os, expected["os"].as_str().unwrap());
-    assert_eq!(actual.latency, expected["latency"].as_u64().unwrap() as u32);
-    assert_eq!(actual.hashid, expected["hashid"].as_str().unwrap());
-}

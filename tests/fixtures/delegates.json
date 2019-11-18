@@ -1,98 +1,2628 @@
 {
-  "meta": {
-    "count": 3,
-    "pageCount": 123,
-    "totalCount": 368,
-    "next": "/api/v2/delegates?limit=3&page=2",
-    "previous": null,
-    "self": "/api/v2/delegates?limit=3&page=1",
-    "first": "/api/v2/delegates?limit=3&page=1",
-    "last": "/api/v2/delegates?limit=3&page=123"
-  },
-  "data": [
-    {
-      "username": "bulbasaur",
-      "address": "DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9",
-      "publicKey": "03f0b2920da0ed04d73e4b9a32a8320ead3aca253716339361bf9cc1d7a8b2d210",
-      "votes": 100027200000000,
-      "rank": 1,
-      "blocks": {
-        "produced": 149,
-        "missed": 0,
-        "last": {
-          "id": "18337314392167298987",
-          "timestamp": {
-            "epoch": 54330032,
-            "unix": 1544431232,
-            "human": "2018-12-10T08:40:32.000Z"
-          }
-        }
-      },
-      "production": {
-        "approval": 0.79,
-        "productivity": 100
-      },
-      "forged": {
-        "fees": 0,
-        "rewards": 29800000000,
-        "total": 29800000000
-      }
+    "meta": {
+        "count": 100,
+        "pageCount": 5,
+        "totalCount": 436,
+        "next": "/api/delegates?page=2&limit=100",
+        "previous": null,
+        "self": "/api/delegates?page=1&limit=100",
+        "first": "/api/delegates?page=1&limit=100",
+        "last": "/api/delegates?page=5&limit=100"
     },
-    {
-      "username": "arkx",
-      "address": "DNjuJEDQkhrJ7cA9FZ2iVXt5anYiM8Jtc9",
-      "publicKey": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec",
-      "votes": 44191107818913,
-      "rank": 2,
-      "blocks": {
-        "produced": 19872,
-        "missed": 771,
-        "last": {
-          "id": "5865885755500979725",
-          "timestamp": {
-            "epoch": 54329762,
-            "unix": 1544430962,
-            "human": "2018-12-10T08:36:02.000Z"
-          }
+    "data": [
+        {
+            "username": "alessio",
+            "address": "DSyG9hK9CE8eyfddUoEvsga4kNVQLdw2ve",
+            "publicKey": "033a5474f68f92f254691e93c06a2f22efaf7d66b543a53efcece021819653a200",
+            "votes": "2001209586209110",
+            "rank": 1,
+            "blocks": {
+                "produced": 71772,
+                "last": {
+                    "id": "f529ad9fb39ca0306b35348ad63f70a628df4f75ecdf6c804a6c35d31a0718ab",
+                    "height": 4191467,
+                    "timestamp": {
+                        "epoch": 83923800,
+                        "unix": 1574025000,
+                        "human": "2019-11-17T21:10:00.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 15.01
+            },
+            "forged": {
+                "fees": "468407250508",
+                "rewards": "14314800000000",
+                "total": "14783207250508"
+            }
+        },
+        {
+            "username": "alexxio",
+            "address": "DEz1Mr4uJ7NaiufwKEj28atCRPTmsUqh9t",
+            "publicKey": "0215789ac26155b7a338708f595b97c453e08918d0630c896cbd31d83fe2ad1c33",
+            "votes": "156468933080216",
+            "rank": 2,
+            "blocks": {
+                "produced": 31146,
+                "last": {
+                    "id": "48a46a70f662fb69a39d7671c796bfe60accaa9d35b59dc435419abebce5c365",
+                    "height": 4191442,
+                    "timestamp": {
+                        "epoch": 83923584,
+                        "unix": 1574024784,
+                        "human": "2019-11-17T21:06:24.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 1.17
+            },
+            "forged": {
+                "fees": "15979707384",
+                "rewards": "6229200000000",
+                "total": "6245179707384"
+            }
+        },
+        {
+            "username": "darkworld",
+            "address": "DA8qDVJzAjsGrqyQcKKLYank4v6JDasn3a",
+            "publicKey": "036b029d87e525e3396acabbb07bd2e8b86704d0c3681e0b4af0e119cbaa1b03c4",
+            "votes": "88953658241254",
+            "rank": 3,
+            "blocks": {
+                "produced": 16646,
+                "last": {
+                    "id": "2247a8ac86e0d1e235339af0449695546d40157d276e4a4b49caab76f6c3bcbf",
+                    "height": 4191435,
+                    "timestamp": {
+                        "epoch": 83923520,
+                        "unix": 1574024720,
+                        "human": "2019-11-17T21:05:20.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.67
+            },
+            "forged": {
+                "fees": "57048176374",
+                "rewards": "3329200000000",
+                "total": "3386248176374"
+            }
+        },
+        {
+            "username": "arkx",
+            "address": "DNjuJEDQkhrJ7cA9FZ2iVXt5anYiM8Jtc9",
+            "publicKey": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec",
+            "votes": "57457357398436",
+            "rank": 4,
+            "blocks": {
+                "produced": 84686,
+                "last": {
+                    "id": "2825352f7f56776112f28a56ee6161643a28054a7bdfdd44a66048b311516334",
+                    "height": 4191446,
+                    "timestamp": {
+                        "epoch": 83923624,
+                        "unix": 1574024824,
+                        "human": "2019-11-17T21:07:04.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.43
+            },
+            "forged": {
+                "fees": "134172718083",
+                "rewards": "16894400000000",
+                "total": "17028572718083"
+            }
+        },
+        {
+            "username": "itsanametoo",
+            "address": "DBk4cPYpqp7EBcvkstVDpyX7RQJNHxpMg8",
+            "publicKey": "0236d5232cdbd1e7ab87fad10ebe689c4557bc9d0c408b6773be964c837231d5f0",
+            "votes": "40440336676309",
+            "rank": 5,
+            "blocks": {
+                "produced": 85304,
+                "last": {
+                    "id": "0efb70fe137cf848d27664a49b378c19109d1405fc98d60153b7fcaf17a96cd8",
+                    "height": 4191463,
+                    "timestamp": {
+                        "epoch": 83923768,
+                        "unix": 1574024968,
+                        "human": "2019-11-17T21:09:28.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.3
+            },
+            "forged": {
+                "fees": "83365031465",
+                "rewards": "17019600000000",
+                "total": "17102965031465"
+            }
+        },
+        {
+            "username": "cryptology",
+            "address": "D9a4Y1qokJxTDEJcfzqW2io1bykdaoW5mp",
+            "publicKey": "02d0244d939fad9004cc104f71b46b428d903e4f2988a65f39fdaa1b7482894c9e",
+            "votes": "36707851922597",
+            "rank": 6,
+            "blocks": {
+                "produced": 79561,
+                "last": {
+                    "id": "221d137430a583e5db6f6eb90396ca30698479570eddd60654e0329bd8fe4ca8",
+                    "height": 4191393,
+                    "timestamp": {
+                        "epoch": 83923168,
+                        "unix": 1574024368,
+                        "human": "2019-11-17T20:59:28.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.28
+            },
+            "forged": {
+                "fees": "222733846759",
+                "rewards": "15871400000000",
+                "total": "16094133846759"
+            }
+        },
+        {
+            "username": "munich",
+            "address": "DKfEF2sykKCZzom3vFg1dp9D2kisB8hM2Q",
+            "publicKey": "036a520acf24036ff691a4f8ba19514828e9b5aa36ca4ba0452e9012023caccfef",
+            "votes": "36442255829080",
+            "rank": 7,
+            "blocks": {
+                "produced": 64408,
+                "last": {
+                    "id": "c8d54c0e2db79303e4c8824cfd74d8ee9eb37c0caab313eaf4b9b4234805c98c",
+                    "height": 4191424,
+                    "timestamp": {
+                        "epoch": 83923432,
+                        "unix": 1574024632,
+                        "human": "2019-11-17T21:03:52.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.27
+            },
+            "forged": {
+                "fees": "625477357917",
+                "rewards": "12881600000000",
+                "total": "13507077357917"
+            }
+        },
+        {
+            "username": "dmak",
+            "address": "DKZXdbi8Di4JUjoRFRsGVqfAcRUtXd7vuq",
+            "publicKey": "02c2a320d263320fe5bb8495bf334af396993d3a2739d068d6fc9c10db3c90cb63",
+            "votes": "35554675034229",
+            "rank": 8,
+            "blocks": {
+                "produced": 66673,
+                "last": {
+                    "id": "7e4a8a32bca8311c611f67f0620d4fd9ed46e44015b7ea3159c6d6267ef3d4fc",
+                    "height": 4191462,
+                    "timestamp": {
+                        "epoch": 83923752,
+                        "unix": 1574024952,
+                        "human": "2019-11-17T21:09:12.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.27
+            },
+            "forged": {
+                "fees": "22797850231",
+                "rewards": "13334600000000",
+                "total": "13357397850231"
+            }
+        },
+        {
+            "username": "dated",
+            "address": "DAmw29eYtctJSP3KrbHXqfKxuU57rTaUab",
+            "publicKey": "025f8e2dcdc246a13e4a51bec296df4fe7b35651cff60330f97bb68f79fc733e28",
+            "votes": "29919816710038",
+            "rank": 9,
+            "blocks": {
+                "produced": 2529,
+                "last": {
+                    "id": "cc62241665c29f824935427890e4a3c904074019834ea2cc88e822490682b515",
+                    "height": 4191214,
+                    "timestamp": {
+                        "epoch": 83921624,
+                        "unix": 1574022824,
+                        "human": "2019-11-17T20:33:44.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.22
+            },
+            "forged": {
+                "fees": "5213546667",
+                "rewards": "505800000000",
+                "total": "511013546667"
+            }
+        },
+        {
+            "username": "dated_test_del",
+            "address": "DJ8K2tb6DxbZNmQRpmtkTtAr6rM7y1PWkA",
+            "publicKey": "02d2f48a7ebb5b6d484de15b4cab8ab13c1d39b7141301efe048714aa9d82eb1cd",
+            "votes": "482135738808",
+            "rank": 9,
+            "isResigned": true,
+            "blocks": {
+                "produced": 53179,
+                "last": {
+                    "id": "8e9e216bfb643468ea62a60ae664dab11551e2e4368984c5e61723d228321b42",
+                    "height": 4015089,
+                    "timestamp": {
+                        "epoch": 82431776,
+                        "unix": 1572532976,
+                        "human": "2019-10-31T14:42:56.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "146732909752",
+                "rewards": "10635800000000",
+                "total": "10782532909752"
+            }
+        },
+        {
+            "username": "proxima_centauri_b",
+            "address": "DPEGnyKEpHfFL7vtbFNFsTgJSk9WoDRvV8",
+            "publicKey": "03120f521f7025f76341a09112f88a6c072411c549e4bfa8c92946fcf1c57cdf1e",
+            "votes": "27922833031737",
+            "rank": 10,
+            "blocks": {
+                "produced": 37938,
+                "last": {
+                    "id": "c1fe03f835c74586eada77a83183d15813a00007bb04c98c6c645ad1c2862fa8",
+                    "height": 4191447,
+                    "timestamp": {
+                        "epoch": 83923632,
+                        "unix": 1574024832,
+                        "human": "2019-11-17T21:07:12.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.21
+            },
+            "forged": {
+                "fees": "175481465647",
+                "rewards": "7546200000000",
+                "total": "7721681465647"
+            }
+        },
+        {
+            "username": "kaos",
+            "address": "DNA6BqdX2mYw3PtPfGmEz2bGyyCA9hbaED",
+            "publicKey": "024d5eacc5e05e1b05c476b367b7d072857826d9b271e07d3a3327224db8892a21",
+            "votes": "24233591716607",
+            "rank": 11,
+            "blocks": {
+                "produced": 30047,
+                "last": {
+                    "id": "f351a46651b5674ffa8f25f2e31605c63eef0d8d6ba74023c030ab5c2628f801",
+                    "height": 4191448,
+                    "timestamp": {
+                        "epoch": 83923640,
+                        "unix": 1574024840,
+                        "human": "2019-11-17T21:07:20.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.18
+            },
+            "forged": {
+                "fees": "15983114473",
+                "rewards": "6009400000000",
+                "total": "6025383114473"
+            }
+        },
+        {
+            "username": "cam",
+            "address": "DACFobAjNEKsc1CtPSMyp5uA4wp6uC3fgC",
+            "publicKey": "032cfbb18f4e49952c6d6475e8adc6d0cba00b81ef6606cc4927b78c6c50558beb",
+            "votes": "22870782613916",
+            "rank": 12,
+            "blocks": {
+                "produced": 66471,
+                "last": {
+                    "id": "e1cda31096e15a2ca87a3af3cd9df7bfda60125b03ead867823014c7d633103a",
+                    "height": 4191457,
+                    "timestamp": {
+                        "epoch": 83923712,
+                        "unix": 1574024912,
+                        "human": "2019-11-17T21:08:32.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.17
+            },
+            "forged": {
+                "fees": "25521830149",
+                "rewards": "13294200000000",
+                "total": "13319721830149"
+            }
+        },
+        {
+            "username": "rising_sun",
+            "address": "DPop5SZ8daamUmEFNjrEoksPxCa2jfvKYt",
+            "publicKey": "024bee04c6972820e64b1e703331c15c229c9c728d2de36bff3468d57a74b9b1b8",
+            "votes": "22339721919171",
+            "rank": 13,
+            "blocks": {
+                "produced": 27757,
+                "last": {
+                    "id": "beb84ce0a2e5d094246a41f14efca721b63a173d8b3a91ef044277fd5fad7295",
+                    "height": 4191396,
+                    "timestamp": {
+                        "epoch": 83923192,
+                        "unix": 1574024392,
+                        "human": "2019-11-17T20:59:52.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.17
+            },
+            "forged": {
+                "fees": "24279411114",
+                "rewards": "5551400000000",
+                "total": "5575679411114"
+            }
+        },
+        {
+            "username": "napisala",
+            "address": "DCtkVmuxo3BirXR5D5TVu5U73oMmhWveSX",
+            "publicKey": "024d7fd1c25499578ec91f0149668a92f28cefced9131b4a43407b65fbb1924ce4",
+            "votes": "21421100000000",
+            "rank": 14,
+            "blocks": {
+                "produced": 4582,
+                "last": {
+                    "id": "d9b5e6058a76bffc4600c711fe279cc365b776e9c027d0fe70efdd9de81f015e",
+                    "height": 4191465,
+                    "timestamp": {
+                        "epoch": 83923784,
+                        "unix": 1574024984,
+                        "human": "2019-11-17T21:09:44.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.16
+            },
+            "forged": {
+                "fees": "5210000000",
+                "rewards": "916400000000",
+                "total": "921610000000"
+            }
+        },
+        {
+            "username": "darktoons",
+            "address": "D7seWn8JLVwX4nHd9hh2Lf7gvZNiRJ7qLk",
+            "publicKey": "03a02b9d5fdd1307c2ee4652ba54d492d1fd11a7d1bb3f3a44c4a05e79f19de933",
+            "votes": "19967546456405",
+            "rank": 15,
+            "blocks": {
+                "produced": 39208,
+                "last": {
+                    "id": "9a9439eb0672f5baf32f573b95af235b43e25871fab51d6bbf609068868bbdea",
+                    "height": 4191459,
+                    "timestamp": {
+                        "epoch": 83923728,
+                        "unix": 1574024928,
+                        "human": "2019-11-17T21:08:48.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.15
+            },
+            "forged": {
+                "fees": "19264061791",
+                "rewards": "7841600000000",
+                "total": "7860864061791"
+            }
+        },
+        {
+            "username": "kippers",
+            "address": "DAKm3WaUVAdr1nCeXmJjccbE6iC1tvhAJc",
+            "publicKey": "03f6af8c750b9d29d9da3d4ddf5818a1fcdd4558ba0dde731f9c4b17bcbdcd83f2",
+            "votes": "19532677417691",
+            "rank": 16,
+            "blocks": {
+                "produced": 29879,
+                "last": {
+                    "id": "b6772fc34454880428256a35ff3e2a35dd206e77816d23e0544990e99f026bc3",
+                    "height": 4191456,
+                    "timestamp": {
+                        "epoch": 83923704,
+                        "unix": 1574024904,
+                        "human": "2019-11-17T21:08:24.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.15
+            },
+            "forged": {
+                "fees": "6829362514",
+                "rewards": "5975800000000",
+                "total": "5982629362514"
+            }
+        },
+        {
+            "username": "dark_jamie",
+            "address": "DDEmEexYm9uWP5z7DJSbGDCZiZyirdjYFF",
+            "publicKey": "0250b742256f9321bd7d46f3ed9769b215a7c2fb02be951acf43bc51eb57ceadf6",
+            "votes": "18819956010915",
+            "rank": 17,
+            "blocks": {
+                "produced": 60605,
+                "last": {
+                    "id": "f82399375c0b8ae76e493ab2d965225bc3feed2492e11fbb2cc2b26b5b4450f1",
+                    "height": 4191452,
+                    "timestamp": {
+                        "epoch": 83923672,
+                        "unix": 1574024872,
+                        "human": "2019-11-17T21:07:52.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.14
+            },
+            "forged": {
+                "fees": "55893854224",
+                "rewards": "12121000000000",
+                "total": "12176893854224"
+            }
+        },
+        {
+            "username": "techbytes",
+            "address": "D91HhfEfmDTh5ZrdSLZdoYJKnoTHayFdVX",
+            "publicKey": "03d7a20b3d39b7526a5057a9b486f0200bc57543e69e5fa61d9ce0bdd7784162c3",
+            "votes": "18090805028333",
+            "rank": 18,
+            "blocks": {
+                "produced": 81882,
+                "last": {
+                    "id": "acb8a24e6bb272c537878930a728973bb66848dca5d102dbedeea2d768140673",
+                    "height": 4191397,
+                    "timestamp": {
+                        "epoch": 83923200,
+                        "unix": 1574024400,
+                        "human": "2019-11-17T21:00:00.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.14
+            },
+            "forged": {
+                "fees": "1538004354408",
+                "rewards": "16373000000000",
+                "total": "17911004354408"
+            }
+        },
+        {
+            "username": "yo",
+            "address": "DTFWtjocUWuiwqxcPh2Qi6SWU9CJKvPpsD",
+            "publicKey": "02e345079aca0567db96ec0ba3acf859b7cfd15134a855671f9c0fe8b1173767bd",
+            "votes": "17508842498261",
+            "rank": 19,
+            "blocks": {
+                "produced": 59358,
+                "last": {
+                    "id": "7b99499cf708c513d2873830e0225b5d30e14a3577480a78d1ef5d2a90e76742",
+                    "height": 4191252,
+                    "timestamp": {
+                        "epoch": 83921936,
+                        "unix": 1574023136,
+                        "human": "2019-11-17T20:38:56.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.13
+            },
+            "forged": {
+                "fees": "230469238450",
+                "rewards": "11871600000000",
+                "total": "12102069238450"
+            }
+        },
+        {
+            "username": "st3v3n",
+            "address": "DBaHJCadJnLJnRYDx9vi2tjmV23He7QXwQ",
+            "publicKey": "02fee02334ba6bf5847b387b68281541f511c6df405c97866f735408b95b198b71",
+            "votes": "17505753872552",
+            "rank": 20,
+            "blocks": {
+                "produced": 27991,
+                "last": {
+                    "id": "d53af152ecef780c6d253f015374764e6f790de95841bc479d2ec2f7ab704859",
+                    "height": 4190811,
+                    "timestamp": {
+                        "epoch": 83918344,
+                        "unix": 1574019544,
+                        "human": "2019-11-17T19:39:04.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.13
+            },
+            "forged": {
+                "fees": "7618871745",
+                "rewards": "5598200000000",
+                "total": "5605818871745"
+            }
+        },
+        {
+            "username": "geops",
+            "address": "DJpFwW39QnQvQRQJF2MCfAoKvsX4DJ28jq",
+            "publicKey": "027716e659220085e41389efc7cf6a05f7f7c659cf3db9126caabce6cda9156582",
+            "votes": "17431164692677",
+            "rank": 21,
+            "blocks": {
+                "produced": 85402,
+                "last": {
+                    "id": "32703f10178e71a83b05f055947889ee64c40ae83992456349a74058b6ecbf47",
+                    "height": 4191441,
+                    "timestamp": {
+                        "epoch": 83923576,
+                        "unix": 1574024776,
+                        "human": "2019-11-17T21:06:16.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.13
+            },
+            "forged": {
+                "fees": "176442627736",
+                "rewards": "17040400000000",
+                "total": "17216842627736"
+            }
+        },
+        {
+            "username": "boldninja",
+            "address": "DKrACQw7ytoU2gjppy3qKeE2dQhZjfXYqu",
+            "publicKey": "023ee98f453661a1cb765fd60df95b4efb1e110660ffb88ae31c2368a70f1f7359",
+            "votes": "17117880729936",
+            "rank": 22,
+            "blocks": {
+                "produced": 84434,
+                "last": {
+                    "id": "aca5f3a7088f93f4ea034b2916a1dc74daff57dcfe78cb182981f1cc5b082865",
+                    "height": 4191468,
+                    "timestamp": {
+                        "epoch": 83923816,
+                        "unix": 1574025016,
+                        "human": "2019-11-17T21:10:16.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.13
+            },
+            "forged": {
+                "fees": "129812579790",
+                "rewards": "16844600000000",
+                "total": "16974412579790"
+            }
+        },
+        {
+            "username": "dark",
+            "address": "D9UbNsbCrnv2qjymoQjRC5pTLvdaiZ9XFx",
+            "publicKey": "027894c17a95ef401eb448895ba60051bb34f752bb49aef1e69831b5a5f0c6d44b",
+            "votes": "17104301300910",
+            "rank": 23,
+            "blocks": {
+                "produced": 77508,
+                "last": {
+                    "id": "4507b8c2529573c28c4e23bc4e833b4baf2c14099907b3952bc8920806033793",
+                    "height": 4191240,
+                    "timestamp": {
+                        "epoch": 83921840,
+                        "unix": 1574023040,
+                        "human": "2019-11-17T20:37:20.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.13
+            },
+            "forged": {
+                "fees": "102091299909",
+                "rewards": "15501600000000",
+                "total": "15603691299909"
+            }
+        },
+        {
+            "username": "kid",
+            "address": "DUGsDqmHkKFkWWjXAhEvAMAfWwWKYMHwWZ",
+            "publicKey": "02c3a7dfdb81480c69a8eb9941033925b4b4d8adc78c26a5b836c3aef92ff4e426",
+            "votes": "17000850062091",
+            "rank": 24,
+            "blocks": {
+                "produced": 32640,
+                "last": {
+                    "id": "96fd73c35e8a67bb19788a96baaf7863f1baaebbf2c4a99e3f18f5271a8ae8bc",
+                    "height": 4191460,
+                    "timestamp": {
+                        "epoch": 83923736,
+                        "unix": 1574024936,
+                        "human": "2019-11-17T21:08:56.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.13
+            },
+            "forged": {
+                "fees": "22644917801",
+                "rewards": "6528000000000",
+                "total": "6550644917801"
+            }
+        },
+        {
+            "username": "zillion",
+            "address": "DFWTC6qyGgWPFp3NvWtmtvZV1mKF9ASVMk",
+            "publicKey": "0366da7ed85cc1e73a13fafb8007d2609d92239355847343cc7b12d85a65d25502",
+            "votes": "16795886497968",
+            "rank": 25,
+            "blocks": {
+                "produced": 83561,
+                "last": {
+                    "id": "71f68b430da52a0ffb5c08a19012a23b1b369865f0949b7212217b5af7fc007e",
+                    "height": 4191439,
+                    "timestamp": {
+                        "epoch": 83923560,
+                        "unix": 1574024760,
+                        "human": "2019-11-17T21:06:00.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.13
+            },
+            "forged": {
+                "fees": "210120700928",
+                "rewards": "16681400000000",
+                "total": "16891520700928"
+            }
+        },
+        {
+            "username": "darkcrow",
+            "address": "DFSUsSmcVUhVZYQ1nowciWmmtnj1kvZK5Z",
+            "publicKey": "03a8ff0a3cbdcb3bfbdb84dbf83226f338ba1452047ac5b8228a1513f7f1de80de",
+            "votes": "15754779939405",
+            "rank": 26,
+            "blocks": {
+                "produced": 67875,
+                "last": {
+                    "id": "ecc076ed8e2612d312ba1200687b8f352967462a633d4b56b4affa407e97c6df",
+                    "height": 4191423,
+                    "timestamp": {
+                        "epoch": 83923424,
+                        "unix": 1574024624,
+                        "human": "2019-11-17T21:03:44.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.12
+            },
+            "forged": {
+                "fees": "82379939405",
+                "rewards": "13575000000000",
+                "total": "13657379939405"
+            }
+        },
+        {
+            "username": "bill.ding",
+            "address": "DAdK3PrWo6Us7Y3UJPe8dx7j3LZPYTVJZ6",
+            "publicKey": "02aea83a44f1d6b073e5bcffb4176bbe3c51dcd0e96a793a88f3a6135600224adf",
+            "votes": "15688091892156",
+            "rank": 27,
+            "blocks": {
+                "produced": 30083,
+                "last": {
+                    "id": "6020af21cf2a232e4c85e2eebd4ecb730bfde636089607114e0c1bdf2a284de7",
+                    "height": 4191436,
+                    "timestamp": {
+                        "epoch": 83923528,
+                        "unix": 1574024728,
+                        "human": "2019-11-17T21:05:28.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.12
+            },
+            "forged": {
+                "fees": "11032523049",
+                "rewards": "6016600000000",
+                "total": "6027632523049"
+            }
+        },
+        {
+            "username": "generaliroh",
+            "address": "DUTnUVuUFrW3SuWQMbR5ibYkcJ16KhfNKM",
+            "publicKey": "02747353898e59c4f784542f357d5dd938a2872adb53abb94924091fddfdd83dc3",
+            "votes": "15596842106895",
+            "rank": 28,
+            "blocks": {
+                "produced": 36057,
+                "last": {
+                    "id": "0c10e1e83ef66122c9b14c97e774bf167cea3eae9d03480b50921b5180751818",
+                    "height": 4191443,
+                    "timestamp": {
+                        "epoch": 83923592,
+                        "unix": 1574024792,
+                        "human": "2019-11-17T21:06:32.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.12
+            },
+            "forged": {
+                "fees": "24237779807",
+                "rewards": "7211400000000",
+                "total": "7235637779807"
+            }
+        },
+        {
+            "username": "cactus1549",
+            "address": "DRRZfMYCyJtTphoEj1UUaMM5ZTy8XrhT65",
+            "publicKey": "02789894f309f08a4e7833452552aa39e168005d893cafc8ef995edbfdba396d2c",
+            "votes": "15579364122802",
+            "rank": 29,
+            "blocks": {
+                "produced": 30049,
+                "last": {
+                    "id": "40865e55a3fc26c14a6e58d5a2cb12b3ba8230b92754b1eb9a9b09f48f2490ae",
+                    "height": 4191453,
+                    "timestamp": {
+                        "epoch": 83923680,
+                        "unix": 1574024880,
+                        "human": "2019-11-17T21:08:00.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.12
+            },
+            "forged": {
+                "fees": "13067970617",
+                "rewards": "6009800000000",
+                "total": "6022867970617"
+            }
+        },
+        {
+            "username": "theforgery",
+            "address": "DP8CKM9bSb2crRZyaxLxjaK1mdrtuDuGJr",
+            "publicKey": "03380be01971b9f58131974234d466adca4889cb8e9616d64166980370e6bf1157",
+            "votes": "15531890576213",
+            "rank": 30,
+            "blocks": {
+                "produced": 74084,
+                "last": {
+                    "id": "822b396eb32581a9beca90d48b0f87fdf3031ae4c1cb7fa19166da69aac25ec6",
+                    "height": 4191466,
+                    "timestamp": {
+                        "epoch": 83923792,
+                        "unix": 1574024992,
+                        "human": "2019-11-17T21:09:52.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.12
+            },
+            "forged": {
+                "fees": "79768248213",
+                "rewards": "14776200000000",
+                "total": "14855968248213"
+            }
+        },
+        {
+            "username": "darklounge",
+            "address": "DTiLVqM73H2AmKmLbuUdGC2HSiV5DJvSh8",
+            "publicKey": "025341ecfcbb48f9ecac8b87d6e5ace9fb172cee9c521a036f20861f515077bfc3",
+            "votes": "15442599633381",
+            "rank": 31,
+            "blocks": {
+                "produced": 30081,
+                "last": {
+                    "id": "6293658bac2f54215e685e876d619e0803ee02de5cacbc1864e88767403c73ee",
+                    "height": 4191445,
+                    "timestamp": {
+                        "epoch": 83923616,
+                        "unix": 1574024816,
+                        "human": "2019-11-17T21:06:56.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.12
+            },
+            "forged": {
+                "fees": "9016233130",
+                "rewards": "6016200000000",
+                "total": "6025216233130"
+            }
+        },
+        {
+            "username": "mililiter",
+            "address": "DJq6n3nqTETgMUYru2sAjib1xWoAFEyP63",
+            "publicKey": "023e3b421c730f85d2db546ee58f2b8d81dc141c3b12f8b8efadba8ddf085a4db6",
+            "votes": "15382091397301",
+            "rank": 32,
+            "blocks": {
+                "produced": 30063,
+                "last": {
+                    "id": "d5b1a1eddf408ad1db734f065c694c129514ba55faf726f023ebc3b51b91bb51",
+                    "height": 4191464,
+                    "timestamp": {
+                        "epoch": 83923776,
+                        "unix": 1574024976,
+                        "human": "2019-11-17T21:09:36.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.12
+            },
+            "forged": {
+                "fees": "11661732709",
+                "rewards": "6012600000000",
+                "total": "6024261732709"
+            }
+        },
+        {
+            "username": "arkifier.net",
+            "address": "DFXMinDJCTBm7h87v8NWJNc87RupLkgEMJ",
+            "publicKey": "0350753f31118441952caf4b8bc853f10212a570a2e40cf99b81a39335a48c6e06",
+            "votes": "15381273834446",
+            "rank": 33,
+            "blocks": {
+                "produced": 29662,
+                "last": {
+                    "id": "5a67ac2f2c82e4640be8474884913292d31597cea89890b216dfbadd331b453c",
+                    "height": 4191454,
+                    "timestamp": {
+                        "epoch": 83923688,
+                        "unix": 1574024888,
+                        "human": "2019-11-17T21:08:08.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.12
+            },
+            "forged": {
+                "fees": "11176157549",
+                "rewards": "5932400000000",
+                "total": "5943576157549"
+            }
+        },
+        {
+            "username": "darkgalp",
+            "address": "DMzBk3g7ThVQPYmpYDTHBHiqYuTtZ9WdM3",
+            "publicKey": "037997a6553ea8073eb199e9f5ff23b8f0892e79433ef35e13966e0a12849d02e3",
+            "votes": "14991006682022",
+            "rank": 34,
+            "blocks": {
+                "produced": 79162,
+                "last": {
+                    "id": "50ef6ed602cd819aec8e10ce2f1d6f9aa7e5285997698eb13a0b39fb65cc41c9",
+                    "height": 4191437,
+                    "timestamp": {
+                        "epoch": 83923536,
+                        "unix": 1574024736,
+                        "human": "2019-11-17T21:05:36.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.11
+            },
+            "forged": {
+                "fees": "280509660157",
+                "rewards": "15794000000000",
+                "total": "16074509660157"
+            }
+        },
+        {
+            "username": "darkdrakeler",
+            "address": "DDZaj5qRyrsVT9fqhuRq1D2Z5JvbAGdrdN",
+            "publicKey": "0286b465fa963d758118cff91b4afe7c89cb777621bf5eae8876166ae65ed658a0",
+            "votes": "14875057316453",
+            "rank": 35,
+            "blocks": {
+                "produced": 29874,
+                "last": {
+                    "id": "0ea61804cd7efae42297a22a4f2065e9c398a5305193f78e557ca28fbd9adcc6",
+                    "height": 4191426,
+                    "timestamp": {
+                        "epoch": 83923448,
+                        "unix": 1574024648,
+                        "human": "2019-11-17T21:04:08.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.11
+            },
+            "forged": {
+                "fees": "14940433028",
+                "rewards": "5974800000000",
+                "total": "5989740433028"
+            }
+        },
+        {
+            "username": "genesis_14",
+            "address": "DRqv1yELdrVc3z4ViTe9ueWiPm8Dbs5ZV2",
+            "publicKey": "03f3512aa9717b2ca83d371ed3bb2d3ff922969f3ceef92f65c060afa2bc2244fb",
+            "votes": "14425519326589",
+            "rank": 36,
+            "blocks": {
+                "produced": 15449,
+                "last": {
+                    "id": "6bdd56dad7848c876eb312a1583d1da8278de8c4b4f323ccdcc7cbde578c6cfc",
+                    "height": 4191405,
+                    "timestamp": {
+                        "epoch": 83923264,
+                        "unix": 1574024464,
+                        "human": "2019-11-17T21:01:04.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.11
+            },
+            "forged": {
+                "fees": "39558766143",
+                "rewards": "3047200000000",
+                "total": "3086758766143"
+            }
+        },
+        {
+            "username": "stevenhop",
+            "address": "D7v1VynxDVQCGbgsTuWHUBVyXZn28DsmJm",
+            "publicKey": "0304d0c477d634cc85d89c1a4afee8f51168d1747fe8fd79cabc26565e49eb8a7a",
+            "votes": "14395308660675",
+            "rank": 37,
+            "blocks": {
+                "produced": 76205,
+                "last": {
+                    "id": "88e6401ea2dcadc011e4087857042530072c3f86aca37664399dfcd2b8c7e4b5",
+                    "height": 4191455,
+                    "timestamp": {
+                        "epoch": 83923696,
+                        "unix": 1574024896,
+                        "human": "2019-11-17T21:08:16.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.11
+            },
+            "forged": {
+                "fees": "148329088970",
+                "rewards": "15241000000000",
+                "total": "15389329088970"
+            }
+        },
+        {
+            "username": "pittface",
+            "address": "DFyLKkWs12QwDTi8BywQN5ssa5CMK3dr6d",
+            "publicKey": "02cd9f56a176c843724eb58d3ef89dc88915a814bdcf284b02933e0dd203630a83",
+            "votes": "14392033122297",
+            "rank": 38,
+            "blocks": {
+                "produced": 5015,
+                "last": {
+                    "id": "b87083438baa883fd13e46a775c07d7b8f3b9b3ef7cda3c3ed23290c2d187d66",
+                    "height": 4191461,
+                    "timestamp": {
+                        "epoch": 83923744,
+                        "unix": 1574024944,
+                        "human": "2019-11-17T21:09:04.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.11
+            },
+            "forged": {
+                "fees": "4636935260",
+                "rewards": "1003000000000",
+                "total": "1007636935260"
+            }
+        },
+        {
+            "username": "bioly",
+            "address": "DRkVSeW5e2zh9v7R5msdLc26fo8axFALGT",
+            "publicKey": "0284a88da69cc04439633217c6961d2800df0f7dff7f85b9803848ee02d0743f1d",
+            "votes": "14290095847855",
+            "rank": 39,
+            "blocks": {
+                "produced": 69030,
+                "last": {
+                    "id": "3cccd64984b1e60276b3be751ceec1b8862ebf01f1239ec5b97321a4c813fea1",
+                    "height": 4191444,
+                    "timestamp": {
+                        "epoch": 83923608,
+                        "unix": 1574024808,
+                        "human": "2019-11-17T21:06:48.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.11
+            },
+            "forged": {
+                "fees": "98014060754",
+                "rewards": "13806000000000",
+                "total": "13904014060754"
+            }
+        },
+        {
+            "username": "crna_zmija",
+            "address": "DDvZXuzyVFuJ1tcB2vKwPW7i9GVXTbSVK9",
+            "publicKey": "035c14e8c5f0ee049268c3e75f02f05b4246e746dc42f99271ff164b7be20cf5b8",
+            "votes": "14042041826203",
+            "rank": 40,
+            "blocks": {
+                "produced": 29610,
+                "last": {
+                    "id": "abb130800b5f5345d40c9270e78dcb5203d7bb08d7cb7a482ae0ec383e363787",
+                    "height": 4191428,
+                    "timestamp": {
+                        "epoch": 83923464,
+                        "unix": 1574024664,
+                        "human": "2019-11-17T21:04:24.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.11
+            },
+            "forged": {
+                "fees": "15619814138",
+                "rewards": "5922000000000",
+                "total": "5937619814138"
+            }
+        },
+        {
+            "username": "nice",
+            "address": "DDxARZtdJzuHmWRPEaHtNjc4mBoqEAeFW6",
+            "publicKey": "03fbfbf9f29f86a8fc036997945fccd708e466035cb506ea804bbf5fda2eaac3a8",
+            "votes": "14002351392743",
+            "rank": 41,
+            "blocks": {
+                "produced": 29570,
+                "last": {
+                    "id": "7e7e33b33fb92a41b092ca8d5aaab2fb6e591d530cfd0711318f4eba6d462fae",
+                    "height": 4191399,
+                    "timestamp": {
+                        "epoch": 83923216,
+                        "unix": 1574024416,
+                        "human": "2019-11-17T21:00:16.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.1
+            },
+            "forged": {
+                "fees": "5873858742",
+                "rewards": "5914000000000",
+                "total": "5919873858742"
+            }
+        },
+        {
+            "username": "thamar",
+            "address": "DAGSCPYZKPMV8V5eRjZW8KfCyRqgmw74FJ",
+            "publicKey": "031a6d8dab63668e901661c592dfe4bcc75793959d6ee6300408482840487d1faf",
+            "votes": "13704142863005",
+            "rank": 42,
+            "blocks": {
+                "produced": 29858,
+                "last": {
+                    "id": "4dfb44f14400e43c9f851ba4f737b2d9492a019ea953a87880ca228395032e24",
+                    "height": 4191449,
+                    "timestamp": {
+                        "epoch": 83923648,
+                        "unix": 1574024848,
+                        "human": "2019-11-17T21:07:28.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.1
+            },
+            "forged": {
+                "fees": "7288200639",
+                "rewards": "5971600000000",
+                "total": "5978888200639"
+            }
+        },
+        {
+            "username": "arktoshi",
+            "address": "DTiBkzrfMjgS5PKKeZcorBvQ4PvV6me4F5",
+            "publicKey": "029918d8fe6a78cc01bbab31f636494568dd954431f75f4ea6ff1da040b7063a70",
+            "votes": "13452822719339",
+            "rank": 43,
+            "blocks": {
+                "produced": 39602,
+                "last": {
+                    "id": "8570f3455df1e837776f1290c22fb6feabcafd8a31e7374cd2dd579532d17f1f",
+                    "height": 4191400,
+                    "timestamp": {
+                        "epoch": 83923224,
+                        "unix": 1574024424,
+                        "human": "2019-11-17T21:00:24.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.1
+            },
+            "forged": {
+                "fees": "10602573170",
+                "rewards": "7920400000000",
+                "total": "7931002573170"
+            }
+        },
+        {
+            "username": "echo",
+            "address": "DAav6r823SdE5HwZpxg9gzqzeDkGvz6eSo",
+            "publicKey": "03ce92e54f9dbb5e4a050edddf5862dee29f419c60ceaad052d50aad6fcced5652",
+            "votes": "13003055999702",
+            "rank": 44,
+            "blocks": {
+                "produced": 3939,
+                "last": {
+                    "id": "539eef2541b9b6611d1743099ddbafaf3f7625b2513d28b758a0af6fad2afcb7",
+                    "height": 4191450,
+                    "timestamp": {
+                        "epoch": 83923656,
+                        "unix": 1574024856,
+                        "human": "2019-11-17T21:07:36.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.1
+            },
+            "forged": {
+                "fees": "3391933333",
+                "rewards": "787800000000",
+                "total": "791191933333"
+            }
+        },
+        {
+            "username": "espresso",
+            "address": "D6xnWYxzQpdJt8tacrjNWqoJNHXKbaCMMc",
+            "publicKey": "03eda1b9127d9a12a7c6903ca896534937ec492afa12ffa57a9aa6f3c77b618fdb",
+            "votes": "12941432884191",
+            "rank": 45,
+            "blocks": {
+                "produced": 28019,
+                "last": {
+                    "id": "5699706bb7f047f05dfd89cd5fd0cda0898cce9d06e1837560a8f8c0b7f68020",
+                    "height": 4191433,
+                    "timestamp": {
+                        "epoch": 83923504,
+                        "unix": 1574024704,
+                        "human": "2019-11-17T21:05:04.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.1
+            },
+            "forged": {
+                "fees": "6271535233",
+                "rewards": "5603800000000",
+                "total": "5610071535233"
+            }
+        },
+        {
+            "username": "arkforit.com",
+            "address": "DEg1YHdp9pdJQVgD3QL2G2sbT1EwB3Dijf",
+            "publicKey": "033d21d81e7b169f5764bfdd83822bb06178403af5322c6ccb55755a446ba2dcc9",
+            "votes": "12127033637134",
+            "rank": 46,
+            "blocks": {
+                "produced": 26063,
+                "last": {
+                    "id": "bd7430e09bcdf187ce7f636747524d1be529b35e0526253f390a4bc85a07fbb1",
+                    "height": 4191418,
+                    "timestamp": {
+                        "epoch": 83923384,
+                        "unix": 1574024584,
+                        "human": "2019-11-17T21:03:04.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.09
+            },
+            "forged": {
+                "fees": "28489674334",
+                "rewards": "5212600000000",
+                "total": "5241089674334"
+            }
+        },
+        {
+            "username": "splitice",
+            "address": "DGSyHbb35qEjyJDcAVt6bzXpnBW2GkJpoj",
+            "publicKey": "02138ee0745083fd508c30c750e5e52d0e38a7f4efba8d86d4dd6f8ff12365b5d0",
+            "votes": "11899543628480",
+            "rank": 47,
+            "blocks": {
+                "produced": 30256,
+                "last": {
+                    "id": "334bed405ad2b681f1bc53e930cdf719ba90dc7a6df3c333e7d19e57c0b43c76",
+                    "height": 4191458,
+                    "timestamp": {
+                        "epoch": 83923720,
+                        "unix": 1574024920,
+                        "human": "2019-11-17T21:08:40.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.09
+            },
+            "forged": {
+                "fees": "12542130583",
+                "rewards": "6051200000000",
+                "total": "6063742130583"
+            }
+        },
+        {
+            "username": "lemii",
+            "address": "DAWNRvnMNPWodLjQwhphJwUpTW2KJXBzVR",
+            "publicKey": "03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232",
+            "votes": "11762205946267",
+            "rank": 48,
+            "blocks": {
+                "produced": 30237,
+                "last": {
+                    "id": "62ba5c6ab6110992e726767818420e089a4ed67474c9b6c0d963eafe35e09e6c",
+                    "height": 4191440,
+                    "timestamp": {
+                        "epoch": 83923568,
+                        "unix": 1574024768,
+                        "human": "2019-11-17T21:06:08.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.09
+            },
+            "forged": {
+                "fees": "643639089090",
+                "rewards": "6047400000000",
+                "total": "6691039089090"
+            }
+        },
+        {
+            "username": "notsupercool",
+            "address": "D8PNwcn2GjksxYmKnyeEh7VuhdDt7A2b5M",
+            "publicKey": "03ca6e1face6f6c934e0ade6f8a72aac7eaba3ac20bf78dbf04686715eb415021b",
+            "votes": "11489553876386",
+            "rank": 49,
+            "blocks": {
+                "produced": 17308,
+                "last": {
+                    "id": "10569934cac42f6fc62b7d56c34528b499ab4049673b4eefddd68559706cef1d",
+                    "height": 4191451,
+                    "timestamp": {
+                        "epoch": 83923664,
+                        "unix": 1574024864,
+                        "human": "2019-11-17T21:07:44.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.09
+            },
+            "forged": {
+                "fees": "7334500085",
+                "rewards": "3461600000000",
+                "total": "3468934500085"
+            }
+        },
+        {
+            "username": "mika",
+            "address": "D63YTYKGxPUai64qFjebLuS1zGMmEb7AML",
+            "publicKey": "030d5618b016fab7c71408759a6d9755888ef25feb2c5748214de15aa3a9ca7b64",
+            "votes": "11384327137628",
+            "rank": 50,
+            "blocks": {
+                "produced": 29778,
+                "last": {
+                    "id": "be68900aaa943a3380ed466d9774456ccf112142950c710666c8042bc385b031",
+                    "height": 4191438,
+                    "timestamp": {
+                        "epoch": 83923544,
+                        "unix": 1574024744,
+                        "human": "2019-11-17T21:05:44.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.09
+            },
+            "forged": {
+                "fees": "7315859160",
+                "rewards": "5955600000000",
+                "total": "5962915859160"
+            }
+        },
+        {
+            "username": "genesis_49",
+            "address": "DNPBUxxGQUKDPX3XKUXa3pc4GK8yz7L97T",
+            "publicKey": "027710de44279aaa41f8e75d5ae61a085020c414db2dbea02bbec0e0b1f27bcd22",
+            "votes": "11058178141284",
+            "rank": 51,
+            "blocks": {
+                "produced": 59116,
+                "last": {
+                    "id": "20af858c317204327e3686455665eefcbf9e2a16031b7cf78291ebc4d8458df8",
+                    "height": 4191403,
+                    "timestamp": {
+                        "epoch": 83923248,
+                        "unix": 1574024448,
+                        "human": "2019-11-17T21:00:48.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.08
+            },
+            "forged": {
+                "fees": "107310352594",
+                "rewards": "11780000000000",
+                "total": "11887310352594"
+            }
+        },
+        {
+            "username": "genesis_50",
+            "address": "DRW3wNMA4ijPfm7KA3XtupDNb5Hb8kL4AE",
+            "publicKey": "02677f73453da6073f5cf76db8f65fabc1a3b7aadc7b06027e0df709f14e097790",
+            "votes": "10442779478262",
+            "rank": 52,
+            "blocks": {
+                "produced": 12106,
+                "last": {
+                    "id": "a3f974348643be261eeb66c8676af597cd916c652e79ef15f5e18e3c8c3c00c3",
+                    "height": 4048832,
+                    "timestamp": {
+                        "epoch": 82709384,
+                        "unix": 1572810584,
+                        "human": "2019-11-03T19:49:44.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.08
+            },
+            "forged": {
+                "fees": "59528973940",
+                "rewards": "2378600000000",
+                "total": "2438128973940"
+            }
+        },
+        {
+            "username": "blackwatch_devnet",
+            "address": "DFS3oVGiqEQVpfomkvEtJLazDEoT2aeqZ5",
+            "publicKey": "03d9ef37c01142b11752382bf8b9b6692e1f49e954ae5aeed0eb05064df6fcd437",
+            "votes": "10039133975952",
+            "rank": 53,
+            "blocks": {
+                "produced": 7426,
+                "last": {
+                    "id": "af024d539f403ae54eb4cdcf782dfd35809a72510179e696b7ef3c1dd746f17b",
+                    "height": 3942425,
+                    "timestamp": {
+                        "epoch": 81060928,
+                        "unix": 1571162128,
+                        "human": "2019-10-15T17:55:28.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.08
+            },
+            "forged": {
+                "fees": "796010000",
+                "rewards": "1485200000000",
+                "total": "1485996010000"
+            }
+        },
+        {
+            "username": "dafty_",
+            "address": "D7PEtLaFefBf2UKycetFXPMJ4Q7NgYDA52",
+            "publicKey": "0248f0520e335ef3e5c5b0a81aaabe091c17024a3877d03774e9277ac958cbe857",
+            "votes": "8330211590850",
+            "rank": 54,
+            "blocks": {
+                "produced": 12657,
+                "last": {
+                    "id": "179ac35149f56259cfe4af1703ea8d6aed97f7e15b214a2467ca00bac5999ba8",
+                    "height": 2422942,
+                    "timestamp": {
+                        "epoch": 67930792,
+                        "unix": 1558031992,
+                        "human": "2019-05-16T18:39:52.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.06
+            },
+            "forged": {
+                "fees": "411590850",
+                "rewards": "2531400000000",
+                "total": "2531811590850"
+            }
+        },
+        {
+            "username": "arklabs",
+            "address": "D9z1ZUcCUHHeiFLEtYhwk6z8kmbCCHTRFd",
+            "publicKey": "0394685435d7331d178effe91d6b101ce7c4a6e03d2a96cfd5be1fffb0ae156e58",
+            "votes": "7717097039608",
+            "rank": 55,
+            "blocks": {
+                "produced": 65055,
+                "last": {
+                    "id": "ae17a396dfef51fa71b8a8454938a4ef4620928b637e94e1c20d92cdb857bbec",
+                    "height": 3510932,
+                    "timestamp": {
+                        "epoch": 77570296,
+                        "unix": 1567671496,
+                        "human": "2019-09-05T08:18:16.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.06
+            },
+            "forged": {
+                "fees": "70468869659",
+                "rewards": "12980600000000",
+                "total": "13051068869659"
+            }
+        },
+        {
+            "username": "forreal",
+            "address": "DENGkAwEfRvhhHKZYdEfQ1P3MEoRvPkHYj",
+            "publicKey": "027eefab986e809303b50d37dcddd818f1ff10b6479a87b16a9b5baf943bbdd348",
+            "votes": "5727187230503",
+            "rank": 56,
+            "blocks": {
+                "produced": 24744,
+                "last": {
+                    "id": "e53aeef7ef65954fa2900cec4465cb9f9926b4cb6c747acff0af6e5a206fa322",
+                    "height": 3942449,
+                    "timestamp": {
+                        "epoch": 81061144,
+                        "unix": 1571162344,
+                        "human": "2019-10-15T17:59:04.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.04
+            },
+            "forged": {
+                "fees": "3926460874",
+                "rewards": "4948800000000",
+                "total": "4952726460874"
+            }
+        },
+        {
+            "username": "alexius",
+            "address": "DD16cbib1gHqrz76KuukQH3yJHSZJpWNCd",
+            "publicKey": "02a67f0c57edadd2a18f5bcc834211f41d42c9c9f60e5c0fc75668089d9ec78f8a",
+            "votes": "5600475997999",
+            "rank": 57,
+            "blocks": {
+                "produced": 5748,
+                "last": {
+                    "id": "3c2ac794f714181ef413563f6f74688ab92938ee9725a569ef4c197a980081b6",
+                    "height": 3360568,
+                    "timestamp": {
+                        "epoch": 76353280,
+                        "unix": 1566454480,
+                        "human": "2019-08-22T06:14:40.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.04
+            },
+            "forged": {
+                "fees": "141434888",
+                "rewards": "1149600000000",
+                "total": "1149741434888"
+            }
+        },
+        {
+            "username": "dafty",
+            "address": "D93zLmor3vawpvwPJnKxdehbCh6R3BoULh",
+            "publicKey": "03459978b705ff16949113189ba4306e7edcdeda015f1d7fe3f8864659f703014c",
+            "votes": "4525328937413",
+            "rank": 58,
+            "blocks": {
+                "produced": 15147,
+                "last": {
+                    "id": "13612404833899558133",
+                    "height": 1577900,
+                    "timestamp": {
+                        "epoch": 60575304,
+                        "unix": 1550676504,
+                        "human": "2019-02-20T15:28:24.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.03
+            },
+            "forged": {
+                "fees": "2560647277",
+                "rewards": "3029400000000",
+                "total": "3031960647277"
+            }
+        },
+        {
+            "username": "benchdark",
+            "address": "D6MaHq9mxcGBTXsDeDCRzpT77PLtTwVpVv",
+            "publicKey": "0296893488d335ff818391da7c450cfeb7821a4eb535b15b95808ea733915fbfb1",
+            "votes": "4227057937186",
+            "rank": 59,
+            "blocks": {
+                "produced": 23479,
+                "last": {
+                    "id": "c20305973647d71d6deb9a2216440bc2e6a6aad8fcdbadb38d4980b7aaa2210f",
+                    "height": 2702663,
+                    "timestamp": {
+                        "epoch": 70925832,
+                        "unix": 1561027032,
+                        "human": "2019-06-20T10:37:12.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.03
+            },
+            "forged": {
+                "fees": "1995506110",
+                "rewards": "4695800000000",
+                "total": "4697795506110"
+            }
+        },
+        {
+            "username": "darkfuturesmartnode",
+            "address": "DMdq8j6uzxErZxESGu7JfkaCFt3qx11fqj",
+            "publicKey": "0389301207e25addec690be9efa3b2ca2d111b86386da7ff5fcc1c0344954b2acc",
+            "votes": "3865973167079",
+            "rank": 60,
+            "blocks": {
+                "produced": 12145,
+                "last": {
+                    "id": "17385277244399382944",
+                    "height": 1577882,
+                    "timestamp": {
+                        "epoch": 60574786,
+                        "unix": 1550675986,
+                        "human": "2019-02-20T15:19:46.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.03
+            },
+            "forged": {
+                "fees": "1235453883",
+                "rewards": "2429000000000",
+                "total": "2430235453883"
+            }
+        },
+        {
+            "username": "arkmoon",
+            "address": "D6BGCqYuYdJLVCy7pCAKh5bbc6YEWAovmc",
+            "publicKey": "029e4e8188fd4f0dd9a73407fe995cb9bab86405da1246b3cef46065e301f1f9eb",
+            "votes": "3846734981568",
+            "rank": 61,
+            "blocks": {
+                "produced": 23491,
+                "last": {
+                    "id": "4864814746122453925",
+                    "height": 1572051,
+                    "timestamp": {
+                        "epoch": 60473794,
+                        "unix": 1550574994,
+                        "human": "2019-02-19T11:16:34.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.03
+            },
+            "forged": {
+                "fees": "48478959090",
+                "rewards": "4660600000000",
+                "total": "4709078959090"
+            }
+        },
+        {
+            "username": "coolersoup",
+            "address": "DDJwdV38EHF5oL9qKuwLuy2nurG1jEAA2d",
+            "publicKey": "03ce906a0a3ef5fffd56766424303eea915cebb0267102fc7fb4c152bfe48b1380",
+            "votes": "3583098316380",
+            "rank": 62,
+            "blocks": {
+                "produced": 8176,
+                "last": {
+                    "id": "8790338005115105079",
+                    "height": 1356653,
+                    "timestamp": {
+                        "epoch": 58689514,
+                        "unix": 1548790714,
+                        "human": "2019-01-29T19:38:34.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.03
+            },
+            "forged": {
+                "fees": "35459535078",
+                "rewards": "1635200000000",
+                "total": "1670659535078"
+            }
+        },
+        {
+            "username": "genesis_35",
+            "address": "DLqV4kuQMq1j9nEFoWKEF9jPQQdTh7CNWx",
+            "publicKey": "034ecce71a7690b1c314f71789fb32373afb79fef870fa6ea2843be4c54812b0e5",
+            "votes": "3466209355315",
+            "rank": 63,
+            "blocks": {
+                "produced": 38126,
+                "last": {
+                    "id": "f0b0dee07886b426b5b4cdf07f567b9371d75ef004455acaf102f53ca75d8715",
+                    "height": 2690635,
+                    "timestamp": {
+                        "epoch": 70826456,
+                        "unix": 1560927656,
+                        "human": "2019-06-19T07:00:56.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.03
+            },
+            "forged": {
+                "fees": "4745974658",
+                "rewards": "7581800000000",
+                "total": "7586545974658"
+            }
+        },
+        {
+            "username": "darkland",
+            "address": "DHWBaG44rstymZjWFU4b7BiuTZjiKxfJpL",
+            "publicKey": "0239cb9bccb78ee5f66d6320c453ba65914a2da733856f029d818628ec0652075d",
+            "votes": "2537130000000",
+            "rank": 64,
+            "blocks": {
+                "produced": 41096,
+                "last": {
+                    "id": "8afba82584131add45b406030d7bde76b7476e0d82f6e810e3ef9e6ce72e30c0",
+                    "height": 2695827,
+                    "timestamp": {
+                        "epoch": 70870952,
+                        "unix": 1560972152,
+                        "human": "2019-06-19T19:22:32.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.02
+            },
+            "forged": {
+                "fees": "53621804641",
+                "rewards": "8219200000000",
+                "total": "8272821804641"
+            }
+        },
+        {
+            "username": "shamrock",
+            "address": "DFDwyNtm1zU9xpqbSykaipUzQKLJkEHmAX",
+            "publicKey": "03d712d913bd398f13e85b4b13d4873902e0a9caf479b7a1702dd304b5c6f1ead0",
+            "votes": "2458534734458",
+            "rank": 65,
+            "blocks": {
+                "produced": 12250,
+                "last": {
+                    "id": "8b0e42c675c762ac91923001305a31631403abc9a18502b2ce011855089dcdad",
+                    "height": 4004950,
+                    "timestamp": {
+                        "epoch": 81622304,
+                        "unix": 1571723504,
+                        "human": "2019-10-22T05:51:44.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.02
+            },
+            "forged": {
+                "fees": "873612011",
+                "rewards": "2450000000000",
+                "total": "2450873612011"
+            }
+        },
+        {
+            "username": "arkworld",
+            "address": "D9MGF2M1dLp4v2pXyE1mCVmjP95rkFnufy",
+            "publicKey": "024cde89c4fb4556936f50a2d761e39eb36b7d078539c957648a428a4b3f84625a",
+            "votes": "1596020000000",
+            "rank": 66,
+            "blocks": {
+                "produced": 2975,
+                "last": {
+                    "id": "12309996980322788798",
+                    "height": 544374,
+                    "timestamp": {
+                        "epoch": 49853400,
+                        "unix": 1539954600,
+                        "human": "2018-10-19T13:10:00.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.01
+            },
+            "forged": {
+                "fees": "1640000000",
+                "rewards": "595000000000",
+                "total": "596640000000"
+            }
+        },
+        {
+            "username": "darkzen",
+            "address": "DGuuCwJYoEheBAC4PZTBSBasaDHxg2e6j7",
+            "publicKey": "037926f9f503d71be4780821ee91b7b295b73c40d6b135ebc1947fcbc852ec5415",
+            "votes": "2850363032309",
+            "rank": 66,
+            "isResigned": true,
+            "blocks": {
+                "produced": 4754,
+                "last": {
+                    "id": "4170421901966072907",
+                    "height": 1586533,
+                    "timestamp": {
+                        "epoch": 60760882,
+                        "unix": 1550862082,
+                        "human": "2019-02-22T19:01:22.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.02
+            },
+            "forged": {
+                "fees": "120399015264",
+                "rewards": "950800000000",
+                "total": "1071199015264"
+            }
+        },
+        {
+            "username": "starshot",
+            "address": "DKcFDN6mhLAheRAfmN6LT1e4AeyF1Fd9bY",
+            "publicKey": "02a1b28b59216ea270349c6be5881fba356cb324f320cb59b74a13f28588cce253",
+            "votes": "1517332023485",
+            "rank": 67,
+            "blocks": {
+                "produced": 35260,
+                "last": {
+                    "id": "20e67c00c613fcbfe22a7c7b8a5df29d13b6cb8b27573c1b724ab26b5d250e64",
+                    "height": 2712138,
+                    "timestamp": {
+                        "epoch": 71002320,
+                        "unix": 1561103520,
+                        "human": "2019-06-21T07:52:00.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.01
+            },
+            "forged": {
+                "fees": "152847481425",
+                "rewards": "7011200000000",
+                "total": "7164047481425"
+            }
+        },
+        {
+            "username": "jeremig",
+            "address": "D7h9uZHJAA37j9UnSs9zbhkEv6QtKGrSGL",
+            "publicKey": "02c6a267650795a4f4bd95e32a65aa5aa8e384d218e8be7b1f9c3a5f21661e85db",
+            "votes": "1499360773791",
+            "rank": 68,
+            "blocks": {
+                "produced": 2650,
+                "last": {
+                    "id": "8011350216817587006",
+                    "height": 773862,
+                    "timestamp": {
+                        "epoch": 52402640,
+                        "unix": 1542503840,
+                        "human": "2018-11-18T01:17:20.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.01
+            },
+            "forged": {
+                "fees": "3000000000",
+                "rewards": "530000000000",
+                "total": "533000000000"
+            }
+        },
+        {
+            "username": "darkegeron",
+            "address": "DTaacNrDbUiXfpxirPm7svnrR4uasS3xk5",
+            "publicKey": "030c0d642b9b5337d8f9f257e9e460bdd9d15e0581391896336dd8acb24b5d47b4",
+            "votes": "1485600000000",
+            "rank": 69,
+            "blocks": {
+                "produced": 6945,
+                "last": {
+                    "id": "3455951884765603799",
+                    "height": 536862,
+                    "timestamp": {
+                        "epoch": 49785986,
+                        "unix": 1539887186,
+                        "human": "2018-10-18T18:26:26.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.01
+            },
+            "forged": {
+                "fees": "9690000000",
+                "rewards": "1377400000000",
+                "total": "1387090000000"
+            }
+        },
+        {
+            "username": "arkship",
+            "address": "DPWsg7a3LXUaGYb6mbn6pUaidYNqunPdrw",
+            "publicKey": "036f1cb6a811173e8d193e41a4ceb77253c3e4f2832e7a4ba3cf3f8f9e606f5f05",
+            "votes": "1449090000000",
+            "rank": 70,
+            "blocks": {
+                "produced": 5751,
+                "last": {
+                    "id": "15309375930026312687",
+                    "height": 292698,
+                    "timestamp": {
+                        "epoch": 47495200,
+                        "unix": 1537596400,
+                        "human": "2018-09-22T06:06:40.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0.01
+            },
+            "forged": {
+                "fees": "62410000000",
+                "rewards": "1150200000000",
+                "total": "1212610000000"
+            }
+        },
+        {
+            "username": "walderfrey",
+            "address": "DKZoWrdBYSdnZdi2Ts5aLeeFvzPhaLqKSK",
+            "publicKey": "028dc808bd35583b28c6b12e09e6ae1e1dddd36a0bff4e5467d95d920b3caa4867",
+            "votes": "278611000000",
+            "rank": 71,
+            "blocks": {
+                "produced": 7966,
+                "last": {
+                    "id": "4650074991911079214",
+                    "height": 784344,
+                    "timestamp": {
+                        "epoch": 52544282,
+                        "unix": 1542645482,
+                        "human": "2018-11-19T16:38:02.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "1135790000000",
+                "rewards": "1593200000000",
+                "total": "2728990000000"
+            }
+        },
+        {
+            "username": "genesis_15",
+            "address": "D8vwEEvKgMPVvvK2Zwzyb5uHzRadurCcKq",
+            "publicKey": "02e311d97f92dc879860ec0d63b344239f17149ed1700b279b5ef52d2baaa0226f",
+            "votes": "262136565102",
+            "rank": 72,
+            "blocks": {
+                "produced": 1313,
+                "last": {
+                    "id": "8b37857a3f53d39a27306d2ab488aa2639bd6cb82c1bfdf2f2c1a6088c7a9bc0",
+                    "height": 4007051,
+                    "timestamp": {
+                        "epoch": 82361936,
+                        "unix": 1572463136,
+                        "human": "2019-10-30T19:18:56.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "736565102",
+                "rewards": "259800000000",
+                "total": "260536565102"
+            }
+        },
+        {
+            "username": "delegate.02664fe58c",
+            "address": "DUB9mDZQcAspjURQvsVZQdRfZ1rYU76PxV",
+            "publicKey": "02664fe58caa4a960ed74169a5968a5f69587ba50b75087d268f5788af3a5bf56d",
+            "votes": "235409999959",
+            "rank": 73,
+            "blocks": {
+                "produced": 0
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "0",
+                "rewards": "0",
+                "total": "0"
+            }
+        },
+        {
+            "username": "bongoninja",
+            "address": "D9YiyRYMBS2ofzqkufjrkB9nHofWgJLM7f",
+            "publicKey": "0306950dae7158103814e3828b1ab97a87dbb3680db1b4c6998b8208865b2f9db7",
+            "votes": "200575000000",
+            "rank": 74,
+            "blocks": {
+                "produced": 43870,
+                "last": {
+                    "id": "ce7445bb9f7e5ff41b66827f3d873186c2773fb9786c2e751af06ed886d88c58",
+                    "height": 2700578,
+                    "timestamp": {
+                        "epoch": 70908992,
+                        "unix": 1561010192,
+                        "human": "2019-06-20T05:56:32.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "115006364745",
+                "rewards": "8774000000000",
+                "total": "8889006364745"
+            }
+        },
+        {
+            "username": "splahgetti",
+            "address": "D9gBJErJukmEM1w56gbGhKP7waFMWtBoGv",
+            "publicKey": "039361bbb15ec9a235c33cb96cc47834ede505468306cfb1654a8b3519e17e2613",
+            "votes": "140260005348",
+            "rank": 75,
+            "blocks": {
+                "produced": 0
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "0",
+                "rewards": "0",
+                "total": "0"
+            }
+        },
+        {
+            "username": "middleearth",
+            "address": "DFYE5CS9ZFQNL37onDHkR2KiHPtdvhSo3Q",
+            "publicKey": "034dc8aad4353953b95cda8c6db529d73e58ee1fc0501b3adf4c9d26129b1df24e",
+            "votes": "121279888841",
+            "rank": 76,
+            "blocks": {
+                "produced": 9777,
+                "last": {
+                    "id": "b8736077fdba77606a9378b3b717b44e7dd7da1a3bbd4ae05c30b5a44f86e186",
+                    "height": 3215984,
+                    "timestamp": {
+                        "epoch": 75175480,
+                        "unix": 1565276680,
+                        "human": "2019-08-08T15:04:40.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "1658635334",
+                "rewards": "1955400000000",
+                "total": "1957058635334"
+            }
+        },
+        {
+            "username": "joanofark",
+            "address": "DQjc6E6WAH7PNtPUNALjZmkyk5yU34RTkU",
+            "publicKey": "033cce8deb934704f07c994f2f5cfe54d59e061aad8e2f7fc982e4fe978d312a43",
+            "votes": "98290352534",
+            "rank": 77,
+            "blocks": {
+                "produced": 0
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "0",
+                "rewards": "0",
+                "total": "0"
+            }
+        },
+        {
+            "username": "deadlock",
+            "address": "DRgh1n8oyGHDE6xXVq4yhh3sSajAr7uHJY",
+            "publicKey": "03153c994e5306b2fbba9bb533f22871e12e4c1d1d3960d1eeef385ab143b258b4",
+            "votes": "71114699590",
+            "rank": 78,
+            "blocks": {
+                "produced": 78798,
+                "last": {
+                    "id": "f911023d46065fbe6ad81b028a0315f98dd77929c35fd5884720564a8a6cd4c2",
+                    "height": 4004955,
+                    "timestamp": {
+                        "epoch": 81622344,
+                        "unix": 1571723544,
+                        "human": "2019-10-22T05:52:24.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "106192387246",
+                "rewards": "15748400000000",
+                "total": "15854592387246"
+            }
+        },
+        {
+            "username": "arkvader",
+            "address": "D5ef5t4QAbUvHadstRPUPKRCuMfb4tyq6M",
+            "publicKey": "02215cbe21074d065f3d090f53284e8104c2dc6282ba50bf155adcdfdbcfe325d5",
+            "votes": "41890000000",
+            "rank": 79,
+            "blocks": {
+                "produced": 13894,
+                "last": {
+                    "id": "13300010715047914662",
+                    "height": 709790,
+                    "timestamp": {
+                        "epoch": 51776394,
+                        "unix": 1541877594,
+                        "human": "2018-11-10T19:19:54.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "51130000000",
+                "rewards": "2744600000000",
+                "total": "2795730000000"
+            }
+        },
+        {
+            "username": "alfonsoh",
+            "address": "DPfa7VmSKyZVBE4ELExLYviTsi4DPKhL7T",
+            "publicKey": "0325f2559d1d105b8f907f6134329f6de0915c8bcfba04667ffbb8c46360ca6b73",
+            "votes": "19398744881",
+            "rank": 80,
+            "blocks": {
+                "produced": 0
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "0",
+                "rewards": "0",
+                "total": "0"
+            }
+        },
+        {
+            "username": "pierox",
+            "address": "DLesojAmpcA4jQbJDz5JKQ73k1RervJwfi",
+            "publicKey": "0390594f1c13dcf1a2c207cdce0dbc878a0f3e325926c1e76c68b197db04e62fc8",
+            "votes": "10973200000",
+            "rank": 81,
+            "blocks": {
+                "produced": 0
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "0",
+                "rewards": "0",
+                "total": "0"
+            }
+        },
+        {
+            "username": "jarunik",
+            "address": "DHsUfWJCvQK87Afd1kUStDr2gmpYdGPtsH",
+            "publicKey": "0235d06f70a883b429446d7c461e07b6615feb0c34e152d7caf9f38b13ad4d6009",
+            "votes": "9380000000",
+            "rank": 82,
+            "blocks": {
+                "produced": 46020,
+                "last": {
+                    "id": "a3d861e0529593c41dc8a3941bc05f0de06e7513d99a8fb2cba4d8a6fa720a8b",
+                    "height": 2365143,
+                    "timestamp": {
+                        "epoch": 67362264,
+                        "unix": 1557463464,
+                        "human": "2019-05-10T04:44:24.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "158319810819",
+                "rewards": "9162600000000",
+                "total": "9320919810819"
+            }
+        },
+        {
+            "username": "pieros",
+            "address": "DADxmK6VvgFRJ1USzc9RVFUbtjBb1u7fKk",
+            "publicKey": "03714deca7101e8b7541a214625740ae45ef8669e78438d23b29433f747854be74",
+            "votes": "7278193993",
+            "rank": 82,
+            "isResigned": true,
+            "blocks": {
+                "produced": 0
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "0",
+                "rewards": "0",
+                "total": "0"
+            }
+        },
+        {
+            "username": "riq",
+            "address": "DBqL2htJo1BgnZcdodjSVfQEjLcak4kqif",
+            "publicKey": "02e1deb67e0ba0522a4f33afa3c4e515195f2535bf4a34d41b49233e47f6953352",
+            "votes": "8970000000",
+            "rank": 83,
+            "blocks": {
+                "produced": 0
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "0",
+                "rewards": "0",
+                "total": "0"
+            }
+        },
+        {
+            "username": "testdelegate",
+            "address": "DABvMxuZvgd5JhseLATv1hAFfbioyCEBs5",
+            "publicKey": "022c5fcb918c1ac1a09a8023bf8114712bce7da26fe0d590e8251b79fde546fbfb",
+            "votes": "5398600000",
+            "rank": 83,
+            "isResigned": true,
+            "blocks": {
+                "produced": 0
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "0",
+                "rewards": "0",
+                "total": "0"
+            }
+        },
+        {
+            "username": "heyheyhey",
+            "address": "D91yc5aicUFw6i89wpM5jnA9rPd52nDFbF",
+            "publicKey": "038e67555be20fe4fe5630f4413482805ae38bb143e1f7b8756284a48c2bddf0b1",
+            "votes": "7308504022",
+            "rank": 84,
+            "blocks": {
+                "produced": 0
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "0",
+                "rewards": "0",
+                "total": "0"
+            }
+        },
+        {
+            "username": "genesis_33",
+            "address": "DTKn3J3pMjtPLJxZtjvqR5T6DefPzjgGdf",
+            "publicKey": "03a3c6fd74a23fbe1e02f08d9c626ebb255b48de7ba8c283ee27c9303be81a2933",
+            "votes": "3400000000",
+            "rank": 85,
+            "blocks": {
+                "produced": 215,
+                "last": {
+                    "id": "4464948293273594515",
+                    "height": 10700,
+                    "timestamp": {
+                        "epoch": 45107714,
+                        "unix": 1535208914,
+                        "human": "2018-08-25T14:55:14.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "100000000",
+                "rewards": "0",
+                "total": "100000000"
+            }
+        },
+        {
+            "username": "genesis_8",
+            "address": "DEHtM61jVo4uJWP23B6mGrb6p9batXCHZs",
+            "publicKey": "02c3d1ae1b8fe831218f78cf09d864e60818ebdba4aacc74ecc2bcf2734aadf5ea",
+            "votes": "3210000000",
+            "rank": 86,
+            "blocks": {
+                "produced": 199,
+                "last": {
+                    "id": "16195449448052815933",
+                    "height": 9936,
+                    "timestamp": {
+                        "epoch": 45101562,
+                        "unix": 1535202762,
+                        "human": "2018-08-25T13:12:42.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "2510000000",
+                "rewards": "0",
+                "total": "2510000000"
+            }
+        },
+        {
+            "username": "paroxysm",
+            "address": "DN4kV3xtWpQ59X1PfApe9MLRWDgjEMFXez",
+            "publicKey": "03a108dccc8fa8148ee6fdb303a5b412e44dc861a3f084fd695e39b5a4b6d45c0e",
+            "votes": "3000000000",
+            "rank": 87,
+            "blocks": {
+                "produced": 0
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "0",
+                "rewards": "0",
+                "total": "0"
+            }
+        },
+        {
+            "username": "genesis_29",
+            "address": "DP8LLTXWNZfafDbetQEWm5uc8YYpNz1wFF",
+            "publicKey": "02fdcb7706624aba3c050c19bdd05f74a0c746614462584dfbba3705810ba2d69c",
+            "votes": "2810000000",
+            "rank": 88,
+            "blocks": {
+                "produced": 155,
+                "last": {
+                    "id": "15867588525418841575",
+                    "height": 7801,
+                    "timestamp": {
+                        "epoch": 45084458,
+                        "unix": 1535185658,
+                        "human": "2018-08-25T08:27:38.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "10000000",
+                "rewards": "0",
+                "total": "10000000"
+            }
+        },
+        {
+            "username": "genesis_28",
+            "address": "DK52aX793nEMRpDvRVB2euBgGXiCpRfmwQ",
+            "publicKey": "027f997ab2d8874c8f06d12ef78d39e309ed887a1141d2ba0f50aec8abffaffcde",
+            "votes": "2700000000",
+            "rank": 89,
+            "blocks": {
+                "produced": 61,
+                "last": {
+                    "id": "5898605107694877906",
+                    "height": 2980,
+                    "timestamp": {
+                        "epoch": 45045074,
+                        "unix": 1535146274,
+                        "human": "2018-08-24T21:31:14.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "0",
+                "rewards": "0",
+                "total": "0"
+            }
+        },
+        {
+            "username": "genesis_26",
+            "address": "D7JJ4ZfkJDwDCwuwzhtbCFapBUCWU3HHGP",
+            "publicKey": "02951227bb3bc5309aeb96460dbdf945746012810bb4020f35c20feae4eea7e5d4",
+            "votes": "2520000000",
+            "rank": 90,
+            "blocks": {
+                "produced": 60,
+                "last": {
+                    "id": "317597351874274641",
+                    "height": 2978,
+                    "timestamp": {
+                        "epoch": 45045058,
+                        "unix": 1535146258,
+                        "human": "2018-08-24T21:30:58.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "20000000",
+                "rewards": "0",
+                "total": "20000000"
+            }
+        },
+        {
+            "username": "genesis_25",
+            "address": "DFUAdEcBMCPfBq3ZjM1DViAp7oLL486zEB",
+            "publicKey": "02a5522a8cb7bc98f8adb024f92d8455918e18d3280e427e7d73d40a03a1698b96",
+            "votes": "2500000000",
+            "rank": 91,
+            "blocks": {
+                "produced": 53,
+                "last": {
+                    "id": "14492398932305414596",
+                    "height": 2635,
+                    "timestamp": {
+                        "epoch": 45042210,
+                        "unix": 1535143410,
+                        "human": "2018-08-24T20:43:30.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "100000000",
+                "rewards": "0",
+                "total": "100000000"
+            }
+        },
+        {
+            "username": "genesis_23",
+            "address": "DSQhC4JyfWaxsZKzF9Kfq5knVifCZA5jLK",
+            "publicKey": "030efa0d981385ad10d237588ed67eee4a245ca552673b7f137cc2e9c9dc7143d9",
+            "votes": "2300000000",
+            "rank": 92,
+            "blocks": {
+                "produced": 42,
+                "last": {
+                    "id": "104147007920850038",
+                    "height": 2107,
+                    "timestamp": {
+                        "epoch": 45037882,
+                        "unix": 1535139082,
+                        "human": "2018-08-24T19:31:22.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "100000000",
+                "rewards": "0",
+                "total": "100000000"
+            }
+        },
+        {
+            "username": "genesis_22",
+            "address": "DG1hN8QzbjsMdQhCjpHDQoc7BgBt7WBRum",
+            "publicKey": "03b1e1d0b5e1dbe57109d78119785e8c5985a47e282a048bdf6e8b1fe61b7c5c13",
+            "votes": "2120000000",
+            "rank": 93,
+            "blocks": {
+                "produced": 42,
+                "last": {
+                    "id": "15303343248142880192",
+                    "height": 2109,
+                    "timestamp": {
+                        "epoch": 45037898,
+                        "unix": 1535139098,
+                        "human": "2018-08-24T19:31:38.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "20000000",
+                "rewards": "0",
+                "total": "20000000"
+            }
+        },
+        {
+            "username": "genesis_21",
+            "address": "DT1ftBZEuQm49xzqfq1MiniwvLkFtr42KK",
+            "publicKey": "02aabcdb8511f55b6a28593979b726ef55b1f5bbf16a83205c2e2bfc9d8c2909e3",
+            "votes": "2000000000",
+            "rank": 94,
+            "blocks": {
+                "produced": 39,
+                "last": {
+                    "id": "8377738575107642689",
+                    "height": 2074,
+                    "timestamp": {
+                        "epoch": 45037618,
+                        "unix": 1535138818,
+                        "human": "2018-08-24T19:26:58.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "0",
+                "rewards": "0",
+                "total": "0"
+            }
+        },
+        {
+            "username": "genesis_19",
+            "address": "DFjnYr6USjvtaz9VZv7agd144W77WUiWtN",
+            "publicKey": "03d6ba3d1132d7a74bbe9da3923168aad70146b5646c6d6505bb7f500b211b332c",
+            "votes": "2000000000",
+            "rank": 95,
+            "blocks": {
+                "produced": 33,
+                "last": {
+                    "id": "18051252947994947088",
+                    "height": 1823,
+                    "timestamp": {
+                        "epoch": 45035610,
+                        "unix": 1535136810,
+                        "human": "2018-08-24T18:53:30.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "100000000",
+                "rewards": "0",
+                "total": "100000000"
+            }
+        },
+        {
+            "username": "genesis_18",
+            "address": "D9RmfFg3xPMdxwo4AsNA1xbBoM2eY2quBM",
+            "publicKey": "02ff046250cc01d4ccb74fcf6ff9b6977f5a67539cd9c461f9d41436677f4035b7",
+            "votes": "1700000000",
+            "rank": 96,
+            "blocks": {
+                "produced": 29,
+                "last": {
+                    "id": "5728085955456877658",
+                    "height": 1435,
+                    "timestamp": {
+                        "epoch": 45032466,
+                        "unix": 1535133666,
+                        "human": "2018-08-24T18:01:06.000Z"
+                    }
+                }
+            },
+            "production": {
+                "approval": 0
+            },
+            "forged": {
+                "fees": "0",
+                "rewards": "0",
+                "total": "0"
+            }
         }
-      },
-      "production": {
-        "approval": 0.35,
-        "productivity": 96.27
-      },
-      "forged": {
-        "fees": 147708259062,
-        "rewards": 3931600000000,
-        "total": 4079308259062
-      }
-    },
-    {
-      "username": "spearow",
-      "address": "DCWhQ1TdjG3jD1gd64SMBG5VM3NXXaCBYz",
-      "publicKey": "02fa68d16abd29a597c5cbd97704e6c6bfe8c7dd9f7a6871f485ced040b76621d5",
-      "votes": 10027600000020,
-      "rank": 3,
-      "blocks": {
-        "produced": 151,
-        "missed": 0,
-        "last": {
-          "id": "17169944379504516184",
-          "timestamp": {
-            "epoch": 54330096,
-            "unix": 1544431296,
-            "human": "2018-12-10T08:41:36.000Z"
-          }
-        }
-      },
-      "production": {
-        "approval": 0.08,
-        "productivity": 100
-      },
-      "forged": {
-        "fees": 0,
-        "rewards": 30200000000,
-        "total": 30200000000
-      }
-    }
-  ]
+    ]
 }

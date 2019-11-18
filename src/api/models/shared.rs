@@ -24,7 +24,8 @@ pub struct Response<T> {
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Meta {
-    pub total_count_is_estimate: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub total_count_is_estimate: Option<bool>,
     pub count: u32,
     pub page_count: u32,
     pub total_count: u32,
