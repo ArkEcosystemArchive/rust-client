@@ -14,7 +14,7 @@ fn test_wallets_all() {
         let response = client.wallets.all().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        test_wallet_array(response.data.clone(), expected.clone());
+        test_wallet_array(response.data, expected);
     }
 }
 
@@ -26,7 +26,7 @@ fn test_wallet_show() {
         let response = client.wallets.show("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        assert_wallet_data(response.data.clone(), &expected["data"]);
+        assert_wallet_data(response.data, &expected["data"]);
     }
 }
 
@@ -38,7 +38,7 @@ fn test_wallet_transactions() {
         let response = client.wallets.transactions("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        test_transaction_array(response.data.clone(), expected.clone());
+        test_transaction_array(response.data, expected.clone());
     }
 }
 
@@ -50,7 +50,7 @@ fn test_wallet_sent_transactions() {
         let response = client.wallets.sent_transactions("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        test_transaction_array(response.data.clone(), expected.clone());
+        test_transaction_array(response.data, expected.clone());
     }
 }
 
@@ -62,7 +62,7 @@ fn test_wallet_received_transactions() {
         let response = client.wallets.received_transactions("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        test_transaction_array(response.data.clone(), expected.clone());
+        test_transaction_array(response.data, expected.clone());
     }
 }
 
@@ -75,7 +75,7 @@ fn test_votes() {
 
         let expected: Value = from_str(&body).unwrap();
 
-        test_transaction_array(response.data.clone(), expected.clone());
+        test_transaction_array(response.data, expected.clone());
     }
 }
 
@@ -100,7 +100,7 @@ fn test_wallet_top() {
         let response = client.wallets.top().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        test_wallet_array(response.data.clone(), expected.clone());
+        test_wallet_array(response.data, expected.clone());
     }
 }
 

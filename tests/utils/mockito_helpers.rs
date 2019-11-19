@@ -18,7 +18,7 @@ pub fn mock_http_request(endpoint: &str) -> (Mock, String) {
         .with_body(&response_body)
         .create();
 
-    (mock, response_body.to_owned())
+    (mock, response_body)
 }
 
 pub fn mock_post_request(endpoint: &str) -> (Mock, String) {

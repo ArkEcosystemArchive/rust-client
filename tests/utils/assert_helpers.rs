@@ -12,6 +12,7 @@ use arkecosystem_client::api::models::transaction::Transaction;
 use arkecosystem_client::api::models::wallet::Wallet;
 
 pub fn assert_meta(actual: Meta, expected: &Value) {
+    println!("ASSERTMETA");
     assert_eq!(actual.count, expected["count"].as_u64().unwrap() as u32);
     assert_eq!(
         actual.page_count,
@@ -219,7 +220,7 @@ pub fn assert_delegate_data(actual: Delegate, expected: &Value) {
     );
 
     if actual.blocks.last.is_some() {
-        let last = actual.blocks.last.unwrap().clone();
+        let last = actual.blocks.last.unwrap();
         assert_eq!(last.id, expected["blocks"]["last"]["id"].as_str().unwrap());
         assert_eq!(
             last.height,
@@ -260,6 +261,7 @@ pub fn assert_peer_data(actual: &Peer, expected: &Value) {
 }
 
 pub fn assert_node_fee_stats(actual: &FeeStats, expected: &Value) {
+    println!("{:?}".actual);
     assert_eq!(
         actual.transaction_type as u64,
         expected["type"].as_u64().unwrap()
