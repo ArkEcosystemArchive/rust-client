@@ -272,7 +272,7 @@ pub fn assert_peer_data(actual: &Peer, expected: &Value) {
     assert_eq!(actual.height, expected["height"].as_u64().unwrap());
     assert_eq!(actual.latency, expected["latency"].as_i64().unwrap() as u32);
 
-    assert_eq!(actual.ports.len() > 0, true);
+    assert_eq!(!actual.ports.is_empty(), true);
 }
 
 pub fn assert_node_fee_stats(actual: &FeeStats, expected: &Value) {

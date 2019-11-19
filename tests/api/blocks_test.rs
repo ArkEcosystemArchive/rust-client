@@ -1,6 +1,9 @@
 use serde_json::{from_str, Value};
+use std::borrow::Borrow;
 
-use crate::utils::assert_helpers::{assert_block_data, assert_transaction_data};
+use crate::utils::assert_helpers::{
+    assert_block_data, assert_meta, test_block_array, test_transaction_array,
+};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
 
 #[test]
@@ -11,9 +14,9 @@ fn test_blocks_all() {
         let response = client.blocks.all().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        for (pos, block) in response.data.iter().enumerate() {
-            assert_block_data(block, &expected["data"][pos]);
-        }
+        assert_meta(response.meta.unwrap(), expected["meta"].borrow());
+
+        test_block_array(response.data, expected);
     }
 }
 
@@ -37,9 +40,9 @@ fn test_block_transactions() {
         let response = client.blocks.transactions("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        for (pos, trx) in response.data.iter().enumerate() {
-            assert_transaction_data(trx.clone(), &expected["data"][pos]);
-        }
+        assert_meta(response.meta.unwrap(), expected["meta"].borrow());
+
+        test_transaction_array(response.data, expected);
     }
 }
 
