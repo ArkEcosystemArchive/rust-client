@@ -38,7 +38,7 @@ fn test_wallet_transactions() {
         let response = client.wallets.transactions("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        test_transaction_array(response.data, expected.clone());
+        test_transaction_array(response.data, expected);
     }
 }
 
@@ -50,7 +50,7 @@ fn test_wallet_sent_transactions() {
         let response = client.wallets.sent_transactions("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        test_transaction_array(response.data, expected.clone());
+        test_transaction_array(response.data, expected);
     }
 }
 
@@ -62,7 +62,7 @@ fn test_wallet_received_transactions() {
         let response = client.wallets.received_transactions("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        test_transaction_array(response.data, expected.clone());
+        test_transaction_array(response.data, expected);
     }
 }
 
@@ -75,7 +75,7 @@ fn test_votes() {
 
         let expected: Value = from_str(&body).unwrap();
 
-        test_transaction_array(response.data, expected.clone());
+        test_transaction_array(response.data, expected);
     }
 }
 
@@ -100,7 +100,7 @@ fn test_wallet_top() {
         let response = client.wallets.top().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        test_wallet_array(response.data, expected.clone());
+        test_wallet_array(response.data, expected);
     }
 }
 
