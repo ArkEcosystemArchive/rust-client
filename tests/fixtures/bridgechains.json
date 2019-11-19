@@ -1,0 +1,1115 @@
+{
+  "meta": {
+    "count": 100,
+    "pageCount": 2,
+    "totalCount": 166,
+    "next": "/api/bridgechains?page=2&limit=100",
+    "previous": null,
+    "self": "/api/bridgechains?page=1&limit=100",
+    "first": "/api/bridgechains?page=1&limit=100",
+    "last": "/api/bridgechains?page=2&limit=100"
+  },
+  "data": [
+    {
+      "bridgechainId": 1,
+      "businessId": 1,
+      "name": "BridgechainTest",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://github.com/ArkEcosystem/core"
+    },
+    {
+      "bridgechainId": 161,
+      "businessId": 134,
+      "name": "ECorp1",
+      "seedNodes": [
+        "0:0:0:0:0:ffff:101:101",
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "200a445e84ba5892c9324c7e89cdbb82d815536e2ac0f31b0c218fdf380ba5dc",
+      "bridgechainRepository": "https://github.com/ArkEcosystem/core"
+    },
+    {
+      "bridgechainId": 52,
+      "businessId": 95,
+      "name": "Lemii-Bridgechain-0005ccc9",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0005ccc9.com/repository"
+    },
+    {
+      "bridgechainId": 120,
+      "businessId": 80,
+      "name": "Lemii-Bridgechain-01efb1e7",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-01efb1e7.com/repository"
+    },
+    {
+      "bridgechainId": 81,
+      "businessId": 41,
+      "name": "Lemii-Bridgechain-02c78d5a",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-02c78d5a.com/repository"
+    },
+    {
+      "bridgechainId": 69,
+      "businessId": 112,
+      "name": "Lemii-Bridgechain-033ad0a0",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-033ad0a0.com/repository"
+    },
+    {
+      "bridgechainId": 105,
+      "businessId": 65,
+      "name": "Lemii-Bridgechain-037de1b5",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-037de1b5.com/repository"
+    },
+    {
+      "bridgechainId": 118,
+      "businessId": 78,
+      "name": "Lemii-Bridgechain-0493df5a",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0493df5a.com/repository"
+    },
+    {
+      "bridgechainId": 54,
+      "businessId": 97,
+      "name": "Lemii-Bridgechain-0a55bc2a",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0a55bc2a.com/repository"
+    },
+    {
+      "bridgechainId": 70,
+      "businessId": 113,
+      "name": "Lemii-Bridgechain-0f38eb8f",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0f38eb8f.com/repository"
+    },
+    {
+      "bridgechainId": 48,
+      "businessId": 91,
+      "name": "Lemii-Bridgechain-103d09c2",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-103d09c2.com/repository"
+    },
+    {
+      "bridgechainId": 65,
+      "businessId": 108,
+      "name": "Lemii-Bridgechain-14237ea7",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-14237ea7.com/repository"
+    },
+    {
+      "bridgechainId": 77,
+      "businessId": 120,
+      "name": "Lemii-Bridgechain-174537b7",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-174537b7.com/repository"
+    },
+    {
+      "bridgechainId": 72,
+      "businessId": 115,
+      "name": "Lemii-Bridgechain-17b58d3e",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-17b58d3e.com/repository"
+    },
+    {
+      "bridgechainId": 27,
+      "businessId": 27,
+      "name": "Lemii-Bridgechain-183ac68f",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-183ac68f.com/repository"
+    },
+    {
+      "bridgechainId": 101,
+      "businessId": 61,
+      "name": "Lemii-Bridgechain-19442f3b",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-19442f3b.com/repository"
+    },
+    {
+      "bridgechainId": 85,
+      "businessId": 45,
+      "name": "Lemii-Bridgechain-1aa39436",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1aa39436.com/repository"
+    },
+    {
+      "bridgechainId": 66,
+      "businessId": 109,
+      "name": "Lemii-Bridgechain-1d9b2c50",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1d9b2c50.com/repository"
+    },
+    {
+      "bridgechainId": 61,
+      "businessId": 3,
+      "name": "Lemii-Bridgechain-1f602b53",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1f602b53.com/repository"
+    },
+    {
+      "bridgechainId": 53,
+      "businessId": 96,
+      "name": "Lemii-Bridgechain-20b536db",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-20b536db.com/repository"
+    },
+    {
+      "bridgechainId": 30,
+      "businessId": 30,
+      "name": "Lemii-Bridgechain-23468584",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-23468584.com/repository"
+    },
+    {
+      "bridgechainId": 60,
+      "businessId": 103,
+      "name": "Lemii-Bridgechain-254bf516",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-254bf516.com/repository"
+    },
+    {
+      "bridgechainId": 99,
+      "businessId": 59,
+      "name": "Lemii-Bridgechain-2a8afb82",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-2a8afb82.com/repository"
+    },
+    {
+      "bridgechainId": 12,
+      "businessId": 12,
+      "name": "Lemii-Bridgechain-2e3faa32",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-2e3faa32.com/repository"
+    },
+    {
+      "bridgechainId": 32,
+      "businessId": 32,
+      "name": "Lemii-Bridgechain-3029828d",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-3029828d.com/repository"
+    },
+    {
+      "bridgechainId": 102,
+      "businessId": 62,
+      "name": "Lemii-Bridgechain-309a8e71",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-309a8e71.com/repository"
+    },
+    {
+      "bridgechainId": 113,
+      "businessId": 73,
+      "name": "Lemii-Bridgechain-31791062",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-31791062.com/repository"
+    },
+    {
+      "bridgechainId": 98,
+      "businessId": 58,
+      "name": "Lemii-Bridgechain-32393c1b",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-32393c1b.com/repository"
+    },
+    {
+      "bridgechainId": 63,
+      "businessId": 106,
+      "name": "Lemii-Bridgechain-325a4267",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-325a4267.com/repository"
+    },
+    {
+      "bridgechainId": 58,
+      "businessId": 101,
+      "name": "Lemii-Bridgechain-338dea64",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-338dea64.com/repository"
+    },
+    {
+      "bridgechainId": 93,
+      "businessId": 53,
+      "name": "Lemii-Bridgechain-35c5c3a6",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-35c5c3a6.com/repository"
+    },
+    {
+      "bridgechainId": 50,
+      "businessId": 93,
+      "name": "Lemii-Bridgechain-3adb1a64",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-3adb1a64.com/repository"
+    },
+    {
+      "bridgechainId": 89,
+      "businessId": 49,
+      "name": "Lemii-Bridgechain-3e54ac59",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-3e54ac59.com/repository"
+    },
+    {
+      "bridgechainId": 15,
+      "businessId": 15,
+      "name": "Lemii-Bridgechain-3f7f6971",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-3f7f6971.com/repository"
+    },
+    {
+      "bridgechainId": 56,
+      "businessId": 99,
+      "name": "Lemii-Bridgechain-45414ea6",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-45414ea6.com/repository"
+    },
+    {
+      "bridgechainId": 108,
+      "businessId": 68,
+      "name": "Lemii-Bridgechain-50caf73b",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-50caf73b.com/repository"
+    },
+    {
+      "bridgechainId": 37,
+      "businessId": 37,
+      "name": "Lemii-Bridgechain-53869a10",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-53869a10.com/repository"
+    },
+    {
+      "bridgechainId": 114,
+      "businessId": 74,
+      "name": "Lemii-Bridgechain-54198379",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-54198379.com/repository"
+    },
+    {
+      "bridgechainId": 22,
+      "businessId": 22,
+      "name": "Lemii-Bridgechain-550c1b44",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-550c1b44.com/repository"
+    },
+    {
+      "bridgechainId": 49,
+      "businessId": 92,
+      "name": "Lemii-Bridgechain-550dc1e6",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-550dc1e6.com/repository"
+    },
+    {
+      "bridgechainId": 16,
+      "businessId": 16,
+      "name": "Lemii-Bridgechain-57cf964a",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-57cf964a.com/repository"
+    },
+    {
+      "bridgechainId": 38,
+      "businessId": 38,
+      "name": "Lemii-Bridgechain-5a832c88",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-5a832c88.com/repository"
+    },
+    {
+      "bridgechainId": 51,
+      "businessId": 94,
+      "name": "Lemii-Bridgechain-5c99b43a",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-5c99b43a.com/repository"
+    },
+    {
+      "bridgechainId": 20,
+      "businessId": 20,
+      "name": "Lemii-Bridgechain-5df4e1e5",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-5df4e1e5.com/repository"
+    },
+    {
+      "bridgechainId": 45,
+      "businessId": 88,
+      "name": "Lemii-Bridgechain-5e6d84c8",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-5e6d84c8.com/repository"
+    },
+    {
+      "bridgechainId": 14,
+      "businessId": 14,
+      "name": "Lemii-Bridgechain-5eddb6c1",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-5eddb6c1.com/repository"
+    },
+    {
+      "bridgechainId": 111,
+      "businessId": 71,
+      "name": "Lemii-Bridgechain-607838f3",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-607838f3.com/repository"
+    },
+    {
+      "bridgechainId": 88,
+      "businessId": 48,
+      "name": "Lemii-Bridgechain-650fb368",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-650fb368.com/repository"
+    },
+    {
+      "bridgechainId": 10,
+      "businessId": 10,
+      "name": "Lemii-Bridgechain-66750ff7",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-66750ff7.com/repository"
+    },
+    {
+      "bridgechainId": 57,
+      "businessId": 100,
+      "name": "Lemii-Bridgechain-68eeccd4",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-68eeccd4.com/repository"
+    },
+    {
+      "bridgechainId": 40,
+      "businessId": 40,
+      "name": "Lemii-Bridgechain-6c1f26e6",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-6c1f26e6.com/repository"
+    },
+    {
+      "bridgechainId": 92,
+      "businessId": 52,
+      "name": "Lemii-Bridgechain-727df1f4",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-727df1f4.com/repository"
+    },
+    {
+      "bridgechainId": 107,
+      "businessId": 67,
+      "name": "Lemii-Bridgechain-734595e9",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-734595e9.com/repository"
+    },
+    {
+      "bridgechainId": 75,
+      "businessId": 118,
+      "name": "Lemii-Bridgechain-73e9284e",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-73e9284e.com/repository"
+    },
+    {
+      "bridgechainId": 90,
+      "businessId": 50,
+      "name": "Lemii-Bridgechain-7540f2da",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-7540f2da.com/repository"
+    },
+    {
+      "bridgechainId": 91,
+      "businessId": 51,
+      "name": "Lemii-Bridgechain-7e180fb1",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-7e180fb1.com/repository"
+    },
+    {
+      "bridgechainId": 33,
+      "businessId": 33,
+      "name": "Lemii-Bridgechain-805feeb4",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-805feeb4.com/repository"
+    },
+    {
+      "bridgechainId": 55,
+      "businessId": 98,
+      "name": "Lemii-Bridgechain-83337796",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-83337796.com/repository"
+    },
+    {
+      "bridgechainId": 74,
+      "businessId": 117,
+      "name": "Lemii-Bridgechain-84c6fc0d",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-84c6fc0d.com/repository"
+    },
+    {
+      "bridgechainId": 83,
+      "businessId": 43,
+      "name": "Lemii-Bridgechain-88e2232e",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-88e2232e.com/repository"
+    },
+    {
+      "bridgechainId": 41,
+      "businessId": 85,
+      "name": "Lemii-Bridgechain-89f47e32",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-89f47e32.com/repository"
+    },
+    {
+      "bridgechainId": 117,
+      "businessId": 77,
+      "name": "Lemii-Bridgechain-8c4cf4f8",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-8c4cf4f8.com/repository"
+    },
+    {
+      "bridgechainId": 11,
+      "businessId": 11,
+      "name": "Lemii-Bridgechain-8c7a3a5e",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-8c7a3a5e.com/repository"
+    },
+    {
+      "bridgechainId": 106,
+      "businessId": 66,
+      "name": "Lemii-Bridgechain-8f670ea7",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-8f670ea7.com/repository"
+    },
+    {
+      "bridgechainId": 24,
+      "businessId": 24,
+      "name": "Lemii-Bridgechain-9031fda7",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-9031fda7.com/repository"
+    },
+    {
+      "bridgechainId": 76,
+      "businessId": 119,
+      "name": "Lemii-Bridgechain-977d1f4e",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-977d1f4e.com/repository"
+    },
+    {
+      "bridgechainId": 7,
+      "businessId": 7,
+      "name": "Lemii-Bridgechain-98e74127",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-98e74127.com/repository"
+    },
+    {
+      "bridgechainId": 17,
+      "businessId": 17,
+      "name": "Lemii-Bridgechain-9a1210bd",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-9a1210bd.com/repository"
+    },
+    {
+      "bridgechainId": 79,
+      "businessId": 122,
+      "name": "Lemii-Bridgechain-9a4e46ad",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-9a4e46ad.com/repository"
+    },
+    {
+      "bridgechainId": 104,
+      "businessId": 64,
+      "name": "Lemii-Bridgechain-9a57232a",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-9a57232a.com/repository"
+    },
+    {
+      "bridgechainId": 94,
+      "businessId": 54,
+      "name": "Lemii-Bridgechain-9b290126",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-9b290126.com/repository"
+    },
+    {
+      "bridgechainId": 26,
+      "businessId": 26,
+      "name": "Lemii-Bridgechain-9c5d727e",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-9c5d727e.com/repository"
+    },
+    {
+      "bridgechainId": 110,
+      "businessId": 70,
+      "name": "Lemii-Bridgechain-9e8305eb",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-9e8305eb.com/repository"
+    },
+    {
+      "bridgechainId": 43,
+      "businessId": 86,
+      "name": "Lemii-Bridgechain-a0b45753",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-a0b45753.com/repository"
+    },
+    {
+      "bridgechainId": 4,
+      "businessId": 4,
+      "name": "Lemii-Bridgechain-a191df82",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-a191df82.com/repository"
+    },
+    {
+      "bridgechainId": 39,
+      "businessId": 39,
+      "name": "Lemii-Bridgechain-a7250a7a",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-a7250a7a.com/repository"
+    },
+    {
+      "bridgechainId": 31,
+      "businessId": 31,
+      "name": "Lemii-Bridgechain-a9b8a229",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-a9b8a229.com/repository"
+    },
+    {
+      "bridgechainId": 80,
+      "businessId": 123,
+      "name": "Lemii-Bridgechain-aaf3977f",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-aaf3977f.com/repository"
+    },
+    {
+      "bridgechainId": 68,
+      "businessId": 111,
+      "name": "Lemii-Bridgechain-ac72828c",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-ac72828c.com/repository"
+    },
+    {
+      "bridgechainId": 78,
+      "businessId": 121,
+      "name": "Lemii-Bridgechain-acc05db4",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-acc05db4.com/repository"
+    },
+    {
+      "bridgechainId": 23,
+      "businessId": 23,
+      "name": "Lemii-Bridgechain-ad586804",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-ad586804.com/repository"
+    },
+    {
+      "bridgechainId": 42,
+      "businessId": 104,
+      "name": "Lemii-Bridgechain-afb560e5",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-afb560e5.com/repository"
+    },
+    {
+      "bridgechainId": 8,
+      "businessId": 8,
+      "name": "Lemii-Bridgechain-afbce2ff",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-afbce2ff.com/repository"
+    },
+    {
+      "bridgechainId": 6,
+      "businessId": 6,
+      "name": "Lemii-Bridgechain-b265dfce",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-b265dfce.com/repository"
+    },
+    {
+      "bridgechainId": 95,
+      "businessId": 55,
+      "name": "Lemii-Bridgechain-b28d015e",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-b28d015e.com/repository"
+    },
+    {
+      "bridgechainId": 103,
+      "businessId": 63,
+      "name": "Lemii-Bridgechain-b30e74cc",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-b30e74cc.com/repository"
+    },
+    {
+      "bridgechainId": 67,
+      "businessId": 110,
+      "name": "Lemii-Bridgechain-b38ba022",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-b38ba022.com/repository"
+    },
+    {
+      "bridgechainId": 36,
+      "businessId": 36,
+      "name": "Lemii-Bridgechain-b3f83f24",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-b3f83f24.com/repository"
+    },
+    {
+      "bridgechainId": 19,
+      "businessId": 19,
+      "name": "Lemii-Bridgechain-b4e1b6dd",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-b4e1b6dd.com/repository"
+    },
+    {
+      "bridgechainId": 64,
+      "businessId": 107,
+      "name": "Lemii-Bridgechain-b72575ca",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-b72575ca.com/repository"
+    },
+    {
+      "bridgechainId": 87,
+      "businessId": 47,
+      "name": "Lemii-Bridgechain-b789dc54",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-b789dc54.com/repository"
+    },
+    {
+      "bridgechainId": 35,
+      "businessId": 35,
+      "name": "Lemii-Bridgechain-b832b583",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-b832b583.com/repository"
+    },
+    {
+      "bridgechainId": 25,
+      "businessId": 25,
+      "name": "Lemii-Bridgechain-bf62ba53",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-bf62ba53.com/repository"
+    },
+    {
+      "bridgechainId": 29,
+      "businessId": 29,
+      "name": "Lemii-Bridgechain-c2dfd3d8",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-c2dfd3d8.com/repository"
+    },
+    {
+      "bridgechainId": 115,
+      "businessId": 75,
+      "name": "Lemii-Bridgechain-c5b870bf",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-c5b870bf.com/repository"
+    },
+    {
+      "bridgechainId": 100,
+      "businessId": 60,
+      "name": "Lemii-Bridgechain-c8bc8fbf",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-c8bc8fbf.com/repository"
+    },
+    {
+      "bridgechainId": 84,
+      "businessId": 44,
+      "name": "Lemii-Bridgechain-c9ba4840",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-c9ba4840.com/repository"
+    },
+    {
+      "bridgechainId": 116,
+      "businessId": 76,
+      "name": "Lemii-Bridgechain-cbaad01f",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-cbaad01f.com/repository"
+    },
+    {
+      "bridgechainId": 5,
+      "businessId": 5,
+      "name": "Lemii-Bridgechain-cc486940",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-cc486940.com/repository"
+    },
+    {
+      "bridgechainId": 46,
+      "businessId": 89,
+      "name": "Lemii-Bridgechain-cebd4699",
+      "seedNodes": [
+        "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-cebd4699.com/repository"
+    }
+  ]
+}

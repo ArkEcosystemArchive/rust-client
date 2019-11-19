@@ -1,5 +1,6 @@
 pub mod blocks;
 pub mod delegates;
+pub mod locks;
 pub mod models;
 pub mod node;
 pub mod peers;
@@ -9,6 +10,7 @@ pub mod wallets;
 
 use self::blocks::Blocks;
 use self::delegates::Delegates;
+use self::locks::Locks;
 use self::models::shared::Response;
 use self::node::Node;
 use self::peers::Peers;
@@ -29,6 +31,7 @@ pub struct Api {
     pub transactions: Transactions,
     pub votes: Votes,
     pub wallets: Wallets,
+    pub locks: Locks,
     pub client: Client,
 }
 
@@ -48,6 +51,7 @@ impl Api {
             transactions: Transactions::new(client.clone()),
             votes: Votes::new(client.clone()),
             wallets: Wallets::new(client.clone()),
+            locks: Locks::new(client.clone()),
             client,
         }
     }

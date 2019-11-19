@@ -6,11 +6,13 @@ use arkecosystem_client::api::models::asset::Asset;
 use arkecosystem_client::api::models::block::Block;
 use arkecosystem_client::api::models::delegate::Delegate;
 use arkecosystem_client::api::models::fee::{FeeSchema, FeeStats};
+use arkecosystem_client::api::models::lock::Lock;
 use arkecosystem_client::api::models::peer::Peer;
 use arkecosystem_client::api::models::shared::Meta;
 use arkecosystem_client::api::models::timestamp::Timestamp;
 use arkecosystem_client::api::models::transaction::Transaction;
 use arkecosystem_client::api::models::wallet::Wallet;
+use std::borrow::Borrow;
 
 pub fn assert_meta(actual: Meta, expected: &Value) {
     if actual.count.is_some() {
@@ -293,6 +295,38 @@ pub fn assert_vote_data(actual: Transaction, expected: &Value) {
     };
 }
 
+pub fn assert_lock_data(actual: Lock, expected: &Value) {
+    assert_eq!(actual.lock_id, expected["lockId"].as_str().unwrap());
+    assert_eq!(
+        actual.amount,
+        u64::from_str(expected["amount"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(actual.secret_hash, expected["secretHash"].as_str().unwrap());
+    assert_eq!(
+        actual.sender_public_key,
+        expected["senderPublicKey"].as_str().unwrap()
+    );
+    assert_eq!(
+        actual.recipient_id,
+        expected["recipientId"].as_str().unwrap()
+    );
+    if actual.vendor_field.is_some() {
+        assert_eq!(
+            actual.vendor_field.unwrap(),
+            expected["vendorField"].as_str().unwrap()
+        );
+    }
+    assert_eq!(
+        actual.expiration_type as u64,
+        expected["expirationType"].as_u64().unwrap()
+    );
+    assert_eq!(
+        actual.expiration_value as u64,
+        expected["expirationValue"].as_u64().unwrap()
+    );
+    assert_timestamp_data(&actual.timestamp, expected["timestamp"].borrow());
+}
+
 pub fn test_transaction_array(actual: Vec<Transaction>, expected: Value) {
     for (pos, trx) in actual.iter().enumerate() {
         assert_transaction_data(trx.clone(), &expected["data"][pos]);
@@ -326,5 +360,11 @@ pub fn test_peer_array(actual: Vec<Peer>, expected: Value) {
 pub fn test_vote_array(actual: Vec<Transaction>, expected: Value) {
     for (pos, vote_trx) in actual.iter().enumerate() {
         assert_vote_data(vote_trx.clone(), &expected["data"][pos]);
+    }
+}
+
+pub fn test_lock_array(actual: Vec<Lock>, expected: Value) {
+    for (pos, lock) in actual.iter().enumerate() {
+        assert_lock_data(lock.clone(), &expected["data"][pos]);
     }
 }

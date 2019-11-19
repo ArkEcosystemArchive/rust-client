@@ -2,7 +2,7 @@ use serde_json::{from_str, Value};
 use std::borrow::Borrow;
 
 use crate::utils::assert_helpers::{
-    assert_meta, assert_wallet_data, test_transaction_array, test_wallet_array,
+    assert_meta, assert_wallet_data, test_lock_array, test_transaction_array, test_wallet_array,
 };
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
 
@@ -112,5 +112,19 @@ fn test_wallet_top() {
         assert_meta(response.meta.unwrap(), expected["meta"].borrow());
 
         test_wallet_array(response.data, expected);
+    }
+}
+
+#[test]
+fn test_wallet_locks() {
+    let (_mock, body) = mock_http_request("wallets/dummy/locks");
+    {
+        let mut client = mock_client();
+        let response = client.wallets.locks("dummy").unwrap();
+        let expected: Value = from_str(&body).unwrap();
+
+        assert_meta(response.meta.unwrap(), expected["meta"].borrow());
+
+        test_lock_array(response.data, expected);
     }
 }

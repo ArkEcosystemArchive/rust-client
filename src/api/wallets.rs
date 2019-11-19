@@ -1,6 +1,7 @@
 use crate::http::client::Client;
 use std::borrow::Borrow;
 
+use crate::api::models::lock::Lock;
 use crate::api::models::transaction::Transaction;
 use crate::api::models::wallet::Wallet;
 use crate::api::Result;
@@ -117,5 +118,10 @@ impl Wallets {
         V: AsRef<str>,
     {
         self.client.get_with_params("wallets/search", parameters)
+    }
+
+    pub fn locks(&mut self, id: &str) -> Result<Vec<Lock>> {
+        let endpoint = format!("wallets/{}/locks", id);
+        self.client.get(&endpoint)
     }
 }

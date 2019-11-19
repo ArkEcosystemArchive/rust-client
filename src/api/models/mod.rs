@@ -2,6 +2,8 @@ pub mod asset;
 pub mod block;
 pub mod delegate;
 pub mod fee;
+pub mod lock;
+pub mod magistrate;
 pub mod node;
 pub mod peer;
 pub mod shared;
