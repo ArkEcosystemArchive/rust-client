@@ -1,7 +1,6 @@
 use serde::Deserialize;
 use serde::Serialize;
 
-use crate::api::models::transaction::TransactionType;
 use crate::common::deserialize_as_u64_from_number_or_string;
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]

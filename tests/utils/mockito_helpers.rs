@@ -10,7 +10,6 @@ const MOCK_HOST: &str = "http://127.0.0.1:1234/api/";
 pub fn mock_http_request(endpoint: &str) -> (Mock, String) {
     let url = Matcher::Regex(endpoint.to_owned());
     let response_body = read_fixture(&endpoint);
-    println!("{:?}", response_body);
 
     let mock = mock("GET", url)
         .with_status(200)

@@ -21,18 +21,30 @@ pub struct Response<T> {
     pub data: T,
 }
 
+// Meta structure to fit default meta with pagination and also other fields, like meta from node/fees,
+// that has only one field e.g. days
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Meta {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub total_count_is_estimate: Option<bool>,
-    pub count: u32,
-    pub page_count: u32,
-    pub total_count: u32,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub count: Option<u32>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub page_count: Option<u32>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub total_count: Option<u32>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub next: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub previous: Option<String>,
     #[serde(rename = "self")]
-    pub self_url: String,
-    pub first: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub self_url: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub first: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub last: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub days: Option<u32>,
 }

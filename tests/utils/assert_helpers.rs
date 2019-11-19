@@ -12,16 +12,24 @@ use arkecosystem_client::api::models::transaction::Transaction;
 use arkecosystem_client::api::models::wallet::Wallet;
 
 pub fn assert_meta(actual: Meta, expected: &Value) {
-    println!("ASSERTMETA");
-    assert_eq!(actual.count, expected["count"].as_u64().unwrap() as u32);
-    assert_eq!(
-        actual.page_count,
-        expected["pageCount"].as_u64().unwrap() as u32
-    );
-    assert_eq!(
-        actual.total_count,
-        expected["totalCount"].as_u64().unwrap() as u32
-    );
+    if actual.count.is_some() {
+        assert_eq!(
+            actual.count.unwrap(),
+            expected["count"].as_u64().unwrap() as u32
+        );
+    }
+    if actual.page_count.is_some() {
+        assert_eq!(
+            actual.page_count.unwrap(),
+            expected["pageCount"].as_u64().unwrap() as u32
+        );
+    }
+    if actual.total_count.is_some() {
+        assert_eq!(
+            actual.total_count.unwrap(),
+            expected["totalCount"].as_u64().unwrap() as u32
+        );
+    }
     if actual.next.is_some() {
         assert_eq!(actual.next.unwrap(), expected["next"].as_str().unwrap());
     }
@@ -31,10 +39,20 @@ pub fn assert_meta(actual: Meta, expected: &Value) {
             expected["previous"].as_str().unwrap()
         );
     }
-    assert_eq!(actual.self_url, expected["self"].as_str().unwrap());
-    assert_eq!(actual.first, expected["first"].as_str().unwrap());
+    if actual.self_url.is_some() {
+        assert_eq!(actual.self_url.unwrap(), expected["self"].as_str().unwrap());
+    }
+    if actual.first.is_some() {
+        assert_eq!(actual.first.unwrap(), expected["first"].as_str().unwrap());
+    }
     if actual.last.is_some() {
         assert_eq!(actual.last.unwrap(), expected["last"].as_str().unwrap());
+    }
+    if actual.days.is_some() {
+        assert_eq!(
+            actual.days.unwrap(),
+            expected["days"].as_u64().unwrap() as u32
+        );
     }
 }
 
@@ -261,7 +279,6 @@ pub fn assert_peer_data(actual: &Peer, expected: &Value) {
 }
 
 pub fn assert_node_fee_stats(actual: &FeeStats, expected: &Value) {
-    println!("{:?}".actual);
     assert_eq!(
         actual.transaction_type as u64,
         expected["type"].as_u64().unwrap()

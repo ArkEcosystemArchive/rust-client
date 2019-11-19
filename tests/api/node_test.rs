@@ -1,10 +1,10 @@
 use serde_json::{from_str, Value};
 
-use crate::utils::assert_helpers::assert_configuration_fees;
+use crate::utils::assert_helpers::{assert_configuration_fees, assert_meta, assert_node_fee_stats};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
 
 #[test]
-fn test_status() {
+fn test_node_status() {
     let (_mock, body) = mock_http_request("node/status");
     {
         let mut client = mock_client();
@@ -28,7 +28,7 @@ fn test_status() {
 }
 
 #[test]
-fn test_syncing() {
+fn test_node_syncing() {
     let (_mock, body) = mock_http_request("node/syncing");
     {
         let mut client = mock_client();
@@ -53,7 +53,7 @@ fn test_syncing() {
 }
 
 #[test]
-fn test_configuration() {
+fn test_node_configuration() {
     let (_mock, body) = mock_http_request("node/configuration");
     {
         let mut client = mock_client();
@@ -129,5 +129,24 @@ fn test_configuration() {
             &actual.data.constants.fees.static_fees,
             &expected["data"]["constants"]["fees"]["staticFees"],
         );
+    }
+}
+
+#[test]
+fn test_node_fees() {
+    let (_mock, body) = mock_http_request("node/fees");
+    {
+        let mut client = mock_client();
+        let params = [("days", "20")].iter();
+        let actual = client.node.fees(params).unwrap();
+        let expected: Value = from_str(&body).unwrap();
+
+        let actual_meta = actual.meta.unwrap();
+        let expected_meta = expected["meta"].clone();
+        assert_meta(actual_meta, &expected_meta);
+
+        for (pos, fee_stat) in actual.data.iter().enumerate() {
+            assert_node_fee_stats(&fee_stat, &expected["data"][pos]);
+        }
     }
 }
