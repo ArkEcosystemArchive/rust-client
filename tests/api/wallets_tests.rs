@@ -16,7 +16,7 @@ fn test_wallets_all() {
 
         assert_meta(response.meta.unwrap(), expected["meta"].borrow());
 
-        test_wallet_array(response.data, expected.clone());
+        test_wallet_array(response.data, expected);
     }
 }
 
