@@ -5,8 +5,9 @@ use arkecosystem_client::api::models::peer::Peer;
 use arkecosystem_client::api::models::shared::Response;
 use arkecosystem_client::Connection;
 
-use crate::utils::assert_helpers::{assert_meta, assert_peer_data};
+use crate::utils::assert_helpers::{assert_meta, assert_peer_data, test_peer_array};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
+use std::borrow::Borrow;
 
 #[test]
 fn test_all() {
@@ -16,13 +17,9 @@ fn test_all() {
         let actual = client.peers.all().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        let actual_data = actual.data[0].clone();
-        let expected_data = expected["data"][0].clone();
-        assert_peer_data(&actual_data, &expected_data);
+        test_peer_array(actual.data, expected);
     }
 }
 
@@ -36,13 +33,9 @@ fn test_all_params() {
         let actual = client.peers.all_params(params).unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        let actual_data = actual.data[0].clone();
-        let expected_data = expected["data"][0].clone();
-        assert_peer_data(&actual_data, &expected_data);
+        test_peer_array(actual.data, expected);
     }
 }
 

@@ -2,6 +2,7 @@ use serde_json::{from_str, Value};
 
 use crate::utils::assert_helpers::{assert_configuration_fees, assert_meta, assert_node_fee_stats};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
+use std::borrow::Borrow;
 
 #[test]
 fn test_node_status() {
@@ -141,9 +142,7 @@ fn test_node_fees() {
         let actual = client.node.fees(params).unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
         for (pos, fee_stat) in actual.data.iter().enumerate() {
             assert_node_fee_stats(&fee_stat, &expected["data"][pos]);

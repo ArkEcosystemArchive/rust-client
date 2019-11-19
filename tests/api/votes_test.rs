@@ -1,11 +1,10 @@
 use serde_json::from_str;
 
-use crate::utils::assert_helpers::{assert_meta, assert_transaction_data};
+use crate::utils::assert_helpers::{assert_meta, assert_vote_data, test_vote_array};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
 
-use arkecosystem_client::api::models::asset::Asset;
-use arkecosystem_client::api::models::transaction::Transaction;
 use serde_json::Value;
+use std::borrow::Borrow;
 
 #[test]
 fn test_all() {
@@ -15,13 +14,9 @@ fn test_all() {
         let actual = client.votes.all().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        let actual_data = actual.data[0].clone();
-        let expected_data = expected["data"][0].clone();
-        assert_vote_data(actual_data, &expected_data);
+        test_vote_array(actual.data, expected);
     }
 }
 
@@ -35,13 +30,9 @@ fn test_all_params() {
         let actual = client.votes.all_params(params).unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        let actual_data = actual.data[0].clone();
-        let expected_data = expected["data"][0].clone();
-        assert_vote_data(actual_data, &expected_data);
+        test_vote_array(actual.data, expected);
     }
 }
 
@@ -55,15 +46,4 @@ fn test_show() {
 
         assert_vote_data(actual.data, &expected["data"]);
     }
-}
-
-fn assert_vote_data(actual: Transaction, expected: &Value) {
-    assert_transaction_data(actual.clone(), &expected);
-
-    match actual.asset {
-        Asset::Votes(votes) => {
-            assert_eq!(votes[0], expected["asset"]["votes"][0].as_str().unwrap());
-        }
-        _ => panic!("Asset without votes"),
-    };
 }

@@ -1,7 +1,8 @@
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
-use crate::api::models::transaction::{Transaction, TransactionFees, TransactionTypes};
+use crate::api::models::fee::FeeSchema;
+use crate::api::models::transaction::{Transaction, TransactionTypes};
 use crate::api::Result;
 use crate::http::client::Client;
 
@@ -101,7 +102,7 @@ impl Transactions {
     /// let fees = client.transactions.fees().unwrap();
     /// println!("{}", to_string_pretty(&fees).unwrap());
     /// ```
-    pub fn fees(&mut self) -> Result<TransactionFees> {
+    pub fn fees(&mut self) -> Result<FeeSchema> {
         self.client.get("transactions/fees")
     }
 }

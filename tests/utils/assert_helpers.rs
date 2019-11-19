@@ -2,6 +2,7 @@ use std::str::FromStr;
 
 use serde_json::Value;
 
+use arkecosystem_client::api::models::asset::Asset;
 use arkecosystem_client::api::models::block::Block;
 use arkecosystem_client::api::models::delegate::Delegate;
 use arkecosystem_client::api::models::fee::{FeeSchema, FeeStats};
@@ -271,11 +272,7 @@ pub fn assert_peer_data(actual: &Peer, expected: &Value) {
     assert_eq!(actual.height, expected["height"].as_u64().unwrap());
     assert_eq!(actual.latency, expected["latency"].as_i64().unwrap() as u32);
 
-    assert_eq!(actual.ports.len(), 4);
-    assert_eq!(
-        actual.ports.get("@arkecosystem/core-api"),
-        Some(&i16::from_str("4003").unwrap())
-    );
+    assert_eq!(actual.ports.len() > 0, true);
 }
 
 pub fn assert_node_fee_stats(actual: &FeeStats, expected: &Value) {
@@ -283,4 +280,51 @@ pub fn assert_node_fee_stats(actual: &FeeStats, expected: &Value) {
         actual.transaction_type as u64,
         expected["type"].as_u64().unwrap()
     );
+}
+
+pub fn assert_vote_data(actual: Transaction, expected: &Value) {
+    assert_transaction_data(actual.clone(), &expected);
+
+    match actual.asset {
+        Asset::Votes(votes) => {
+            assert_eq!(votes[0], expected["asset"]["votes"][0].as_str().unwrap());
+        }
+        _ => panic!("Asset without votes"),
+    };
+}
+
+pub fn test_transaction_array(actual: Vec<Transaction>, expected: Value) {
+    for (pos, trx) in actual.iter().enumerate() {
+        assert_transaction_data(trx.clone(), &expected["data"][pos]);
+    }
+}
+
+pub fn test_wallet_array(actual: Vec<Wallet>, expected: Value) {
+    for (pos, wallet) in actual.iter().enumerate() {
+        assert_wallet_data(wallet.clone(), &expected["data"][pos]);
+    }
+}
+
+pub fn test_delegate_array(actual: Vec<Delegate>, expected: Value) {
+    for (pos, delegate) in actual.iter().enumerate() {
+        assert_delegate_data(delegate.clone(), &expected["data"][pos]);
+    }
+}
+
+pub fn test_block_array(actual: Vec<Block>, expected: Value) {
+    for (pos, block) in actual.iter().enumerate() {
+        assert_block_data(block, &expected["data"][pos]);
+    }
+}
+
+pub fn test_peer_array(actual: Vec<Peer>, expected: Value) {
+    for (pos, peer) in actual.iter().enumerate() {
+        assert_peer_data(peer, &expected["data"][pos]);
+    }
+}
+
+pub fn test_vote_array(actual: Vec<Transaction>, expected: Value) {
+    for (pos, vote_trx) in actual.iter().enumerate() {
+        assert_vote_data(vote_trx.clone(), &expected["data"][pos]);
+    }
 }

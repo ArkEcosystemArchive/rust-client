@@ -3,9 +3,10 @@ use std::collections::HashMap;
 use serde_json::{from_str, Value};
 
 use crate::utils::assert_helpers::{
-    assert_block_data, assert_delegate_data, assert_meta, assert_wallet_data,
+    assert_delegate_data, assert_meta, test_block_array, test_delegate_array, test_wallet_array,
 };
 use crate::utils::mockito_helpers::{mock_client, mock_http_request, mock_post_request};
+use std::borrow::Borrow;
 
 #[test]
 fn test_all() {
@@ -15,13 +16,9 @@ fn test_all() {
         let actual = client.delegates.all().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        let actual_data = actual.data[0].clone();
-        let expected_data = expected["data"][0].clone();
-        assert_delegate_data(actual_data, &expected_data);
+        test_delegate_array(actual.data, expected);
     }
 }
 
@@ -35,13 +32,9 @@ fn test_all_params() {
         let actual = client.delegates.all_params(params).unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        let actual_data = actual.data[0].clone();
-        let expected_data = expected["data"][0].clone();
-        assert_delegate_data(actual_data, &expected_data);
+        test_delegate_array(actual.data, expected);
     }
 }
 
@@ -66,14 +59,9 @@ fn test_blocks() {
         let actual = client.delegates.blocks(delegate_address).unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        // TODO: for
-        let actual_data = actual.data[0].clone();
-        let expected_data = expected["data"][0].clone();
-        assert_block_data(&actual_data, &expected_data);
+        test_block_array(actual.data, expected);
     }
 }
 
@@ -90,14 +78,9 @@ fn test_blocks_params() {
             .unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        // TODO: for
-        let actual_data = actual.data[0].clone();
-        let expected_data = expected["data"][0].clone();
-        assert_block_data(&actual_data, &expected_data);
+        test_block_array(actual.data, expected);
     }
 }
 
@@ -110,14 +93,9 @@ fn test_voters() {
         let actual = client.delegates.voters(delegate_address).unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        // TODO: for
-        let actual_data = actual.data[0].clone();
-        let expected_data = expected["data"][0].clone();
-        assert_wallet_data(actual_data, &expected_data);
+        test_wallet_array(actual.data, expected);
     }
 }
 
@@ -134,14 +112,9 @@ fn test_voters_params() {
             .unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        // TODO: for
-        let actual_data = actual.data[0].clone();
-        let expected_data = expected["data"][0].clone();
-        assert_wallet_data(actual_data, &expected_data);
+        test_wallet_array(actual.data, expected);
     }
 }
 
@@ -157,12 +130,8 @@ fn test_search() {
         let actual = client.delegates.search(Some(payload), params).unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        let actual_data = actual.data[0].clone();
-        let expected_data = expected["data"][0].clone();
-        assert_delegate_data(actual_data, &expected_data);
+        test_delegate_array(actual.data, expected);
     }
 }

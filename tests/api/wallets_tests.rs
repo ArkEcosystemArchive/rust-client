@@ -1,9 +1,9 @@
 use serde_json::{from_str, Value};
+use std::borrow::Borrow;
 
-use arkecosystem_client::api::models::transaction::Transaction;
-use arkecosystem_client::api::models::wallet::Wallet;
-
-use crate::utils::assert_helpers::{assert_transaction_data, assert_wallet_data};
+use crate::utils::assert_helpers::{
+    assert_meta, assert_wallet_data, test_transaction_array, test_wallet_array,
+};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
 
 #[test]
@@ -14,7 +14,9 @@ fn test_wallets_all() {
         let response = client.wallets.all().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        test_wallet_array(response.data, expected);
+        assert_meta(response.meta.unwrap(), expected["meta"].borrow());
+
+        test_wallet_array(response.data, expected.clone());
     }
 }
 
@@ -38,6 +40,8 @@ fn test_wallet_transactions() {
         let response = client.wallets.transactions("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
+        assert_meta(response.meta.unwrap(), expected["meta"].borrow());
+
         test_transaction_array(response.data, expected);
     }
 }
@@ -49,6 +53,8 @@ fn test_wallet_sent_transactions() {
         let mut client = mock_client();
         let response = client.wallets.sent_transactions("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
+
+        assert_meta(response.meta.unwrap(), expected["meta"].borrow());
 
         test_transaction_array(response.data, expected);
     }
@@ -62,6 +68,8 @@ fn test_wallet_received_transactions() {
         let response = client.wallets.received_transactions("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
 
+        assert_meta(response.meta.unwrap(), expected["meta"].borrow());
+
         test_transaction_array(response.data, expected);
     }
 }
@@ -72,8 +80,9 @@ fn test_votes() {
     {
         let mut client = mock_client();
         let response = client.wallets.votes("dummy").unwrap();
-
         let expected: Value = from_str(&body).unwrap();
+
+        assert_meta(response.meta.unwrap(), expected["meta"].borrow());
 
         test_transaction_array(response.data, expected);
     }
@@ -100,18 +109,8 @@ fn test_wallet_top() {
         let response = client.wallets.top().unwrap();
         let expected: Value = from_str(&body).unwrap();
 
+        assert_meta(response.meta.unwrap(), expected["meta"].borrow());
+
         test_wallet_array(response.data, expected);
-    }
-}
-
-fn test_transaction_array(actual: Vec<Transaction>, expected: Value) {
-    for (pos, trx) in actual.iter().enumerate() {
-        assert_transaction_data(trx.clone(), &expected["data"][pos]);
-    }
-}
-
-fn test_wallet_array(actual: Vec<Wallet>, expected: Value) {
-    for (pos, wallet) in actual.iter().enumerate() {
-        assert_wallet_data(wallet.clone(), &expected["data"][pos]);
     }
 }
