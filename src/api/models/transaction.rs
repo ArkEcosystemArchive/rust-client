@@ -39,22 +39,6 @@ pub struct Transaction {
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
-#[serde(rename_all = "camelCase")]
-pub struct TransactionFees {
-    pub transfer: u64,
-    pub second_signature: u64,
-    pub delegate_registration: u64,
-    pub vote: u64,
-    pub multi_signature: u64,
-    pub ipfs: u64,
-    pub multi_payment: u64,
-    pub delegate_resignation: u64,
-    pub htlc_lock: u64,
-    pub htlc_claim: u64,
-    pub htlc_refund: u64,
-}
-
-#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct TransactionTypes {
     pub transfer: u16,
