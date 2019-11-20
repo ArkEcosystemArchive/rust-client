@@ -5,6 +5,7 @@ use crate::api::models::lock::Lock;
 use crate::api::models::transaction::Transaction;
 use crate::api::models::wallet::Wallet;
 use crate::api::Result;
+use std::collections::HashMap;
 
 pub struct Wallets {
     client: Client,
@@ -110,14 +111,19 @@ impl Wallets {
         self.client.get(&endpoint)
     }
 
-    pub fn search<I, K, V>(&mut self, parameters: I) -> Result<Vec<Wallet>>
+    pub fn search<I, K, V>(
+        &mut self,
+        payload: Option<HashMap<&str, &str>>,
+        parameters: I,
+    ) -> Result<Vec<Wallet>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("wallets/search", parameters)
+        self.client
+            .post_with_params("wallets/search", payload, parameters)
     }
 
     pub fn locks(&mut self, id: &str) -> Result<Vec<Lock>> {

@@ -4,7 +4,8 @@ use std::borrow::Borrow;
 use crate::utils::assert_helpers::{
     assert_meta, assert_wallet_data, test_lock_array, test_transaction_array, test_wallet_array,
 };
-use crate::utils::mockito_helpers::{mock_client, mock_http_request};
+use crate::utils::mockito_helpers::{mock_client, mock_http_request, mock_post_request};
+use std::collections::HashMap;
 
 #[test]
 fn test_wallets_all() {
@@ -89,16 +90,23 @@ fn test_votes() {
 }
 
 #[test]
-#[ignore]
 fn test_wallet_search() {
-    // TODO: missing fixture
-    // let (_mock, body) = mock_http_request("wallets/search");
-    // {
-    //     let client = mock_client();
-    //     let response = client.wallets.search(Vec::<(String, String)>::new()).unwrap();
-    //
-    //     //mock_assert_success(&_mock, "wallets/search", response);
-    // }
+    let (_mock, body) = mock_post_request("wallets/search");
+    {
+        let mut client = mock_client();
+        let mut query = HashMap::new();
+        query.insert("address", "D77tg5cPsDScdATRHRyWJ7CaeJJpN6XgZT");
+
+        let response = client
+            .wallets
+            .search(Some(query), Vec::<(String, String)>::new())
+            .unwrap();
+        let expected: Value = from_str(&body).unwrap();
+
+        assert_meta(response.meta.unwrap(), expected["meta"].borrow());
+
+        test_wallet_array(response.data, expected);
+    }
 }
 
 #[test]

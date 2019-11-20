@@ -65,8 +65,10 @@ fn test_locks_search() {
             "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
         );
 
-        let params = [("", "")].iter();
-        let actual = client.locks.search(Some(query), params).unwrap();
+        let actual = client
+            .locks
+            .search(Some(query), Vec::<(String, String)>::new())
+            .unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
@@ -86,8 +88,10 @@ fn test_locks_unlocked() {
             "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
         );
 
-        let params = [("", "")].iter();
-        let actual = client.locks.unlocked(Some(query), params).unwrap();
+        let actual = client
+            .locks
+            .unlocked(Some(query), Vec::<(String, String)>::new())
+            .unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
