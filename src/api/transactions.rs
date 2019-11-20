@@ -56,7 +56,7 @@ impl Transactions {
             .get_with_params("transactions/unconfirmed", parameters)
     }
 
-    pub fn show_unconfirmed(&mut self, id: &str) -> Result<Vec<Transaction>> {
+    pub fn show_unconfirmed(&mut self, id: &str) -> Result<Transaction> {
         let endpoint = format!("transactions/unconfirmed/{}", id);
         self.client.get(&endpoint)
     }

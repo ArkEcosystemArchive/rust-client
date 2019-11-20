@@ -117,7 +117,9 @@ pub fn assert_block_data(actual: &Block, expected: &Value) {
 
 pub fn assert_transaction_data(actual: Transaction, expected: &Value) {
     assert_eq!(actual.id, expected["id"].as_str().unwrap());
-    assert_eq!(actual.block_id, expected["blockId"].as_str().unwrap());
+    if let Some(block_id) = actual.block_id {
+        assert_eq!(block_id, expected["blockId"].as_str().unwrap());
+    }
     if let Some(version) = actual.version {
         assert_eq!(version, expected["version"].as_u64().unwrap() as u16);
     }
@@ -164,10 +166,9 @@ pub fn assert_transaction_data(actual: Transaction, expected: &Value) {
         expected["confirmations"].as_u64().unwrap()
     );
     assert_timestamp_data(&actual.timestamp, &expected["timestamp"].clone());
-    assert_eq!(
-        actual.nonce,
-        u64::from_str(expected["nonce"].as_str().unwrap()).unwrap()
-    );
+    if let Some(nonce) = actual.nonce {
+        assert_eq!(nonce, expected["nonce"].as_str().unwrap());
+    }
 }
 
 pub fn assert_wallet_data(actual: Wallet, expected: &Value) {

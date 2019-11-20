@@ -51,7 +51,6 @@ fn test_show() {
 
 #[test]
 fn test_all_unconfirmed() {
-    // TODO fixture with data
     let (_mock, body) = mock_http_request("transactions/unconfirmed");
     {
         let mut client = mock_client();
@@ -59,13 +58,13 @@ fn test_all_unconfirmed() {
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
+
+        test_transaction_array(actual.data, expected);
     }
 }
 
 #[test]
 fn test_all_unconfirmed_params() {
-    // TODO current fixture does not have unconfirmed transactions
-    // TODO use a different fixture to check that uses query strings
     let (_mock, body) = mock_http_request("transactions/unconfirmed");
     {
         let mut client = mock_client();
@@ -74,20 +73,22 @@ fn test_all_unconfirmed_params() {
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
+
+        test_transaction_array(actual.data, expected);
     }
 }
 
 #[test]
-#[ignore]
 fn test_show_unconfirmed() {
-    // TODO: missing fixture
-    // let (_mock, body) = mock_http_request("transactions/unconfirmed/dummy");
-    // {
-    //     let client = mock_client();
-    //     let response = client.transactions.show_unconfirmed("dummy".to_owned());
-    //
-    //     mock_assert_success(&_mock, "transactions/unconfirmed/dummy", response);
-    // }
+    let (_mock, body) = mock_http_request("transactions/unconfirmed/dummy");
+    {
+        let mut client = mock_client();
+        let actual = client.transactions.show_unconfirmed("dummy").unwrap();
+        let expected: Value = from_str(&body).unwrap();
+        eprintln!(" = {:#?}", actual.data);
+
+        assert_transaction_data(actual.data, &expected["data"]);
+    }
 }
 
 #[test]

@@ -12,7 +12,8 @@ use crate::common::deserialize_as_u64_from_number_or_string;
 #[serde(rename_all = "camelCase")]
 pub struct Transaction {
     pub id: String,
-    pub block_id: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub block_id: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub version: Option<u16>,
     #[serde(rename = "type")]
@@ -34,8 +35,8 @@ pub struct Transaction {
     pub asset: Asset,
     pub confirmations: u64,
     pub timestamp: Timestamp,
-    #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
-    pub nonce: u64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub nonce: Option<String>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]

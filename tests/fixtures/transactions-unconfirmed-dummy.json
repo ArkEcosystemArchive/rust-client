@@ -1,0 +1,22 @@
+{
+  "data": {
+    "id": "2a286046c8b4970fe57e15c15b4d5b707a51c4e1fd32529e8c4ff79a2c575853",
+    "version": 1,
+    "type": 0,
+    "typeGroup": 1,
+    "amount": "1",
+    "fee": "10000000",
+    "sender": "DMHtTBMyG5qGYgcZNRkb36XaCT3TUSKmYE",
+    "senderPublicKey": "02e3f3c56464286deb9e5fd473e8c0db98f772fd8c989d5748ad53614369ba24e2",
+    "recipient": "D7Ba6DnbpPJgqVnQNdN7baRsZs1DKvptMM",
+    "signature": "304402204eb35d70898baa6b2d4d3525ffebd7ea07f5e4547712a598e83573dd6594750f02200f2499c538be3b73321374e92e919e5653ce553db181fb430ca4a9293c79d802",
+    "signSignature": "3045022100adf70bf08c2ddc3e7e027c48235b61a626d35d92eca26fea735cae2c680c5fcf022021895b3e219a8e2c253b35fad7ee7e00e10bf8f86cf64bbd428e9491cabbc5ae",
+    "vendorField": "0.0100313619462582",
+    "confirmations": 0,
+    "timestamp": {
+      "epoch": 84150364,
+      "unix": 1574251564,
+      "human": "2019-11-20T12:06:04.000Z"
+    }
+  }
+}
