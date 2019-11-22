@@ -1,18 +1,20 @@
-use std::str::FromStr;
-
 use serde_json::Value;
+use std::borrow::Borrow;
+use std::str::FromStr;
 
 use arkecosystem_client::api::models::asset::Asset;
 use arkecosystem_client::api::models::block::Block;
 use arkecosystem_client::api::models::delegate::Delegate;
-use arkecosystem_client::api::models::fee::{FeeSchema, FeeStats};
+use arkecosystem_client::api::models::fee::FeeStatistics;
 use arkecosystem_client::api::models::lock::Lock;
 use arkecosystem_client::api::models::peer::Peer;
 use arkecosystem_client::api::models::shared::Meta;
 use arkecosystem_client::api::models::timestamp::Timestamp;
-use arkecosystem_client::api::models::transaction::Transaction;
+use arkecosystem_client::api::models::transaction::{
+    Transaction, TransactionFeesCore, TransactionFeesMagistrate, TransactionPostResponse,
+    TransactionTypesCore, TransactionTypesMagistrate,
+};
 use arkecosystem_client::api::models::wallet::Wallet;
-use std::borrow::Borrow;
 
 pub fn assert_meta(actual: Meta, expected: &Value) {
     if actual.count.is_some() {
@@ -204,7 +206,7 @@ pub fn assert_wallet_data(actual: Wallet, expected: &Value) {
     );
 }
 
-pub fn assert_configuration_fees(actual: &FeeSchema, expected: &Value) {
+pub fn assert_configuration_fees(actual: &TransactionFeesCore, expected: &Value) {
     assert_eq!(actual.transfer, expected["transfer"].as_u64().unwrap());
     assert_eq!(
         actual.second_signature,
@@ -228,6 +230,169 @@ pub fn assert_configuration_fees(actual: &FeeSchema, expected: &Value) {
         actual.delegate_resignation,
         expected["delegateResignation"].as_u64().unwrap()
     );
+}
+
+pub fn assert_transaction_core_fees(core: TransactionFeesCore, expected: &Value) {
+    assert_eq!(
+        core.transfer,
+        u64::from_str(expected["transfer"].as_str().unwrap()).unwrap()
+    );
+
+    assert_eq!(
+        core.second_signature,
+        u64::from_str(expected["secondSignature"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(
+        core.delegate_registration,
+        u64::from_str(expected["delegateResignation"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(
+        core.vote,
+        u64::from_str(expected["vote"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(
+        core.multi_signature,
+        u64::from_str(expected["multiSignature"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(
+        core.ipfs,
+        u64::from_str(expected["ipfs"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(
+        core.multi_payment,
+        u64::from_str(expected["multiPayment"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(
+        core.delegate_resignation,
+        u64::from_str(expected["delegateResignation"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(
+        core.htlc_lock,
+        u64::from_str(expected["htlcLock"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(
+        core.htlc_claim,
+        u64::from_str(expected["htlcClaim"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(
+        core.htlc_refund,
+        u64::from_str(expected["htlcRefund"].as_str().unwrap()).unwrap()
+    );
+}
+
+pub fn assert_transaction_magistrate_fees(magistrate: TransactionFeesMagistrate, expected: &Value) {
+    assert_eq!(
+        magistrate.business_registration,
+        u64::from_str(expected["businessRegistration"].as_str().unwrap()).unwrap()
+    );
+
+    assert_eq!(
+        magistrate.business_resignation,
+        u64::from_str(expected["businessResignation"].as_str().unwrap()).unwrap()
+    );
+
+    assert_eq!(
+        magistrate.business_update,
+        u64::from_str(expected["businessUpdate"].as_str().unwrap()).unwrap()
+    );
+
+    assert_eq!(
+        magistrate.bridgechain_registration,
+        u64::from_str(expected["bridgechainRegistration"].as_str().unwrap()).unwrap()
+    );
+
+    assert_eq!(
+        magistrate.bridgechain_resignation,
+        u64::from_str(expected["bridgechainResignation"].as_str().unwrap()).unwrap()
+    );
+
+    assert_eq!(
+        magistrate.bridgechain_update,
+        u64::from_str(expected["bridgechainUpdate"].as_str().unwrap()).unwrap()
+    );
+}
+
+pub fn assert_transaction_types_core(core: TransactionTypesCore, expected: &Value) {
+    assert_eq!(core.transfer, expected["Transfer"].as_u64().unwrap() as u16);
+    assert_eq!(
+        core.second_signature,
+        expected["SecondSignature"].as_u64().unwrap() as u16
+    );
+    assert_eq!(
+        core.delegate_registration,
+        expected["DelegateRegistration"].as_u64().unwrap() as u16
+    );
+    assert_eq!(core.vote, expected["Vote"].as_u64().unwrap() as u16);
+    assert_eq!(
+        core.multi_signature,
+        expected["MultiSignature"].as_u64().unwrap() as u16
+    );
+    assert_eq!(core.ipfs, expected["Ipfs"].as_u64().unwrap() as u16);
+    assert_eq!(
+        core.multi_payment,
+        expected["MultiPayment"].as_u64().unwrap() as u16
+    );
+    assert_eq!(
+        core.htlc_lock,
+        expected["HtlcLock"].as_u64().unwrap() as u16
+    );
+    assert_eq!(
+        core.htlc_claim,
+        expected["HtlcClaim"].as_u64().unwrap() as u16
+    );
+    assert_eq!(
+        core.htlc_refund,
+        expected["HtlcRefund"].as_u64().unwrap() as u16
+    );
+    assert_eq!(
+        core.delegate_resignation,
+        expected["DelegateResignation"].as_u64().unwrap() as u16
+    );
+}
+
+pub fn assert_transaction_types_magistrate(
+    magistrate: TransactionTypesMagistrate,
+    expected: &Value,
+) {
+    assert_eq!(
+        magistrate.business_registration,
+        expected["BusinessRegistration"].as_u64().unwrap() as u16
+    );
+    assert_eq!(
+        magistrate.business_resignation,
+        expected["BusinessResignation"].as_u64().unwrap() as u16
+    );
+    assert_eq!(
+        magistrate.business_update,
+        expected["BusinessUpdate"].as_u64().unwrap() as u16
+    );
+    assert_eq!(
+        magistrate.bridgechain_registration,
+        expected["BridgechainRegistration"].as_u64().unwrap() as u16
+    );
+    assert_eq!(
+        magistrate.bridgechain_resignation,
+        expected["BridgechainResignation"].as_u64().unwrap() as u16
+    );
+    assert_eq!(
+        magistrate.bridgechain_update,
+        expected["BridgechainUpdate"].as_u64().unwrap() as u16
+    );
+}
+
+pub fn assert_transaction_post_data(actual: TransactionPostResponse, expected: &Value) {
+    for (pos, value) in actual.accept.iter().enumerate() {
+        assert_eq!(value, &expected["accept"][pos]);
+    }
+    for (pos, value) in actual.broadcast.iter().enumerate() {
+        assert_eq!(value, &expected["broadcast"][pos]);
+    }
+    for (pos, value) in actual.excess.iter().enumerate() {
+        assert_eq!(value, &expected["excess"][pos]);
+    }
+    for (pos, value) in actual.invalid.iter().enumerate() {
+        assert_eq!(value, &expected["invalid"][pos]);
+    }
 }
 
 pub fn assert_delegate_data(actual: Delegate, expected: &Value) {
@@ -278,22 +443,25 @@ pub fn assert_peer_data(actual: &Peer, expected: &Value) {
     assert_eq!(!actual.ports.is_empty(), true);
 }
 
-pub fn assert_node_fee_stats(actual: &FeeStats, expected: &Value) {
+pub fn assert_node_fee_stats(actual: &FeeStatistics, expected: &Value) {
     assert_eq!(
-        actual.transaction_type as u64,
-        expected["type"].as_u64().unwrap()
+        actual.avg,
+        u64::from_str(expected["avg"].as_str().unwrap()).unwrap()
     );
+    //    assert_eq!(actual.max, expected["max"]);
+    //    assert_eq!(actual.min, expected["min"]);
+    //    assert_eq!(actual.sum, expected["sum"]);
 }
 
 pub fn assert_vote_data(actual: Transaction, expected: &Value) {
     assert_transaction_data(actual.clone(), &expected);
 
-    match actual.asset {
-        Asset::Votes(votes) => {
-            assert_eq!(votes[0], expected["asset"]["votes"][0].as_str().unwrap());
-        }
-        _ => panic!("Asset without votes"),
-    };
+    //    match actual.asset {
+    //        Asset::Votes(votes) => {
+    //            assert_eq!(votes[0], expected["asset"]["votes"][0].as_str().unwrap());
+    //        }
+    //        _ => panic!("Asset without votes"),
+    //    };
 }
 
 pub fn assert_lock_data(actual: Lock, expected: &Value) {

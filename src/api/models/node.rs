@@ -1,9 +1,8 @@
 use std::collections::HashMap;
 
+use crate::api::models::transaction::TransactionFeesCore;
 use serde::Deserialize;
 use serde::Serialize;
-
-use crate::api::models::fee::FeeSchema;
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -71,7 +70,7 @@ pub struct NodeBlock {
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Fees {
-    pub static_fees: FeeSchema,
+    pub static_fees: TransactionFeesCore,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
@@ -80,7 +79,7 @@ pub struct DynamicFees {
     pub enabled: bool,
     pub min_fee_pool: u64,
     pub min_fee_broadcast: u64,
-    pub addon_bytes: FeeSchema,
+    pub addon_bytes: TransactionFeesCore,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]

@@ -1,4 +1,4 @@
-use crate::api::models::fee::FeeStats;
+use crate::api::models::fee::NetworkFeeStats;
 use crate::api::models::node::{NodeConfiguration, NodeStatus, NodeSyncing};
 use crate::api::Result;
 use crate::http::client::Client;
@@ -25,7 +25,7 @@ impl Node {
         self.client.get("node/configuration")
     }
 
-    pub fn fees<I, K, V>(&mut self, parameters: I) -> Result<Vec<FeeStats>>
+    pub fn fees<I, K, V>(&mut self, parameters: I) -> Result<NetworkFeeStats>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,

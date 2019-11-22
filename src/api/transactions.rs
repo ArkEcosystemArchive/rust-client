@@ -1,8 +1,9 @@
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
-use crate::api::models::fee::FeeSchema;
-use crate::api::models::transaction::{Transaction, TransactionTypes};
+use crate::api::models::transaction::{
+    Transaction, TransactionFees, TransactionPostResponse, TransactionTypes,
+};
 use crate::api::Result;
 use crate::http::client::Client;
 
@@ -29,10 +30,10 @@ impl Transactions {
         self.client.get_with_params("transactions", parameters)
     }
 
-    pub fn create(&mut self, transactions: Vec<&str>) -> Result<Transaction> {
+    pub fn create(&mut self, transactions: Vec<&str>) -> Result<TransactionPostResponse> {
         let mut payload = HashMap::<&str, Vec<&str>>::new();
         payload.insert("transactions", transactions);
-
+        eprintln!("payload = {:#?}", payload);
         self.client.post("transactions", Some(payload))
     }
 
@@ -87,7 +88,7 @@ impl Transactions {
     /// let types = client.transactions.types().unwrap();
     /// println!("{}", to_string_pretty(&types).unwrap());
     /// ```
-    pub fn types(&mut self) -> Result<HashMap<String, TransactionTypes>> {
+    pub fn types(&mut self) -> Result<TransactionTypes> {
         self.client.get("transactions/types")
     }
 
@@ -102,7 +103,7 @@ impl Transactions {
     /// let fees = client.transactions.fees().unwrap();
     /// println!("{}", to_string_pretty(&fees).unwrap());
     /// ```
-    pub fn fees(&mut self) -> Result<FeeSchema> {
+    pub fn fees(&mut self) -> Result<TransactionFees> {
         self.client.get("transactions/fees")
     }
 }

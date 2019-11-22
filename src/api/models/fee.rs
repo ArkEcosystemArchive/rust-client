@@ -5,9 +5,17 @@ use crate::common::deserialize_as_u64_from_number_or_string;
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub struct FeeStats {
-    #[serde(rename = "type")]
-    pub transaction_type: u64,
+pub struct NetworkFeeStats {
+    #[serde(rename = "1")]
+    pub core: CoreFeeStats,
+    #[serde(rename = "2")]
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub magistrate: Option<MagistrateFeeStats>,
+}
+
+#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct FeeStatistics {
     #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
     pub avg: u64,
     #[serde(deserialize_with = "deserialize_as_u64_from_number_or_string")]
@@ -20,16 +28,44 @@ pub struct FeeStats {
 
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
-pub struct FeeSchema {
-    pub transfer: u64,
-    pub second_signature: u64,
-    pub delegate_registration: u64,
-    pub vote: u64,
-    pub multi_signature: u64,
-    pub ipfs: u64,
-    pub multi_payment: u64,
-    pub delegate_resignation: u64,
-    pub htlc_lock: u64,
-    pub htlc_claim: u64,
-    pub htlc_refund: u64,
+pub struct CoreFeeStats {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub transfer: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub second_signature: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub delegate_registration: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub vote: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub multi_signature: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub ipfs: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub multi_payment: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub delegate_resignation: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub htlc_lock: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub htlc_claim: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub htlc_refund: Option<FeeStatistics>,
+}
+
+#[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct MagistrateFeeStats {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub business_registration: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub business_resignation: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub business_update: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub bridgechain_registration: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub bridgechain_resignation: Option<FeeStatistics>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub bridgechain_update: Option<FeeStatistics>,
 }

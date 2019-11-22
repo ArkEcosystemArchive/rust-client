@@ -2,7 +2,7 @@ use serde_json::{from_str, Value};
 
 use crate::utils::assert_helpers::{assert_configuration_fees, assert_meta, assert_node_fee_stats};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
-use std::borrow::Borrow;
+use std::borrow::Borrow; 
 
 #[test]
 fn test_node_status() {
@@ -144,8 +144,22 @@ fn test_node_fees() {
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        for (pos, fee_stat) in actual.data.iter().enumerate() {
-            assert_node_fee_stats(&fee_stat, &expected["data"][pos]);
-        }
+        // TODO ref: introduce dynamic type where enum_name translates to field name
+        assert_node_fee_stats(
+            &actual.data.core.transfer.unwrap(),
+            &expected["data"]["1"]["transfer"],
+        );
+        assert_node_fee_stats(
+            &actual.data.core.second_signature.unwrap(),
+            &expected["data"]["1"]["secondSignature"],
+        );
+        assert_node_fee_stats(
+            &actual.data.core.delegate_registration.unwrap(),
+            &expected["data"]["1"]["delegateRegistration"],
+        );
+
+        //        for (pos, fee_stat) in actual.data.iter().enumerate() {
+        //            assert_node_fee_stats(fee_stat, &expected["data"][pos]);
+        //        }
     }
 }
