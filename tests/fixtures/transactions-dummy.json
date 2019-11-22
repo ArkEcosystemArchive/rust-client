@@ -1,23 +1,23 @@
 {
-    "data": {
-        "id": "ede0888ec6d1600272d52cc86c7075d444b45d54373aac4a12a2015b2d80c9ba",
-        "blockId": "18e6b47a8154e2fbe59cb1b261cb04d3df7f95247528fd263eafeceed92b1975",
-        "version": 2,
-        "type": 0,
-        "typeGroup": 1,
-        "amount": "731070",
-        "fee": "335000",
-        "sender": "DMzBk3g7ThVQPYmpYDTHBHiqYuTtZ9WdM3",
-        "senderPublicKey": "037997a6553ea8073eb199e9f5ff23b8f0892e79433ef35e13966e0a12849d02e3",
-        "recipient": "DAFCXtuZsXgs99sJWNRi55GUXmXudVU6YE",
-        "signature": "744d9244b78322a9099182cb31db54e1e1af812f149dafc70a2710d6de5cd69366e41d16c4dba150d72bdced663cd421a7a8ad01b269f548e59b73455ffab4b4",
-        "vendorField": "Goose",
-        "confirmations": 65,
-        "timestamp": {
-            "epoch": 83970176,
-            "unix": 1574071376,
-            "human": "2019-11-18T10:02:56.000Z"
-        },
-        "nonce": "127459"
-    }
+  "data": {
+    "id": "f510c0dd688c6fea25fbbe71b83f3a000ccae9aa7d577f582c6c50f6f866e88b",
+    "blockId": "71428c9dd4afac3a7baf8f7352121b580e1404cea5353c854aa2ad9f75d24276",
+    "version": 2,
+    "type": 0,
+    "typeGroup": 1,
+    "amount": "20000000000",
+    "fee": "10000000",
+    "sender": "DAWNRvnMNPWodLjQwhphJwUpTW2KJXBzVR",
+    "senderPublicKey": "03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232",
+    "recipient": "DMT1PcHdwv5Uh4Wj51iY9GtWnumhzVX6DG",
+    "signature": "a3b0506c0f14c65db4fff3d9b0ac4d368d42cfe021d06097d1aab4d56b51c3fef2ff677a548f607a14e38570e1df3592653f2435b6bf5876668b0db4829012f7",
+    "signSignature": "15a093168afed881bd114d5b333c09a734b714e881dcd64429631068ed1faf5a6aac7977f93f95d8c37288d61395e4726ae16f7981d149fe299e2a0178b498a2",
+    "confirmations": 5494,
+    "timestamp": {
+      "epoch": 84272336,
+      "unix": 1574373536,
+      "human": "2019-11-21T21:58:56.000Z"
+    },
+    "nonce": "70954"
+  }
 }

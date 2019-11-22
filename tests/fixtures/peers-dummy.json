@@ -1,15 +1,15 @@
 {
-    "data": {
-        "ip": "213.32.9.98",
-        "port": 4002,
-        "ports": {
-            "@arkecosystem/core-webhooks": -1,
-            "@arkecosystem/core-exchange-json-rpc": -1,
-            "@arkecosystem/core-api": 4003,
-            "@arkecosystem/core-wallet-api": 4040
-        },
-        "version": "2.6.0-next.4",
-        "height": 4196588,
-        "latency": 5
-    }
+  "data": {
+    "ip": "213.32.9.98",
+    "port": 4002,
+    "ports": {
+      "@arkecosystem/core-webhooks": -1,
+      "@arkecosystem/core-exchange-json-rpc": -1,
+      "@arkecosystem/core-api": 4003,
+      "@arkecosystem/core-wallet-api": 4040
+    },
+    "version": "2.6.0-next.4",
+    "height": 4196588,
+    "latency": 5
+  }
 }

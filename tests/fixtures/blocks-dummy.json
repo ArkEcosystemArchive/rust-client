@@ -1,31 +1,31 @@
 {
-    "data": {
-        "id": "eded2315c05b312e9118fa6c44bd9ad49bf6c8f51d00a21ae7cb3b9e1c68a427",
-        "version": 0,
-        "height": 4179121,
-        "previous": "0589bed1a304cb5c91384c884114cbc01f0f9908ccbf275f1d85f3cdf153ed49",
-        "forged": {
-            "reward": "200000000",
-            "fee": "0",
-            "total": "200000000",
-            "amount": "0"
-        },
-        "payload": {
-            "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-            "length": 0
-        },
-        "generator": {
-            "username": "crna_zmija",
-            "address": "DDvZXuzyVFuJ1tcB2vKwPW7i9GVXTbSVK9",
-            "publicKey": "035c14e8c5f0ee049268c3e75f02f05b4246e746dc42f99271ff164b7be20cf5b8"
-        },
-        "signature": "3044022077bd2aa7e52111458ee4274848a37486783490b3fecbeb274b1b21152e9aeadd02204ecebd53034ba0915c1de56494e9d89e5fdda7cf13fbfb011b27e98fc89cbec9",
-        "confirmations": 0,
-        "transactions": 0,
-        "timestamp": {
-            "epoch": 83823096,
-            "unix": 1573924296,
-            "human": "2019-11-16T17:11:36.000Z"
-        }
+  "data": {
+    "id": "eded2315c05b312e9118fa6c44bd9ad49bf6c8f51d00a21ae7cb3b9e1c68a427",
+    "version": 0,
+    "height": 4179121,
+    "previous": "0589bed1a304cb5c91384c884114cbc01f0f9908ccbf275f1d85f3cdf153ed49",
+    "forged": {
+      "reward": "200000000",
+      "fee": "0",
+      "total": "200000000",
+      "amount": "0"
+    },
+    "payload": {
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "generator": {
+      "username": "crna_zmija",
+      "address": "DDvZXuzyVFuJ1tcB2vKwPW7i9GVXTbSVK9",
+      "publicKey": "035c14e8c5f0ee049268c3e75f02f05b4246e746dc42f99271ff164b7be20cf5b8"
+    },
+    "signature": "3044022077bd2aa7e52111458ee4274848a37486783490b3fecbeb274b1b21152e9aeadd02204ecebd53034ba0915c1de56494e9d89e5fdda7cf13fbfb011b27e98fc89cbec9",
+    "confirmations": 0,
+    "transactions": 0,
+    "timestamp": {
+      "epoch": 83823096,
+      "unix": 1573924296,
+      "human": "2019-11-16T17:11:36.000Z"
     }
+  }
 }
