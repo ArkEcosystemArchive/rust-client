@@ -38,12 +38,12 @@ pub fn mock_client() -> Connection {
 }
 
 fn read_fixture(endpoint: &str, post_request: bool) -> String {
-    let fixture_name: String;
-    if post_request {
-        fixture_name = endpoint.replace("/", "-") + "-post.json";
+    let fixture_name = if post_request {
+        endpoint.replace("/", "-") + "-post.json"
     } else {
-        fixture_name = endpoint.replace("/", "-") + ".json";
-    }
+        endpoint.replace("/", "-") + ".json"
+    };
+
     let mut file = File::open(format!("tests/fixtures/{}", fixture_name)).unwrap();
     let mut response_body = String::new();
     file.read_to_string(&mut response_body).unwrap();

@@ -2,7 +2,6 @@ use serde_json::Value;
 use std::borrow::Borrow;
 use std::str::FromStr;
 
-use arkecosystem_client::api::models::asset::Asset;
 use arkecosystem_client::api::models::block::Block;
 use arkecosystem_client::api::models::delegate::Delegate;
 use arkecosystem_client::api::models::fee::FeeStatistics;

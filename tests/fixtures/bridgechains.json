@@ -1,1115 +1,1313 @@
 {
   "meta": {
     "count": 100,
-    "pageCount": 2,
-    "totalCount": 166,
+    "pageCount": 7,
+    "totalCount": 606,
     "next": "/api/bridgechains?page=2&limit=100",
     "previous": null,
     "self": "/api/bridgechains?page=1&limit=100",
     "first": "/api/bridgechains?page=1&limit=100",
-    "last": "/api/bridgechains?page=2&limit=100"
+    "last": "/api/bridgechains?page=7&limit=100"
   },
   "data": [
     {
-      "bridgechainId": 1,
-      "businessId": 1,
-      "name": "BridgechainTest",
+      "publicKey": "034da006f958beba78ec54443df4a3f52237253f7ae8cbdb17dccf3feaa57f3126",
+      "name": "ARK",
+      "seedNodes": [
+        "1.1.1.1",
+        "2.2.2.2"
+      ],
+      "genesisHash": "2a44f340d76ffc3df204c5f38cd355b7496c9065a1ade2ef92071436bd72e867",
+      "bridgechainRepository": "https://github.com/arkecosystem/core",
+      "ports": {
+        "@arkecosystem/core-api": 4003
+      }
+    },
+    {
+      "publicKey": "02e7e9b33d19e5aa7ad092e8cdb5c973b44e2c761840c64a1abbe5571bb317d464",
+      "name": "I Scream Ice Cream",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://github.com/ArkEcosystem/core"
+      "genesisHash": "6894079e5fc26776bd2a6d7b38cf90d1220064aa9acb96cdfc52cd203b20ff15",
+      "bridgechainRepository": "http://localhost/core",
+      "ports": {
+        "@arkecosystem/core-api": 4003
+      }
     },
     {
-      "bridgechainId": 161,
-      "businessId": 134,
-      "name": "ECorp1",
+      "publicKey": "02e7e9b33d19e5aa7ad092e8cdb5c973b44e2c761840c64a1abbe5571bb317d464",
+      "name": "Localhost is Best Host",
       "seedNodes": [
-        "0:0:0:0:0:ffff:101:101",
         "1.1.1.1",
+        "1.2.3.4"
+      ],
+      "genesisHash": "efaba26621e84c5329f0a1cbd23eca927f1f6019a5825de121a0a92cd8e798c6",
+      "bridgechainRepository": "http://127.0.0.1",
+      "ports": {
+        "@arkecosystem/core-api": 4003
+      }
+    },
+    {
+      "publicKey": "020611b40c71f84dfe6e41397d02c93512881bd577b6ec8379cdaefab1ab85e0f5",
+      "name": "bridgechain-702523885191",
+      "seedNodes": [
         "1.2.3.4"
       ],
       "genesisHash": "200a445e84ba5892c9324c7e89cdbb82d815536e2ac0f31b0c218fdf380ba5dc",
-      "bridgechainRepository": "https://github.com/ArkEcosystem/core"
+      "bridgechainRepository": "https://github.com/ArkEcosystem/core",
+      "ports": {
+        "@arkecosystem/core-api": 456
+      }
     },
     {
-      "bridgechainId": 52,
-      "businessId": 95,
-      "name": "Lemii-Bridgechain-0005ccc9",
+      "publicKey": "03eb4ebbed35bb808bc4fc33d272e494d6769e5a0cbf2f63992022e5e84129a785",
+      "name": "lemii-Bridgechain-00485548",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-0005ccc9.com/repository"
+      "genesisHash": "3ad11029a558614c19d4eadd30936d9dd33c644fb98b011070e9e3b4cae7f16b",
+      "bridgechainRepository": "https://www.lemii-bridgechain-00485548.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 120,
-      "businessId": 80,
-      "name": "Lemii-Bridgechain-01efb1e7",
+      "publicKey": "03673c808cb5c71253db01ffe9f0b73e7ecda58314355b90ea8680da0ce6212734",
+      "name": "lemii-Bridgechain-0060a24e",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-01efb1e7.com/repository"
+      "genesisHash": "be8157a71d8c810fa358b17c49542e6617ac2871e8c7386abb61676263830b18",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0060a24e.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 81,
-      "businessId": 41,
-      "name": "Lemii-Bridgechain-02c78d5a",
+      "publicKey": "038aff18469958341cb6fa940de0c187b651aef4d1207e53aa50fca957a9e3cba4",
+      "name": "lemii-Bridgechain-0089312c",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-02c78d5a.com/repository"
+      "genesisHash": "26736a8a0186d8a886abb9075ce6a59c45dfd790a315a2a9c6990f2438fbfac0",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0089312c.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 69,
-      "businessId": 112,
-      "name": "Lemii-Bridgechain-033ad0a0",
+      "publicKey": "023db40fda5ba70dd95664f999a2903fefc3b2100cd55ff6a3793861a4e4dd9139",
+      "name": "lemii-Bridgechain-00b30cca",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-033ad0a0.com/repository"
+      "genesisHash": "9edc55a15a4301f812217d6b2149f36000d6997cf0acb793a6deb2308578e91a",
+      "bridgechainRepository": "https://www.lemii-bridgechain-00b30cca.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 105,
-      "businessId": 65,
-      "name": "Lemii-Bridgechain-037de1b5",
+      "publicKey": "0368eff136d6e0162d80c972f92068f3fc9f0f9d55a5ed653b55c66658ae049812",
+      "name": "lemii-Bridgechain-027eb06b",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-037de1b5.com/repository"
+      "genesisHash": "89b6fba2bebb96623f7dce51a4d269ef8f638232250934638dc176a111581129",
+      "bridgechainRepository": "https://www.lemii-bridgechain-027eb06b.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 118,
-      "businessId": 78,
-      "name": "Lemii-Bridgechain-0493df5a",
+      "publicKey": "02df6c0b9b58d354a4e6aab85cd34c7bd7b3b2bab7aa06f2dde20509c07b624061",
+      "name": "lemii-Bridgechain-02977f2c",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-0493df5a.com/repository"
+      "genesisHash": "9e175af373d7e1efc350e995933892ed1beef5584e69a4b4a5297d0bf2b4f0d2",
+      "bridgechainRepository": "https://www.lemii-bridgechain-02977f2c.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 54,
-      "businessId": 97,
-      "name": "Lemii-Bridgechain-0a55bc2a",
+      "publicKey": "03c93df4fa2d21348990a2d0d34e8c8ee026b1778d0078acf9bbb1bbb549afb91e",
+      "name": "lemii-Bridgechain-02a29488",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-0a55bc2a.com/repository"
+      "genesisHash": "41caee0ab05edec3ad157e99e1b18698d01bc1fb32582aebfef8170dd5505969",
+      "bridgechainRepository": "https://www.lemii-bridgechain-02a29488.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 70,
-      "businessId": 113,
-      "name": "Lemii-Bridgechain-0f38eb8f",
+      "publicKey": "037b6353b9ea2b1d698c515c4f3da03cdf08cd3d8f25ab50c9651752fc33c9e739",
+      "name": "lemii-Bridgechain-02f8dd71",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-0f38eb8f.com/repository"
+      "genesisHash": "91b70866bcfbdb86ab0ae31df2b7a745e7fe73f2003716e5186b5e00fd4f810d",
+      "bridgechainRepository": "https://www.lemii-bridgechain-02f8dd71.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 48,
-      "businessId": 91,
-      "name": "Lemii-Bridgechain-103d09c2",
+      "publicKey": "0355b83e7c9410e727e494b84e877137383d98f7a2aa3feb465e0f22fa908fa661",
+      "name": "lemii-Bridgechain-03d6751a",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-103d09c2.com/repository"
+      "genesisHash": "ae77cb71ac6ca83bfb2f6f04b664f3521a18253ea110d2262f6cfbb3e20606eb",
+      "bridgechainRepository": "https://www.lemii-bridgechain-03d6751a.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 65,
-      "businessId": 108,
-      "name": "Lemii-Bridgechain-14237ea7",
+      "publicKey": "030586b51779d52168b9396a561e4453db15da3e5a02d6cc2d4e7327ae4032e1c3",
+      "name": "lemii-Bridgechain-03eb177c",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-14237ea7.com/repository"
+      "genesisHash": "0d92f0323c0776dc463f0da7df66dd14fce2713d5ae468d8e06e380351c44d71",
+      "bridgechainRepository": "https://www.lemii-bridgechain-03eb177c.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 77,
-      "businessId": 120,
-      "name": "Lemii-Bridgechain-174537b7",
+      "publicKey": "0330a25fe0544e7d486a5651af4b7c7793cf641b33ac4ca08a35ce38f4ceb45d64",
+      "name": "lemii-Bridgechain-03f0a3c5",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-174537b7.com/repository"
+      "genesisHash": "7c26b48cc76dbb3442f497baac8e01461f9731a0ddb504f342ffc91de69dc22e",
+      "bridgechainRepository": "https://www.lemii-bridgechain-03f0a3c5.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 72,
-      "businessId": 115,
-      "name": "Lemii-Bridgechain-17b58d3e",
+      "publicKey": "033142e65daeeeec8b5009ef6ce71ad7c5d94eab9877ed97405c3045afe13a0e14",
+      "name": "lemii-Bridgechain-03f68e07",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-17b58d3e.com/repository"
+      "genesisHash": "5f11714985373a243837270895c4bccc6cc67091a42d5c929732f57697a273c1",
+      "bridgechainRepository": "https://www.lemii-bridgechain-03f68e07.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 27,
-      "businessId": 27,
-      "name": "Lemii-Bridgechain-183ac68f",
+      "publicKey": "0399c9de170894d9f37f51b67af83736d7eb5947d5610c14cb7a71a400f2606b30",
+      "name": "lemii-Bridgechain-0445a93d",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-183ac68f.com/repository"
+      "genesisHash": "37cb5d6c5fcfbd2d5169100e948145f05df6d474f550f506e0dd56268c8152d1",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0445a93d.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 101,
-      "businessId": 61,
-      "name": "Lemii-Bridgechain-19442f3b",
+      "publicKey": "0253e563fe64e89ab6baf1baecc80f09b3c334e0f537fbd0519086f60edfadd87d",
+      "name": "lemii-Bridgechain-0481bcea",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-19442f3b.com/repository"
+      "genesisHash": "a56341661e2c0a2154c125418b5e96aa971eb4ab1253ba1197af3d08ccd022e9",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0481bcea.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 85,
-      "businessId": 45,
-      "name": "Lemii-Bridgechain-1aa39436",
+      "publicKey": "0319e5f5ba14741d2a1809cf0526f07dd427aa4e01b7171001d750526fcac341a3",
+      "name": "lemii-Bridgechain-05063820",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-1aa39436.com/repository"
+      "genesisHash": "bdf40199940270036eae6b06defd8e3e420ee21ce5ce52c41a4e05ba5db87be4",
+      "bridgechainRepository": "https://www.lemii-bridgechain-05063820.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 66,
-      "businessId": 109,
-      "name": "Lemii-Bridgechain-1d9b2c50",
+      "publicKey": "02fe1c8b6d594a4d2e65758b993e8aee3fcc7c85611735b616c09e43fc833aaaff",
+      "name": "lemii-Bridgechain-055908d7",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-1d9b2c50.com/repository"
+      "genesisHash": "6c618a3f4e38cddf19f660b6c64e4f51e7cc95b366bce9f6b2adef76ef20c0e6",
+      "bridgechainRepository": "https://www.lemii-bridgechain-055908d7.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 61,
-      "businessId": 3,
-      "name": "Lemii-Bridgechain-1f602b53",
+      "publicKey": "03cfaa58426b000418b4afdc7804dc5ce89f17668216ccbf77f02678699ad43249",
+      "name": "lemii-Bridgechain-05619ee0",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-1f602b53.com/repository"
+      "genesisHash": "bba371079cdb7da1c69e6640f1f9594ba993750ae36c09d17a1487fb0f8e856a",
+      "bridgechainRepository": "https://www.lemii-bridgechain-05619ee0.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 53,
-      "businessId": 96,
-      "name": "Lemii-Bridgechain-20b536db",
+      "publicKey": "03331f25f067ef5e09988206c46b17fae4a61f40f9277b8c7680d083bd6bab3b16",
+      "name": "lemii-Bridgechain-05ebfea8",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-20b536db.com/repository"
+      "genesisHash": "c1651f366145f5f0dbe1634c3414464b64830a11d6fc474c8321e8547262a95f",
+      "bridgechainRepository": "https://www.lemii-bridgechain-05ebfea8.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 30,
-      "businessId": 30,
-      "name": "Lemii-Bridgechain-23468584",
+      "publicKey": "03da9f21ecbbe7b941c2772ea25990f8b383e4ee9bfb7818a66c8e63d10f3e55d2",
+      "name": "lemii-Bridgechain-062a82fa",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-23468584.com/repository"
+      "genesisHash": "6d7751a37afabcb168f4275264ee37effb0a7ac4883e6422d9243b5b718a7858",
+      "bridgechainRepository": "https://www.lemii-bridgechain-062a82fa.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 60,
-      "businessId": 103,
-      "name": "Lemii-Bridgechain-254bf516",
+      "publicKey": "02919fb4c1e541f446c2b4d71391de48c3e780ac3f02e1e95c07e9b3b874273d6b",
+      "name": "lemii-Bridgechain-065f7fc3",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-254bf516.com/repository"
+      "genesisHash": "49e12168a50051a651d3eeebc8f000bdbc40d96367c009d4177517ce1424b271",
+      "bridgechainRepository": "https://www.lemii-bridgechain-065f7fc3.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 99,
-      "businessId": 59,
-      "name": "Lemii-Bridgechain-2a8afb82",
+      "publicKey": "02981041c28be89b556cd354c97fcb5bc2ecd15c3a083fbc88a173a3cef4866196",
+      "name": "lemii-Bridgechain-06945367",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-2a8afb82.com/repository"
+      "genesisHash": "eab0b0cf95c20e93676eb45bd8afa83e5c2bf0e2a0f7f56c009d0ddb07dd92d8",
+      "bridgechainRepository": "https://www.lemii-bridgechain-06945367.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 12,
-      "businessId": 12,
-      "name": "Lemii-Bridgechain-2e3faa32",
+      "publicKey": "0308928659bb03389d6e91c26113ae535ef6b19751e68eaafa3769a5ef85b8d3ef",
+      "name": "lemii-Bridgechain-06fa98ff",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-2e3faa32.com/repository"
+      "genesisHash": "921711ca9b95533b8c24a5f5d2bd0cdf5fe900e4870c0f9fb0e4d7cdd5d9f1cb",
+      "bridgechainRepository": "https://www.lemii-bridgechain-06fa98ff.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 32,
-      "businessId": 32,
-      "name": "Lemii-Bridgechain-3029828d",
+      "publicKey": "03c7ebe5a09b8053900e0b084b70ba5b947d0ebb677bdb67b73dee001efd3852de",
+      "name": "lemii-Bridgechain-07118dc4",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-3029828d.com/repository"
+      "genesisHash": "87d36e7aeb97a3e6fa75383c35fd12a685ac0eb6c2307717f2f3be50b47254d7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-07118dc4.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 102,
-      "businessId": 62,
-      "name": "Lemii-Bridgechain-309a8e71",
+      "publicKey": "0367afa0216703c03ce6b4c53c1b011375bfc6b2b95290c0f1609fccef42a61282",
+      "name": "lemii-Bridgechain-073d35f4",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-309a8e71.com/repository"
+      "genesisHash": "087749db571d4f51bcfcfd14526e0a41ccb1810e1ea78cb0f0397b731faacb2a",
+      "bridgechainRepository": "https://www.lemii-bridgechain-073d35f4.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 113,
-      "businessId": 73,
-      "name": "Lemii-Bridgechain-31791062",
+      "publicKey": "0398fcd55cf0e2e4a2669804d6938a5006aee2cee18ad42b9ee1d030e89de566c5",
+      "name": "lemii-Bridgechain-07c301f7",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-31791062.com/repository"
+      "genesisHash": "1bdc7005a1af12df159c59edb84d246811ad7ad4162c43eace5e2960ed6a1b28",
+      "bridgechainRepository": "https://www.lemii-bridgechain-07c301f7.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 98,
-      "businessId": 58,
-      "name": "Lemii-Bridgechain-32393c1b",
+      "publicKey": "03da9f21ecbbe7b941c2772ea25990f8b383e4ee9bfb7818a66c8e63d10f3e55d2",
+      "name": "lemii-Bridgechain-07ed0d34",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-32393c1b.com/repository"
+      "genesisHash": "373c0c52473c07e5c00a72028d1284f28f41816e6ec4b1ca9f258b90cb71109a",
+      "bridgechainRepository": "https://www.lemii-bridgechain-07ed0d34.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 63,
-      "businessId": 106,
-      "name": "Lemii-Bridgechain-325a4267",
+      "publicKey": "0234066122ed58c8b74e669dea2e41630076882d2c2be32e89a0c40ee45fc1be19",
+      "name": "lemii-Bridgechain-07ee99b8",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-325a4267.com/repository"
+      "genesisHash": "7597e39217e3e270f54d5aee55622d3b106e6d2711936dde25a3d065b1b43789",
+      "bridgechainRepository": "https://www.lemii-bridgechain-07ee99b8.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 58,
-      "businessId": 101,
-      "name": "Lemii-Bridgechain-338dea64",
+      "publicKey": "02fd6b35cf51b40b391c88175ba200a462e36fbf761116c81fbc4c6176ca228705",
+      "name": "lemii-Bridgechain-080dce49",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-338dea64.com/repository"
+      "genesisHash": "6def83faa5715e6c298039299135e44497c7f6b691bf12f19cbf9a9223fe4654",
+      "bridgechainRepository": "https://www.lemii-bridgechain-080dce49.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 93,
-      "businessId": 53,
-      "name": "Lemii-Bridgechain-35c5c3a6",
+      "publicKey": "02df6c0b9b58d354a4e6aab85cd34c7bd7b3b2bab7aa06f2dde20509c07b624061",
+      "name": "lemii-Bridgechain-08ae2374",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-35c5c3a6.com/repository"
+      "genesisHash": "026efe198331436eaa4712b529b8c405f2e527eb3c7e3f1aa8de584d13461199",
+      "bridgechainRepository": "https://www.lemii-bridgechain-08ae2374.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 50,
-      "businessId": 93,
-      "name": "Lemii-Bridgechain-3adb1a64",
+      "publicKey": "030586b51779d52168b9396a561e4453db15da3e5a02d6cc2d4e7327ae4032e1c3",
+      "name": "lemii-Bridgechain-08c37a2d",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-3adb1a64.com/repository"
+      "genesisHash": "8ba886397d7811f15b9849e68021611574f8195ecd19d245582a2fd17657973f",
+      "bridgechainRepository": "https://www.lemii-bridgechain-08c37a2d.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 89,
-      "businessId": 49,
-      "name": "Lemii-Bridgechain-3e54ac59",
+      "publicKey": "032e13382e3570898c00e4fd78d50a3ebe148aa6e50a80ef3abd004b0e2ad207c6",
+      "name": "lemii-Bridgechain-0aabce13",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-3e54ac59.com/repository"
+      "genesisHash": "f7d78d5c9f27d1071bb0104caa9330c825a3b0cdf911c45b77ecbd834b083d47",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0aabce13.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 15,
-      "businessId": 15,
-      "name": "Lemii-Bridgechain-3f7f6971",
+      "publicKey": "0286fd08452d70ee3e9af4a8397e1a8ad073807c8874bf7d0eea4d202a83c274a7",
+      "name": "lemii-Bridgechain-0b467c47",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-3f7f6971.com/repository"
+      "genesisHash": "2586f71d1ef4cb28cb60df9bc4b08f262a3dec886b8f69469c0c250f21a7729b",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0b467c47.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 56,
-      "businessId": 99,
-      "name": "Lemii-Bridgechain-45414ea6",
+      "publicKey": "02f5cec47de17a1239318212b1686d4be228f3fa7c8578126fe799dfc2dc4e8696",
+      "name": "lemii-Bridgechain-0bab5739",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-45414ea6.com/repository"
+      "genesisHash": "bb7675eaeef4439172069fdc8ea7d4a4721d857b57f089d1923d11b1f85e6f22",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0bab5739.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 108,
-      "businessId": 68,
-      "name": "Lemii-Bridgechain-50caf73b",
+      "publicKey": "03c005b08fdc3cafbf49c1f59e69c8dd0069c268a78bb72dc5efe3115f6dc0d9bd",
+      "name": "lemii-Bridgechain-0bb49065",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-50caf73b.com/repository"
+      "genesisHash": "b0649084ff0bcde989031c6302ec0bf8a660792441eb2871e3e67d63bf1b8c19",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0bb49065.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 37,
-      "businessId": 37,
-      "name": "Lemii-Bridgechain-53869a10",
+      "publicKey": "036e71c4239bd499e84b6a5645ffb113e6985fa4c03900a2db2a0704462b1a4251",
+      "name": "lemii-Bridgechain-0d22170d",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-53869a10.com/repository"
+      "genesisHash": "a45c797c2a4d20609d060c52a61a2d5af615a5d0ed43ede2002a4e91e2c37c6a",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0d22170d.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 114,
-      "businessId": 74,
-      "name": "Lemii-Bridgechain-54198379",
+      "publicKey": "03878a704072b6c935b9a355ee1bc383431d17a922542c465585326379cb57bfe5",
+      "name": "lemii-Bridgechain-0d48721c",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-54198379.com/repository"
+      "genesisHash": "ba940a5389b41215ebce7ed265c319a6479b34cedd9f45082e8946487aa3be4d",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0d48721c.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 22,
-      "businessId": 22,
-      "name": "Lemii-Bridgechain-550c1b44",
+      "publicKey": "0395b060613d354b8cff8a51a09126cf0d745c1a642c0551cf04a182bc777d8b13",
+      "name": "lemii-Bridgechain-0d5966f7",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-550c1b44.com/repository"
+      "genesisHash": "84467afa3c1d26a64fbf02d9da7cfc3cd442245893a0099bca2a6eef4743347d",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0d5966f7.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 49,
-      "businessId": 92,
-      "name": "Lemii-Bridgechain-550dc1e6",
+      "publicKey": "03af7425268a083aa6cebe06be5755dfbf50b78b41b62f63f015fb3fcd46ce9e85",
+      "name": "lemii-Bridgechain-0d809937",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-550dc1e6.com/repository"
+      "genesisHash": "9d255ceb48e590e9d22648b43f94ffc4510d434ad50dfee626ec432c488a06ac",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0d809937.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 16,
-      "businessId": 16,
-      "name": "Lemii-Bridgechain-57cf964a",
+      "publicKey": "038aff18469958341cb6fa940de0c187b651aef4d1207e53aa50fca957a9e3cba4",
+      "name": "lemii-Bridgechain-0ef8baae",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-57cf964a.com/repository"
+      "genesisHash": "a3b497946c65cbf0d15e6c2276429748e57b500663a6ed2b756377fe54d13603",
+      "bridgechainRepository": "https://www.lemii-bridgechain-0ef8baae.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 38,
-      "businessId": 38,
-      "name": "Lemii-Bridgechain-5a832c88",
+      "publicKey": "03c4606c6be11a5e8511fbb8463080bf5e39a7d9f6a9116a56e9c9a549a3d87433",
+      "name": "lemii-Bridgechain-10392f60",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-5a832c88.com/repository"
+      "genesisHash": "681b5c32510a651d27042c341b3fbfb51b9e5e48ec63fc0dc854134aa906ff9c",
+      "bridgechainRepository": "https://www.lemii-bridgechain-10392f60.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 51,
-      "businessId": 94,
-      "name": "Lemii-Bridgechain-5c99b43a",
+      "publicKey": "0241f5fab782fed2a3df11d7cf5d6e34790c6705317fb7f3c46a57431a6717bccd",
+      "name": "lemii-Bridgechain-106afa82",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-5c99b43a.com/repository"
+      "genesisHash": "f9dc9de7bc4c1c5e1be15efd813e5c05504b6400cc33a871a79f2527edb0f430",
+      "bridgechainRepository": "https://www.lemii-bridgechain-106afa82.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 20,
-      "businessId": 20,
-      "name": "Lemii-Bridgechain-5df4e1e5",
+      "publicKey": "0240a64450b2104cf6f6c76e04e5844c02603def0f2897669556f1a64550178d3b",
+      "name": "lemii-Bridgechain-10abd0a7",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-5df4e1e5.com/repository"
+      "genesisHash": "60eb2eb73222bc4356d05d9254b4493e869e629a9d2446ec415b7a200694147f",
+      "bridgechainRepository": "https://www.lemii-bridgechain-10abd0a7.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 45,
-      "businessId": 88,
-      "name": "Lemii-Bridgechain-5e6d84c8",
+      "publicKey": "0368eff136d6e0162d80c972f92068f3fc9f0f9d55a5ed653b55c66658ae049812",
+      "name": "lemii-Bridgechain-10ec8d0b",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-5e6d84c8.com/repository"
+      "genesisHash": "e9713f7aa74640a43bad76025e44b735ebd57278488764fe81fbc3f0212b512a",
+      "bridgechainRepository": "https://www.lemii-bridgechain-10ec8d0b.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 14,
-      "businessId": 14,
-      "name": "Lemii-Bridgechain-5eddb6c1",
+      "publicKey": "031ed983401a8331c3b336a5848d83258a9a4bd09ef27114ad5dc67079971deec1",
+      "name": "lemii-Bridgechain-1122a7e4",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-5eddb6c1.com/repository"
+      "genesisHash": "b5cdd5350625b22df2e139910fe76b5345f5bc057a441de86244d1e1fdd18794",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1122a7e4.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 111,
-      "businessId": 71,
-      "name": "Lemii-Bridgechain-607838f3",
+      "publicKey": "02312bd713997d23a1f929b088059c130c1c41e49e711038f9cdf91d8904991c12",
+      "name": "lemii-Bridgechain-11ee28a3",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-607838f3.com/repository"
+      "genesisHash": "6e8ec68bc95f33047148b9a75af2f2f03f63afcf646c817fea94f32362be8e97",
+      "bridgechainRepository": "https://www.lemii-bridgechain-11ee28a3.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 88,
-      "businessId": 48,
-      "name": "Lemii-Bridgechain-650fb368",
+      "publicKey": "03d1e3cab64157de957a3baa6c1a6a2a45b905c86072d119cdc2a4b2480f09f7fc",
+      "name": "lemii-Bridgechain-120b4f33",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-650fb368.com/repository"
+      "genesisHash": "b04eddbc8012d3dd234eab1bc19b03e3d45a541411aebd36223625cb14f13341",
+      "bridgechainRepository": "https://www.lemii-bridgechain-120b4f33.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 10,
-      "businessId": 10,
-      "name": "Lemii-Bridgechain-66750ff7",
+      "publicKey": "02078284f54a32ae0181d8d68a2575943dba4a883590c910944e95a1ee532f5b29",
+      "name": "lemii-Bridgechain-12922e5f",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-66750ff7.com/repository"
+      "genesisHash": "aa4bad26a81f7e6f91f596f8c66bccd3707bcb435679418c8f539a9c93a7bb0e",
+      "bridgechainRepository": "https://www.lemii-bridgechain-12922e5f.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 57,
-      "businessId": 100,
-      "name": "Lemii-Bridgechain-68eeccd4",
+      "publicKey": "0367afa0216703c03ce6b4c53c1b011375bfc6b2b95290c0f1609fccef42a61282",
+      "name": "lemii-Bridgechain-134b4bc6",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-68eeccd4.com/repository"
+      "genesisHash": "ee03071b3f1295a85cd79617689aad4a5f9f21acc1fe1e1dda42648d51f22c09",
+      "bridgechainRepository": "https://www.lemii-bridgechain-134b4bc6.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 40,
-      "businessId": 40,
-      "name": "Lemii-Bridgechain-6c1f26e6",
+      "publicKey": "036aea579b5d8d36bf49303d12aef129bc2937ebbedfe363272bbccde5f1dd7600",
+      "name": "lemii-Bridgechain-13b25a26",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-6c1f26e6.com/repository"
+      "genesisHash": "8f8555532e58f1f82cc547ac2b7167f3fb23eaeb8fd9ab46b4067945cd012bd2",
+      "bridgechainRepository": "https://www.lemii-bridgechain-13b25a26.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 92,
-      "businessId": 52,
-      "name": "Lemii-Bridgechain-727df1f4",
+      "publicKey": "032e13382e3570898c00e4fd78d50a3ebe148aa6e50a80ef3abd004b0e2ad207c6",
+      "name": "lemii-Bridgechain-13e0b281",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-727df1f4.com/repository"
+      "genesisHash": "61bffa36bb8fb066aea8587cc40df7e79fcaaf4496c87ad1af1657e2b846ad82",
+      "bridgechainRepository": "https://www.lemii-bridgechain-13e0b281.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 107,
-      "businessId": 67,
-      "name": "Lemii-Bridgechain-734595e9",
+      "publicKey": "02fd6b35cf51b40b391c88175ba200a462e36fbf761116c81fbc4c6176ca228705",
+      "name": "lemii-Bridgechain-14106447",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-734595e9.com/repository"
+      "genesisHash": "66f242e7de58619463eeb27230bbb25ea52a5d8ae7b96861097ebe7c7473d746",
+      "bridgechainRepository": "https://www.lemii-bridgechain-14106447.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 75,
-      "businessId": 118,
-      "name": "Lemii-Bridgechain-73e9284e",
+      "publicKey": "0201b45ed20f3a7a9151f37685073b7a6f94f177a2b6dcaaa5a623a598cd5f4e2c",
+      "name": "lemii-Bridgechain-143d87ca",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-73e9284e.com/repository"
+      "genesisHash": "7d4b29dffcab0e4b48c0bc2340d77653c31d746ea1f2d693577a085bd96dff79",
+      "bridgechainRepository": "https://www.lemii-bridgechain-143d87ca.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 90,
-      "businessId": 50,
-      "name": "Lemii-Bridgechain-7540f2da",
+      "publicKey": "03bfe0bf3e2b1dcc80015994b1526e4b38630e79f51e7c2ebbbcd740742f9f766f",
+      "name": "lemii-Bridgechain-14f623a8",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-7540f2da.com/repository"
+      "genesisHash": "ae40d90af74e78e3d402d0cdacfc5fab37ef69d3e89bc5e2088ad40e2d99e0ba",
+      "bridgechainRepository": "https://www.lemii-bridgechain-14f623a8.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 91,
-      "businessId": 51,
-      "name": "Lemii-Bridgechain-7e180fb1",
+      "publicKey": "0201b45ed20f3a7a9151f37685073b7a6f94f177a2b6dcaaa5a623a598cd5f4e2c",
+      "name": "lemii-Bridgechain-1539d449",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-7e180fb1.com/repository"
+      "genesisHash": "e60b40ee991aabff3a8c21a67397321bb331b194419dbae06d56c53b84484691",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1539d449.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 33,
-      "businessId": 33,
-      "name": "Lemii-Bridgechain-805feeb4",
+      "publicKey": "033d8c771c569e3472ddc7a0334d7aa473799b3bea5c859e259d087ee63d551334",
+      "name": "lemii-Bridgechain-15971a64",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-805feeb4.com/repository"
+      "genesisHash": "15a00ae20dc9b7d146dbc8a5a82feaeee6ef0f43e9cebaba445e30455e6b49cb",
+      "bridgechainRepository": "https://www.lemii-bridgechain-15971a64.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 55,
-      "businessId": 98,
-      "name": "Lemii-Bridgechain-83337796",
+      "publicKey": "033dd73ba3c010b2f2a62667b74151e17e8583422b059bc062d758ecce678c27c0",
+      "name": "lemii-Bridgechain-16f0d7f4",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-83337796.com/repository"
+      "genesisHash": "b2de35f3f93eecbd5b6d0c0d99c9b34aee699609cdba84f551da5fd7453ffd24",
+      "bridgechainRepository": "https://www.lemii-bridgechain-16f0d7f4.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 74,
-      "businessId": 117,
-      "name": "Lemii-Bridgechain-84c6fc0d",
+      "publicKey": "02078284f54a32ae0181d8d68a2575943dba4a883590c910944e95a1ee532f5b29",
+      "name": "lemii-Bridgechain-1700b721",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-84c6fc0d.com/repository"
+      "genesisHash": "99389a5ba2efcc9a0bb3c614bc0af6c018b27b98b8090d84438799aea623f13a",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1700b721.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 83,
-      "businessId": 43,
-      "name": "Lemii-Bridgechain-88e2232e",
+      "publicKey": "035b0d0f063a3a09f58d55f19c65d36e53a762e87fe0f30cfcb757719049d3f5c9",
+      "name": "lemii-Bridgechain-1839ff68",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-88e2232e.com/repository"
+      "genesisHash": "8ae068cca852cde9f7d878912c6affa0a8192b98e4cc88a46856f00358d33833",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1839ff68.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 41,
-      "businessId": 85,
-      "name": "Lemii-Bridgechain-89f47e32",
+      "publicKey": "03ba14e206eb61376fbaea783dcf90738e18999bc935eacfeb408458377c451d63",
+      "name": "lemii-Bridgechain-1888b24d",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-89f47e32.com/repository"
+      "genesisHash": "e31ff48583ec1ebe159dd4f7e567ad07121cbc693e7110d9e77c9920765cd541",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1888b24d.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 117,
-      "businessId": 77,
-      "name": "Lemii-Bridgechain-8c4cf4f8",
+      "publicKey": "03b48e593b68d70e6898153870bced85639505510132f363cc6b8e7e39269666f0",
+      "name": "lemii-Bridgechain-19aea0b8",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-8c4cf4f8.com/repository"
+      "genesisHash": "7f595796271e866b9d24069cadb938de9e8ab56fdb7b2de2bc153754b95bee1d",
+      "bridgechainRepository": "https://www.lemii-bridgechain-19aea0b8.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 11,
-      "businessId": 11,
-      "name": "Lemii-Bridgechain-8c7a3a5e",
+      "publicKey": "020c3ae3501eddfd1be9bd4c6719fe110541ec9f176bc8dde838d8e23bdfabf9f8",
+      "name": "lemii-Bridgechain-19dec48b",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-8c7a3a5e.com/repository"
+      "genesisHash": "f04e4bcf1bae122ba4b4abf69b08800d814f0ffc5b1ab4aaa877a73c3454dc11",
+      "bridgechainRepository": "https://www.lemii-bridgechain-19dec48b.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 106,
-      "businessId": 66,
-      "name": "Lemii-Bridgechain-8f670ea7",
+      "publicKey": "031a35e693cb080f0767d22574843c3cc637cf40864fce0e0906d863a90b60f480",
+      "name": "lemii-Bridgechain-1a645a7f",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-8f670ea7.com/repository"
+      "genesisHash": "8779e1a3427edecb2df54eddc39a09262a2c5afc882c00fcad35364382800c53",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1a645a7f.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 24,
-      "businessId": 24,
-      "name": "Lemii-Bridgechain-9031fda7",
+      "publicKey": "028484c5273d580107cb2eabce63fbfcd5f3c8425d90474af0eac5398e5286dca5",
+      "name": "lemii-Bridgechain-1b286480",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-9031fda7.com/repository"
+      "genesisHash": "a4ae8e598978c105e844b190815a7b4a39bbca9d383f361775b25c1be6f536fe",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1b286480.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 76,
-      "businessId": 119,
-      "name": "Lemii-Bridgechain-977d1f4e",
+      "publicKey": "03c7ebe5a09b8053900e0b084b70ba5b947d0ebb677bdb67b73dee001efd3852de",
+      "name": "lemii-Bridgechain-1c0516c5",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-977d1f4e.com/repository"
+      "genesisHash": "b9eee0717c15faae9f3377af640f4e9d1e4711cdc52db144d8616183221e1edc",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1c0516c5.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 7,
-      "businessId": 7,
-      "name": "Lemii-Bridgechain-98e74127",
+      "publicKey": "03eb4ebbed35bb808bc4fc33d272e494d6769e5a0cbf2f63992022e5e84129a785",
+      "name": "lemii-Bridgechain-1c1cb1b9",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-98e74127.com/repository"
+      "genesisHash": "8594594fa546e049ecdffdb2d98290a342867710db579021139cdc49b5addef5",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1c1cb1b9.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 17,
-      "businessId": 17,
-      "name": "Lemii-Bridgechain-9a1210bd",
+      "publicKey": "028484c5273d580107cb2eabce63fbfcd5f3c8425d90474af0eac5398e5286dca5",
+      "name": "lemii-Bridgechain-1c344acb",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-9a1210bd.com/repository"
+      "genesisHash": "4757424cef304a90a910c70f10489ee39685e60bcd4e83e906ae782e8f6ed160",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1c344acb.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 79,
-      "businessId": 122,
-      "name": "Lemii-Bridgechain-9a4e46ad",
+      "publicKey": "02312bd713997d23a1f929b088059c130c1c41e49e711038f9cdf91d8904991c12",
+      "name": "lemii-Bridgechain-1ce63c72",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-9a4e46ad.com/repository"
+      "genesisHash": "ea3a3355e07d9a6fdc4e027c7316989fb0152440607eee97cd634901cbec5c46",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1ce63c72.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 104,
-      "businessId": 64,
-      "name": "Lemii-Bridgechain-9a57232a",
+      "publicKey": "039d6e5fddb53b8cb5d4a3ccc0e524c45db11296312e138959c653599ea674ea02",
+      "name": "lemii-Bridgechain-1d19192b",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-9a57232a.com/repository"
+      "genesisHash": "25ecff7dae2bcad7c88ea7ac89d35035303cddf7401bb32ef857dce5da8f61e2",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1d19192b.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 94,
-      "businessId": 54,
-      "name": "Lemii-Bridgechain-9b290126",
+      "publicKey": "037b6353b9ea2b1d698c515c4f3da03cdf08cd3d8f25ab50c9651752fc33c9e739",
+      "name": "lemii-Bridgechain-1d2305ad",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-9b290126.com/repository"
+      "genesisHash": "35305eae3f58fe7acb81b3aa5769a172879f81a68fd3260fb0c19da79f894249",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1d2305ad.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 26,
-      "businessId": 26,
-      "name": "Lemii-Bridgechain-9c5d727e",
+      "publicKey": "02b23d235b0d90255696eb5061fb934b631e443ae664eb566b10e6acfaae9dff02",
+      "name": "lemii-Bridgechain-1d36dde8",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-9c5d727e.com/repository"
+      "genesisHash": "9438228e1437ba721b1322e12bdcf26f11899bdf08709827705639de76cae034",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1d36dde8.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 110,
-      "businessId": 70,
-      "name": "Lemii-Bridgechain-9e8305eb",
+      "publicKey": "0234066122ed58c8b74e669dea2e41630076882d2c2be32e89a0c40ee45fc1be19",
+      "name": "lemii-Bridgechain-1deb01fd",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-9e8305eb.com/repository"
+      "genesisHash": "0cd11b4f6a9eec2756a65768d0ddcd70672075091de33ff4b82b53898bcfe2dc",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1deb01fd.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 43,
-      "businessId": 86,
-      "name": "Lemii-Bridgechain-a0b45753",
+      "publicKey": "029d4dcbf565a9d5137b04929e6f4fd7f7db82f3f009e7481dedf5867c76343b81",
+      "name": "lemii-Bridgechain-1e120bff",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-a0b45753.com/repository"
+      "genesisHash": "b490f43a2d8fc485fedcaf63e938eb7da5d6bc47ad6699069a5a0df245188736",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1e120bff.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 4,
-      "businessId": 4,
-      "name": "Lemii-Bridgechain-a191df82",
+      "publicKey": "031a35e693cb080f0767d22574843c3cc637cf40864fce0e0906d863a90b60f480",
+      "name": "lemii-Bridgechain-1e17edfe",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-a191df82.com/repository"
+      "genesisHash": "695f783978fdbf3c4894c29e0b24c12ab96fd0a7c933c86c99330e54c5da5dbc",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1e17edfe.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 39,
-      "businessId": 39,
-      "name": "Lemii-Bridgechain-a7250a7a",
+      "publicKey": "020ef173d0c41a6695ede01bf8d64fac9da3d30f2ca521b15f8128a384a2b7aabb",
+      "name": "lemii-Bridgechain-1ea2058d",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-a7250a7a.com/repository"
+      "genesisHash": "071e004cf7be384f8d1bb0463daae2e509c5f52efeb7f31fa62ef7fd89ddc65c",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1ea2058d.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 31,
-      "businessId": 31,
-      "name": "Lemii-Bridgechain-a9b8a229",
+      "publicKey": "035f3960e8cdf4fd72c4d99ea57589d7bf89835df0d579e88aa3a8bc506ccc0090",
+      "name": "lemii-Bridgechain-1ea4f655",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-a9b8a229.com/repository"
+      "genesisHash": "4a82255edf9a630978ee4722a663bbb6ae8bcd149816bd0a5a0c01f47675c6d7",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1ea4f655.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 80,
-      "businessId": 123,
-      "name": "Lemii-Bridgechain-aaf3977f",
+      "publicKey": "0228c730eb365874990c89c689b3b2c945438f3ecb7b6208f75cd5d6addd44e194",
+      "name": "lemii-Bridgechain-1edbd7a3",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-aaf3977f.com/repository"
+      "genesisHash": "4202b9b0ad553871849487f05b2341a07ba10ba419266da499c301f1ea6e59e4",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1edbd7a3.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 68,
-      "businessId": 111,
-      "name": "Lemii-Bridgechain-ac72828c",
+      "publicKey": "0262c401a2ff79c72e13a3bcbd48319e1aca8aa687ff5bcce90c37adab882865b0",
+      "name": "lemii-Bridgechain-1f232148",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-ac72828c.com/repository"
+      "genesisHash": "4fa03d425f6519afe48a89672c3b40c0859b00bc62501a72952b4fd61115f395",
+      "bridgechainRepository": "https://www.lemii-bridgechain-1f232148.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 78,
-      "businessId": 121,
-      "name": "Lemii-Bridgechain-acc05db4",
+      "publicKey": "03bc8e456de8ab24d08ef2212ee6266efbea4d46a86c0cc76d4ffd0951c288c0ca",
+      "name": "lemii-Bridgechain-2122f9bf",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-acc05db4.com/repository"
+      "genesisHash": "74ee23c5624bba7c1f0f5d0ebea6dd194908b2a65628b7b640edd2ad35895568",
+      "bridgechainRepository": "https://www.lemii-bridgechain-2122f9bf.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 23,
-      "businessId": 23,
-      "name": "Lemii-Bridgechain-ad586804",
+      "publicKey": "03d93c7f365e3a7a5e66226ea6bdfa83bf077a6bad1c732b228c996171c9cda6ba",
+      "name": "lemii-Bridgechain-222822ee",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-ad586804.com/repository"
+      "genesisHash": "d721e2c1a5508a9ea11bc42bc0b2b97f17841ecbddc45d4b0fd7a7ca5b79125b",
+      "bridgechainRepository": "https://www.lemii-bridgechain-222822ee.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 42,
-      "businessId": 104,
-      "name": "Lemii-Bridgechain-afb560e5",
+      "publicKey": "03f04e70cc417efade9e6380508e09d8ede59eda11864d10ff449da53e0fe90f59",
+      "name": "lemii-Bridgechain-2292a939",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-afb560e5.com/repository"
+      "genesisHash": "142638d3847fa27d99bfe735ed0343a2b1e5e1d1807278165a56997d1408ec96",
+      "bridgechainRepository": "https://www.lemii-bridgechain-2292a939.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 8,
-      "businessId": 8,
-      "name": "Lemii-Bridgechain-afbce2ff",
+      "publicKey": "030586b51779d52168b9396a561e4453db15da3e5a02d6cc2d4e7327ae4032e1c3",
+      "name": "lemii-Bridgechain-22a14bdb",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-afbce2ff.com/repository"
+      "genesisHash": "bdecd2d4db118b38e22970cbcaa36d3d60585da43b47278d7ed57723e8d9b9e4",
+      "bridgechainRepository": "https://www.lemii-bridgechain-22a14bdb.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 6,
-      "businessId": 6,
-      "name": "Lemii-Bridgechain-b265dfce",
+      "publicKey": "03bf60744603cd6834a62ce6412df77a12b7b49fd0e3e23e7f986ed56fa4cce4b9",
+      "name": "lemii-Bridgechain-22f681a7",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-b265dfce.com/repository"
+      "genesisHash": "025161ed7e1f4eb5f705cf2794f04b02bd832c3f763ab5c3caa13fa3b31dc952",
+      "bridgechainRepository": "https://www.lemii-bridgechain-22f681a7.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 95,
-      "businessId": 55,
-      "name": "Lemii-Bridgechain-b28d015e",
+      "publicKey": "03c93df4fa2d21348990a2d0d34e8c8ee026b1778d0078acf9bbb1bbb549afb91e",
+      "name": "lemii-Bridgechain-230a68e0",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-b28d015e.com/repository"
+      "genesisHash": "932af17292d34f253567aac822fdb1cfee8d53b18626663bbc3b6a3ec2ec2638",
+      "bridgechainRepository": "https://www.lemii-bridgechain-230a68e0.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 103,
-      "businessId": 63,
-      "name": "Lemii-Bridgechain-b30e74cc",
+      "publicKey": "026b9bc3164985daae12036f17a09791bb1b8373fd01dd0ad97eda777e781bd314",
+      "name": "lemii-Bridgechain-233696d1",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-b30e74cc.com/repository"
+      "genesisHash": "299ba953e05c4b7459269b6a84fbdbedf860245ab4c88439c143a97939d2660c",
+      "bridgechainRepository": "https://www.lemii-bridgechain-233696d1.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 67,
-      "businessId": 110,
-      "name": "Lemii-Bridgechain-b38ba022",
+      "publicKey": "03ba14e206eb61376fbaea783dcf90738e18999bc935eacfeb408458377c451d63",
+      "name": "lemii-Bridgechain-238afdbc",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-b38ba022.com/repository"
+      "genesisHash": "50dac8707d901fbdb3c2ac9ab65dcc1250ed0ac603cd082e1dabdf14ea75ef9c",
+      "bridgechainRepository": "https://www.lemii-bridgechain-238afdbc.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 36,
-      "businessId": 36,
-      "name": "Lemii-Bridgechain-b3f83f24",
+      "publicKey": "03b40ccfde7d3faac281345c0e776f6432780c9c455a7ae4fb5eac1b42ec38ab74",
+      "name": "lemii-Bridgechain-23b9fe38",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-b3f83f24.com/repository"
+      "genesisHash": "d79a406f98f3ea3c7249214342f76af5bcbd6da07505ef1caf8a9725ac10cedc",
+      "bridgechainRepository": "https://www.lemii-bridgechain-23b9fe38.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 19,
-      "businessId": 19,
-      "name": "Lemii-Bridgechain-b4e1b6dd",
+      "publicKey": "03331f25f067ef5e09988206c46b17fae4a61f40f9277b8c7680d083bd6bab3b16",
+      "name": "lemii-Bridgechain-23f979bc",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-b4e1b6dd.com/repository"
+      "genesisHash": "cdb4c60b22627e8f43fc329c802a90a45ec68c667b62bc55ae85177da4193095",
+      "bridgechainRepository": "https://www.lemii-bridgechain-23f979bc.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 64,
-      "businessId": 107,
-      "name": "Lemii-Bridgechain-b72575ca",
+      "publicKey": "0262c401a2ff79c72e13a3bcbd48319e1aca8aa687ff5bcce90c37adab882865b0",
+      "name": "lemii-Bridgechain-24142c41",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-b72575ca.com/repository"
+      "genesisHash": "55530d323c9c9517e96c934e370441453437877ef67f9ec961a8775ab8a6e0b1",
+      "bridgechainRepository": "https://www.lemii-bridgechain-24142c41.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 87,
-      "businessId": 47,
-      "name": "Lemii-Bridgechain-b789dc54",
+      "publicKey": "03efbc5bde1b1d0d2ac76a4d2c8505fcd28d4717be3267cf9f810988b493fd7784",
+      "name": "lemii-Bridgechain-24467104",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-b789dc54.com/repository"
+      "genesisHash": "b7bef3e6a4c30376b0562012c39b9ff5091979c1d3b867283af77235fb1209fa",
+      "bridgechainRepository": "https://www.lemii-bridgechain-24467104.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 35,
-      "businessId": 35,
-      "name": "Lemii-Bridgechain-b832b583",
+      "publicKey": "02d5c7f3a3cc23aa8ca459b3cf4f6eeca39c638b61eeba336e7667f16057647023",
+      "name": "lemii-Bridgechain-260f85ae",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-b832b583.com/repository"
+      "genesisHash": "394c723e4259948ea9cb604d6ed80c05b8aa9909faa2e5fb237b03ec566c1349",
+      "bridgechainRepository": "https://www.lemii-bridgechain-260f85ae.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 25,
-      "businessId": 25,
-      "name": "Lemii-Bridgechain-bf62ba53",
+      "publicKey": "0201b45ed20f3a7a9151f37685073b7a6f94f177a2b6dcaaa5a623a598cd5f4e2c",
+      "name": "lemii-Bridgechain-26684fd3",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-bf62ba53.com/repository"
+      "genesisHash": "51926ed7530d081a6597c26f57547090fb126ca07b21cb8f2f29b982db6e1122",
+      "bridgechainRepository": "https://www.lemii-bridgechain-26684fd3.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 29,
-      "businessId": 29,
-      "name": "Lemii-Bridgechain-c2dfd3d8",
+      "publicKey": "02e64f8cfeb9400fbf73569cb496575d1a2129eb45d47b206fe2c6851664f3d2f1",
+      "name": "lemii-Bridgechain-26aba555",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-c2dfd3d8.com/repository"
+      "genesisHash": "cbe58232491c210960b425491e59697cd0c5455c677b129a57a48add46f7de8a",
+      "bridgechainRepository": "https://www.lemii-bridgechain-26aba555.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 115,
-      "businessId": 75,
-      "name": "Lemii-Bridgechain-c5b870bf",
+      "publicKey": "029d4dcbf565a9d5137b04929e6f4fd7f7db82f3f009e7481dedf5867c76343b81",
+      "name": "lemii-Bridgechain-26eea881",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-c5b870bf.com/repository"
+      "genesisHash": "9516655d614861b387fd470d1bcdad0851ef4883d3ea0463ed3a897d92b38ec9",
+      "bridgechainRepository": "https://www.lemii-bridgechain-26eea881.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 100,
-      "businessId": 60,
-      "name": "Lemii-Bridgechain-c8bc8fbf",
+      "publicKey": "03c7ebe5a09b8053900e0b084b70ba5b947d0ebb677bdb67b73dee001efd3852de",
+      "name": "lemii-Bridgechain-2785b02d",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-c8bc8fbf.com/repository"
+      "genesisHash": "104b36f4e94ec397b63c1cd558653800a352a6a432772696f3df62a978ef7ee5",
+      "bridgechainRepository": "https://www.lemii-bridgechain-2785b02d.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 84,
-      "businessId": 44,
-      "name": "Lemii-Bridgechain-c9ba4840",
+      "publicKey": "02dfb57d2d3c334bef8f53705c8d05aef814fad7e72b6a3050116a6adbbcde0e85",
+      "name": "lemii-Bridgechain-2808c2c7",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-c9ba4840.com/repository"
+      "genesisHash": "aea5ff637c08f9c769a71456e25a1c3a2a4583b73c1a7a1357632b48fdd57e69",
+      "bridgechainRepository": "https://www.lemii-bridgechain-2808c2c7.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     },
     {
-      "bridgechainId": 116,
-      "businessId": 76,
-      "name": "Lemii-Bridgechain-cbaad01f",
+      "publicKey": "02fe1c8b6d594a4d2e65758b993e8aee3fcc7c85611735b616c09e43fc833aaaff",
+      "name": "lemii-Bridgechain-2842bc62",
       "seedNodes": [
         "1.1.1.1",
         "1.2.3.4"
       ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-cbaad01f.com/repository"
-    },
-    {
-      "bridgechainId": 5,
-      "businessId": 5,
-      "name": "Lemii-Bridgechain-cc486940",
-      "seedNodes": [
-        "1.1.1.1",
-        "1.2.3.4"
-      ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-cc486940.com/repository"
-    },
-    {
-      "bridgechainId": 46,
-      "businessId": 89,
-      "name": "Lemii-Bridgechain-cebd4699",
-      "seedNodes": [
-        "1.1.1.1",
-        "1.2.3.4"
-      ],
-      "genesisHash": "c6512e5b7697cbedb0e1e5b250a983057c6c98cc48d64c1cfa475ca81f7518a7",
-      "bridgechainRepository": "https://www.lemii-bridgechain-cebd4699.com/repository"
+      "genesisHash": "af462cc3b0d82ebcbe941228997d40f274750508b39a41e3452e957e7cc5b467",
+      "bridgechainRepository": "https://www.lemii-bridgechain-2842bc62.com/repository",
+      "ports": {
+        "@arkecosystem/core-api": 123
+      }
     }
   ]
 }

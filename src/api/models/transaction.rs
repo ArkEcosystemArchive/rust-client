@@ -28,6 +28,8 @@ pub struct Transaction {
     pub sign_signature: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vendor_field: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub asset: Option<Asset>,
     pub confirmations: u64,
     pub timestamp: Timestamp,
     #[serde(skip_serializing_if = "Option::is_none")]

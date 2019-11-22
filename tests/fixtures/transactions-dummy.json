@@ -1,23 +1,28 @@
 {
   "data": {
-    "id": "f510c0dd688c6fea25fbbe71b83f3a000ccae9aa7d577f582c6c50f6f866e88b",
-    "blockId": "71428c9dd4afac3a7baf8f7352121b580e1404cea5353c854aa2ad9f75d24276",
+    "id": "177b02a6aed73804ddaef49618214dc90a5db4616e040c0be8ff319708f5f9d1",
+    "blockId": "86d9b6bfdde437280b753b1540c457a79c881113c45c2831808bbbe9366d3f16",
     "version": 2,
-    "type": 0,
+    "type": 9,
     "typeGroup": 1,
-    "amount": "20000000000",
-    "fee": "10000000",
-    "sender": "DAWNRvnMNPWodLjQwhphJwUpTW2KJXBzVR",
-    "senderPublicKey": "03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232",
-    "recipient": "DMT1PcHdwv5Uh4Wj51iY9GtWnumhzVX6DG",
-    "signature": "a3b0506c0f14c65db4fff3d9b0ac4d368d42cfe021d06097d1aab4d56b51c3fef2ff677a548f607a14e38570e1df3592653f2435b6bf5876668b0db4829012f7",
-    "signSignature": "15a093168afed881bd114d5b333c09a734b714e881dcd64429631068ed1faf5a6aac7977f93f95d8c37288d61395e4726ae16f7981d149fe299e2a0178b498a2",
-    "confirmations": 5494,
-    "timestamp": {
-      "epoch": 84272336,
-      "unix": 1574373536,
-      "human": "2019-11-21T21:58:56.000Z"
+    "amount": "0",
+    "fee": "0",
+    "sender": "DPEGnyKEpHfFL7vtbFNFsTgJSk9WoDRvV8",
+    "senderPublicKey": "03120f521f7025f76341a09112f88a6c072411c549e4bfa8c92946fcf1c57cdf1e",
+    "recipient": "DPEGnyKEpHfFL7vtbFNFsTgJSk9WoDRvV8",
+    "signature": "e38c86c85128a6e2140d0c1e22411f16f341e1b61ab6771cc674d025ad5d30fa4c377a5476a577d790e0e62890b1dbc951d9b640124093b51f634e33bd583b19",
+    "asset": {
+      "claim": {
+        "lockTransactionId": "3b1a17ed0fe7fb936e4612118b161a4c639c2aa63f93a5a227ad47b5da0d321c",
+        "unlockSecret": "f5ea877a311ced90cf4524cb489e972f"
+      }
     },
-    "nonce": "70954"
+    "confirmations": 2,
+    "timestamp": {
+      "epoch": 84325704,
+      "unix": 1574426904,
+      "human": "2019-11-22T12:48:24.000Z"
+    },
+    "nonce": "8089"
   }
 }

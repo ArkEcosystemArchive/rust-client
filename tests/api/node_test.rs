@@ -2,7 +2,7 @@ use serde_json::{from_str, Value};
 
 use crate::utils::assert_helpers::{assert_configuration_fees, assert_meta, assert_node_fee_stats};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
-use std::borrow::Borrow; 
+use std::borrow::Borrow;
 
 #[test]
 fn test_node_status() {

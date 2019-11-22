@@ -44,7 +44,6 @@ fn test_all_param() {
 fn test_show() {
     let (_mock, body) = mock_http_request("transactions/dummy");
     {
-        eprintln!("body = {:#?}", body);
         let mut client = mock_client();
         let actual = client.transactions.show("dummy").unwrap();
         let expected: Value = from_str(&body).unwrap();
