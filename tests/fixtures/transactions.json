@@ -12,6 +12,62 @@
   },
   "data": [
     {
+      "id": "d746fff5b50805cc84fb81ae4bfb9880d98ea516bef93ecf2ac9b2dd337c2a3e",
+      "blockId": "eabf676721eb642f4da05936179215937dfc5ab4df0f122ee46094276fb31e5f",
+      "version": 2,
+      "type": 5,
+      "typeGroup": 2,
+      "amount": "0",
+      "fee": "5000000000",
+      "sender": "DCqqT4x4on1dsbgUKRWkuZsdZaoohYK6NV",
+      "senderPublicKey": "020611b40c71f84dfe6e41397d02c93512881bd577b6ec8379cdaefab1ab85e0f5",
+      "recipient": "DCqqT4x4on1dsbgUKRWkuZsdZaoohYK6NV",
+      "signature": "e5b1695f73476905f41ad9f7e214bdbe71bfd420d53a96ca7bf22f92ad10d6a6084cb11a00715971e3ac2922f9f3c2a49162b71b8b26f561ffdcdd66a04bd894",
+      "asset": {
+        "bridgechainUpdate": {
+          "bridgechainId": "200a445e84ba5892c9324c7e89cdbb82d815536e2ac0f31b0c218fdf380ba5dc",
+          "seedNodes": [
+            "1.2.3.4"
+          ],
+          "ports": {
+            "@arkecosystem/core-api": 456
+          }
+        }
+      },
+      "confirmations": 6069,
+      "timestamp": {
+        "epoch": 84272248,
+        "unix": 1574373448,
+        "human": "2019-11-21T21:57:28.000Z"
+      },
+      "nonce": "135"
+    },
+    {
+      "id": "43e038e9a2c030f45f0baebb83a7f03c84ce5ecf18465d8b9f2117b0ea8cb7fe",
+      "blockId": "2745bfb24b705a300661b13594c3b8b70cf51c2a127a37db13b949768def49d7",
+      "version": 2,
+      "type": 4,
+      "typeGroup": 2,
+      "amount": "0",
+      "fee": "5000000000",
+      "sender": "DTRdbaUW3RQQSL5By4G43JVaeHiqfVp9oh",
+      "senderPublicKey": "034da006f958beba78ec54443df4a3f52237253f7ae8cbdb17dccf3feaa57f3126",
+      "recipient": "DTRdbaUW3RQQSL5By4G43JVaeHiqfVp9oh",
+      "signature": "459d25242da2080faf0fe7e71aaa1aefd5469f7ff4e8b903f48f01d394e6041f0b9d207227bc135b45b6f7c9c79e515bb605eade07367c9e899dfd726a3c3129",
+      "asset": {
+        "bridgechainResignation": {
+          "bridgechainId": "aa44f340d76ffc3df204c5f38cd355b7496c9065a1ade2ef92071436bd72e867"
+        }
+      },
+      "confirmations": 16535,
+      "timestamp": {
+        "epoch": 84173480,
+        "unix": 1574274680,
+        "human": "2019-11-20T18:31:20.000Z"
+      },
+      "nonce": "720"
+    },
+    {
       "id": "1579285884544a5b004798fa2a3b4a343df41d0e09ce92fb752876b08b44229c",
       "blockId": "ebc8351e9ad3811d2b764a5eae377511fc8436dc85a4c3924aad12c8165def29",
       "version": 2,

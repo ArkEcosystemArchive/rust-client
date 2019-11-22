@@ -160,8 +160,6 @@ pub fn assert_transaction_data(actual: Transaction, expected: &Value) {
         assert_eq!(vendor_field, expected["vendorField"].as_str().unwrap());
     }
 
-    // TODO: asset should be tested on each transaction type
-
     assert_eq!(
         actual.confirmations,
         expected["confirmations"].as_u64().unwrap()

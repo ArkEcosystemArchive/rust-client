@@ -59,6 +59,19 @@ pub enum Asset {
         bridgechain_repository: String,
         ports: HashMap<String, u32>,
     },
+    #[serde(rename = "bridgechainUpdate")]
+    BridgechainUpdate {
+        #[serde(rename = "bridgechainId")]
+        bridgechain_id: String,
+        #[serde(rename = "seedNodes")]
+        seed_nodes: Vec<String>,
+        ports: HashMap<String, u32>,
+    },
+    #[serde(rename = "bridgechainResignation")]
+    BridgechainResignation {
+        #[serde(rename = "bridgechainId")]
+        bridgechain_id: String,
+    },
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
