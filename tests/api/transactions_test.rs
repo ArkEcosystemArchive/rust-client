@@ -132,7 +132,7 @@ fn test_create() {
     let (_mock, body) = mock_post_request("transactions");
     {
         let mut client = mock_client();
-        let actual = client.transactions.create(Vec::<(&str)>::new()).unwrap();
+        let actual = client.transactions.create(Vec::<&str>::new()).unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_transaction_post_data(actual.data, &expected["data"]);
