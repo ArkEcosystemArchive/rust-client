@@ -445,20 +445,22 @@ pub fn assert_node_fee_stats(actual: &FeeStatistics, expected: &Value) {
         actual.avg,
         u64::from_str(expected["avg"].as_str().unwrap()).unwrap()
     );
-    //    assert_eq!(actual.max, expected["max"]);
-    //    assert_eq!(actual.min, expected["min"]);
-    //    assert_eq!(actual.sum, expected["sum"]);
+    assert_eq!(
+        actual.min,
+        u64::from_str(expected["min"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(
+        actual.max,
+        u64::from_str(expected["max"].as_str().unwrap()).unwrap()
+    );
+    assert_eq!(
+        actual.sum,
+        u64::from_str(expected["sum"].as_str().unwrap()).unwrap()
+    );
 }
 
 pub fn assert_vote_data(actual: Transaction, expected: &Value) {
-    assert_transaction_data(actual.clone(), &expected);
-
-    //    match actual.asset {
-    //        Asset::Votes(votes) => {
-    //            assert_eq!(votes[0], expected["asset"]["votes"][0].as_str().unwrap());
-    //        }
-    //        _ => panic!("Asset without votes"),
-    //    };
+    assert_transaction_data(actual, &expected);
 }
 
 pub fn assert_lock_data(actual: Lock, expected: &Value) {
