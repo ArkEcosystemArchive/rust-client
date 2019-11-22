@@ -1,8 +1,7 @@
-use serde_json::from_str;
-
-use crate::utils::assert_helpers::{assert_meta, assert_vote_data, test_vote_array};
+use crate::utils::asserts::meta::assert_meta;
+use crate::utils::asserts::transaction::{assert_vote_data, test_vote_array};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
-
+use serde_json::from_str;
 use serde_json::Value;
 use std::borrow::Borrow;
 

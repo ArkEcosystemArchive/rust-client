@@ -1,12 +1,11 @@
-use std::collections::HashMap;
-
-use serde_json::{from_str, Value};
-
-use crate::utils::assert_helpers::{
-    assert_delegate_data, assert_meta, test_block_array, test_delegate_array, test_wallet_array,
-};
+use crate::utils::asserts::block::test_block_array;
+use crate::utils::asserts::delegate::{assert_delegate_data, test_delegate_array};
+use crate::utils::asserts::meta::assert_meta;
+use crate::utils::asserts::wallet::test_wallet_array;
 use crate::utils::mockito_helpers::{mock_client, mock_http_request, mock_post_request};
+use serde_json::{from_str, Value};
 use std::borrow::Borrow;
+use std::collections::HashMap;
 
 #[test]
 fn test_all() {

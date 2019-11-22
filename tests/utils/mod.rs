@@ -1,2 +1,2 @@
-pub mod assert_helpers;
+pub mod asserts;
 pub mod mockito_helpers;

@@ -1,15 +1,18 @@
-use std::borrow::Borrow;
-use std::collections::HashMap;
-
-use serde_json::from_str;
-use serde_json::Value;
-
-use crate::utils::assert_helpers::{
-    assert_meta, assert_transaction_core_fees, assert_transaction_data,
-    assert_transaction_magistrate_fees, assert_transaction_post_data,
-    assert_transaction_types_core, assert_transaction_types_magistrate, test_transaction_array,
+use crate::utils::asserts::meta::assert_meta;
+use crate::utils::asserts::transaction::{
+    assert_transaction_data, assert_transaction_post_data, test_transaction_array,
+};
+use crate::utils::asserts::transaction_fees::{
+    assert_transaction_core_fees, assert_transaction_magistrate_fees,
+};
+use crate::utils::asserts::transaction_types::{
+    assert_transaction_types_core, assert_transaction_types_magistrate,
 };
 use crate::utils::mockito_helpers::{mock_client, mock_http_request, mock_post_request};
+use serde_json::from_str;
+use serde_json::Value;
+use std::borrow::Borrow;
+use std::collections::HashMap;
 
 #[test]
 fn test_all() {

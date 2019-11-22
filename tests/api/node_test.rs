@@ -1,7 +1,7 @@
-use serde_json::{from_str, Value};
-
-use crate::utils::assert_helpers::{assert_configuration_fees, assert_meta, assert_node_fee_stats};
+use crate::utils::asserts::meta::assert_meta;
+use crate::utils::asserts::node::{assert_configuration_fees, assert_node_fee_stats};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request};
+use serde_json::{from_str, Value};
 use std::borrow::Borrow;
 
 #[test]

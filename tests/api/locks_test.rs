@@ -1,12 +1,12 @@
+use crate::utils::asserts::meta::assert_meta;
+use crate::utils::asserts::transaction::{assert_lock_data, test_lock_array};
+use arkecosystem_client::api::models::lock::Lock;
+use arkecosystem_client::api::models::shared::Response;
+use arkecosystem_client::Connection;
 use serde_json::{from_str, Value};
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
-use arkecosystem_client::api::models::lock::Lock;
-use arkecosystem_client::api::models::shared::Response;
-use arkecosystem_client::Connection;
-
-use crate::utils::assert_helpers::{assert_lock_data, assert_meta, test_lock_array};
 use crate::utils::mockito_helpers::{mock_client, mock_http_request, mock_post_request};
 
 #[test]
