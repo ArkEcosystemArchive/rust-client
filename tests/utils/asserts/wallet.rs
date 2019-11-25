@@ -1,6 +1,7 @@
 use serde_json::Value;
 use std::str::FromStr;
 
+use crate::utils::asserts::business::assert_business_data;
 use arkecosystem_client::api::models::wallet::Wallet;
 
 pub fn assert_wallet_data(actual: Wallet, expected: &Value) {
@@ -34,6 +35,13 @@ pub fn assert_wallet_data(actual: Wallet, expected: &Value) {
         actual.is_resigned,
         expected["isResigned"].as_bool().unwrap()
     );
+
+    if let Some(vote) = actual.vote {
+        assert_eq!(vote, expected["vote"].as_str().unwrap());
+    }
+    if let Some(business) = actual.business {
+        assert_business_data(&business, &expected["business"]);
+    }
 }
 
 pub fn test_wallet_array(actual: Vec<Wallet>, expected: Value) {

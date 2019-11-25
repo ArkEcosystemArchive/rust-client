@@ -1,22 +1,22 @@
 {
   "data": {
     "address": "DAWNRvnMNPWodLjQwhphJwUpTW2KJXBzVR",
-    "balance": "1503203324722",
+    "balance": "1624013324722",
     "nonce": "70954",
     "attributes": {
       "delegate": {
         "username": "lemii",
         "voteBalance": "11766756998720",
-        "forgedFees": "45791999090",
-        "forgedRewards": "5351000000000",
-        "producedBlocks": 26755,
+        "forgedFees": "45801999090",
+        "forgedRewards": "5471800000000",
+        "producedBlocks": 27359,
         "rank": 47,
         "lastBlock": {
           "version": 0,
-          "timestamp": 84322904,
-          "height": 4023044,
-          "previousBlockHex": "ade5e1b35f198f6ec95cd7ee9f82db47d93d1d77d5a789e9a9e47ef0be20bba1",
-          "previousBlock": "ade5e1b35f198f6ec95cd7ee9f82db47d93d1d77d5a789e9a9e47ef0be20bba1",
+          "timestamp": 84568000,
+          "height": 4051753,
+          "previousBlockHex": "c62972a1c37f1a93d3548641d74a23996be6258aafa08197f704788a97c0c0f6",
+          "previousBlock": "c62972a1c37f1a93d3548641d74a23996be6258aafa08197f704788a97c0c0f6",
           "numberOfTransactions": 0,
           "totalAmount": "0",
           "totalFee": "0",
@@ -24,11 +24,11 @@
           "payloadLength": 0,
           "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "generatorPublicKey": "03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232",
-          "blockSignature": "304402201879c3977eb1705a7cd7a527f7cccaed46ec557d3f4e935117024dbca137610f0220642f9196b3c4731ae8bb63464a7530e4b4dafee5e7a2b3cd6e6b5dcd4811fd0e",
-          "idHex": "19c28fa963f84b3cc5b43eca65a2daafcfe6365902e545033c259e68f9cd3b20",
-          "id": "19c28fa963f84b3cc5b43eca65a2daafcfe6365902e545033c259e68f9cd3b20"
+          "blockSignature": "3044022076222d81d257c723d62a1245b4456baacdaab944474536abcc57a9e2d89c2b7802203c60ee996e6ba6ad209eea7bd8e985d1d375c5cd48ac6e8f35b50287704ee341",
+          "idHex": "da7af31ab53efec0c690af3f868ace1a488351c0a9b6a2778ed343732ee60bc0",
+          "id": "da7af31ab53efec0c690af3f868ace1a488351c0a9b6a2778ed343732ee60bc0"
         },
-        "round": 78884
+        "round": 79448
       },
       "vote": "032cfbb18f4e49952c6d6475e8adc6d0cba00b81ef6606cc4927b78c6c50558beb",
       "secondPublicKey": "02877e4f35c76abaeb152b128670db0a7ae10b3999afcd28a42938b653fbf87ae9",

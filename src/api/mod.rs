@@ -1,4 +1,6 @@
 pub mod blocks;
+pub mod bridgechains;
+pub mod businesses;
 pub mod delegates;
 pub mod locks;
 pub mod models;
@@ -9,6 +11,8 @@ pub mod votes;
 pub mod wallets;
 
 use self::blocks::Blocks;
+use self::bridgechains::Bridgechains;
+use self::businesses::Businesses;
 use self::delegates::Delegates;
 use self::locks::Locks;
 use self::models::shared::Response;
@@ -17,8 +21,8 @@ use self::peers::Peers;
 use self::transactions::Transactions;
 use self::votes::Votes;
 use self::wallets::Wallets;
-
 use super::error::Error;
+
 use crate::http::client::Client;
 
 pub type Result<T> = std::result::Result<Response<T>, Error>;
@@ -32,6 +36,8 @@ pub struct Api {
     pub votes: Votes,
     pub wallets: Wallets,
     pub locks: Locks,
+    pub businesses: Businesses,
+    pub bridgechains: Bridgechains,
     pub client: Client,
 }
 
@@ -52,6 +58,8 @@ impl Api {
             votes: Votes::new(client.clone()),
             wallets: Wallets::new(client.clone()),
             locks: Locks::new(client.clone()),
+            businesses: Businesses::new(client.clone()),
+            bridgechains: Bridgechains::new(client.clone()),
             client,
         }
     }

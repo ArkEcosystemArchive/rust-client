@@ -16,7 +16,6 @@ pub struct NodeConfiguration {
     pub symbol: String,
     pub explorer: String,
     pub version: u32,
-    // TODO: handle p2p null value return port? // custom serde method
     pub ports: HashMap<String, Option<u16>>,
     pub constants: NodeConstants,
     pub transaction_pool: TransactionPool,

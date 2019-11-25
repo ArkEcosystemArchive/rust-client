@@ -3,6 +3,7 @@ use std::collections::HashMap;
 use serde::Deserialize;
 use serde::Serialize;
 
+use crate::api::models::business::Business;
 use crate::common::deserialize_as_u64_from_number_or_string;
 
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
@@ -18,6 +19,10 @@ pub struct Wallet {
     pub nonce: u64,
     pub is_delegate: bool,
     pub is_resigned: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub vote: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub business: Option<Business>,
 }
 
 pub type Balances = HashMap<String, u64>;
