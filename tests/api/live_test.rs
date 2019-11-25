@@ -1,7 +1,6 @@
-/// This test is ignored by default. It is to bo run manual to check possible differences between
-/// local fixtures and public returns. If all serde method pass - it should be ok.
-/// It servers as additional test check for serde/struct compatibility on a live running node.
-/// RUN ONLY MANUALLY with `$>cargo test --features network_test`
+/// This test is ignored by default. Run manually to check for possible differences between
+/// local fixtures and actual public REST API returns. All serde methods/live_test calls MUST pass.
+/// Run manually with: `$>cargo test --features network_test`
 use arkecosystem_client::Connection;
 use std::collections::HashMap;
 
