@@ -1,11 +1,18 @@
 {
   "data": {
-    "address": "DUE8o4xJXzjBMN8PWCCHkUuwFyGgLytqQ4",
-    "publicKey": "03c22410bf8b2a307ddc880ac0f8bcfcbd4e88e5dd0f3a44c2e1e1dc6b128c4926",
-    "nonce": "3",
-    "balance": "3706532497352",
-    "isDelegate": false,
+    "address": "DAWNRvnMNPWodLjQwhphJwUpTW2KJXBzVR",
+    "publicKey": "03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232",
+    "username": "lemii",
+    "nonce": "70954",
+    "secondPublicKey": "02877e4f35c76abaeb152b128670db0a7ae10b3999afcd28a42938b653fbf87ae9",
+    "balance": "1623813324722",
+    "isDelegate": true,
     "isResigned": false,
-    "vote": "0389301207e25addec690be9efa3b2ca2d111b86386da7ff5fcc1c0344954b2acc"
+    "vote": "032cfbb18f4e49952c6d6475e8adc6d0cba00b81ef6606cc4927b78c6c50558beb",
+    "business": {
+      "name": "Lemii Inc.",
+      "website": "http://dexplorer.ark.io",
+      "publicKey": "03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232"
+    }
   }
 }
