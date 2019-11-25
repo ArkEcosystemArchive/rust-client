@@ -46,8 +46,9 @@ fn test_block_transactions() {
 }
 
 #[test]
+#[ignore]
 fn test_search() {
-    // TODO: missing fixture
+    // TODO: missing test
     // let _mock = mock_http_request("blocks/search");
     // {
     //     let client = mock_client();
