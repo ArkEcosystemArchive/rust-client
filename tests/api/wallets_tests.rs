@@ -98,7 +98,7 @@ fn test_wallet_search() {
 
         let response = client
             .wallets
-            .search(Some(query), Vec::<(String, String)>::new())
+            .search(query, Vec::<(String, String)>::new())
             .unwrap();
         let expected: Value = from_str(&body).unwrap();
 

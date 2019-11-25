@@ -67,7 +67,7 @@ fn test_locks_search() {
 
         let actual = client
             .locks
-            .search(Some(query), Vec::<(String, String)>::new())
+            .search(query, Vec::<(String, String)>::new())
             .unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -90,7 +90,7 @@ fn test_locks_unlocked() {
 
         let actual = client
             .locks
-            .unlocked(Some(query), Vec::<(String, String)>::new())
+            .unlocked(query, Vec::<(String, String)>::new())
             .unwrap();
         let expected: Value = from_str(&body).unwrap();
 

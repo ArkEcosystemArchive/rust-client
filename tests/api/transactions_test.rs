@@ -105,7 +105,7 @@ fn test_search() {
         query.insert("senderId", "dummy");
 
         let params = [("limit", "20")].iter();
-        let actual = client.transactions.search(Some(query), params).unwrap();
+        let actual = client.transactions.search(query, params).unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());

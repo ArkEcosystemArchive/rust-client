@@ -27,8 +27,8 @@ impl Peers {
         self.client.get_with_params("peers", parameters)
     }
 
-    pub fn show(&mut self, ip_addr: &str) -> Result<Peer> {
-        let endpoint = format!("peers/{}", ip_addr);
+    pub fn show(&mut self, ip_address: &str) -> Result<Peer> {
+        let endpoint = format!("peers/{}", ip_address);
         self.client.get(&endpoint)
     }
 }

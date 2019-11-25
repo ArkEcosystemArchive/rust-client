@@ -21,7 +21,6 @@ fn test_all() {
 
 #[test]
 fn test_all_params() {
-    // TODO use a different fixture to check that uses query strings
     let (_mock, body) = mock_http_request("votes");
     {
         let mut client = mock_client();

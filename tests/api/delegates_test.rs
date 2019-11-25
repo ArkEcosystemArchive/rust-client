@@ -126,7 +126,7 @@ fn test_search() {
         payload.insert("username", "dummy");
 
         let params = [("limit", "20")].iter();
-        let actual = client.delegates.search(Some(payload), params).unwrap();
+        let actual = client.delegates.search(payload, params).unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());

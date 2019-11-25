@@ -1,11 +1,10 @@
-use std::borrow::Borrow;
-use std::collections::HashMap;
-
 use crate::api::models::transaction::{
     Transaction, TransactionFees, TransactionPostResponse, TransactionTypes,
 };
 use crate::api::Result;
 use crate::http::client::Client;
+use std::borrow::Borrow;
+use std::collections::HashMap;
 
 pub struct Transactions {
     client: Client,
@@ -34,7 +33,7 @@ impl Transactions {
         let mut payload = HashMap::<&str, Vec<&str>>::new();
         payload.insert("transactions", transactions);
         eprintln!("payload = {:#?}", payload);
-        self.client.post("transactions", Some(payload))
+        self.client.post("transactions", payload)
     }
 
     pub fn show(&mut self, id: &str) -> Result<Transaction> {
@@ -64,7 +63,7 @@ impl Transactions {
 
     pub fn search<I, K, V>(
         &mut self,
-        payload: Option<HashMap<&str, &str>>,
+        payload: HashMap<&str, &str>,
         parameters: I,
     ) -> Result<Vec<Transaction>>
     where

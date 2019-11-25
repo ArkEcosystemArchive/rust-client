@@ -4,7 +4,7 @@ use reqwest::header::{HeaderMap, HeaderValue};
 use reqwest::{RequestBuilder, Url};
 use serde::de::DeserializeOwned;
 use serde::Serialize;
-use serde_json::{from_str, from_value, to_string, Value};
+use serde_json::{from_str, from_value, Value};
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
@@ -44,7 +44,7 @@ impl Client {
         self.internal_get(&url)
     }
 
-    pub fn post<T, V>(&self, endpoint: &str, payload: Option<HashMap<&str, V>>) -> Result<T>
+    pub fn post<T, V>(&self, endpoint: &str, payload: HashMap<&str, V>) -> Result<T>
     where
         T: DeserializeOwned,
         V: Serialize,
@@ -56,7 +56,7 @@ impl Client {
     pub fn post_with_params<T, H, I, K, V>(
         &self,
         endpoint: &str,
-        payload: Option<HashMap<&str, H>>,
+        payload: HashMap<&str, H>,
         parameters: I,
     ) -> Result<T>
     where
@@ -76,16 +76,14 @@ impl Client {
         self.send(builder)
     }
 
-    fn internal_post<T, V>(&self, url: &Url, payload: Option<HashMap<&str, V>>) -> Result<T>
+    fn internal_post<T, V>(&self, url: &Url, payload: HashMap<&str, V>) -> Result<T>
     where
         T: DeserializeOwned,
         V: Serialize,
     {
-        let builder = self.client.post(url.as_str());
+        let builder = self.client.post(url.as_str()).json(&payload);
 
-        let body = payload.map_or_else(|| Ok(String::default()), |v| to_string(&v));
-
-        self.send(builder.body(body?))
+        self.send(builder)
     }
 
     fn send<T: DeserializeOwned>(&self, builder: RequestBuilder) -> Result<T> {

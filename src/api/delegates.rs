@@ -97,7 +97,7 @@ impl Delegates {
     /// ```
     pub fn search<I, K, V>(
         &mut self,
-        payload: Option<HashMap<&str, &str>>,
+        payload: HashMap<&str, &str>,
         parameters: I,
     ) -> Result<Vec<Delegate>>
     where

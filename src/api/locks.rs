@@ -35,7 +35,7 @@ impl Locks {
 
     pub fn search<I, K, V>(
         &mut self,
-        payload: Option<HashMap<&str, &str>>,
+        payload: HashMap<&str, &str>,
         parameters: I,
     ) -> Result<Vec<Lock>>
     where
@@ -50,7 +50,7 @@ impl Locks {
 
     pub fn unlocked<I, K, V>(
         &mut self,
-        payload: Option<HashMap<&str, &str>>,
+        payload: HashMap<&str, &str>,
         parameters: I,
     ) -> Result<Vec<Lock>>
     where

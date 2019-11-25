@@ -113,7 +113,7 @@ impl Wallets {
 
     pub fn search<I, K, V>(
         &mut self,
-        payload: Option<HashMap<&str, &str>>,
+        payload: HashMap<&str, &str>,
         parameters: I,
     ) -> Result<Vec<Wallet>>
     where
