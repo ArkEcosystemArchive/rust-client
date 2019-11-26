@@ -82,16 +82,12 @@ fn test_locks_unlocked() {
     let (_mock, body) = mock_post_request("locks/unlocked");
     {
         let mut client = mock_client();
-        let mut query = HashMap::new();
-        query.insert(
-            "secretHash",
-            "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
-        );
+        let mut ids = Vec::new();
+        ids.push("6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b");
+        ids.push("16b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b");
+        ids.push("26b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b");
 
-        let actual = client
-            .locks
-            .unlocked(query, Vec::<(String, String)>::new())
-            .unwrap();
+        let actual = client.locks.unlocked(ids).unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());

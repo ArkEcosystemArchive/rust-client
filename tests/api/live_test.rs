@@ -180,3 +180,31 @@ fn test_live_votes_all() {
     client.votes.all_params([("limit", "20")].iter()).unwrap();
     client.votes.show(transaction.id.as_str()).unwrap();
 }
+
+#[test]
+#[cfg_attr(not(feature = "network_test"), ignore)]
+fn test_live_locks_all() {
+    let mut client = Connection::new(LIVE_HOST);
+
+    let actual = client.locks.all().unwrap().data[0].clone();
+
+    client
+        .locks
+        .all_params([("senderPublicKey", actual.sender_public_key.as_str())].iter())
+        .unwrap();
+
+    client.locks.show(&actual.lock_id).unwrap();
+
+    let mut query = HashMap::new();
+    query.insert("recipientId", actual.recipient_id.as_str());
+
+    client
+        .locks
+        .search(query, [("limit", "20")].iter())
+        .unwrap();
+
+    let mut trx_ids = Vec::new();
+    trx_ids.push(actual.lock_id.as_str());
+
+    client.locks.unlocked(trx_ids).unwrap();
+}
