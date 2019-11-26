@@ -1,9 +1,7 @@
-use std::borrow::Borrow;
-
 use crate::api::models::lock::Lock;
 use crate::api::Result;
 use crate::http::client::Client;
-use serde_json::Value;
+use std::borrow::Borrow;
 use std::collections::HashMap;
 
 pub struct Locks {

@@ -1,9 +1,7 @@
+use arkecosystem_client::Connection;
+use mockito::{mock, Matcher, Mock};
 use std::fs::File;
 use std::io::prelude::*;
-
-use mockito::{mock, Matcher, Mock};
-
-use arkecosystem_client::Connection;
 
 const MOCK_HOST: &str = "http://127.0.0.1:1234/api/";
 
