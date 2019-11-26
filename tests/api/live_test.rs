@@ -207,6 +207,20 @@ fn test_live_locks_all() {
     client.locks.unlocked(trx_ids).unwrap();
 }
 
+#[test]
+#[cfg_attr(not(feature = "network_test"), ignore)]
+fn test_live_node_all() {
+    let mut client = Connection::new(&get_random_seed());
+
+    client.node.status().unwrap();
+
+    client.node.syncing().unwrap();
+
+    client.node.configuration().unwrap();
+
+    client.node.fees([("days", "20")].iter()).unwrap();
+}
+
 fn get_random_seed() -> String {
     let seeds = vec![
         "167.114.29.51",
