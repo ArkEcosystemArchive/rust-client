@@ -1,16 +1,14 @@
-/// This test is ignored by default. Run manually to check for possible differences between
-/// local fixtures and actual public REST API returns. All serde methods/live_test calls MUST pass.
+/// This tests are ignored by default. Run them manually to check for possible differences between
+/// local fixtures and actual public REST API returns. All methods/live_test calls MUST pass.
 /// Run manually with: `$>cargo test --features network_test`
 use arkecosystem_client::Connection;
+use rand::seq::SliceRandom;
 use std::collections::HashMap;
-
-// const LIVE_HOST: &str = "http://185.170.115.40:4003/api/";
-const LIVE_HOST: &str = "https://dexplorer.ark.io/api/";
 
 #[test]
 #[cfg_attr(not(feature = "network_test"), ignore)]
 fn test_live_peers_all() {
-    let mut client = Connection::new(LIVE_HOST);
+    let mut client = Connection::new(&get_random_seed());
     client.peers.all().unwrap();
 
     let params = [("limit", "20")].iter();
@@ -21,7 +19,7 @@ fn test_live_peers_all() {
 #[test]
 #[cfg_attr(not(feature = "network_test"), ignore)]
 fn test_live_blocks_all() {
-    let mut client = Connection::new(LIVE_HOST);
+    let mut client = Connection::new(&get_random_seed());
     let blocks = client.blocks.all().unwrap();
     client.blocks.show(blocks.data[0].id.as_str()).unwrap();
     client
@@ -33,7 +31,7 @@ fn test_live_blocks_all() {
 #[test]
 #[cfg_attr(not(feature = "network_test"), ignore)]
 fn test_live_bridgechain_all() {
-    let mut client = Connection::new(LIVE_HOST);
+    let mut client = Connection::new(&get_random_seed());
     client.bridgechains.all().unwrap();
     // TODO add more - when implemented
 }
@@ -41,7 +39,7 @@ fn test_live_bridgechain_all() {
 #[test]
 #[cfg_attr(not(feature = "network_test"), ignore)]
 fn test_live_business() {
-    let mut client = Connection::new(LIVE_HOST);
+    let mut client = Connection::new(&get_random_seed());
     let businesses = client.businesses.all().unwrap();
     client
         .businesses
@@ -54,7 +52,7 @@ fn test_live_business() {
 #[test]
 #[cfg_attr(not(feature = "network_test"), ignore)]
 fn test_live_delegates_all() {
-    let mut client = Connection::new(LIVE_HOST);
+    let mut client = Connection::new(&get_random_seed());
     let actual = client.delegates.all().unwrap();
     let params = [("limit", "20")].iter();
     client.delegates.all_params(params).unwrap();
@@ -97,7 +95,7 @@ fn test_live_delegates_all() {
 #[test]
 #[cfg_attr(not(feature = "network_test"), ignore)]
 fn test_live_transactions_all() {
-    let mut client = Connection::new(LIVE_HOST);
+    let mut client = Connection::new(&get_random_seed());
 
     let actual = client.transactions.all().unwrap();
     client
@@ -136,7 +134,7 @@ fn test_live_transactions_all() {
 #[test]
 #[cfg_attr(not(feature = "network_test"), ignore)]
 fn test_live_wallets_all() {
-    let mut client = Connection::new(LIVE_HOST);
+    let mut client = Connection::new(&get_random_seed());
 
     let wallet = client.wallets.all().unwrap().data[0].clone();
 
@@ -174,7 +172,7 @@ fn test_live_wallets_all() {
 #[test]
 #[cfg_attr(not(feature = "network_test"), ignore)]
 fn test_live_votes_all() {
-    let mut client = Connection::new(LIVE_HOST);
+    let mut client = Connection::new(&get_random_seed());
 
     let transaction = client.votes.all().unwrap().data[0].clone();
     client.votes.all_params([("limit", "20")].iter()).unwrap();
@@ -184,7 +182,7 @@ fn test_live_votes_all() {
 #[test]
 #[cfg_attr(not(feature = "network_test"), ignore)]
 fn test_live_locks_all() {
-    let mut client = Connection::new(LIVE_HOST);
+    let mut client = Connection::new(&get_random_seed());
 
     let actual = client.locks.all().unwrap().data[0].clone();
 
@@ -207,4 +205,19 @@ fn test_live_locks_all() {
     trx_ids.push(actual.lock_id.as_str());
 
     client.locks.unlocked(trx_ids).unwrap();
+}
+
+fn get_random_seed() -> String {
+    let seeds = vec![
+        "167.114.29.51",
+        "167.114.29.52",
+        "167.114.29.53",
+        "167.114.29.54",
+        "167.114.29.55",
+    ];
+
+    format!(
+        "http://{}:4003/api/",
+        seeds.choose(&mut rand::thread_rng()).unwrap(),
+    )
 }
