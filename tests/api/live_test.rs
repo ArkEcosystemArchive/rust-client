@@ -184,7 +184,7 @@ fn test_live_votes_all() {
 fn test_live_locks_all() {
     let mut client = Connection::new(&get_random_seed());
 
-    if client.locks.all().unwrap().data.len() > 0 {
+    if !client.locks.all().unwrap().data.is_empty() {
         let lock_data = client.locks.all().unwrap().data[0].clone();
 
         client
