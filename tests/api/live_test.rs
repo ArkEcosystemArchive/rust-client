@@ -184,27 +184,29 @@ fn test_live_votes_all() {
 fn test_live_locks_all() {
     let mut client = Connection::new(&get_random_seed());
 
-    let actual = client.locks.all().unwrap().data[0].clone();
+    if client.locks.all().unwrap().data.len() > 0 {
+        let lock_data = client.locks.all().unwrap().data[0].clone();
 
-    client
-        .locks
-        .all_params([("senderPublicKey", actual.sender_public_key.as_str())].iter())
-        .unwrap();
+        client
+            .locks
+            .all_params([("senderPublicKey", lock_data.sender_public_key.as_str())].iter())
+            .unwrap();
 
-    client.locks.show(&actual.lock_id).unwrap();
+        client.locks.show(&lock_data.lock_id).unwrap();
 
-    let mut query = HashMap::new();
-    query.insert("recipientId", actual.recipient_id.as_str());
+        let mut query = HashMap::new();
+        query.insert("recipientId", lock_data.recipient_id.as_str());
 
-    client
-        .locks
-        .search(query, [("limit", "20")].iter())
-        .unwrap();
+        client
+            .locks
+            .search(query, [("limit", "20")].iter())
+            .unwrap();
 
-    let mut trx_ids = Vec::new();
-    trx_ids.push(actual.lock_id.as_str());
+        let mut trx_ids = Vec::new();
+        trx_ids.push(lock_data.lock_id.as_str());
 
-    client.locks.unlocked(trx_ids).unwrap();
+        client.locks.unlocked(trx_ids).unwrap();
+    }
 }
 
 #[test]
