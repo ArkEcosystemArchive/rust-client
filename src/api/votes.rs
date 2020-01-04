@@ -13,22 +13,22 @@ impl Votes {
         Votes { client }
     }
 
-    pub fn all(&mut self) -> Result<Vec<Transaction>> {
-        self.all_params(Vec::<(String, String)>::new())
+    pub async fn all(&mut self) -> Result<Vec<Transaction>> {
+        self.all_params(Vec::<(String, String)>::new()).await
     }
 
-    pub fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Transaction>>
+    pub async fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("votes", parameters)
+        self.client.get_with_params("votes", parameters).await
     }
 
-    pub fn show(&mut self, id: &str) -> Result<Transaction> {
+    pub async fn show(&mut self, id: &str) -> Result<Transaction> {
         let endpoint = format!("votes/{}", id);
-        self.client.get(&endpoint)
+        self.client.get(&endpoint).await
     }
 }

@@ -14,12 +14,12 @@ use serde_json::Value;
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
-#[test]
-fn test_all() {
+#[tokio::test]
+async fn test_all() {
     let (_mock, body) = mock_http_request("transactions");
     {
         let mut client = mock_client();
-        let actual = client.transactions.all().unwrap();
+        let actual = client.transactions.all().await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
@@ -28,13 +28,13 @@ fn test_all() {
     }
 }
 
-#[test]
-fn test_all_param() {
+#[tokio::test]
+async fn test_all_param() {
     let (_mock, body) = mock_http_request("transactions");
     {
         let mut client = mock_client();
         let params = [("limit", "20")].iter();
-        let actual = client.transactions.all_params(params).unwrap();
+        let actual = client.transactions.all_params(params).await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
@@ -43,24 +43,24 @@ fn test_all_param() {
     }
 }
 
-#[test]
-fn test_show() {
+#[tokio::test]
+async fn test_show() {
     let (_mock, body) = mock_http_request("transactions/dummy");
     {
         let mut client = mock_client();
-        let actual = client.transactions.show("dummy").unwrap();
+        let actual = client.transactions.show("dummy").await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_transaction_data(actual.data, &expected["data"]);
     }
 }
 
-#[test]
-fn test_all_unconfirmed() {
+#[tokio::test]
+async fn test_all_unconfirmed() {
     let (_mock, body) = mock_http_request("transactions/unconfirmed");
     {
         let mut client = mock_client();
-        let actual = client.transactions.all_unconfirmed().unwrap();
+        let actual = client.transactions.all_unconfirmed().await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
@@ -69,13 +69,17 @@ fn test_all_unconfirmed() {
     }
 }
 
-#[test]
-fn test_all_unconfirmed_params() {
+#[tokio::test]
+async fn test_all_unconfirmed_params() {
     let (_mock, body) = mock_http_request("transactions/unconfirmed");
     {
         let mut client = mock_client();
         let params = [("limit", "20")].iter();
-        let actual = client.transactions.all_unconfirmed_params(params).unwrap();
+        let actual = client
+            .transactions
+            .all_unconfirmed_params(params)
+            .await
+            .unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
@@ -84,20 +88,20 @@ fn test_all_unconfirmed_params() {
     }
 }
 
-#[test]
-fn test_show_unconfirmed() {
+#[tokio::test]
+async fn test_show_unconfirmed() {
     let (_mock, body) = mock_http_request("transactions/unconfirmed/dummy");
     {
         let mut client = mock_client();
-        let actual = client.transactions.show_unconfirmed("dummy").unwrap();
+        let actual = client.transactions.show_unconfirmed("dummy").await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_transaction_data(actual.data, &expected["data"]);
     }
 }
 
-#[test]
-fn test_search() {
+#[tokio::test]
+async fn test_search() {
     let (_mock, body) = mock_post_request("transactions/search");
     {
         let mut client = mock_client();
@@ -105,7 +109,7 @@ fn test_search() {
         query.insert("senderId", "dummy");
 
         let params = [("limit", "20")].iter();
-        let actual = client.transactions.search(query, params).unwrap();
+        let actual = client.transactions.search(query, params).await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
@@ -114,12 +118,12 @@ fn test_search() {
     }
 }
 
-#[test]
-fn test_transaction_types() {
+#[tokio::test]
+async fn test_transaction_types() {
     let (_mock, body) = mock_http_request("transactions/types");
     {
         let mut client = mock_client();
-        let actual = client.transactions.types().unwrap();
+        let actual = client.transactions.types().await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_transaction_types_core(actual.data.core, &expected["data"]["1"]);
@@ -130,12 +134,16 @@ fn test_transaction_types() {
     }
 }
 
-#[test]
-fn test_create() {
+#[tokio::test]
+async fn test_create() {
     let (_mock, body) = mock_post_request("transactions");
     {
         let mut client = mock_client();
-        let actual = client.transactions.create(Vec::<&str>::new()).unwrap();
+        let actual = client
+            .transactions
+            .create(Vec::<&str>::new())
+            .await
+            .unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_transaction_post_data(actual.data, &expected["data"]);
@@ -153,12 +161,12 @@ fn test_create() {
     }
 }
 
-#[test]
-fn test_transaction_fees() {
+#[tokio::test]
+async fn test_transaction_fees() {
     let (_mock, body) = mock_http_request("transactions/fees");
     {
         let mut client = mock_client();
-        let actual = client.transactions.fees().unwrap();
+        let actual = client.transactions.fees().await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_transaction_core_fees(actual.data.core, &expected["data"]["1"]);

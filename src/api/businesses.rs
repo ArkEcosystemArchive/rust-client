@@ -14,26 +14,26 @@ impl Businesses {
         Businesses { client }
     }
 
-    pub fn all(&mut self) -> Result<Vec<Business>> {
-        self.all_params(Vec::<(String, String)>::new())
+    pub async fn all(&mut self) -> Result<Vec<Business>> {
+        self.all_params(Vec::<(String, String)>::new()).await
     }
 
-    pub fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Business>>
+    pub async fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Business>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("businesses", parameters)
+        self.client.get_with_params("businesses", parameters).await
     }
 
-    pub fn show(&mut self, ip_addr: &str) -> Result<Business> {
+    pub async fn show(&mut self, ip_addr: &str) -> Result<Business> {
         let endpoint = format!("businesses/{}", ip_addr);
-        self.client.get(&endpoint)
+        self.client.get(&endpoint).await
     }
 
-    pub fn search<I, K, V>(
+    pub async fn search<I, K, V>(
         &mut self,
         payload: HashMap<&str, &str>,
         parameters: I,
@@ -46,13 +46,15 @@ impl Businesses {
     {
         self.client
             .post_with_params("businesses/search", payload, parameters)
+            .await
     }
 
-    pub fn bridgechains(&mut self, id: &str) -> Result<Vec<Bridgechain>> {
+    pub async fn bridgechains(&mut self, id: &str) -> Result<Vec<Bridgechain>> {
         self.bridgechains_params(id, Vec::<(String, String)>::new())
+            .await
     }
 
-    pub fn bridgechains_params<I, K, V>(
+    pub async fn bridgechains_params<I, K, V>(
         &mut self,
         id: &str,
         parameters: I,
@@ -64,6 +66,6 @@ impl Businesses {
         V: AsRef<str>,
     {
         let endpoint = format!("businesses/{}/bridgechains", id);
-        self.client.get_with_params(&endpoint, parameters)
+        self.client.get_with_params(&endpoint, parameters).await
     }
 }

@@ -4,12 +4,12 @@ use crate::utils::mockito_helpers::{mock_client, mock_http_request};
 use serde_json::{from_str, Value};
 use std::borrow::Borrow;
 
-#[test]
-fn test_node_status() {
+#[tokio::test]
+async fn test_node_status() {
     let (_mock, body) = mock_http_request("node/status");
     {
         let mut client = mock_client();
-        let actual = client.node.status().unwrap();
+        let actual = client.node.status().await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_eq!(
@@ -28,12 +28,12 @@ fn test_node_status() {
     }
 }
 
-#[test]
-fn test_node_syncing() {
+#[tokio::test]
+async fn test_node_syncing() {
     let (_mock, body) = mock_http_request("node/syncing");
     {
         let mut client = mock_client();
-        let response = client.node.syncing();
+        let response = client.node.syncing().await;
         let actual = response.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -53,12 +53,12 @@ fn test_node_syncing() {
     }
 }
 
-#[test]
-fn test_node_configuration() {
+#[tokio::test]
+async fn test_node_configuration() {
     let (_mock, body) = mock_http_request("node/configuration");
     {
         let mut client = mock_client();
-        let response = client.node.configuration();
+        let response = client.node.configuration().await;
         let actual = response.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -133,13 +133,13 @@ fn test_node_configuration() {
     }
 }
 
-#[test]
-fn test_node_fees() {
+#[tokio::test]
+async fn test_node_fees() {
     let (_mock, body) = mock_http_request("node/fees");
     {
         let mut client = mock_client();
         let params = [("days", "20")].iter();
-        let actual = client.node.fees(params).unwrap();
+        let actual = client.node.fees(params).await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());

@@ -8,7 +8,7 @@ use std::fmt;
 pub enum Error {
     Api(RequestError), // node response for statusCode != 200
     ReqwestHttp(reqwest::Error),
-    ReqwestUrl(reqwest::UrlError),
+    ReqwestUrl(reqwest::Error),
     Serde(serde_json::Error),
 }
 
@@ -52,12 +52,6 @@ impl From<RequestError> for Error {
 impl From<reqwest::Error> for Error {
     fn from(err: reqwest::Error) -> Error {
         Error::ReqwestHttp(err)
-    }
-}
-
-impl From<reqwest::UrlError> for Error {
-    fn from(err: reqwest::UrlError) -> Error {
-        Error::ReqwestUrl(err)
     }
 }
 

@@ -16,44 +16,45 @@ impl Wallets {
         Wallets { client }
     }
 
-    pub fn all(&mut self) -> Result<Vec<Wallet>> {
-        self.all_params(Vec::<(String, String)>::new())
+    pub async fn all(&mut self) -> Result<Vec<Wallet>> {
+        self.all_params(Vec::<(String, String)>::new()).await
     }
 
-    pub fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Wallet>>
+    pub async fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Wallet>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("wallets", parameters)
+        self.client.get_with_params("wallets", parameters).await
     }
 
-    pub fn top(&mut self) -> Result<Vec<Wallet>> {
-        self.top_params(Vec::<(String, String)>::new())
+    pub async fn top(&mut self) -> Result<Vec<Wallet>> {
+        self.top_params(Vec::<(String, String)>::new()).await
     }
 
-    pub fn top_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Wallet>>
+    pub async fn top_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Wallet>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("wallets/top", parameters)
+        self.client.get_with_params("wallets/top", parameters).await
     }
 
-    pub fn show(&mut self, id: &str) -> Result<Wallet> {
+    pub async fn show(&mut self, id: &str) -> Result<Wallet> {
         let endpoint = format!("wallets/{}", id);
-        self.client.get(&endpoint)
+        self.client.get(&endpoint).await
     }
 
-    pub fn transactions(&mut self, id: &str) -> Result<Vec<Transaction>> {
+    pub async fn transactions(&mut self, id: &str) -> Result<Vec<Transaction>> {
         self.transactions_params(id, Vec::<(String, String)>::new())
+            .await
     }
 
-    pub fn transactions_params<I, K, V>(
+    pub async fn transactions_params<I, K, V>(
         &mut self,
         id: &str,
         parameters: I,
@@ -65,14 +66,15 @@ impl Wallets {
         V: AsRef<str>,
     {
         let endpoint = format!("wallets/{}/transactions", id);
-        self.client.get_with_params(&endpoint, parameters)
+        self.client.get_with_params(&endpoint, parameters).await
     }
 
-    pub fn sent_transactions(&mut self, id: &str) -> Result<Vec<Transaction>> {
+    pub async fn sent_transactions(&mut self, id: &str) -> Result<Vec<Transaction>> {
         self.sent_transactions_params(id, Vec::<(String, String)>::new())
+            .await
     }
 
-    pub fn sent_transactions_params<I, K, V>(
+    pub async fn sent_transactions_params<I, K, V>(
         &mut self,
         id: &str,
         parameters: I,
@@ -84,14 +86,15 @@ impl Wallets {
         V: AsRef<str>,
     {
         let endpoint = format!("wallets/{}/transactions/sent", id);
-        self.client.get_with_params(&endpoint, parameters)
+        self.client.get_with_params(&endpoint, parameters).await
     }
 
-    pub fn received_transactions(&mut self, id: &str) -> Result<Vec<Transaction>> {
+    pub async fn received_transactions(&mut self, id: &str) -> Result<Vec<Transaction>> {
         self.received_transactions_params(id, Vec::<(String, String)>::new())
+            .await
     }
 
-    pub fn received_transactions_params<I, K, V>(
+    pub async fn received_transactions_params<I, K, V>(
         &mut self,
         id: &str,
         parameters: I,
@@ -103,15 +106,15 @@ impl Wallets {
         V: AsRef<str>,
     {
         let endpoint = format!("wallets/{}/transactions/received", id);
-        self.client.get_with_params(&endpoint, parameters)
+        self.client.get_with_params(&endpoint, parameters).await
     }
 
-    pub fn votes(&mut self, id: &str) -> Result<Vec<Transaction>> {
+    pub async fn votes(&mut self, id: &str) -> Result<Vec<Transaction>> {
         let endpoint = format!("wallets/{}/votes", id);
-        self.client.get(&endpoint)
+        self.client.get(&endpoint).await
     }
 
-    pub fn search<I, K, V>(
+    pub async fn search<I, K, V>(
         &mut self,
         payload: HashMap<&str, &str>,
         parameters: I,
@@ -124,10 +127,11 @@ impl Wallets {
     {
         self.client
             .post_with_params("wallets/search", payload, parameters)
+            .await
     }
 
-    pub fn locks(&mut self, id: &str) -> Result<Vec<Lock>> {
+    pub async fn locks(&mut self, id: &str) -> Result<Vec<Lock>> {
         let endpoint = format!("wallets/{}/locks", id);
-        self.client.get(&endpoint)
+        self.client.get(&endpoint).await
     }
 }

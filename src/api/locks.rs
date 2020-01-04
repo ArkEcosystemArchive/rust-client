@@ -13,26 +13,26 @@ impl Locks {
         Locks { client }
     }
 
-    pub fn all(&mut self) -> Result<Vec<Lock>> {
-        self.all_params(Vec::<(String, String)>::new())
+    pub async fn all(&mut self) -> Result<Vec<Lock>> {
+        self.all_params(Vec::<(String, String)>::new()).await
     }
 
-    pub fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Lock>>
+    pub async fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Lock>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("locks", parameters)
+        self.client.get_with_params("locks", parameters).await
     }
 
-    pub fn show(&mut self, lock_id: &str) -> Result<Lock> {
+    pub async fn show(&mut self, lock_id: &str) -> Result<Lock> {
         let endpoint = format!("locks/{}", lock_id);
-        self.client.get(&endpoint)
+        self.client.get(&endpoint).await
     }
 
-    pub fn search<I, K, V>(
+    pub async fn search<I, K, V>(
         &mut self,
         payload: HashMap<&str, &str>,
         parameters: I,
@@ -45,11 +45,12 @@ impl Locks {
     {
         self.client
             .post_with_params("locks/search", payload, parameters)
+            .await
     }
 
-    pub fn unlocked(&mut self, transaction_ids: Vec<&str>) -> Result<Vec<Lock>> {
+    pub async fn unlocked(&mut self, transaction_ids: Vec<&str>) -> Result<Vec<Lock>> {
         let mut payload = HashMap::<&str, Vec<&str>>::new();
         payload.insert("ids", transaction_ids);
-        self.client.post("locks/unlocked", payload)
+        self.client.post("locks/unlocked", payload).await
     }
 }

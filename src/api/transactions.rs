@@ -15,37 +15,43 @@ impl Transactions {
         Transactions { client }
     }
 
-    pub fn all(&mut self) -> Result<Vec<Transaction>> {
-        self.all_params(Vec::<(String, String)>::new())
+    pub async fn all(&mut self) -> Result<Vec<Transaction>> {
+        self.all_params(Vec::<(String, String)>::new()).await
     }
 
-    pub fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Transaction>>
+    pub async fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("transactions", parameters)
+        self.client
+            .get_with_params("transactions", parameters)
+            .await
     }
 
-    pub fn create(&mut self, transactions: Vec<&str>) -> Result<TransactionPostResponse> {
+    pub async fn create(&mut self, transactions: Vec<&str>) -> Result<TransactionPostResponse> {
         let mut payload = HashMap::<&str, Vec<&str>>::new();
         payload.insert("transactions", transactions);
         eprintln!("payload = {:#?}", payload);
-        self.client.post("transactions", payload)
+        self.client.post("transactions", payload).await
     }
 
-    pub fn show(&mut self, id: &str) -> Result<Transaction> {
+    pub async fn show(&mut self, id: &str) -> Result<Transaction> {
         let endpoint = format!("transactions/{}", id);
-        self.client.get(&endpoint)
+        self.client.get(&endpoint).await
     }
 
-    pub fn all_unconfirmed(&mut self) -> Result<Vec<Transaction>> {
+    pub async fn all_unconfirmed(&mut self) -> Result<Vec<Transaction>> {
         self.all_unconfirmed_params(Vec::<(String, String)>::new())
+            .await
     }
 
-    pub fn all_unconfirmed_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Transaction>>
+    pub async fn all_unconfirmed_params<I, K, V>(
+        &mut self,
+        parameters: I,
+    ) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -54,14 +60,15 @@ impl Transactions {
     {
         self.client
             .get_with_params("transactions/unconfirmed", parameters)
+            .await
     }
 
-    pub fn show_unconfirmed(&mut self, id: &str) -> Result<Transaction> {
+    pub async fn show_unconfirmed(&mut self, id: &str) -> Result<Transaction> {
         let endpoint = format!("transactions/unconfirmed/{}", id);
-        self.client.get(&endpoint)
+        self.client.get(&endpoint).await
     }
 
-    pub fn search<I, K, V>(
+    pub async fn search<I, K, V>(
         &mut self,
         payload: HashMap<&str, &str>,
         parameters: I,
@@ -74,6 +81,7 @@ impl Transactions {
     {
         self.client
             .post_with_params("transactions/search", payload, parameters)
+            .await
     }
 
     /// Returns the transaction types and their ID
@@ -87,8 +95,8 @@ impl Transactions {
     /// let types = client.transactions.types().unwrap();
     /// println!("{}", to_string_pretty(&types).unwrap());
     /// ```
-    pub fn types(&mut self) -> Result<TransactionTypes> {
-        self.client.get("transactions/types")
+    pub async fn types(&mut self) -> Result<TransactionTypes> {
+        self.client.get("transactions/types").await
     }
 
     /// Returns the static fees of the last block processed by the node
@@ -102,7 +110,7 @@ impl Transactions {
     /// let fees = client.transactions.fees().unwrap();
     /// println!("{}", to_string_pretty(&fees).unwrap());
     /// ```
-    pub fn fees(&mut self) -> Result<TransactionFees> {
-        self.client.get("transactions/fees")
+    pub async fn fees(&mut self) -> Result<TransactionFees> {
+        self.client.get("transactions/fees").await
     }
 }

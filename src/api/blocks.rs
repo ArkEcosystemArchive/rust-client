@@ -15,31 +15,32 @@ impl Blocks {
         Blocks { client }
     }
 
-    pub fn all(&mut self) -> Result<Vec<Block>> {
-        self.all_params(Vec::<(String, String)>::new())
+    pub async fn all(&mut self) -> Result<Vec<Block>> {
+        self.all_params(Vec::<(String, String)>::new()).await
     }
 
-    pub fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Block>>
+    pub async fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Block>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("blocks", parameters)
+        self.client.get_with_params("blocks", parameters).await
     }
 
-    pub fn show(&mut self, id: &str) -> Result<Block> {
+    pub async fn show(&mut self, id: &str) -> Result<Block> {
         let endpoint = format!("blocks/{}", id);
 
-        self.client.get(&endpoint)
+        self.client.get(&endpoint).await
     }
 
-    pub fn transactions(&mut self, id: &str) -> Result<Vec<Transaction>> {
+    pub async fn transactions(&mut self, id: &str) -> Result<Vec<Transaction>> {
         self.transactions_params(id, Vec::<(String, String)>::new())
+            .await
     }
 
-    pub fn transactions_params<I, K, V>(
+    pub async fn transactions_params<I, K, V>(
         &mut self,
         id: &str,
         parameters: I,
@@ -51,16 +52,18 @@ impl Blocks {
         V: AsRef<str>,
     {
         let endpoint = format!("blocks/{}/transactions", id);
-        self.client.get_with_params(&endpoint, parameters)
+        self.client.get_with_params(&endpoint, parameters).await
     }
 
-    pub fn search<I, K, V>(&mut self, parameters: I) -> Result<Vec<Block>>
+    pub async fn search<I, K, V>(&mut self, parameters: I) -> Result<Vec<Block>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("blocks/search", parameters)
+        self.client
+            .get_with_params("blocks/search", parameters)
+            .await
     }
 }

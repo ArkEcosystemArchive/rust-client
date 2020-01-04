@@ -9,12 +9,12 @@ use std::collections::HashMap;
 
 use crate::utils::mockito_helpers::{mock_client, mock_http_request, mock_post_request};
 
-#[test]
-fn test_locks_all() {
+#[tokio::test]
+async fn test_locks_all() {
     let (_mock, body) = mock_http_request("locks");
     {
         let mut client = mock_client();
-        let actual = client.locks.all().unwrap();
+        let actual = client.locks.all().await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
@@ -23,8 +23,8 @@ fn test_locks_all() {
     }
 }
 
-#[test]
-fn test_locks_all_params() {
+#[tokio::test]
+async fn test_locks_all_params() {
     let (_mock, body) = mock_http_request("locks");
     {
         let mut client = mock_client();
@@ -33,7 +33,7 @@ fn test_locks_all_params() {
             "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
         )]
         .iter();
-        let actual = client.locks.all_params(params).unwrap();
+        let actual = client.locks.all_params(params).await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
@@ -42,20 +42,20 @@ fn test_locks_all_params() {
     }
 }
 
-#[test]
-fn test_locks_show() {
+#[tokio::test]
+async fn test_locks_show() {
     let (_mock, body) = mock_http_request("locks/dummy");
     {
         let mut client: Connection = mock_client();
-        let actual: Response<Lock> = client.locks.show("dummy").unwrap();
+        let actual: Response<Lock> = client.locks.show("dummy").await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_lock_data(actual.data, &expected["data"]);
     }
 }
 
-#[test]
-fn test_locks_search() {
+#[tokio::test]
+async fn test_locks_search() {
     let (_mock, body) = mock_post_request("locks/search");
     {
         let mut client = mock_client();
@@ -68,6 +68,7 @@ fn test_locks_search() {
         let actual = client
             .locks
             .search(query, Vec::<(String, String)>::new())
+            .await
             .unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -77,8 +78,8 @@ fn test_locks_search() {
     }
 }
 
-#[test]
-fn test_locks_unlocked() {
+#[tokio::test]
+async fn test_locks_unlocked() {
     let (_mock, body) = mock_post_request("locks/unlocked");
     {
         let mut client = mock_client();
@@ -87,7 +88,7 @@ fn test_locks_unlocked() {
         ids.push("16b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b");
         ids.push("26b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b");
 
-        let actual = client.locks.unlocked(ids).unwrap();
+        let actual = client.locks.unlocked(ids).await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());

@@ -5,12 +5,12 @@ use crate::utils::mockito_helpers::{mock_client, mock_http_request};
 use serde_json::{from_str, Value};
 use std::borrow::Borrow;
 
-#[test]
-fn test_businesses_all() {
+#[tokio::test]
+async fn test_businesses_all() {
     let (_mock, body) = mock_http_request("businesses");
     {
         let mut client = mock_client();
-        let response = client.businesses.all().unwrap();
+        let response = client.businesses.all().await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(response.meta.unwrap(), expected["meta"].borrow());
@@ -19,19 +19,23 @@ fn test_businesses_all() {
     }
 }
 
-#[test]
+#[tokio::test]
 #[ignore]
-fn test_businesses_params() {
+async fn test_businesses_params() {
     // TODO: implement test
 }
 
-#[test]
-fn test_businesses_bridgechains() {
+#[tokio::test]
+async fn test_businesses_bridgechains() {
     let (_mock, body) = mock_http_request("businesses/dummy/bridgechains");
     {
         let mut client = mock_client();
         let business_address = "dummy";
-        let response = client.businesses.bridgechains(business_address).unwrap();
+        let response = client
+            .businesses
+            .bridgechains(business_address)
+            .await
+            .unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(response.meta.unwrap(), expected["meta"].borrow());
@@ -40,14 +44,14 @@ fn test_businesses_bridgechains() {
     }
 }
 
-#[test]
+#[tokio::test]
 #[ignore]
-fn test_businesses_search() {
+async fn test_businesses_search() {
     // TODO: implement test
 }
 
-#[test]
+#[tokio::test]
 #[ignore]
-fn test_businesses_show() {
+async fn test_businesses_show() {
     // TODO: implement test
 }

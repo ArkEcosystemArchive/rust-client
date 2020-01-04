@@ -13,25 +13,25 @@ impl Node {
         Node { client }
     }
 
-    pub fn status(&mut self) -> Result<NodeStatus> {
-        self.client.get("node/status")
+    pub async fn status(&mut self) -> Result<NodeStatus> {
+        self.client.get("node/status").await
     }
 
-    pub fn syncing(&mut self) -> Result<NodeSyncing> {
-        self.client.get("node/syncing")
+    pub async fn syncing(&mut self) -> Result<NodeSyncing> {
+        self.client.get("node/syncing").await
     }
 
-    pub fn configuration(&mut self) -> Result<NodeConfiguration> {
-        self.client.get("node/configuration")
+    pub async fn configuration(&mut self) -> Result<NodeConfiguration> {
+        self.client.get("node/configuration").await
     }
 
-    pub fn fees<I, K, V>(&mut self, parameters: I) -> Result<NetworkFeeStats>
+    pub async fn fees<I, K, V>(&mut self, parameters: I) -> Result<NetworkFeeStats>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("node/fees", parameters)
+        self.client.get_with_params("node/fees", parameters).await
     }
 }

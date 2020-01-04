@@ -5,12 +5,12 @@ use crate::utils::mockito_helpers::{mock_client, mock_http_request};
 use serde_json::{from_str, Value};
 use std::borrow::Borrow;
 
-#[test]
-fn test_blocks_all() {
+#[tokio::test]
+async fn test_blocks_all() {
     let (_mock, body) = mock_http_request("blocks");
     {
         let mut client = mock_client();
-        let response = client.blocks.all().unwrap();
+        let response = client.blocks.all().await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(response.meta.unwrap(), expected["meta"].borrow());
@@ -19,24 +19,24 @@ fn test_blocks_all() {
     }
 }
 
-#[test]
-fn test_show() {
+#[tokio::test]
+async fn test_show() {
     let (_mock, body) = mock_http_request("blocks/dummy");
     {
         let mut client = mock_client();
-        let response = client.blocks.show("dummy").unwrap();
+        let response = client.blocks.show("dummy").await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_block_data(&response.data, &expected["data"]);
     }
 }
 
-#[test]
-fn test_block_transactions() {
+#[tokio::test]
+async fn test_block_transactions() {
     let (_mock, body) = mock_http_request("blocks/dummy/transactions");
     {
         let mut client = mock_client();
-        let response = client.blocks.transactions("dummy").unwrap();
+        let response = client.blocks.transactions("dummy").await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(response.meta.unwrap(), expected["meta"].borrow());
@@ -45,9 +45,9 @@ fn test_block_transactions() {
     }
 }
 
-#[test]
+#[tokio::test]
 #[ignore]
-fn test_search() {
+async fn test_search() {
     // TODO: missing test
     // let _mock = mock_http_request("blocks/search");
     // {

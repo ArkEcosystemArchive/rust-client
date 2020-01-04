@@ -7,12 +7,12 @@ use serde_json::{from_str, Value};
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
-#[test]
-fn test_all() {
+#[tokio::test]
+async fn test_all() {
     let (_mock, body) = mock_http_request("delegates");
     {
         let mut client = mock_client();
-        let actual = client.delegates.all().unwrap();
+        let actual = client.delegates.all().await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
@@ -21,14 +21,14 @@ fn test_all() {
     }
 }
 
-#[test]
-fn test_all_params() {
+#[tokio::test]
+async fn test_all_params() {
     // TODO use a different fixture to check that uses query strings
     let (_mock, body) = mock_http_request("delegates");
     {
         let mut client = mock_client();
         let params = [("limit", "20")].iter();
-        let actual = client.delegates.all_params(params).unwrap();
+        let actual = client.delegates.all_params(params).await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
@@ -37,25 +37,25 @@ fn test_all_params() {
     }
 }
 
-#[test]
-fn test_show() {
+#[tokio::test]
+async fn test_show() {
     let (_mock, body) = mock_http_request("delegates/dummy");
     {
         let mut client = mock_client();
-        let actual = client.delegates.show("dummy").unwrap();
+        let actual = client.delegates.show("dummy").await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_delegate_data(actual.data, &expected["data"]);
     }
 }
 
-#[test]
-fn test_blocks() {
+#[tokio::test]
+async fn test_blocks() {
     let (_mock, body) = mock_http_request("delegates/dummy/blocks");
     {
         let mut client = mock_client();
         let delegate_address = "dummy";
-        let actual = client.delegates.blocks(delegate_address).unwrap();
+        let actual = client.delegates.blocks(delegate_address).await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
@@ -64,8 +64,8 @@ fn test_blocks() {
     }
 }
 
-#[test]
-fn test_blocks_params() {
+#[tokio::test]
+async fn test_blocks_params() {
     let (_mock, body) = mock_http_request("delegates/dummy/blocks");
     {
         let mut client = mock_client();
@@ -74,6 +74,7 @@ fn test_blocks_params() {
         let actual = client
             .delegates
             .blocks_params(delegate_address, params)
+            .await
             .unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -83,13 +84,13 @@ fn test_blocks_params() {
     }
 }
 
-#[test]
-fn test_voters() {
+#[tokio::test]
+async fn test_voters() {
     let (_mock, body) = mock_http_request("delegates/dummy/voters");
     {
         let mut client = mock_client();
         let delegate_address = "dummy";
-        let actual = client.delegates.voters(delegate_address).unwrap();
+        let actual = client.delegates.voters(delegate_address).await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
@@ -98,8 +99,8 @@ fn test_voters() {
     }
 }
 
-#[test]
-fn test_voters_params() {
+#[tokio::test]
+async fn test_voters_params() {
     let (_mock, body) = mock_http_request("delegates/dummy/voters");
     {
         let mut client = mock_client();
@@ -108,6 +109,7 @@ fn test_voters_params() {
         let actual = client
             .delegates
             .voters_params(delegate_address, params)
+            .await
             .unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -117,8 +119,8 @@ fn test_voters_params() {
     }
 }
 
-#[test]
-fn test_search() {
+#[tokio::test]
+async fn test_search() {
     let (_mock, body) = mock_post_request("delegates/search");
     {
         let mut client = mock_client();
@@ -126,7 +128,7 @@ fn test_search() {
         payload.insert("username", "dummy");
 
         let params = [("limit", "20")].iter();
-        let actual = client.delegates.search(payload, params).unwrap();
+        let actual = client.delegates.search(payload, params).await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
