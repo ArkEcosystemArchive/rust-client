@@ -9,7 +9,7 @@ use std::borrow::Borrow;
 
 #[tokio::test]
 async fn test_all() {
-    let (_mock, body) = mock_http_request("peers");
+    let (_mock, body) = mock_http_request("api/peers");
     {
         let mut client = mock_client();
         let actual = client.peers.all().await.unwrap();
@@ -24,7 +24,7 @@ async fn test_all() {
 #[tokio::test]
 async fn test_all_params() {
     // TODO use a different fixture to check that uses query strings
-    let (_mock, body) = mock_http_request("peers");
+    let (_mock, body) = mock_http_request("api/peers");
     {
         let mut client = mock_client();
         let params = [("limit", "20")].iter();
@@ -39,7 +39,7 @@ async fn test_all_params() {
 
 #[tokio::test]
 async fn test_show() {
-    let (_mock, body) = mock_http_request("peers/dummy");
+    let (_mock, body) = mock_http_request("api/peers/dummy");
     {
         let mut client: Connection = mock_client();
         let actual: Response<Peer> = client.peers.show("dummy").await.unwrap();

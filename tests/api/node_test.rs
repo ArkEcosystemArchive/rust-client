@@ -6,7 +6,7 @@ use std::borrow::Borrow;
 
 #[tokio::test]
 async fn test_node_status() {
-    let (_mock, body) = mock_http_request("node/status");
+    let (_mock, body) = mock_http_request("api/node/status");
     {
         let mut client = mock_client();
         let actual = client.node.status().await.unwrap();
@@ -30,7 +30,7 @@ async fn test_node_status() {
 
 #[tokio::test]
 async fn test_node_syncing() {
-    let (_mock, body) = mock_http_request("node/syncing");
+    let (_mock, body) = mock_http_request("api/node/syncing");
     {
         let mut client = mock_client();
         let response = client.node.syncing().await;
@@ -55,7 +55,7 @@ async fn test_node_syncing() {
 
 #[tokio::test]
 async fn test_node_configuration() {
-    let (_mock, body) = mock_http_request("node/configuration");
+    let (_mock, body) = mock_http_request("api/node/configuration");
     {
         let mut client = mock_client();
         let response = client.node.configuration().await;
@@ -135,7 +135,7 @@ async fn test_node_configuration() {
 
 #[tokio::test]
 async fn test_node_fees() {
-    let (_mock, body) = mock_http_request("node/fees");
+    let (_mock, body) = mock_http_request("api/node/fees");
     {
         let mut client = mock_client();
         let params = [("days", "20")].iter();

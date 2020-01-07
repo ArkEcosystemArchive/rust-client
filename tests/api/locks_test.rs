@@ -11,7 +11,7 @@ use crate::utils::mockito_helpers::{mock_client, mock_http_request, mock_post_re
 
 #[tokio::test]
 async fn test_locks_all() {
-    let (_mock, body) = mock_http_request("locks");
+    let (_mock, body) = mock_http_request("api/locks");
     {
         let mut client = mock_client();
         let actual = client.locks.all().await.unwrap();
@@ -25,7 +25,7 @@ async fn test_locks_all() {
 
 #[tokio::test]
 async fn test_locks_all_params() {
-    let (_mock, body) = mock_http_request("locks");
+    let (_mock, body) = mock_http_request("api/locks");
     {
         let mut client = mock_client();
         let params = [(
@@ -44,7 +44,7 @@ async fn test_locks_all_params() {
 
 #[tokio::test]
 async fn test_locks_show() {
-    let (_mock, body) = mock_http_request("locks/dummy");
+    let (_mock, body) = mock_http_request("api/locks/dummy");
     {
         let mut client: Connection = mock_client();
         let actual: Response<Lock> = client.locks.show("dummy").await.unwrap();
@@ -56,7 +56,7 @@ async fn test_locks_show() {
 
 #[tokio::test]
 async fn test_locks_search() {
-    let (_mock, body) = mock_post_request("locks/search");
+    let (_mock, body) = mock_post_request("api/locks/search");
     {
         let mut client = mock_client();
         let mut query = HashMap::new();
@@ -80,7 +80,7 @@ async fn test_locks_search() {
 
 #[tokio::test]
 async fn test_locks_unlocked() {
-    let (_mock, body) = mock_post_request("locks/unlocked");
+    let (_mock, body) = mock_post_request("api/locks/unlocked");
     {
         let mut client = mock_client();
         let mut ids = Vec::new();

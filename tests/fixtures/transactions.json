@@ -859,6 +859,168 @@
         "human": "2019-11-22T08:37:44.000Z"
       },
       "nonce": "94"
+    },
+    {
+      "id": "b3597149bfd7b2031cad6b14438931a8d21950b6a63687377a5cf59582cb7a84",
+      "blockId": "e3b029745b36bccf17d921185462025dbc525cc37d0b02dd614569629a785eb1",
+      "version": 2,
+      "type": 1,
+      "typeGroup": 2,
+      "amount": "0",
+      "fee": "5000000000",
+      "sender": "DPEGnyKEpHfFL7vtbFNFsTgJSk9WoDRvV8",
+      "senderPublicKey": "03120f521f7025f76341a09112f88a6c072411c549e4bfa8c92946fcf1c57cdf1e",
+      "recipient": "DPEGnyKEpHfFL7vtbFNFsTgJSk9WoDRvV8",
+      "signature": "8af5ce3031ffd6b1bb9e074e388ed962930618281ae3cbed87ae5e9e7aa904a9a69a5237f12ef72931cf29e24cc908311af8d64b95bcb07705acb44bfbdd5327",
+      "confirmations": 414655,
+      "timestamp": {
+        "epoch": 84765744,
+        "unix": 1574866944,
+        "human": "2019-11-27T15:02:24.000Z"
+      },
+      "nonce": "8125"
+    },
+    {
+      "id": "1579285884544a5b004798fa2a3b4a343df41d0e09ce92fb752876b08b44229c",
+      "blockId": "ebc8351e9ad3811d2b764a5eae377511fc8436dc85a4c3924aad12c8165def29",
+      "version": 2,
+      "type": 2,
+      "typeGroup": 2,
+      "amount": "0",
+      "fee": "5000000000",
+      "sender": "DPEGnyKEpHfFL7vtbFNFsTgJSk9WoDRvV8",
+      "senderPublicKey": "03120f521f7025f76341a09112f88a6c072411c549e4bfa8c92946fcf1c57cdf1e",
+      "recipient": "DPEGnyKEpHfFL7vtbFNFsTgJSk9WoDRvV8",
+      "signature": "c81f6763f87b95aa3e2a2325b23137603ac750d50e523a1494a972e0e0f04de9824aac2fea8a26bb00be2954ab00746c837791b924a0ea3f9417b74cca0224af",
+      "asset": {
+        "businessUpdate": {
+          "name": "business-603515090679",
+          "website": "http://dexplorer.ark.io"
+        }
+      },
+      "confirmations": 467066,
+      "timestamp": {
+        "epoch": 84326984,
+        "unix": 1574428184,
+        "human": "2019-11-22T13:09:44.000Z"
+      },
+      "nonce": "8091"
+    },
+    {
+    "id": "29edd9cab199c652bae360f193563e217768928709b48d4795a5c624214f3b3a",
+    "blockId": "16582198445ef0d12f5f735b290c38b400400c06765ff93d062cb09ad3134538",
+    "version": 2,
+    "type": 3,
+    "typeGroup": 2,
+    "amount": "0",
+    "fee": "5000000000",
+    "sender": "D5nTPSQFkt9W6mNzdy5ks5PiHkhDqswxDY",
+    "senderPublicKey": "031e3503ff900dc9d5cba44c25784cc4635d288a0a28df86c30b46ea4ee843ab13",
+    "recipient": "D5nTPSQFkt9W6mNzdy5ks5PiHkhDqswxDY",
+    "signature": "61ba4aa78dcdcdbc2abc0b4fff4b8ef96cd739549418c760190176687a6767d3463e71acbd9478602372f4be011097ad6bcd95b85ce320c83746debc2f6f6609",
+    "signSignature": "368f8993573b79c447f2e0b86bd5f6c5afefc263cc542f8e198e91b7945051004bba5d5b87a75feec0aeaf836bf9baa00386cad360a8e9ee0b6afdad45f6759a",
+    "asset": {
+      "bridgechainRegistration": {
+        "name": "business-350563823814",
+        "seedNodes": [
+          "164.8.251.55"
+        ],
+        "genesisHash": "00a0ae58867582fc6ba6555fb5db118a69ace233bb64b8fe89f3d6ac35cd04a9",
+        "bridgechainRepository": "https://github.com/ArkEcosystem/core",
+        "ports": {
+          "@arkecosystem/core-api": 4003
+        }
+      }
+    },
+    "confirmations": 412143,
+    "timestamp": {
+      "epoch": 84786552,
+      "unix": 1574887752,
+      "human": "2019-11-27T20:49:12.000Z"
+    },
+    "nonce": "131"
+    },
+    {
+      "id": "43e038e9a2c030f45f0baebb83a7f03c84ce5ecf18465d8b9f2117b0ea8cb7fe",
+      "blockId": "2745bfb24b705a300661b13594c3b8b70cf51c2a127a37db13b949768def49d7",
+      "version": 2,
+      "type": 4,
+      "typeGroup": 2,
+      "amount": "0",
+      "fee": "5000000000",
+      "sender": "DTRdbaUW3RQQSL5By4G43JVaeHiqfVp9oh",
+      "senderPublicKey": "034da006f958beba78ec54443df4a3f52237253f7ae8cbdb17dccf3feaa57f3126",
+      "recipient": "DTRdbaUW3RQQSL5By4G43JVaeHiqfVp9oh",
+      "signature": "459d25242da2080faf0fe7e71aaa1aefd5469f7ff4e8b903f48f01d394e6041f0b9d207227bc135b45b6f7c9c79e515bb605eade07367c9e899dfd726a3c3129",
+      "asset": {
+        "bridgechainResignation": {
+          "bridgechainId": "aa44f340d76ffc3df204c5f38cd355b7496c9065a1ade2ef92071436bd72e867"
+        }
+      },
+      "confirmations": 483499,
+      "timestamp": {
+        "epoch": 84173480,
+        "unix": 1574274680,
+        "human": "2019-11-20T18:31:20.000Z"
+      },
+      "nonce": "720"
+    },
+    {
+      "id": "d746fff5b50805cc84fb81ae4bfb9880d98ea516bef93ecf2ac9b2dd337c2a3e",
+      "blockId": "eabf676721eb642f4da05936179215937dfc5ab4df0f122ee46094276fb31e5f",
+      "version": 2,
+      "type": 5,
+      "typeGroup": 2,
+      "amount": "0",
+      "fee": "5000000000",
+      "sender": "DCqqT4x4on1dsbgUKRWkuZsdZaoohYK6NV",
+      "senderPublicKey": "020611b40c71f84dfe6e41397d02c93512881bd577b6ec8379cdaefab1ab85e0f5",
+      "recipient": "DCqqT4x4on1dsbgUKRWkuZsdZaoohYK6NV",
+      "signature": "e5b1695f73476905f41ad9f7e214bdbe71bfd420d53a96ca7bf22f92ad10d6a6084cb11a00715971e3ac2922f9f3c2a49162b71b8b26f561ffdcdd66a04bd894",
+      "asset": {
+        "bridgechainUpdate": {
+          "bridgechainId": "200a445e84ba5892c9324c7e89cdbb82d815536e2ac0f31b0c218fdf380ba5dc",
+          "seedNodes": [
+            "1.2.3.4"
+          ],
+          "ports": {
+            "@arkecosystem/core-api": 456
+          }
+        }
+      },
+      "confirmations": 473022,
+      "timestamp": {
+        "epoch": 84272248,
+        "unix": 1574373448,
+        "human": "2019-11-21T21:57:28.000Z"
+      },
+      "nonce": "135"
+    },
+    {
+    "id": "44a9b5c0d1aa7351d68be5211c4f7bf36fbcfd49948f5d5c3b0e4e6c73b8b172",
+    "blockId": "bd575b4fd8233050b6fd3d04d9cecdad5d28dcadea9cd25d3c1aa4d1365c0580",
+    "version": 2,
+    "type": 0,
+    "typeGroup": 2,
+    "amount": "0",
+    "fee": "5000000000",
+    "sender": "DKcFDN6mhLAheRAfmN6LT1e4AeyF1Fd9bY",
+    "senderPublicKey": "02a1b28b59216ea270349c6be5881fba356cb324f320cb59b74a13f28588cce253",
+    "recipient": "DKcFDN6mhLAheRAfmN6LT1e4AeyF1Fd9bY",
+    "signature": "a8adc089530906370683fa30754fc03945a8e584ce1d0ea1697e359228a9421610718ab6aa46871850da3337f23e3d207a2ccf5544b480ee025a33f18072fe25",
+    "asset": {
+      "businessRegistration": {
+        "name": "business-727557772363",
+        "website": "http://dexplorer.ark.io"
+      }
+    },
+    "confirmations": 3,
+    "timestamp": {
+      "epoch": 88244616,
+      "unix": 1578345816,
+      "human": "2020-01-06T21:23:36.000Z"
+    },
+    "nonce": "29776"
     }
   ]
 }

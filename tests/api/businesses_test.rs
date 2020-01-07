@@ -7,7 +7,7 @@ use std::borrow::Borrow;
 
 #[tokio::test]
 async fn test_businesses_all() {
-    let (_mock, body) = mock_http_request("businesses");
+    let (_mock, body) = mock_http_request("api/businesses");
     {
         let mut client = mock_client();
         let response = client.businesses.all().await.unwrap();
@@ -27,7 +27,7 @@ async fn test_businesses_params() {
 
 #[tokio::test]
 async fn test_businesses_bridgechains() {
-    let (_mock, body) = mock_http_request("businesses/dummy/bridgechains");
+    let (_mock, body) = mock_http_request("api/businesses/dummy/bridgechains");
     {
         let mut client = mock_client();
         let business_address = "dummy";

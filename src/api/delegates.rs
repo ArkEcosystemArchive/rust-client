@@ -27,11 +27,13 @@ impl Delegates {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("delegates", parameters).await
+        self.client
+            .get_with_params("api/delegates", parameters)
+            .await
     }
 
     pub async fn show(&mut self, id: &str) -> Result<Delegate> {
-        let endpoint = format!("delegates/{}", id);
+        let endpoint = format!("api/delegates/{}", id);
         self.client.get(&endpoint).await
     }
 
@@ -46,7 +48,7 @@ impl Delegates {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        let endpoint = format!("delegates/{}/blocks", id);
+        let endpoint = format!("api/delegates/{}/blocks", id);
         self.client.get_with_params(&endpoint, parameters).await
     }
 
@@ -61,7 +63,7 @@ impl Delegates {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        let endpoint = format!("delegates/{}/voters", id);
+        let endpoint = format!("api/delegates/{}/voters", id);
         self.client.get_with_params(&endpoint, parameters).await
     }
 
@@ -72,13 +74,13 @@ impl Delegates {
     /// use serde_json::to_string_pretty;
     /// use arkecosystem_client::connection::Connection;
     ///
-    /// let client = Connection::new("http://167.114.43.38:4003/api/");
+    /// let client = Connection::new("http://167.114.43.38:4003");
     /// let delegate_id = "yo";
     /// let voters_balances = client.delegates.voters_balances(&delegate_id).unwrap();
     /// println!("{}", to_string_pretty(&voters_balances).unwrap());
     /// ```
     pub async fn voters_balances(&mut self, id: &str) -> Result<Balances> {
-        let endpoint = format!("delegates/{}/voters/balances", id);
+        let endpoint = format!("api/delegates/{}/voters/balances", id);
         self.client.get(&endpoint).await
     }
 
@@ -89,7 +91,7 @@ impl Delegates {
     /// use serde_json::to_string_pretty;
     /// use arkecosystem_client::connection::Connection;
     ///
-    /// let client = Connection::new("http://167.114.43.38:4003/api/");
+    /// let client = Connection::new("http://167.114.43.38:4003");
     /// let payload = [("username", "p")].iter();
     /// let params = [("limit", "2")].iter();
     /// let search = client.delegates.search(Some(payload), params).unwrap();
@@ -107,7 +109,7 @@ impl Delegates {
         V: AsRef<str>,
     {
         self.client
-            .post_with_params("delegates/search", payload, parameters)
+            .post_with_params("api/delegates/search", payload, parameters)
             .await
     }
 }

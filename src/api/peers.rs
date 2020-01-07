@@ -24,11 +24,11 @@ impl Peers {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("peers", parameters).await
+        self.client.get_with_params("api/peers", parameters).await
     }
 
     pub async fn show(&mut self, ip_address: &str) -> Result<Peer> {
-        let endpoint = format!("peers/{}", ip_address);
+        let endpoint = format!("api/peers/{}", ip_address);
         self.client.get(&endpoint).await
     }
 }

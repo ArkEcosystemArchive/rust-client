@@ -24,11 +24,11 @@ impl Locks {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("locks", parameters).await
+        self.client.get_with_params("api/locks", parameters).await
     }
 
     pub async fn show(&mut self, lock_id: &str) -> Result<Lock> {
-        let endpoint = format!("locks/{}", lock_id);
+        let endpoint = format!("api/locks/{}", lock_id);
         self.client.get(&endpoint).await
     }
 
@@ -44,13 +44,13 @@ impl Locks {
         V: AsRef<str>,
     {
         self.client
-            .post_with_params("locks/search", payload, parameters)
+            .post_with_params("api/locks/search", payload, parameters)
             .await
     }
 
     pub async fn unlocked(&mut self, transaction_ids: Vec<&str>) -> Result<Vec<Lock>> {
         let mut payload = HashMap::<&str, Vec<&str>>::new();
         payload.insert("ids", transaction_ids);
-        self.client.post("locks/unlocked", payload).await
+        self.client.post("api/locks/unlocked", payload).await
     }
 }

@@ -25,12 +25,12 @@ impl Bridgechains {
         V: AsRef<str>,
     {
         self.client
-            .get_with_params("bridgechains", parameters)
+            .get_with_params("api/bridgechains", parameters)
             .await
     }
 
     pub async fn show(&mut self, ip_addr: &str) -> Result<Bridgechain> {
-        let endpoint = format!("bridgechains/{}", ip_addr);
+        let endpoint = format!("api/bridgechains/{}", ip_addr);
         self.client.get(&endpoint).await
     }
 
@@ -46,7 +46,7 @@ impl Bridgechains {
         V: AsRef<str>,
     {
         self.client
-            .post_with_params("bridgechains/search", payload, parameters)
+            .post_with_params("api/bridgechains/search", payload, parameters)
             .await
     }
 }

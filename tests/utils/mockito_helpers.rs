@@ -3,7 +3,7 @@ use mockito::{mock, Matcher, Mock};
 use std::fs::File;
 use std::io::prelude::*;
 
-const MOCK_HOST: &str = "http://127.0.0.1:1234/api/";
+const MOCK_HOST: &str = "http://127.0.0.1:1234";
 
 pub fn mock_http_request(endpoint: &str) -> (Mock, String) {
     let url = Matcher::Regex(endpoint.to_owned());
@@ -36,12 +36,12 @@ pub fn mock_client() -> Connection {
 }
 
 fn read_fixture(endpoint: &str, post_request: bool) -> String {
+    let endpoint_parsed = endpoint.split("api/").collect::<Vec<&str>>();
     let fixture_name = if post_request {
-        endpoint.replace("/", "-") + "-post.json"
+        endpoint_parsed[1].replace("/", "-") + "-post.json"
     } else {
-        endpoint.replace("/", "-") + ".json"
+        endpoint_parsed[1].replace("/", "-") + ".json"
     };
-
     let mut file = File::open(format!("tests/fixtures/{}", fixture_name)).unwrap();
     let mut response_body = String::new();
     file.read_to_string(&mut response_body).unwrap();
