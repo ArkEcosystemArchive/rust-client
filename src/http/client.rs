@@ -29,7 +29,7 @@ impl Client {
 
     pub async fn get<T: DeserializeOwned>(&mut self, endpoint: &str) -> Result<T> {
         let url = Url::parse(&format!("{}/{}", self.host, endpoint)).unwrap();
-        self.internal_get(&url).await
+        self.generic_get(&url).await
     }
 
     pub async fn get_with_params<T, I, K, V>(&mut self, endpoint: &str, parameters: I) -> Result<T>
@@ -42,7 +42,7 @@ impl Client {
     {
         let url =
             Url::parse_with_params(&format!("{}/{}", self.host, endpoint), parameters).unwrap();
-        self.internal_get(&url).await
+        self.generic_get(&url).await
     }
 
     pub async fn post<T, V>(&self, endpoint: &str, payload: HashMap<&str, V>) -> Result<T>
@@ -51,7 +51,7 @@ impl Client {
         V: Serialize,
     {
         let url = Url::parse(&format!("{}/{}", self.host, endpoint)).unwrap();
-        self.internal_post(&url, payload).await
+        self.generic_post(&url, payload).await
     }
 
     pub async fn post_with_params<T, H, I, K, V>(
@@ -70,16 +70,16 @@ impl Client {
     {
         let url =
             Url::parse_with_params(&format!("{}/{}", self.host, endpoint), parameters).unwrap();
-        self.internal_post(&url, payload).await
+        self.generic_post(&url, payload).await
     }
 
-    async fn internal_get<T: DeserializeOwned>(&self, url: &Url) -> Result<T> {
+    pub async fn generic_get<T: DeserializeOwned>(&self, url: &Url) -> Result<T> {
         let builder = self.client.get(url.as_str());
 
         self.send(builder).await
     }
 
-    async fn internal_post<T, V>(&self, url: &Url, payload: HashMap<&str, V>) -> Result<T>
+    pub async fn generic_post<T, V>(&self, url: &Url, payload: HashMap<&str, V>) -> Result<T>
     where
         T: DeserializeOwned,
         V: Serialize,
