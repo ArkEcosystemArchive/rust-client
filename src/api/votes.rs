@@ -24,11 +24,11 @@ impl Votes {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("api/votes", parameters).await
+        self.client.get_with_params("votes", parameters).await
     }
 
     pub async fn show(&mut self, id: &str) -> Result<Transaction> {
-        let endpoint = format!("api/votes/{}", id);
+        let endpoint = format!("votes/{}", id);
         self.client.get(&endpoint).await
     }
 }

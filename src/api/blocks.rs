@@ -26,11 +26,11 @@ impl Blocks {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("api/blocks", parameters).await
+        self.client.get_with_params("blocks", parameters).await
     }
 
     pub async fn show(&mut self, id: &str) -> Result<Block> {
-        let endpoint = format!("api/blocks/{}", id);
+        let endpoint = format!("blocks/{}", id);
 
         self.client.get(&endpoint).await
     }
@@ -51,7 +51,7 @@ impl Blocks {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        let endpoint = format!("api/blocks/{}/transactions", id);
+        let endpoint = format!("blocks/{}/transactions", id);
         self.client.get_with_params(&endpoint, parameters).await
     }
 
@@ -63,7 +63,7 @@ impl Blocks {
         V: AsRef<str>,
     {
         self.client
-            .get_with_params("api/blocks/search", parameters)
+            .get_with_params("blocks/search", parameters)
             .await
     }
 }

@@ -25,13 +25,11 @@ impl Businesses {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client
-            .get_with_params("api/businesses", parameters)
-            .await
+        self.client.get_with_params("businesses", parameters).await
     }
 
     pub async fn show(&mut self, ip_addr: &str) -> Result<Business> {
-        let endpoint = format!("api/businesses/{}", ip_addr);
+        let endpoint = format!("businesses/{}", ip_addr);
         self.client.get(&endpoint).await
     }
 
@@ -47,7 +45,7 @@ impl Businesses {
         V: AsRef<str>,
     {
         self.client
-            .post_with_params("api/businesses/search", payload, parameters)
+            .post_with_params("businesses/search", payload, parameters)
             .await
     }
 
@@ -67,7 +65,7 @@ impl Businesses {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        let endpoint = format!("api/businesses/{}/bridgechains", id);
+        let endpoint = format!("businesses/{}/bridgechains", id);
         self.client.get_with_params(&endpoint, parameters).await
     }
 }

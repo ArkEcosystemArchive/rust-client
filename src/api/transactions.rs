@@ -27,18 +27,19 @@ impl Transactions {
         V: AsRef<str>,
     {
         self.client
-            .get_with_params("api/transactions", parameters)
+            .get_with_params("transactions", parameters)
             .await
     }
 
     pub async fn create(&mut self, transactions: Vec<&str>) -> Result<TransactionPostResponse> {
         let mut payload = HashMap::<&str, Vec<&str>>::new();
         payload.insert("transactions", transactions);
-        self.client.post("api/transactions", payload).await
+        eprintln!("payload = {:#?}", payload);
+        self.client.post("transactions", payload).await
     }
 
     pub async fn show(&mut self, id: &str) -> Result<Transaction> {
-        let endpoint = format!("api/transactions/{}", id);
+        let endpoint = format!("transactions/{}", id);
         self.client.get(&endpoint).await
     }
 
@@ -58,12 +59,12 @@ impl Transactions {
         V: AsRef<str>,
     {
         self.client
-            .get_with_params("api/transactions/unconfirmed", parameters)
+            .get_with_params("transactions/unconfirmed", parameters)
             .await
     }
 
     pub async fn show_unconfirmed(&mut self, id: &str) -> Result<Transaction> {
-        let endpoint = format!("api/transactions/unconfirmed/{}", id);
+        let endpoint = format!("transactions/unconfirmed/{}", id);
         self.client.get(&endpoint).await
     }
 
@@ -79,7 +80,7 @@ impl Transactions {
         V: AsRef<str>,
     {
         self.client
-            .post_with_params("api/transactions/search", payload, parameters)
+            .post_with_params("transactions/search", payload, parameters)
             .await
     }
 
@@ -90,12 +91,12 @@ impl Transactions {
     /// use serde_json::to_string_pretty;
     /// use arkecosystem_client::connection::Connection;
     ///
-    /// let client = Connection::new("http://95.179.170.23:4003");
+    /// let client = Connection::new("http://95.179.170.23:4003/api/");
     /// let types = client.transactions.types().unwrap();
     /// println!("{}", to_string_pretty(&types).unwrap());
     /// ```
     pub async fn types(&mut self) -> Result<TransactionTypes> {
-        self.client.get("api/transactions/types").await
+        self.client.get("transactions/types").await
     }
 
     /// Returns the static fees of the last block processed by the node
@@ -105,11 +106,11 @@ impl Transactions {
     /// use serde_json::to_string_pretty;
     /// use arkecosystem_client::connection::Connection;
     ///
-    /// let client = Connection::new("http://167.114.43.38:4003");
+    /// let client = Connection::new("http://167.114.43.38:4003/api/");
     /// let fees = client.transactions.fees().unwrap();
     /// println!("{}", to_string_pretty(&fees).unwrap());
     /// ```
     pub async fn fees(&mut self) -> Result<TransactionFees> {
-        self.client.get("api/transactions/fees").await
+        self.client.get("transactions/fees").await
     }
 }

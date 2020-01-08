@@ -6,7 +6,7 @@ use std::borrow::Borrow;
 
 #[tokio::test]
 async fn test_bridgechain_all() {
-    let (_mock, body) = mock_http_request("api/bridgechains");
+    let (_mock, body) = mock_http_request("bridgechains");
     {
         let mut client = mock_client();
         let response = client.bridgechains.all().await.unwrap();

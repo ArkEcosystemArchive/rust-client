@@ -9,7 +9,7 @@ use std::collections::HashMap;
 
 #[tokio::test]
 async fn test_all() {
-    let (_mock, body) = mock_http_request("api/delegates");
+    let (_mock, body) = mock_http_request("delegates");
     {
         let mut client = mock_client();
         let actual = client.delegates.all().await.unwrap();
@@ -24,7 +24,7 @@ async fn test_all() {
 #[tokio::test]
 async fn test_all_params() {
     // TODO use a different fixture to check that uses query strings
-    let (_mock, body) = mock_http_request("api/delegates");
+    let (_mock, body) = mock_http_request("delegates");
     {
         let mut client = mock_client();
         let params = [("limit", "20")].iter();
@@ -39,7 +39,7 @@ async fn test_all_params() {
 
 #[tokio::test]
 async fn test_show() {
-    let (_mock, body) = mock_http_request("api/delegates/dummy");
+    let (_mock, body) = mock_http_request("delegates/dummy");
     {
         let mut client = mock_client();
         let actual = client.delegates.show("dummy").await.unwrap();
@@ -51,7 +51,7 @@ async fn test_show() {
 
 #[tokio::test]
 async fn test_blocks() {
-    let (_mock, body) = mock_http_request("api/delegates/dummy/blocks");
+    let (_mock, body) = mock_http_request("delegates/dummy/blocks");
     {
         let mut client = mock_client();
         let delegate_address = "dummy";
@@ -66,7 +66,7 @@ async fn test_blocks() {
 
 #[tokio::test]
 async fn test_blocks_params() {
-    let (_mock, body) = mock_http_request("api/delegates/dummy/blocks");
+    let (_mock, body) = mock_http_request("delegates/dummy/blocks");
     {
         let mut client = mock_client();
         let delegate_address = "dummy";
@@ -86,7 +86,7 @@ async fn test_blocks_params() {
 
 #[tokio::test]
 async fn test_voters() {
-    let (_mock, body) = mock_http_request("api/delegates/dummy/voters");
+    let (_mock, body) = mock_http_request("delegates/dummy/voters");
     {
         let mut client = mock_client();
         let delegate_address = "dummy";
@@ -101,7 +101,7 @@ async fn test_voters() {
 
 #[tokio::test]
 async fn test_voters_params() {
-    let (_mock, body) = mock_http_request("api/delegates/dummy/voters");
+    let (_mock, body) = mock_http_request("delegates/dummy/voters");
     {
         let mut client = mock_client();
         let delegate_address = "dummy";
@@ -121,7 +121,7 @@ async fn test_voters_params() {
 
 #[tokio::test]
 async fn test_search() {
-    let (_mock, body) = mock_post_request("api/delegates/search");
+    let (_mock, body) = mock_post_request("delegates/search");
     {
         let mut client = mock_client();
         let mut payload = HashMap::new();

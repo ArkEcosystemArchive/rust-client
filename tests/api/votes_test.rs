@@ -7,7 +7,7 @@ use std::borrow::Borrow;
 
 #[tokio::test]
 async fn test_all() {
-    let (_mock, body) = mock_http_request("api/votes");
+    let (_mock, body) = mock_http_request("votes");
     {
         let mut client = mock_client();
         let actual = client.votes.all().await.unwrap();
@@ -21,7 +21,7 @@ async fn test_all() {
 
 #[tokio::test]
 async fn test_all_params() {
-    let (_mock, body) = mock_http_request("api/votes");
+    let (_mock, body) = mock_http_request("votes");
     {
         let mut client = mock_client();
         let params = [("limit", "20")].iter();
@@ -36,7 +36,7 @@ async fn test_all_params() {
 
 #[tokio::test]
 async fn test_show() {
-    let (_mock, body) = mock_http_request("api/votes/dummy");
+    let (_mock, body) = mock_http_request("votes/dummy");
     {
         let mut client = mock_client();
         let actual = client.votes.show("dummy").await.unwrap();

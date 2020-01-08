@@ -110,7 +110,6 @@ async fn test_live_transactions_all() {
     let mut client = Connection::new(&get_random_seed());
 
     let actual = client.transactions.all().await.unwrap();
-
     client
         .transactions
         .all_params([("limit", "20")].iter())
@@ -187,7 +186,6 @@ async fn test_live_wallets_all() {
         .unwrap();
 
     client.wallets.top().await.unwrap();
-
     client.wallets.locks(wallet.address.as_str()).await.unwrap();
 }
 
@@ -258,14 +256,15 @@ fn get_random_seed() -> String {
         "167.114.29.53",
         "167.114.29.54",
         "167.114.29.55",
-        "176.9.62.104",
-        "92.60.37.201",
-        "149.202.160.132",
         "88.99.185.182",
+        "136.244.99.175",
+        "92.60.37.201",
+        "95.217.18.250",
+        "139.99.72.254",
     ];
 
     format!(
-        "http://{}:4003",
+        "http://{}:4003/api/",
         seeds.choose(&mut rand::thread_rng()).unwrap(),
     )
 }

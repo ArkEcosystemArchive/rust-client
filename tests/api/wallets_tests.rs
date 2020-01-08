@@ -8,7 +8,7 @@ use std::collections::HashMap;
 
 #[tokio::test]
 async fn test_wallets_all() {
-    let (_mock, body) = mock_http_request("api/wallets");
+    let (_mock, body) = mock_http_request("wallets");
     {
         let mut client = mock_client();
         let response = client.wallets.all().await.unwrap();
@@ -22,7 +22,7 @@ async fn test_wallets_all() {
 
 #[tokio::test]
 async fn test_wallet_show() {
-    let (_mock, body) = mock_http_request("api/wallets/dummy");
+    let (_mock, body) = mock_http_request("wallets/dummy");
     {
         let mut client = mock_client();
         let response = client.wallets.show("dummy").await.unwrap();
@@ -34,7 +34,7 @@ async fn test_wallet_show() {
 
 #[tokio::test]
 async fn test_wallet_transactions() {
-    let (_mock, body) = mock_http_request("api/wallets/dummy/transactions");
+    let (_mock, body) = mock_http_request("wallets/dummy/transactions");
     {
         let mut client = mock_client();
         let response = client.wallets.transactions("dummy").await.unwrap();
@@ -48,7 +48,7 @@ async fn test_wallet_transactions() {
 
 #[tokio::test]
 async fn test_wallet_sent_transactions() {
-    let (_mock, body) = mock_http_request("api/wallets/dummy/transactions/sent");
+    let (_mock, body) = mock_http_request("wallets/dummy/transactions/sent");
     {
         let mut client = mock_client();
         let response = client.wallets.sent_transactions("dummy").await.unwrap();
@@ -62,7 +62,7 @@ async fn test_wallet_sent_transactions() {
 
 #[tokio::test]
 async fn test_wallet_received_transactions() {
-    let (_mock, body) = mock_http_request("api/wallets/dummy/transactions/received");
+    let (_mock, body) = mock_http_request("wallets/dummy/transactions/received");
     {
         let mut client = mock_client();
         let response = client.wallets.received_transactions("dummy").await.unwrap();
@@ -76,7 +76,7 @@ async fn test_wallet_received_transactions() {
 
 #[tokio::test]
 async fn test_votes() {
-    let (_mock, body) = mock_http_request("api/wallets/dummy/votes");
+    let (_mock, body) = mock_http_request("wallets/dummy/votes");
     {
         let mut client = mock_client();
         let response = client.wallets.votes("dummy").await.unwrap();
@@ -90,7 +90,7 @@ async fn test_votes() {
 
 #[tokio::test]
 async fn test_wallet_search() {
-    let (_mock, body) = mock_post_request("api/wallets/search");
+    let (_mock, body) = mock_post_request("wallets/search");
     {
         let mut client = mock_client();
         let mut query = HashMap::new();
@@ -111,7 +111,7 @@ async fn test_wallet_search() {
 
 #[tokio::test]
 async fn test_wallet_top() {
-    let (_mock, body) = mock_http_request("api/wallets/top");
+    let (_mock, body) = mock_http_request("wallets/top");
     {
         let mut client = mock_client();
         let response = client.wallets.top().await.unwrap();
@@ -125,7 +125,7 @@ async fn test_wallet_top() {
 
 #[tokio::test]
 async fn test_wallet_locks() {
-    let (_mock, body) = mock_http_request("api/wallets/dummy/locks");
+    let (_mock, body) = mock_http_request("wallets/dummy/locks");
     {
         let mut client = mock_client();
         let response = client.wallets.locks("dummy").await.unwrap();

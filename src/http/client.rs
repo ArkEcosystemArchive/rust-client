@@ -28,7 +28,7 @@ impl Client {
     }
 
     pub async fn get<T: DeserializeOwned>(&mut self, endpoint: &str) -> Result<T> {
-        let url = Url::parse(&format!("{}/{}", self.host, endpoint)).unwrap();
+        let url = Url::parse(&format!("{}{}", self.host, endpoint)).unwrap();
         self.generic_get(&url).await
     }
 
@@ -41,7 +41,7 @@ impl Client {
         V: AsRef<str>,
     {
         let url =
-            Url::parse_with_params(&format!("{}/{}", self.host, endpoint), parameters).unwrap();
+            Url::parse_with_params(&format!("{}{}", self.host, endpoint), parameters).unwrap();
         self.generic_get(&url).await
     }
 
@@ -50,7 +50,7 @@ impl Client {
         T: DeserializeOwned,
         V: Serialize,
     {
-        let url = Url::parse(&format!("{}/{}", self.host, endpoint)).unwrap();
+        let url = Url::parse(&format!("{}{}", self.host, endpoint)).unwrap();
         self.generic_post(&url, payload).await
     }
 
@@ -69,7 +69,7 @@ impl Client {
         V: AsRef<str>,
     {
         let url =
-            Url::parse_with_params(&format!("{}/{}", self.host, endpoint), parameters).unwrap();
+            Url::parse_with_params(&format!("{}{}", self.host, endpoint), parameters).unwrap();
         self.generic_post(&url, payload).await
     }
 

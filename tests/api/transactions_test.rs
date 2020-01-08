@@ -16,7 +16,7 @@ use std::collections::HashMap;
 
 #[tokio::test]
 async fn test_all() {
-    let (_mock, body) = mock_http_request("api/transactions");
+    let (_mock, body) = mock_http_request("transactions");
     {
         let mut client = mock_client();
         let actual = client.transactions.all().await.unwrap();
@@ -30,7 +30,7 @@ async fn test_all() {
 
 #[tokio::test]
 async fn test_all_param() {
-    let (_mock, body) = mock_http_request("api/transactions");
+    let (_mock, body) = mock_http_request("transactions");
     {
         let mut client = mock_client();
         let params = [("limit", "20")].iter();
@@ -45,7 +45,7 @@ async fn test_all_param() {
 
 #[tokio::test]
 async fn test_show() {
-    let (_mock, body) = mock_http_request("api/transactions/dummy");
+    let (_mock, body) = mock_http_request("transactions/dummy");
     {
         let mut client = mock_client();
         let actual = client.transactions.show("dummy").await.unwrap();
@@ -57,7 +57,7 @@ async fn test_show() {
 
 #[tokio::test]
 async fn test_all_unconfirmed() {
-    let (_mock, body) = mock_http_request("api/transactions/unconfirmed");
+    let (_mock, body) = mock_http_request("transactions/unconfirmed");
     {
         let mut client = mock_client();
         let actual = client.transactions.all_unconfirmed().await.unwrap();
@@ -71,7 +71,7 @@ async fn test_all_unconfirmed() {
 
 #[tokio::test]
 async fn test_all_unconfirmed_params() {
-    let (_mock, body) = mock_http_request("api/transactions/unconfirmed");
+    let (_mock, body) = mock_http_request("transactions/unconfirmed");
     {
         let mut client = mock_client();
         let params = [("limit", "20")].iter();
@@ -90,7 +90,7 @@ async fn test_all_unconfirmed_params() {
 
 #[tokio::test]
 async fn test_show_unconfirmed() {
-    let (_mock, body) = mock_http_request("api/transactions/unconfirmed/dummy");
+    let (_mock, body) = mock_http_request("transactions/unconfirmed/dummy");
     {
         let mut client = mock_client();
         let actual = client.transactions.show_unconfirmed("dummy").await.unwrap();
@@ -102,7 +102,7 @@ async fn test_show_unconfirmed() {
 
 #[tokio::test]
 async fn test_search() {
-    let (_mock, body) = mock_post_request("api/transactions/search");
+    let (_mock, body) = mock_post_request("transactions/search");
     {
         let mut client = mock_client();
         let mut query = HashMap::new();
@@ -120,7 +120,7 @@ async fn test_search() {
 
 #[tokio::test]
 async fn test_transaction_types() {
-    let (_mock, body) = mock_http_request("api/transactions/types");
+    let (_mock, body) = mock_http_request("transactions/types");
     {
         let mut client = mock_client();
         let actual = client.transactions.types().await.unwrap();
@@ -136,7 +136,7 @@ async fn test_transaction_types() {
 
 #[tokio::test]
 async fn test_create() {
-    let (_mock, body) = mock_post_request("api/transactions");
+    let (_mock, body) = mock_post_request("transactions");
     {
         let mut client = mock_client();
         let actual = client
@@ -163,7 +163,7 @@ async fn test_create() {
 
 #[tokio::test]
 async fn test_transaction_fees() {
-    let (_mock, body) = mock_http_request("api/transactions/fees");
+    let (_mock, body) = mock_http_request("transactions/fees");
     {
         let mut client = mock_client();
         let actual = client.transactions.fees().await.unwrap();

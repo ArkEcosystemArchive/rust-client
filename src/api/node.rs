@@ -14,15 +14,15 @@ impl Node {
     }
 
     pub async fn status(&mut self) -> Result<NodeStatus> {
-        self.client.get("api/node/status").await
+        self.client.get("node/status").await
     }
 
     pub async fn syncing(&mut self) -> Result<NodeSyncing> {
-        self.client.get("api/node/syncing").await
+        self.client.get("node/syncing").await
     }
 
     pub async fn configuration(&mut self) -> Result<NodeConfiguration> {
-        self.client.get("api/node/configuration").await
+        self.client.get("node/configuration").await
     }
 
     pub async fn fees<I, K, V>(&mut self, parameters: I) -> Result<NetworkFeeStats>
@@ -32,8 +32,6 @@ impl Node {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client
-            .get_with_params("api/node/fees", parameters)
-            .await
+        self.client.get_with_params("node/fees", parameters).await
     }
 }

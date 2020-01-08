@@ -27,7 +27,7 @@ impl Wallets {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("api/wallets", parameters).await
+        self.client.get_with_params("wallets", parameters).await
     }
 
     pub async fn top(&mut self) -> Result<Vec<Wallet>> {
@@ -41,13 +41,11 @@ impl Wallets {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client
-            .get_with_params("api/wallets/top", parameters)
-            .await
+        self.client.get_with_params("wallets/top", parameters).await
     }
 
     pub async fn show(&mut self, id: &str) -> Result<Wallet> {
-        let endpoint = format!("api/wallets/{}", id);
+        let endpoint = format!("wallets/{}", id);
         self.client.get(&endpoint).await
     }
 
@@ -67,7 +65,7 @@ impl Wallets {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        let endpoint = format!("api/wallets/{}/transactions", id);
+        let endpoint = format!("wallets/{}/transactions", id);
         self.client.get_with_params(&endpoint, parameters).await
     }
 
@@ -87,7 +85,7 @@ impl Wallets {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        let endpoint = format!("api/wallets/{}/transactions/sent", id);
+        let endpoint = format!("wallets/{}/transactions/sent", id);
         self.client.get_with_params(&endpoint, parameters).await
     }
 
@@ -107,12 +105,12 @@ impl Wallets {
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        let endpoint = format!("api/wallets/{}/transactions/received", id);
+        let endpoint = format!("wallets/{}/transactions/received", id);
         self.client.get_with_params(&endpoint, parameters).await
     }
 
     pub async fn votes(&mut self, id: &str) -> Result<Vec<Transaction>> {
-        let endpoint = format!("api/wallets/{}/votes", id);
+        let endpoint = format!("wallets/{}/votes", id);
         self.client.get(&endpoint).await
     }
 
@@ -128,12 +126,12 @@ impl Wallets {
         V: AsRef<str>,
     {
         self.client
-            .post_with_params("api/wallets/search", payload, parameters)
+            .post_with_params("wallets/search", payload, parameters)
             .await
     }
 
     pub async fn locks(&mut self, id: &str) -> Result<Vec<Lock>> {
-        let endpoint = format!("api/wallets/{}/locks", id);
+        let endpoint = format!("wallets/{}/locks", id);
         self.client.get(&endpoint).await
     }
 }

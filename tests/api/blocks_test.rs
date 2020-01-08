@@ -7,7 +7,7 @@ use std::borrow::Borrow;
 
 #[tokio::test]
 async fn test_blocks_all() {
-    let (_mock, body) = mock_http_request("api/blocks");
+    let (_mock, body) = mock_http_request("blocks");
     {
         let mut client = mock_client();
         let response = client.blocks.all().await.unwrap();
@@ -21,7 +21,7 @@ async fn test_blocks_all() {
 
 #[tokio::test]
 async fn test_show() {
-    let (_mock, body) = mock_http_request("api/blocks/dummy");
+    let (_mock, body) = mock_http_request("blocks/dummy");
     {
         let mut client = mock_client();
         let response = client.blocks.show("dummy").await.unwrap();
@@ -33,7 +33,7 @@ async fn test_show() {
 
 #[tokio::test]
 async fn test_block_transactions() {
-    let (_mock, body) = mock_http_request("api/blocks/dummy/transactions");
+    let (_mock, body) = mock_http_request("blocks/dummy/transactions");
     {
         let mut client = mock_client();
         let response = client.blocks.transactions("dummy").await.unwrap();
@@ -49,7 +49,7 @@ async fn test_block_transactions() {
 #[ignore]
 async fn test_search() {
     // TODO: missing test
-    // let _mock = mock_http_request("api/blocks/search");
+    // let _mock = mock_http_request("blocks/search");
     // {
     //     let client = mock_client();
     //     let response = client.blocks.search(vec![("id", "dummy")]);
