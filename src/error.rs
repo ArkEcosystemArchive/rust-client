@@ -24,15 +24,6 @@ impl fmt::Display for Error {
 }
 
 impl error::Error for Error {
-    fn description(&self) -> &str {
-        match *self {
-            Error::Api(ref _err) => "API request error.",
-            Error::ReqwestHttp(ref err) => err.description(),
-            Error::ReqwestUrl(ref err) => err.description(),
-            Error::Serde(ref err) => err.description(),
-        }
-    }
-
     fn cause(&self) -> Option<&dyn error::Error> {
         match *self {
             Error::Api(ref _err) => None,
