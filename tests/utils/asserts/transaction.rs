@@ -108,6 +108,12 @@ pub fn assert_lock_data(actual: Lock, expected: &Value) {
         expected["expirationValue"].as_u64().unwrap()
     );
     assert_timestamp_data(&actual.timestamp, expected["timestamp"].borrow());
+    if actual.is_expired.is_some() {
+        assert_eq!(
+            actual.is_expired.unwrap(),
+            expected["isExpired"].as_bool().unwrap()
+        );
+    }
 }
 
 pub fn test_transaction_array(actual: Vec<Transaction>, expected: Value) {
