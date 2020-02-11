@@ -29,8 +29,8 @@ impl Bridgechains {
             .await
     }
 
-    pub async fn show(&mut self, ip_addr: &str) -> Result<Bridgechain> {
-        let endpoint = format!("bridgechains/{}", ip_addr);
+    pub async fn show(&mut self, genesis_hash: &str) -> Result<Bridgechain> {
+        let endpoint = format!("bridgechains/{}", genesis_hash);
         self.client.get(&endpoint).await
     }
 
