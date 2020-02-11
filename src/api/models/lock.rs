@@ -18,4 +18,6 @@ pub struct Lock {
     pub expiration_value: u64,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub vendor_field: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub is_expired: Option<bool>,
 }

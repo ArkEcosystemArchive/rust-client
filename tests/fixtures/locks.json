@@ -22,7 +22,8 @@
         "human": "2019-11-13T12:31:20.000Z"
       },
       "expirationType": 2,
-      "expirationValue": 4150650
+      "expirationValue": 4150650,
+      "isExpired": false
     },
     {
       "lockId": "48f416a58eb7d31c60d02985aee49548cef1d3777e42bf0ecac98b18712f58cb",

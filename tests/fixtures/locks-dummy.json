@@ -1,17 +1,17 @@
 {
   "data": {
-    "lockId": "c0d08e553f3f4faaebe21c3a92384af52b7525f79ccccfc0b0f49e1c63958c03",
+    "lockId": "72de69236bc8d9da4ec2b96fb450cdcebdc1fd4ab939ed2c405535cdebac7389",
     "amount": "1",
-    "secretHash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
-    "senderPublicKey": "03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232",
-    "recipientId": "DAWNRvnMNPWodLjQwhphJwUpTW2KJXBzVR",
+    "secretHash": "0f128d401958b1b30ad0d10406f47f9489321017b4614e6cb993fc63913c5454",
+    "senderPublicKey": "0296893488d335ff818391da7c450cfeb7821a4eb535b15b95808ea733915fbfb1",
+    "recipientId": "DBk4cPYpqp7EBcvkstVDpyX7RQJNHxpMg8",
     "timestamp": {
-      "epoch": 83104872,
-      "unix": 1573206072,
-      "human": "2019-11-08T09:41:12.000Z"
+      "epoch": 91255888,
+      "unix": 1581357088,
+      "human": "2020-02-10T17:51:28.000Z"
     },
-    "expirationType": 2,
-    "expirationValue": 6000000,
-    "vendorField": "0.9627475433439505"
+    "expirationType": 1,
+    "expirationValue": 95240132,
+    "isExpired": false
   }
 }

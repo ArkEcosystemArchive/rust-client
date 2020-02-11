@@ -12,5 +12,6 @@ pub struct Business {
     pub website: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub repository: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub is_resigned: Option<bool>,
 }

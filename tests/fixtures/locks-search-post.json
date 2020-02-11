@@ -23,7 +23,8 @@
       },
       "expirationType": 2,
       "expirationValue": 6000000,
-      "vendorField": "0.9627475433439505"
+      "vendorField": "0.9627475433439505",
+      "isExpired": false
     },
     {
       "lockId": "aca4c480c8dea8df9f889be6f0fccb07e36ce2a8d211e5f8b76f2f60e57c39aa",
@@ -38,7 +39,8 @@
       },
       "expirationType": 2,
       "expirationValue": 6000000,
-      "vendorField": "0.7683237654621669"
+      "vendorField": "0.7683237654621669",
+      "isExpired": false
     },
     {
       "lockId": "acd4bbcfbcc40986afaf57e802acb333ac4f094f178b8543d7e2685c74a519d0",
@@ -53,7 +55,8 @@
       },
       "expirationType": 2,
       "expirationValue": 6000000,
-      "vendorField": "0.09173852692577356"
+      "vendorField": "0.09173852692577356",
+      "isExpired": false
     },
     {
       "lockId": "3e7faa9a0a0faa5ff16611be58ac93d5c8a44bdfc7f2fcc702e35b1d071a8aa6",

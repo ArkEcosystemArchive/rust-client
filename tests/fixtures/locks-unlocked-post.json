@@ -23,7 +23,8 @@
       },
       "expirationType": 2,
       "expirationValue": 6000000,
-      "vendorField": "0.9627475433439505"
+      "vendorField": "0.9627475433439505",
+      "isExpired": false
     },
     {
       "lockId": "aca4c480c8dea8df9f889be6f0fccb07e36ce2a8d211e5f8b76f2f60e57c39aa",
@@ -38,7 +39,8 @@
       },
       "expirationType": 2,
       "expirationValue": 6000000,
-      "vendorField": "0.7683237654621669"
+      "vendorField": "0.7683237654621669",
+      "isExpired": false
     }
   ]
 }
