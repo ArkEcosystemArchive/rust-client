@@ -1,39 +1,57 @@
 {
   "meta": {
-    "count": 2,
+    "count": 3,
     "pageCount": 1,
-    "totalCount": 2,
+    "totalCount": 3,
     "next": null,
     "previous": null,
-    "self": "/api/businesses/034da006f958beba78ec54443df4a3f52237253f7ae8cbdb17dccf3feaa57f3126/bridgechains?page=1&limit=100",
-    "first": "/api/businesses/034da006f958beba78ec54443df4a3f52237253f7ae8cbdb17dccf3feaa57f3126/bridgechains?page=1&limit=100",
-    "last": "/api/businesses/034da006f958beba78ec54443df4a3f52237253f7ae8cbdb17dccf3feaa57f3126/bridgechains?page=1&limit=100"
+    "self": "/businesses/D62wUbp2uUL9pofNmT6aqxLnHJn389yXaW/bridgechains?page=1&limit=100",
+    "first": "/businesses/D62wUbp2uUL9pofNmT6aqxLnHJn389yXaW/bridgechains?page=1&limit=100",
+    "last": "/businesses/D62wUbp2uUL9pofNmT6aqxLnHJn389yXaW/bridgechains?page=1&limit=100"
   },
   "data": [
     {
-      "publicKey": "034da006f958beba78ec54443df4a3f52237253f7ae8cbdb17dccf3feaa57f3126",
-      "name": "ARK",
-      "seedNodes": [
-        "1.1.1.1",
-        "2.2.2.2"
-      ],
-      "genesisHash": "2a44f340d76ffc3df204c5f38cd355b7496c9065a1ade2ef92071436bd72e867",
-      "bridgechainRepository": "https://github.com/arkecosystem/core",
-      "ports": {
-        "@arkecosystem/core-api": 4003
-      }
-    },
-    {
-      "publicKey": "034da006f958beba78ec54443df4a3f52237253f7ae8cbdb17dccf3feaa57f3126",
-      "name": "test",
-      "seedNodes": [
-        "1.1.1.1"
-      ],
-      "genesisHash": "aa44f340d76ffc3df204c5f38cd355b7496c9065a1ade2ef92071436bd72e867",
-      "bridgechainRepository": "https://github.com/arkecosystem/core",
+      "publicKey": "0388a7bacc0ef2682dd7be3a76513d16c5bdaefc112abd88850fbef3ad96afd697",
+      "address": "D62wUbp2uUL9pofNmT6aqxLnHJn389yXaW",
+      "name": "MyChain",
       "ports": {
         "@arkecosystem/core-api": 4003
       },
+      "seedNodes": [
+        "136.244.110.100"
+      ],
+      "genesisHash": "36e0876a8111d1fe892ea80e6aa239f05d8c52dd3ba047837323669adf9f5031",
+      "bridgechainRepository": "http://www.github.com/myrepo/core",
+      "isResigned": true
+    },
+    {
+      "publicKey": "0388a7bacc0ef2682dd7be3a76513d16c5bdaefc112abd88850fbef3ad96afd697",
+      "address": "D62wUbp2uUL9pofNmT6aqxLnHJn389yXaW",
+      "name": "MyDevnet",
+      "ports": {
+        "@arkecosystem/core-api": 4003
+      },
+      "seedNodes": [
+        "206.189.234.23"
+      ],
+      "genesisHash": "4803a76c90df2730416b91798df8b98f078645fbc9ea540ee7b7d97f16b6c498",
+      "bridgechainRepository": "http://www.google.com",
+      "isResigned": true
+    },
+    {
+      "publicKey": "0388a7bacc0ef2682dd7be3a76513d16c5bdaefc112abd88850fbef3ad96afd697",
+      "address": "D62wUbp2uUL9pofNmT6aqxLnHJn389yXaW",
+      "name": "MyTestnet",
+      "ports": {
+        "@arkecosystem/core-api": 4003
+      },
+      "seedNodes": [
+        "67.205.144.143",
+        "209.97.139.0",
+        "134.209.181.123"
+      ],
+      "genesisHash": "c97a84f7d890dc2fbf3d1412cfa290375bef34526bfacf5912479c4d7e1dbc06",
+      "bridgechainRepository": "http://www.google.com",
       "isResigned": true
     }
   ]

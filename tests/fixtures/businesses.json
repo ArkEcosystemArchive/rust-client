@@ -1,46 +1,122 @@
 {
   "meta": {
-    "count": 100,
-    "pageCount": 2,
-    "totalCount": 133,
-    "next": "/api/businesses?page=2&limit=100",
+    "count": 62,
+    "pageCount": 1,
+    "totalCount": 62,
+    "next": null,
     "previous": null,
-    "self": "/api/businesses?page=1&limit=100",
-    "first": "/api/businesses?page=1&limit=100",
-    "last": "/api/businesses?page=2&limit=100"
+    "self": "/businesses?transform=true&page=1&limit=100",
+    "first": "/businesses?transform=true&page=1&limit=100",
+    "last": "/businesses?transform=true&page=1&limit=100"
   },
   "data": [
     {
-      "address": "DAWNRvnMNPWodLjQwhphJwUpTW2KJXBzVR",
-      "publicKey": "03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232",
-      "name": "Lemii Inc.",
-      "website": "http://dexplorer.ark.io"
+      "address": "D62wUbp2uUL9pofNmT6aqxLnHJn389yXaW",
+      "publicKey": "0388a7bacc0ef2682dd7be3a76513d16c5bdaefc112abd88850fbef3ad96afd697",
+      "vat": "deathsta",
+      "name": "DeathStarr",
+      "website": "https://deathstart.com",
+      "repository": "https://www.wwwwwww.www.com",
+      "isResigned": true
     },
     {
-      "address": "DFyDKsyvR4x9D9zrfEaPmeJxSniT5N5qY8",
-      "publicKey": "0310c283aac7b35b4ae6fab201d36e8322c3408331149982e16013a5bcb917081c",
-      "name": "MyManIsTheMan",
-      "website": "https://myman.com",
-      "repository": "https://github.com/myman"
+      "address": "D991ZqskaGWMDu9kpfpJr5LRssV7ek981k",
+      "publicKey": "02fbae320be2813c13406cea3b7680971c5d7fc3113b79b6d7547d98dde980fefc",
+      "name": "Google2",
+      "website": "http://www.google.com",
+      "vat": "GB12345678",
+      "repository": "https://github.com/arkecosystem/desktop-wallet.git",
+      "isResigned": true
     },
     {
-      "address": "DJBTrPo6sDMGr2kcswTwDWtQyYV5adqnAp",
-      "publicKey": "020d615fe41e47e04d54fd4a6f78899f505a28fd2e02623cddbdcb6b91cafcd3fe",
-      "name": "No Funky Business",
-      "website": "http://no.funky.biz"
+      "address": "DDb3EXY3refv2f5ymMME3hp2DXFqMPzGah",
+      "publicKey": "021d83e48f132a94dba93b216ae7a2b35965bf02818246393164bfee6c36f3f56b",
+      "name": "business-99562572701",
+      "website": "http://dexplorer.ark.io",
+      "isResigned": false
     },
     {
-      "address": "D9gQjhu2tDUstXfrbK85zHi23VtAk72qsS",
-      "publicKey": "020c2f9c124dacb9bfd6b9373e35c1c07aab8c6ecd50fa3b2946c79a79a1838687",
-      "name": "No Funky Business",
-      "website": "http://no.funky.biz"
+      "address": "DPAsWQyuxYkiMRzhngKBPTpWb6WWqxdd1T",
+      "publicKey": "034496bb34624c8381391273c228681d982668086fcb994e8817fa1907db4ba2ff",
+      "name": "business-99562572701",
+      "website": "http://dexplorer.ark.io",
+      "isResigned": false
     },
     {
-      "address": "DTRdbaUW3RQQSL5By4G43JVaeHiqfVp9oh",
-      "publicKey": "034da006f958beba78ec54443df4a3f52237253f7ae8cbdb17dccf3feaa57f3126",
-      "name": "a",
-      "website": "https://ark.io",
-      "repository": "http://github.com/arkecosystem"
+      "address": "D9oaC7bd2YaJYHDdGkUdyAnfpkBrFFKZHy",
+      "publicKey": "034f66df17f860b8b8b0e8172cc284a92b61d451a3388487b284990ccf7e3e933b",
+      "name": "business-99562572701",
+      "website": "http://dexplorer.ark.io",
+      "isResigned": false
+    },
+    {
+      "address": "DBgA92a616rwVi9GsgYUwBq9Y7dgvZiC41",
+      "publicKey": "028b84f92ec7ec7a019973c9183403304ae9564787b66c242fa899c299617812af",
+      "name": "business-99562572701",
+      "website": "http://dexplorer.ark.io",
+      "isResigned": false
+    },
+    {
+      "address": "DE1BK8iL17PiBwo9TUCfkkm1vnUkobBwj8",
+      "publicKey": "028d0f82396ee16371f423042774bb66e07f1306b73d6e25e6c712342b0c54f91c",
+      "name": "business-99562572701",
+      "website": "http://dexplorer.ark.io",
+      "isResigned": false
+    },
+    {
+      "address": "DBvXesEgzrAsm9YrzRb2jithR2hg7SZpuq",
+      "publicKey": "02a32a35920db1fbf3dfd5582d983d43fa4edf3fa1e51fa3fd084005b7a28f239b",
+      "name": "business-99562572701",
+      "website": "http://dexplorer.ark.io",
+      "isResigned": false
+    },
+    {
+      "address": "DA7GfDKG5zYFeiZ1C4FPJBeTajpYNvXxcC",
+      "publicKey": "0256ee467ae3129537189eb02f4d81d80e428aa5b2a53668f5ce2c6d3a9ca6ab2c",
+      "name": "business-99562572701",
+      "website": "http://dexplorer.ark.io",
+      "isResigned": false
+    },
+    {
+      "address": "DN7NVtgTdvdrD8BdLSML4qN6BXjFkATV9L",
+      "publicKey": "021ecb763a2589f189fa66df754d4dc27aeb1ae6a23d3e88e536beb8f57852ef5c",
+      "name": "d",
+      "website": "http://d.com",
+      "isResigned": false
+    },
+    {
+      "address": "D9kfwiQFSiNqgQ6nZ4QeGrRAVhwYSv1PAW",
+      "publicKey": "035191788904013f1ae1340f486f15f0729ec8b9a1dc7555710e498042e78370c7",
+      "name": "lisk",
+      "website": "https://lisk.io",
+      "repository": "https://github.com/topics/pointless",
+      "isResigned": false
+    },
+    {
+      "address": "DHom6YUTgL8EoWmxA7eVkFqpM8K7f2JTma",
+      "publicKey": "034c2839ce23f9901c85462aff14b12a940db934bbee535254091a1a7eb4a62e43",
+      "vat": "203132813821",
+      "name": "m2",
+      "website": "https://m2.com",
+      "repository": "https://github.com/m2",
+      "isResigned": false
+    },
+    {
+      "address": "DFyLKkWs12QwDTi8BywQN5ssa5CMK3dr6d",
+      "publicKey": "02cd9f56a176c843724eb58d3ef89dc88915a814bdcf284b02933e0dd203630a83",
+      "vat": "34334342",
+      "name": "pittface",
+      "website": "http://www.google.com",
+      "repository": "http://www.google.com",
+      "isResigned": true
+    },
+    {
+      "address": "DBX87Fy1MKzW3vsHSgydDyC2bqXRxuium7",
+      "publicKey": "02b9d0e0a75d33d3b1e8200edc5c0c97f0ed297a297915eb170b7341aa469ffade",
+      "vat": "34343243",
+      "name": "thestrokes",
+      "website": "http://thestrokes.com",
+      "isResigned": true
     }
   ]
 }

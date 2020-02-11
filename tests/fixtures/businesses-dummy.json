@@ -1,44 +1,11 @@
 {
   "data": {
-    "address": "DAWNRvnMNPWodLjQwhphJwUpTW2KJXBzVR",
-    "balance": "1624013324722",
-    "nonce": "70954",
-    "attributes": {
-      "delegate": {
-        "username": "lemii",
-        "voteBalance": "11766756998720",
-        "forgedFees": "45801999090",
-        "forgedRewards": "5471800000000",
-        "producedBlocks": 27359,
-        "rank": 47,
-        "lastBlock": {
-          "version": 0,
-          "timestamp": 84568000,
-          "height": 4051753,
-          "previousBlockHex": "c62972a1c37f1a93d3548641d74a23996be6258aafa08197f704788a97c0c0f6",
-          "previousBlock": "c62972a1c37f1a93d3548641d74a23996be6258aafa08197f704788a97c0c0f6",
-          "numberOfTransactions": 0,
-          "totalAmount": "0",
-          "totalFee": "0",
-          "reward": "200000000",
-          "payloadLength": 0,
-          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-          "generatorPublicKey": "03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232",
-          "blockSignature": "3044022076222d81d257c723d62a1245b4456baacdaab944474536abcc57a9e2d89c2b7802203c60ee996e6ba6ad209eea7bd8e985d1d375c5cd48ac6e8f35b50287704ee341",
-          "idHex": "da7af31ab53efec0c690af3f868ace1a488351c0a9b6a2778ed343732ee60bc0",
-          "id": "da7af31ab53efec0c690af3f868ace1a488351c0a9b6a2778ed343732ee60bc0"
-        },
-        "round": 79448
-      },
-      "vote": "032cfbb18f4e49952c6d6475e8adc6d0cba00b81ef6606cc4927b78c6c50558beb",
-      "secondPublicKey": "02877e4f35c76abaeb152b128670db0a7ae10b3999afcd28a42938b653fbf87ae9",
-      "business": {
-        "businessAsset": {
-          "name": "Lemii Inc.",
-          "website": "http://dexplorer.ark.io"
-        }
-      }
-    },
-    "publicKey": "03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232"
+    "address": "D62wUbp2uUL9pofNmT6aqxLnHJn389yXaW",
+    "publicKey": "0388a7bacc0ef2682dd7be3a76513d16c5bdaefc112abd88850fbef3ad96afd697",
+    "vat": "deathsta",
+    "name": "DeathStarr",
+    "website": "https://deathstart.com",
+    "repository": "https://www.wwwwwww.www.com",
+    "isResigned": true
   }
 }
