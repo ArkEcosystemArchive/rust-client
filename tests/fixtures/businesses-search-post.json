@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "count": 1,
+    "pageCount": 1,
+    "totalCount": 1,
+    "next": null,
+    "previous": null,
+    "self": "/businesses/search?page=1&limit=100",
+    "first": "/businesses/search?page=1&limit=100",
+    "last": "/businesses/search?page=1&limit=100"
+  },
+  "data": [
+    {
+      "address": "DFyLKkWs12QwDTi8BywQN5ssa5CMK3dr6d",
+      "publicKey": "02cd9f56a176c843724eb58d3ef89dc88915a814bdcf284b02933e0dd203630a83",
+      "vat": "34334342",
+      "name": "pittface",
+      "website": "http://www.google.com",
+      "repository": "http://www.google.com",
+      "isResigned": true
+    }
+  ]
+}
