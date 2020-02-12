@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "count": 100,
+    "pageCount": 1969,
+    "totalCount": 196824,
+    "next": "/wallets?page=2&limit=100",
+    "previous": null,
+    "self": "/wallets?page=1&limit=100",
+    "first": "/wallets?page=1&limit=100",
+    "last": "/wallets?page=1969&limit=100"
+  },
+  "data": [
+    {
+      "address": "D6Z26L69gdk9qYmTv5uzk3uGepigtHY4ax",
+      "publicKey": "03d3fdad9c5b25bf8880e6b519eb3611a5c0b31adebc8455f0e096175b28321aff",
+      "nonce": "256",
+      "balance": "8790129919654033",
+      "attributes": {
+        "ipfs": {
+          "hashes": {
+            "QmdQ1rHHHTbgbGorfuMMYDQQ36q4sxvYcB4GDEHREuJQkL": true
+          }
+        }
+      },
+      "isDelegate": false,
+      "isResigned": false
+    },
+    {
+      "address": "DEyaFhDuaoQyKbFH4gJtYZvKkB6umyrEUj",
+      "publicKey": "033c59dcdc36944cc28f68c1e4b47ac370fe326e53f9adf5f07764d3e8b74b1838",
+      "nonce": "2111",
+      "balance": "2000044819999638",
+      "attributes": {
+        "secondPublicKey": "03820f214bd49a09c636fa366b4b3c1a0dbd2953d14aac7e68a596e0636e662dfb",
+        "delegate": {
+          "username": "whalessio",
+          "voteBalance": "0",
+          "forgedFees": "0",
+          "forgedRewards": "0",
+          "producedBlocks": 0,
+          "rank": 292
+        },
+        "vote": "033a5474f68f92f254691e93c06a2f22efaf7d66b543a53efcece021819653a200"
+      },
+      "isDelegate": true,
+      "isResigned": false,
+      "vote": "033a5474f68f92f254691e93c06a2f22efaf7d66b543a53efcece021819653a200",
+      "username": "whalessio",
+      "secondPublicKey": "03820f214bd49a09c636fa366b4b3c1a0dbd2953d14aac7e68a596e0636e662dfb"
+    },
+    {
+      "address": "DSyG9hK9CE8eyfddUoEvsga4kNVQLdw2ve",
+      "publicKey": "033a5474f68f92f254691e93c06a2f22efaf7d66b543a53efcece021819653a200",
+      "nonce": "21578",
+      "balance": "150534774652148",
+      "attributes": {
+        "secondPublicKey": "026de1cd4321a7e78a7b4d8453d1b1ca210eaf991022c55a99e9b0b9ebddbbd502",
+        "delegate": {
+          "username": "alessio",
+          "voteBalance": "2000707768009791",
+          "forgedFees": "468407250508",
+          "forgedRewards": "14383200000000",
+          "producedBlocks": 72114,
+          "rank": 1,
+          "lastBlock": {
+            "version": 0,
+            "timestamp": 91336384,
+            "height": 4200828,
+            "previousBlockHex": "ba2459f5a309ea73c1145b50cd15b9e39298d2881f9458ca145ae9aadf8cb68a",
+            "previousBlock": "ba2459f5a309ea73c1145b50cd15b9e39298d2881f9458ca145ae9aadf8cb68a",
+            "numberOfTransactions": 0,
+            "totalAmount": "0",
+            "totalFee": "0",
+            "reward": "200000000",
+            "payloadLength": 0,
+            "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "generatorPublicKey": "033a5474f68f92f254691e93c06a2f22efaf7d66b543a53efcece021819653a200",
+            "blockSignature": "304402206b6a265a8022cc9d31591fbd80dc96ec0168201cf6e56321a2066f90e3e1fe770220116878f8a6c2cf70067e7fb9bcc31a58f61fbcbfa9167178429ff73eb7becfa1",
+            "idHex": "f787f205de414d52a946d413e31b5f6546e962950e105268d5c11517e762075e",
+            "id": "f787f205de414d52a946d413e31b5f6546e962950e105268d5c11517e762075e"
+          },
+          "round": 82371
+        },
+        "vote": "0215789ac26155b7a338708f595b97c453e08918d0630c896cbd31d83fe2ad1c33"
+      },
+      "isDelegate": true,
+      "isResigned": false,
+      "vote": "0215789ac26155b7a338708f595b97c453e08918d0630c896cbd31d83fe2ad1c33",
+      "username": "alessio",
+      "secondPublicKey": "026de1cd4321a7e78a7b4d8453d1b1ca210eaf991022c55a99e9b0b9ebddbbd502"
+    }
+  ]
+}

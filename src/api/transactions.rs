@@ -1,6 +1,8 @@
-use api::models::{Transaction, TransactionFees, TransactionTypes};
-use api::Result;
-use http::client::Client;
+use crate::api::models::transaction::{
+    Transaction, TransactionFees, TransactionPostResponse, TransactionTypes,
+};
+use crate::api::Result;
+use crate::http::client::Client;
 use std::borrow::Borrow;
 use std::collections::HashMap;
 
@@ -13,37 +15,43 @@ impl Transactions {
         Transactions { client }
     }
 
-    pub fn all(&self) -> Result<Vec<Transaction>> {
-        self.all_params(Vec::<(String, String)>::new())
+    pub async fn all(&mut self) -> Result<Vec<Transaction>> {
+        self.all_params(Vec::<(String, String)>::new()).await
     }
 
-    pub fn all_params<I, K, V>(&self, parameters: I) -> Result<Vec<Transaction>>
+    pub async fn all_params<I, K, V>(&mut self, parameters: I) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
         K: AsRef<str>,
         V: AsRef<str>,
     {
-        self.client.get_with_params("transactions", parameters)
+        self.client
+            .get_with_params("transactions", parameters)
+            .await
     }
 
-    pub fn create(&self, transactions: Vec<&str>) -> Result<Transaction> {
+    pub async fn create(&mut self, transactions: Vec<&str>) -> Result<TransactionPostResponse> {
         let mut payload = HashMap::<&str, Vec<&str>>::new();
         payload.insert("transactions", transactions);
-
-        self.client.post("transactions", Some(payload))
+        eprintln!("payload = {:#?}", payload);
+        self.client.post("transactions", payload).await
     }
 
-    pub fn show(&self, id: &str) -> Result<Transaction> {
+    pub async fn show(&mut self, id: &str) -> Result<Transaction> {
         let endpoint = format!("transactions/{}", id);
-        self.client.get(&endpoint)
+        self.client.get(&endpoint).await
     }
 
-    pub fn all_unconfirmed(&self) -> Result<Vec<Transaction>> {
+    pub async fn all_unconfirmed(&mut self) -> Result<Vec<Transaction>> {
         self.all_unconfirmed_params(Vec::<(String, String)>::new())
+            .await
     }
 
-    pub fn all_unconfirmed_params<I, K, V>(&self, parameters: I) -> Result<Vec<Transaction>>
+    pub async fn all_unconfirmed_params<I, K, V>(
+        &mut self,
+        parameters: I,
+    ) -> Result<Vec<Transaction>>
     where
         I: IntoIterator,
         I::Item: Borrow<(K, V)>,
@@ -52,16 +60,17 @@ impl Transactions {
     {
         self.client
             .get_with_params("transactions/unconfirmed", parameters)
+            .await
     }
 
-    pub fn show_unconfirmed(&self, id: &str) -> Result<Vec<Transaction>> {
+    pub async fn show_unconfirmed(&mut self, id: &str) -> Result<Transaction> {
         let endpoint = format!("transactions/unconfirmed/{}", id);
-        self.client.get(&endpoint)
+        self.client.get(&endpoint).await
     }
 
-    pub fn search<I, K, V>(
-        &self,
-        payload: Option<HashMap<&str, &str>>,
+    pub async fn search<I, K, V>(
+        &mut self,
+        payload: HashMap<&str, &str>,
         parameters: I,
     ) -> Result<Vec<Transaction>>
     where
@@ -72,45 +81,36 @@ impl Transactions {
     {
         self.client
             .post_with_params("transactions/search", payload, parameters)
+            .await
     }
 
     /// Returns the transaction types and their ID
     ///
     /// # Example
     /// ```
-    /// # extern crate serde_json;
-    /// # extern crate arkecosystem_client;
+    /// use serde_json::to_string_pretty;
+    /// use arkecosystem_client::connection::Connection;
     ///
-    /// # use serde_json::to_string_pretty;
-    /// # use arkecosystem_client::connection::Connection;
-    ///
-    /// # fn main() {
-    ///   # let client = Connection::new("http://95.179.170.23:4003/api/");
-    ///   let types = client.transactions.types().unwrap();
-    ///   println!("{}", to_string_pretty(&types).unwrap());
-    /// # }
+    /// let client = Connection::new("http://95.179.170.23:4003/api/");
+    /// let types = client.transactions.types().unwrap();
+    /// println!("{}", to_string_pretty(&types).unwrap());
     /// ```
-    pub fn types(&self) -> Result<TransactionTypes> {
-        self.client.get("transactions/types")
+    pub async fn types(&mut self) -> Result<TransactionTypes> {
+        self.client.get("transactions/types").await
     }
 
     /// Returns the static fees of the last block processed by the node
     ///
     /// # Example
     /// ```
-    /// # extern crate serde_json;
-    /// # extern crate arkecosystem_client;
+    /// use serde_json::to_string_pretty;
+    /// use arkecosystem_client::connection::Connection;
     ///
-    /// # use serde_json::to_string_pretty;
-    /// # use arkecosystem_client::connection::Connection;
-    ///
-    /// # fn main() {
-    ///   # let client = Connection::new("http://167.114.43.38:4003/api/");
-    ///   let fees = client.transactions.fees().unwrap();
-    ///   println!("{}", to_string_pretty(&fees).unwrap());
-    /// # }
+    /// let client = Connection::new("http://167.114.43.38:4003/api/");
+    /// let fees = client.transactions.fees().unwrap();
+    /// println!("{}", to_string_pretty(&fees).unwrap());
     /// ```
-    pub fn fees(&self) -> Result<TransactionFees> {
-        self.client.get("transactions/fees")
+    pub async fn fees(&mut self) -> Result<TransactionFees> {
+        self.client.get("transactions/fees").await
     }
 }

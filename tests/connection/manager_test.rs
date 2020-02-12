@@ -1,5 +1,3 @@
-extern crate arkecosystem_client;
-
 use arkecosystem_client::{Connection, Manager};
 
 #[test]

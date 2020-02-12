@@ -1,0 +1,17 @@
+{
+  "data": {
+    "publicKey": "03d5a99d0fd5c8b5cd4bde11bc94e13f1c07e9a0fbec37efcbe9dac9f3a9f3c974",
+    "address": "DMNx4U8ZBtvBPDGFsykXtGBTZeY24jJcm3",
+    "name": "MyBridgechain",
+    "seedNodes": [
+      "159.203.102.78"
+    ],
+    "genesisHash": "82099a7396cb670d34b80f262571f5e82b7c7653ddedbc3ca42f51642f1cd516",
+    "bridgechainRepository": "http://www.google.com/",
+    "ports": {
+      "@arkecosystem/core-api": 4003
+    },
+    "bridgechainAssetRepository": "http://www.google.com/",
+    "isResigned": false
+  }
+}

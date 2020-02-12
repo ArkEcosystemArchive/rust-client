@@ -1,5 +1,9 @@
 pub mod blocks_test;
+pub mod bridgechains_test;
+pub mod businesses_test;
 pub mod delegates_test;
+pub mod live_test;
+pub mod locks_test;
 pub mod node_test;
 pub mod peers_test;
 pub mod transactions_test;

@@ -1,4 +1,4 @@
-use api::models::RequestError;
+use crate::api::models::shared::RequestError;
 use reqwest;
 use serde_json;
 use std::error;
@@ -8,7 +8,7 @@ use std::fmt;
 pub enum Error {
     Api(RequestError), // node response for statusCode != 200
     ReqwestHttp(reqwest::Error),
-    ReqwestUrl(reqwest::UrlError),
+    ReqwestUrl(reqwest::Error),
     Serde(serde_json::Error),
 }
 
@@ -24,15 +24,6 @@ impl fmt::Display for Error {
 }
 
 impl error::Error for Error {
-    fn description(&self) -> &str {
-        match *self {
-            Error::Api(ref _err) => "API request error.",
-            Error::ReqwestHttp(ref err) => err.description(),
-            Error::ReqwestUrl(ref err) => err.description(),
-            Error::Serde(ref err) => err.description(),
-        }
-    }
-
     fn cause(&self) -> Option<&dyn error::Error> {
         match *self {
             Error::Api(ref _err) => None,
@@ -52,12 +43,6 @@ impl From<RequestError> for Error {
 impl From<reqwest::Error> for Error {
     fn from(err: reqwest::Error) -> Error {
         Error::ReqwestHttp(err)
-    }
-}
-
-impl From<reqwest::UrlError> for Error {
-    fn from(err: reqwest::UrlError) -> Error {
-        Error::ReqwestUrl(err)
     }
 }
 

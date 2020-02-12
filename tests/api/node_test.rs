@@ -1,14 +1,15 @@
+use crate::utils::asserts::meta::assert_meta;
+use crate::utils::asserts::node::{assert_configuration_fees, assert_node_fee_stats};
+use crate::utils::mockito_helpers::{mock_client, mock_http_request};
 use serde_json::{from_str, Value};
-use *;
+use std::borrow::Borrow;
 
-use arkecosystem_client::api::models::{FeeSchema, FeeStatistics};
-
-#[test]
-fn test_status() {
+#[tokio::test]
+async fn test_node_status() {
     let (_mock, body) = mock_http_request("node/status");
     {
-        let client = mock_client();
-        let actual = client.node.status().unwrap();
+        let mut client = mock_client();
+        let actual = client.node.status().await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_eq!(
@@ -20,15 +21,19 @@ fn test_status() {
             actual.data.blocks_count,
             expected["data"]["blocksCount"].as_i64().unwrap()
         );
+        assert_eq!(
+            actual.data.timestamp,
+            expected["data"]["timestamp"].as_u64().unwrap()
+        );
     }
 }
 
-#[test]
-fn test_syncing() {
+#[tokio::test]
+async fn test_node_syncing() {
     let (_mock, body) = mock_http_request("node/syncing");
     {
-        let client = mock_client();
-        let response = client.node.syncing();
+        let mut client = mock_client();
+        let response = client.node.syncing().await;
         let actual = response.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -48,12 +53,12 @@ fn test_syncing() {
     }
 }
 
-#[test]
-fn test_configuration() {
+#[tokio::test]
+async fn test_node_configuration() {
     let (_mock, body) = mock_http_request("node/configuration");
     {
-        let client = mock_client();
-        let response = client.node.configuration();
+        let mut client = mock_client();
+        let response = client.node.configuration().await;
         let actual = response.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
@@ -80,7 +85,6 @@ fn test_configuration() {
 
         assert!(actual.data.ports.contains_key("@arkecosystem/core-p2p"));
         assert!(actual.data.ports.contains_key("@arkecosystem/core-api"));
-        assert!(actual.data.ports.contains_key("@arkecosystem/core-graphql"));
 
         assert_eq!(
             actual.data.constants.height,
@@ -122,91 +126,40 @@ fn test_configuration() {
             actual.data.constants.epoch,
             expected["data"]["constants"]["epoch"].as_str().unwrap()
         );
-        assert_eq!(
-            actual.data.constants.fees.dynamic,
-            expected["data"]["constants"]["fees"]["dynamic"]
-                .as_bool()
-                .unwrap()
-        );
-
-        let dynamic_fees = actual.data.constants.fees.dynamic_fees.unwrap();
-        assert_eq!(
-            dynamic_fees.min_fee_pool,
-            expected["data"]["constants"]["fees"]["dynamicFees"]["minFeePool"]
-                .as_u64()
-                .unwrap()
-        );
-        assert_eq!(
-            dynamic_fees.min_fee_broadcast,
-            expected["data"]["constants"]["fees"]["dynamicFees"]["minFeeBroadcast"]
-                .as_u64()
-                .unwrap()
-        );
-
-        assert_configuration_fees(
-            &dynamic_fees.addon_bytes,
-            &expected["data"]["constants"]["fees"]["dynamicFees"]["addonBytes"],
-        );
-
         assert_configuration_fees(
             &actual.data.constants.fees.static_fees,
             &expected["data"]["constants"]["fees"]["staticFees"],
         );
-
-        for i in 0..=4 {
-            assert_fee_statistics(
-                &actual.data.fee_statistics[i],
-                &expected["data"]["feeStatistics"][i],
-            );
-        }
     }
 }
 
-fn assert_configuration_fees(actual: &FeeSchema, expected: &Value) {
-    assert_eq!(actual.transfer, expected["transfer"].as_u64().unwrap());
-    assert_eq!(
-        actual.second_signature,
-        expected["secondSignature"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.delegate_registration,
-        expected["delegateRegistration"].as_u64().unwrap()
-    );
-    assert_eq!(actual.vote, expected["vote"].as_u64().unwrap());
-    assert_eq!(
-        actual.multi_signature,
-        expected["multiSignature"].as_u64().unwrap()
-    );
-    assert_eq!(actual.ipfs, expected["ipfs"].as_u64().unwrap());
-    assert_eq!(
-        actual.timelock_transfer,
-        expected["timelockTransfer"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.multi_payment,
-        expected["multiPayment"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.delegate_resignation,
-        expected["delegateResignation"].as_u64().unwrap()
-    );
-}
+#[tokio::test]
+async fn test_node_fees() {
+    let (_mock, body) = mock_http_request("node/fees");
+    {
+        let mut client = mock_client();
+        let params = [("days", "20")].iter();
+        let actual = client.node.fees(params).await.unwrap();
+        let expected: Value = from_str(&body).unwrap();
 
-fn assert_fee_statistics(actual: &FeeStatistics, expected: &Value) {
-    assert_eq!(
-        actual.transaction_type as u8,
-        expected["type"].as_u64().unwrap() as u8
-    );
-    assert_eq!(
-        actual.fees.min_fee,
-        expected["fees"]["minFee"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.fees.max_fee,
-        expected["fees"]["maxFee"].as_u64().unwrap()
-    );
-    assert_eq!(
-        actual.fees.avg_fee,
-        expected["fees"]["avgFee"].as_u64().unwrap()
-    );
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
+
+        // TODO ref: introduce dynamic type where enum_name translates to field name
+        assert_node_fee_stats(
+            &actual.data.core.transfer.unwrap(),
+            &expected["data"]["1"]["transfer"],
+        );
+        assert_node_fee_stats(
+            &actual.data.core.second_signature.unwrap(),
+            &expected["data"]["1"]["secondSignature"],
+        );
+        assert_node_fee_stats(
+            &actual.data.core.delegate_registration.unwrap(),
+            &expected["data"]["1"]["delegateRegistration"],
+        );
+
+        //        for (pos, fee_stat) in actual.data.iter().enumerate() {
+        //            assert_node_fee_stats(fee_stat, &expected["data"][pos]);
+        //        }
+    }
 }

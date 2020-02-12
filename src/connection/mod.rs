@@ -1,9 +1,9 @@
 mod manager;
 pub use self::manager::Manager;
 
-use api::Api;
-use http::client::Client;
-use std::ops::Deref;
+use crate::api::Api;
+use crate::http::client::Client;
+use std::ops::{Deref, DerefMut};
 
 pub struct Connection {
     pub client: Client,
@@ -23,5 +23,11 @@ impl Deref for Connection {
 
     fn deref(&self) -> &Api {
         &self.api
+    }
+}
+
+impl DerefMut for Connection {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.api
     }
 }

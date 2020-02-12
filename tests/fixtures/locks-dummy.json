@@ -1,0 +1,17 @@
+{
+  "data": {
+    "lockId": "72de69236bc8d9da4ec2b96fb450cdcebdc1fd4ab939ed2c405535cdebac7389",
+    "amount": "1",
+    "secretHash": "0f128d401958b1b30ad0d10406f47f9489321017b4614e6cb993fc63913c5454",
+    "senderPublicKey": "0296893488d335ff818391da7c450cfeb7821a4eb535b15b95808ea733915fbfb1",
+    "recipientId": "DBk4cPYpqp7EBcvkstVDpyX7RQJNHxpMg8",
+    "timestamp": {
+      "epoch": 91255888,
+      "unix": 1581357088,
+      "human": "2020-02-10T17:51:28.000Z"
+    },
+    "expirationType": 1,
+    "expirationValue": 95240132,
+    "isExpired": false
+  }
+}

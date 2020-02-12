@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "count": 41,
+    "pageCount": 1,
+    "totalCount": 41,
+    "next": null,
+    "previous": null,
+    "self": "/api/locks/search?page=1&limit=100",
+    "first": "/api/locks/search?page=1&limit=100",
+    "last": "/api/locks/search?page=1&limit=100"
+  },
+  "data": [
+    {
+      "lockId": "c0d08e553f3f4faaebe21c3a92384af52b7525f79ccccfc0b0f49e1c63958c03",
+      "amount": "1",
+      "secretHash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "senderPublicKey": "03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232",
+      "recipientId": "DAWNRvnMNPWodLjQwhphJwUpTW2KJXBzVR",
+      "timestamp": {
+        "epoch": 83104872,
+        "unix": 1573206072,
+        "human": "2019-11-08T09:41:12.000Z"
+      },
+      "expirationType": 2,
+      "expirationValue": 6000000,
+      "vendorField": "0.9627475433439505",
+      "isExpired": false
+    },
+    {
+      "lockId": "aca4c480c8dea8df9f889be6f0fccb07e36ce2a8d211e5f8b76f2f60e57c39aa",
+      "amount": "1",
+      "secretHash": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "senderPublicKey": "03dcb84917cf6d7b742f58c04693c5e00c56a4ae83feec129b3e3cc27111796232",
+      "recipientId": "DAWNRvnMNPWodLjQwhphJwUpTW2KJXBzVR",
+      "timestamp": {
+        "epoch": 83104872,
+        "unix": 1573206072,
+        "human": "2019-11-08T09:41:12.000Z"
+      },
+      "expirationType": 2,
+      "expirationValue": 6000000,
+      "vendorField": "0.7683237654621669",
+      "isExpired": false
+    }
+  ]
+}

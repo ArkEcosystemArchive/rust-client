@@ -1,10 +1,41 @@
 {
   "data": {
-    "address": "DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9",
-    "publicKey": "03f0b2920da0ed04d73e4b9a32a8320ead3aca253716339361bf9cc1d7a8b2d210",
-    "username": "bulbasaur",
-    "secondPublicKey": null,
-    "balance": 100029800000000,
-    "isDelegate": true
+    "address": "DNjuJEDQkhrJ7cA9FZ2iVXt5anYiM8Jtc9",
+    "publicKey": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec",
+    "nonce": "110490",
+    "balance": "55766573898393",
+    "attributes": {
+      "delegate": {
+        "username": "arkx",
+        "voteBalance": "57309154586778",
+        "forgedFees": "124144463486",
+        "forgedRewards": "16620200000000",
+        "producedBlocks": 83315,
+        "rank": 4,
+        "lastBlock": {
+          "version": 0,
+          "timestamp": 91336144,
+          "height": 4200800,
+          "previousBlockHex": "67d2375870c3825e284e65956dfea2c5e7a7b5afb98725016493881818758383",
+          "previousBlock": "67d2375870c3825e284e65956dfea2c5e7a7b5afb98725016493881818758383",
+          "numberOfTransactions": 0,
+          "totalAmount": "0",
+          "totalFee": "0",
+          "reward": "200000000",
+          "payloadLength": 0,
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "generatorPublicKey": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec",
+          "blockSignature": "30450221009804b13fd5083ced0f3c358f7ad3f69377882712c3429ffdde30aa7248f31521022021222998020493989f0a720a188abb5f26241b9caad088a652508e5c3d9ee12b",
+          "idHex": "69edd77a01c2fa0abb33d21479f0601748a7b6c8b37438e58c9e8ab9ea173ece",
+          "id": "69edd77a01c2fa0abb33d21479f0601748a7b6c8b37438e58c9e8ab9ea173ece"
+        },
+        "round": 82369
+      },
+      "vote": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec"
+    },
+    "isDelegate": true,
+    "isResigned": false,
+    "vote": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec",
+    "username": "arkx"
   }
 }

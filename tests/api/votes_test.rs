@@ -1,65 +1,47 @@
+use crate::utils::asserts::meta::assert_meta;
+use crate::utils::asserts::transaction::{assert_vote_data, test_vote_array};
+use crate::utils::mockito_helpers::{mock_client, mock_http_request};
 use serde_json::from_str;
-use *;
+use serde_json::Value;
+use std::borrow::Borrow;
 
-use arkecosystem_client::api::models::{Asset, Transaction};
-
-#[test]
-fn test_all() {
+#[tokio::test]
+async fn test_all() {
     let (_mock, body) = mock_http_request("votes");
     {
-        let client = mock_client();
-        let actual = client.votes.all().unwrap();
+        let mut client = mock_client();
+        let actual = client.votes.all().await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        let actual_data = actual.data[0].clone();
-        let expected_data = expected["data"][0].clone();
-        assert_vote_data(actual_data, &expected_data);
+        test_vote_array(actual.data, expected);
     }
 }
 
-#[test]
-fn test_all_params() {
-    // TODO use a different fixture to check that uses query strings
+#[tokio::test]
+async fn test_all_params() {
     let (_mock, body) = mock_http_request("votes");
     {
-        let client = mock_client();
+        let mut client = mock_client();
         let params = [("limit", "20")].iter();
-        let actual = client.votes.all_params(params).unwrap();
+        let actual = client.votes.all_params(params).await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
-        let actual_meta = actual.meta.unwrap();
-        let expected_meta = expected["meta"].clone();
-        assert_meta(actual_meta, &expected_meta);
+        assert_meta(actual.meta.unwrap(), expected["meta"].borrow());
 
-        let actual_data = actual.data[0].clone();
-        let expected_data = expected["data"][0].clone();
-        assert_vote_data(actual_data, &expected_data);
+        test_vote_array(actual.data, expected);
     }
 }
 
-#[test]
-fn test_show() {
+#[tokio::test]
+async fn test_show() {
     let (_mock, body) = mock_http_request("votes/dummy");
     {
-        let client = mock_client();
-        let actual = client.votes.show("dummy").unwrap();
+        let mut client = mock_client();
+        let actual = client.votes.show("dummy").await.unwrap();
         let expected: Value = from_str(&body).unwrap();
 
         assert_vote_data(actual.data, &expected["data"]);
     }
-}
-
-fn assert_vote_data(actual: Transaction, expected: &Value) {
-    assert_transaction_data(actual.clone(), &expected);
-
-    match actual.asset {
-        Asset::Votes(votes) => {
-            assert_eq!(votes[0], expected["asset"]["votes"][0].as_str().unwrap());
-        }
-        _ => panic!("Asset without votes"),
-    };
 }

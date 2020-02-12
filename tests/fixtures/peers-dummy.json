@@ -1,12 +1,15 @@
 {
   "data": {
-    "ip": "dummy",
+    "ip": "213.32.9.98",
     "port": 4002,
-    "version": "2.0.13",
-    "height": 949465,
-    "status": 200,
-    "os": "linux",
-    "latency": 5,
-    "hashid": "2967118a"
+    "ports": {
+      "@arkecosystem/core-webhooks": -1,
+      "@arkecosystem/core-exchange-json-rpc": -1,
+      "@arkecosystem/core-api": 4003,
+      "@arkecosystem/core-wallet-api": 4040
+    },
+    "version": "2.6.0-next.4",
+    "height": 4196588,
+    "latency": 5
   }
 }

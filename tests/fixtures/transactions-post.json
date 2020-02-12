@@ -1,0 +1,31 @@
+{
+  "data": {
+    "accept": [
+      "3d3821a1e9271cd661f37e6cf1a2612e084d7cdc50a7b012c2bfff1413367b03",
+      "123"
+    ],
+    "broadcast": [
+      "3d3821a1e9271cd661f37e6cf1a2612e084d7cdc50a7b012c2bfff1413367b03",
+      "123"
+    ],
+    "excess": [],
+    "invalid": [
+      "3d3821a1e9271cd661f37e6cf1a2612e084d7cdc50a7b012c2bfff1413367b03",
+      "1d3821a1e9271cd661f37e6cf1a2612e084d7cdc50a7b012c2bfff1413367b03"
+    ]
+  },
+  "errors": {
+    "3d3821a1e9271cd661f37e6cf1a2612e084d7cdc50a7b012c2bfff1413367b03": [
+      {
+        "type": "ERR_APPLY",
+        "message": "Failed to apply transaction, because it votes for a resigned delegate."
+      }
+    ],
+    "1d3821a1e9271cd661f37e6cf1a2612e084d7cdc50a7b012c2bfff1413367b03": [
+      {
+        "type": "ERR_APPLY",
+        "message": "Failed to apply transaction, because it votes for a resigned delegate."
+      }
+    ]
+  }
+}

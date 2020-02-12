@@ -1,97 +1,148 @@
 {
   "meta": {
-    "count": 3,
-    "pageCount": 123,
-    "totalCount": 368,
-    "next": "/api/v2/delegates?limit=3&page=2",
+    "count": 100,
+    "pageCount": 5,
+    "totalCount": 436,
+    "next": "/api/delegates?page=2&limit=100",
     "previous": null,
-    "self": "/api/v2/delegates?limit=3&page=1",
-    "first": "/api/v2/delegates?limit=3&page=1",
-    "last": "/api/v2/delegates?limit=3&page=123"
+    "self": "/api/delegates?page=1&limit=100",
+    "first": "/api/delegates?page=1&limit=100",
+    "last": "/api/delegates?page=5&limit=100"
   },
   "data": [
     {
-      "username": "bulbasaur",
-      "address": "DGGdxzMVWeDz26qk4XFKriprBA9kruk4K9",
-      "publicKey": "03f0b2920da0ed04d73e4b9a32a8320ead3aca253716339361bf9cc1d7a8b2d210",
-      "votes": 100027200000000,
+      "username": "alessio",
+      "address": "DSyG9hK9CE8eyfddUoEvsga4kNVQLdw2ve",
+      "publicKey": "033a5474f68f92f254691e93c06a2f22efaf7d66b543a53efcece021819653a200",
+      "votes": "2001209586209110",
       "rank": 1,
       "blocks": {
-        "produced": 149,
-        "missed": 0,
+        "produced": 71772,
         "last": {
-          "id": "18337314392167298987",
+          "id": "f529ad9fb39ca0306b35348ad63f70a628df4f75ecdf6c804a6c35d31a0718ab",
+          "height": 4191467,
           "timestamp": {
-            "epoch": 54330032,
-            "unix": 1544431232,
-            "human": "2018-12-10T08:40:32.000Z"
+            "epoch": 83923800,
+            "unix": 1574025000,
+            "human": "2019-11-17T21:10:00.000Z"
           }
         }
       },
       "production": {
-        "approval": 0.79,
-        "productivity": 100
+        "approval": 15.01
       },
       "forged": {
-        "fees": 0,
-        "rewards": 29800000000,
-        "total": 29800000000
+        "fees": "468407250508",
+        "rewards": "14314800000000",
+        "total": "14783207250508"
+      }
+    },
+    {
+      "username": "alexxio",
+      "address": "DEz1Mr4uJ7NaiufwKEj28atCRPTmsUqh9t",
+      "publicKey": "0215789ac26155b7a338708f595b97c453e08918d0630c896cbd31d83fe2ad1c33",
+      "votes": "156468933080216",
+      "rank": 2,
+      "blocks": {
+        "produced": 31146,
+        "last": {
+          "id": "48a46a70f662fb69a39d7671c796bfe60accaa9d35b59dc435419abebce5c365",
+          "height": 4191442,
+          "timestamp": {
+            "epoch": 83923584,
+            "unix": 1574024784,
+            "human": "2019-11-17T21:06:24.000Z"
+          }
+        }
+      },
+      "production": {
+        "approval": 1.17
+      },
+      "forged": {
+        "fees": "15979707384",
+        "rewards": "6229200000000",
+        "total": "6245179707384"
+      }
+    },
+    {
+      "username": "darkworld",
+      "address": "DA8qDVJzAjsGrqyQcKKLYank4v6JDasn3a",
+      "publicKey": "036b029d87e525e3396acabbb07bd2e8b86704d0c3681e0b4af0e119cbaa1b03c4",
+      "votes": "88953658241254",
+      "rank": 3,
+      "blocks": {
+        "produced": 16646,
+        "last": {
+          "id": "2247a8ac86e0d1e235339af0449695546d40157d276e4a4b49caab76f6c3bcbf",
+          "height": 4191435,
+          "timestamp": {
+            "epoch": 83923520,
+            "unix": 1574024720,
+            "human": "2019-11-17T21:05:20.000Z"
+          }
+        }
+      },
+      "production": {
+        "approval": 0.67
+      },
+      "forged": {
+        "fees": "57048176374",
+        "rewards": "3329200000000",
+        "total": "3386248176374"
       }
     },
     {
       "username": "arkx",
       "address": "DNjuJEDQkhrJ7cA9FZ2iVXt5anYiM8Jtc9",
       "publicKey": "03bbfb43ecb5a54a1e227bb37b5812b5321213838d376e2b455b6af78442621dec",
-      "votes": 44191107818913,
-      "rank": 2,
+      "votes": "57457357398436",
+      "rank": 4,
       "blocks": {
-        "produced": 19872,
-        "missed": 771,
+        "produced": 84686,
         "last": {
-          "id": "5865885755500979725",
+          "id": "2825352f7f56776112f28a56ee6161643a28054a7bdfdd44a66048b311516334",
+          "height": 4191446,
           "timestamp": {
-            "epoch": 54329762,
-            "unix": 1544430962,
-            "human": "2018-12-10T08:36:02.000Z"
+            "epoch": 83923624,
+            "unix": 1574024824,
+            "human": "2019-11-17T21:07:04.000Z"
           }
         }
       },
       "production": {
-        "approval": 0.35,
-        "productivity": 96.27
+        "approval": 0.43
       },
       "forged": {
-        "fees": 147708259062,
-        "rewards": 3931600000000,
-        "total": 4079308259062
+        "fees": "134172718083",
+        "rewards": "16894400000000",
+        "total": "17028572718083"
       }
     },
     {
-      "username": "spearow",
-      "address": "DCWhQ1TdjG3jD1gd64SMBG5VM3NXXaCBYz",
-      "publicKey": "02fa68d16abd29a597c5cbd97704e6c6bfe8c7dd9f7a6871f485ced040b76621d5",
-      "votes": 10027600000020,
-      "rank": 3,
+      "username": "itsanametoo",
+      "address": "DBk4cPYpqp7EBcvkstVDpyX7RQJNHxpMg8",
+      "publicKey": "0236d5232cdbd1e7ab87fad10ebe689c4557bc9d0c408b6773be964c837231d5f0",
+      "votes": "40440336676309",
+      "rank": 5,
       "blocks": {
-        "produced": 151,
-        "missed": 0,
+        "produced": 85304,
         "last": {
-          "id": "17169944379504516184",
+          "id": "0efb70fe137cf848d27664a49b378c19109d1405fc98d60153b7fcaf17a96cd8",
+          "height": 4191463,
           "timestamp": {
-            "epoch": 54330096,
-            "unix": 1544431296,
-            "human": "2018-12-10T08:41:36.000Z"
+            "epoch": 83923768,
+            "unix": 1574024968,
+            "human": "2019-11-17T21:09:28.000Z"
           }
         }
       },
       "production": {
-        "approval": 0.08,
-        "productivity": 100
+        "approval": 0.3
       },
       "forged": {
-        "fees": 0,
-        "rewards": 30200000000,
-        "total": 30200000000
+        "fees": "83365031465",
+        "rewards": "17019600000000",
+        "total": "17102965031465"
       }
     }
   ]
