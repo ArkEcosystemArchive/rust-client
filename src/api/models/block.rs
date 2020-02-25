@@ -42,7 +42,7 @@ pub struct Payload {
 #[serde(rename_all = "camelCase")]
 pub struct Generator {
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub username: String,
+    pub username: Option<String>,
     pub address: String,
     pub public_key: String,
 }
