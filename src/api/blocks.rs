@@ -35,6 +35,14 @@ impl Blocks {
         self.client.get(&endpoint).await
     }
 
+    pub async fn first(&mut self) -> Result<Block> {
+        self.client.get("blocks/first").await
+    }
+
+    pub async fn last(&mut self) -> Result<Block> {
+        self.client.get("blocks/last").await
+    }
+
     pub async fn transactions(&mut self, id: &str) -> Result<Vec<Transaction>> {
         self.transactions_params(id, Vec::<(String, String)>::new())
             .await

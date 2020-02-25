@@ -32,6 +32,30 @@ async fn test_show() {
 }
 
 #[tokio::test]
+async fn test_first() {
+    let (_mock, body) = mock_http_request("blocks/first");
+    {
+        let mut client = mock_client();
+        let response = client.blocks.first().await.unwrap();
+        let expected: Value = from_str(&body).unwrap();
+
+        assert_block_data(&response.data, &expected["data"]);
+    }
+}
+
+#[tokio::test]
+async fn test_last() {
+    let (_mock, body) = mock_http_request("blocks/last");
+    {
+        let mut client = mock_client();
+        let response = client.blocks.last().await.unwrap();
+        let expected: Value = from_str(&body).unwrap();
+
+        assert_block_data(&response.data, &expected["data"]);
+    }
+}
+
+#[tokio::test]
 async fn test_block_transactions() {
     let (_mock, body) = mock_http_request("blocks/dummy/transactions");
     {
