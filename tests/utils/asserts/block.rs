@@ -35,10 +35,9 @@ pub fn assert_block_data(actual: &Block, expected: &Value) {
         actual.payload.length,
         expected["payload"]["length"].as_u64().unwrap() as u32
     );
-    assert_eq!(
-        actual.generator.username,
-        expected["generator"]["username"].as_str().unwrap()
-    );
+    if let Some(username) = actual.generator.username {
+        assert_eq!(username, expected["generator"]["username"].as_str().unwrap());
+    }
     assert_eq!(
         actual.generator.address,
         expected["generator"]["address"].as_str().unwrap()
