@@ -41,7 +41,8 @@ pub struct Payload {
 #[derive(Clone, Debug, Default, PartialEq, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Generator {
-    pub username: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub username: Option<String>,
     pub address: String,
     pub public_key: String,
 }
