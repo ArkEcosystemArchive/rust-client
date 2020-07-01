@@ -20,7 +20,7 @@ serde_derive = "1.0"
 rand = "*"
 
 [dev-dependencies]
-mockito = "0.22.0"
+mockito = "0.26.0"
 
 [features]
 network_test = []
